@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C014CD82-3658-4FBF-88D4-1AAAD2A2B0EF}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Verses.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>VersesiOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>True</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchDebug>True</MtouchDebug>
+    <CodesignKey>iPhone Developer: Pierce Boggan (W85YVM93U5)</CodesignKey>
+    <CrashReportingApiKey />
+    <MtouchI18n />
+    <MtouchArch>ARMv7</MtouchArch>
+    <CodesignProvision>0705433B-8E2A-40A2-A487-71585D711A0F</CodesignProvision>
+    <IpaPackageName />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BuildIpa>True</BuildIpa>
+    <ConsolePause>False</ConsolePause>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\Components\btprogresshud-1.3\lib\ios\BTProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="ParseTouch">
+      <HintPath>..\Components\parse-1.1.1\lib\ios\ParseTouch.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite">
+      <HintPath>..\Components\sqlite-net-1.0\lib\ios\SQLite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Verses\VersesViewController.cs" />
+    <Compile Include="Prayers\PrayersViewController.cs" />
+    <Compile Include="Memorization\MemorizationViewController.cs" />
+    <Compile Include="Me\MeViewController.cs" />
+    <Compile Include="Images\Images.cs" />
+    <Compile Include="StringConstants.cs" />
+    <Compile Include="Prayers\PrayersTableSource.cs" />
+    <Compile Include="InterfaceHelper.cs" />
+    <Compile Include="Prayers\PrayerCell.cs" />
+    <Compile Include="Verses\VerseCell.cs" />
+    <Compile Include="Verses\VersesTableSource.cs" />
+    <Compile Include="TableAlertViewDelegate.cs" />
+    <Compile Include="Prayers\PrayerComposeDialog.cs" />
+    <Compile Include="Prayers\PrayerEditDialog.cs" />
+    <Compile Include="Prayers\PrayerDetailDialog.cs" />
+    <Compile Include="Welcome\LoginDialog.cs" />
+    <Compile Include="Welcome\SignUpDialog.cs" />
+    <Compile Include="Verses\VersesBookTableViewSource.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Prayers\" />
+    <Folder Include="Verses\" />
+    <Folder Include="Memorization\" />
+    <Folder Include="Me\" />
+    <Folder Include="Welcome\" />
+    <Folder Include="Images\" />
+    <Folder Include="Images\Prayers\" />
+    <Folder Include="Images\General\" />
+    <Folder Include="Images\Application\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinAddonReference Include="xamarin.social">
+      <IsInstalled>False</IsInstalled>
+      <Version>1.0.2</Version>
+      <Visible>False</Visible>
+    </XamarinAddonReference>
+    <XamarinAddonReference Include="parse">
+      <IsInstalled>False</IsInstalled>
+      <Version>1.0</Version>
+      <Visible>False</Visible>
+    </XamarinAddonReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="btprogresshud">
+      <InstallationInProgress>False</InstallationInProgress>
+      <Version>1.3</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="parse">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>1.1.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="sqlite-net">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Verses.Core.iOS\Verses.Core.iOS\Verses.Core.iOS.csproj">
+      <Project>{B3DD08EF-53A3-465D-A640-E218C184A4E2}</Project>
+      <Name>Verses.Core.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Images\Application\Loading-iPhone.png" />
+    <BundleResource Include="Images\Application\Loading-iPhone%402x.png" />
+    <BundleResource Include="Images\Application\Loading-iPhone5%402x.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Images\General\TableBackground.png" />
+    <BundleResource Include="Resources\MuseoSans500.otf" />
+    <BundleResource Include="Images\General\TabBarBackground.png" />
+    <BundleResource Include="Images\General\NavigationBarBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\General\CellBackground.png" />
+    <Content Include="Images\General\SectionHeaderBubble.png" />
+  </ItemGroup>
+</Project>
