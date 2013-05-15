@@ -2,26 +2,25 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using System.Collections.Generic;
-
+using Verses.Core;
+ 
 namespace Verses.iOS
 {
 	public class PrayersViewController : UIViewController
-	{
-		UISwipeGestureRecognizer LeftSwipeGesture;
-		UISwipeGestureRecognizer RightSwipeGesture;
+	{                
+		UIBarButtonItem ComposeButton;
 		UITableView PrayersTable;
 
 		public PrayersViewController ()
 		{
-			// TabBarItem.Image = "";
+
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
-			InterfaceHelper.SetupTitle ("Prayers", NavigationItem);
+			NavigationController.NavigationBar.SetBackgroundImage (Images.PrayersHeader, UIBarMetrics.Default);
 
 			PrayersTable = new UITableView ()
 			{
@@ -31,43 +30,19 @@ namespace Verses.iOS
 				Source = new PrayersTableSource (this),
 			};
 
-			RightSwipeGesture = new UISwipeGestureRecognizer ()
-			{
-				Direction = UISwipeGestureRecognizerDirection.Right,
-				NumberOfTouchesRequired = 1
-			};
-			RightSwipeGesture.AddTarget (HandleRightSwipe);
-			
-			LeftSwipeGesture = new UISwipeGestureRecognizer ()
-			{
-				Direction = UISwipeGestureRecognizerDirection.Left,
-				NumberOfTouchesRequired = 1
-			};
-			LeftSwipeGesture.AddTarget (HandleLeftSwipe);
-			
-			PrayersTable.AddGestureRecognizer (RightSwipeGesture);
-			PrayersTable.AddGestureRecognizer (LeftSwipeGesture);
+			var composeButton = new UIButton (new RectangleF (0, 0, 20, 20));
+			composeButton.SetBackgroundImage (Images.ComposeButton, UIControlState.Normal);
+			composeButton.SetBackgroundImage (Images.ComposeButtonHighlighted, UIControlState.Highlighted);
+			composeButton.AddTarget((object sender, EventArgs args) => PresentViewController (new PrayerComposeDialog (), true, null), 
+			                        UIControlEvent.TouchUpInside);
+
+			ComposeButton = new UIBarButtonItem (composeButton);
+
+			NavigationItem.RightBarButtonItem = ComposeButton;
 
 			View.AddSubview (PrayersTable);
 		}
 
-		private void HandleRightSwipe ()
-		{
-			var swipeLocation = RightSwipeGesture.LocationInView (this.PrayersTable);
-			var swipedIndexPath = PrayersTable.IndexPathForRowAtPoint (swipeLocation);
-			var swipedCell = PrayersTable.CellAt (swipedIndexPath);
-		}
-		
-		private void HandleLeftSwipe ()
-		{
-			var swipeLocation = LeftSwipeGesture.LocationInView (this.PrayersTable);
-			var swipedIndexPath = PrayersTable.IndexPathForRowAtPoint (swipeLocation);
-			var swipedCell = PrayersTable.CellAt (swipedIndexPath);
-			
-			// Animate to edit view
-			
-			Console.WriteLine ("Swiped left!");
-		}
 	}
 }
 

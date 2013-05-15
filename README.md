@@ -20,7 +20,7 @@ I suggest you use this application as a guiding point on creating an iOS applica
 * Use of LINQ and the async keyword
 
 ## Tooling
-Prayers was built using [Xamarin.iOS](http://ios.xamarin.com). The main reasoning behind using Xamarin's tooling was building a native application that I can easily share lots of my C# code across multiple platforms (Android, iOS, Windows 8 Phone).*
+Verses was built using [Xamarin.iOS](http://ios.xamarin.com). The main reasoning behind using Xamarin's tooling was building a native application that I can easily share lots of my C# code across multiple platforms (Android, iOS, Windows 8 Phone).*
 
 * Disclaimer: I worked for three months as an Xamarin intern from September 2012 - December 2012.
 

@@ -40,18 +40,17 @@ namespace Verses.iOS
 				me
 			};
 
-			//ConfigureThirdPartyLibraries ();
+			DatabaseHelper.CreateDatabaseIfNotExists ("verses.db3");
+
+			// ConfigureThirdPartyLibraries ();
 			ConfigureAppearanceSettings ();
 			
 			window.RootViewController = tabBarController;
 			window.MakeKeyAndVisible ();
 
-			//UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge 
-			 //                                                                 | UIRemoteNotificationType.Sound);
+			//UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge
+			//                                                                    | UIRemoteNotificationType.Sound);
 
-			DatabaseHelper.CreateDatabaseIfNotExists ("verses.db3");
-
-			
 			return true;
 		}
 		/*
@@ -65,6 +64,12 @@ namespace Verses.iOS
 		public override bool HandleOpenURL(UIApplication application, NSUrl url)
 		{
 			//
+		}*/
+
+		/*
+		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+		{
+			// TODO
 		}*/
 
 		/*
@@ -90,13 +95,6 @@ namespace Verses.iOS
 			}
 		}
 
-		/*
-		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
-		{
-			// TODO
-		}*/
-
-		/*
 		public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
 		{
 			ParsePush.HandlePush (userInfo);
@@ -104,9 +102,9 @@ namespace Verses.iOS
 
 		private void ConfigureThirdPartyLibraries ()
 		{
-			Parse.SetAppId (StringConstants.APPLICATION_ID, StringConstants.CLIENT_KEY);
-		}*/
-
+			ParseClient.Initialize (StringConstants.APPLICATION_ID, StringConstants.CLIENT_KEY);
+		}
+*/
 		// Uses the new iOS 5 Appearance API, so that is one of the reasons this app is iOS 5+
 		private void ConfigureAppearanceSettings ()
 		{

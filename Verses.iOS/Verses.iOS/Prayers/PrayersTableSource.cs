@@ -107,6 +107,10 @@ namespace Verses.iOS
 		{
 			var prayer = prayers[keys[indexPath.Section]][indexPath.Row];			
 			var path = DatabaseHelper.GetDatabasePath("verses.db3");
+
+			var alert = new UIAlertView ("Delete Prayer", "Are you sure you want to delete?",
+			                             null, "No", "Yes");
+			alert.Show ();
 			
 			if (editingStyle == UITableViewCellEditingStyle.Delete) 
 			{

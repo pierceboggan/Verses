@@ -58,10 +58,9 @@ namespace Verses.iOS
 			/*
 			LogInView.UsernameField.TextColor
 			LoginView.PasswordField.TextColor
-			*/
-		/*}
 
-/*
+		}
+
 		public override void ViewDidLayoutSubviews()
 		{
 			base.ViewDidLayoutSubviews();
@@ -74,8 +73,8 @@ namespace Verses.iOS
     [self.logInView.facebookButton setFrame:CGRectMake(35, 287, 120, 40)];
     [self.logInView.twitterButton setFrame:CGRectMake(35+130, 287, 120, 40)];
     [self.logInView.signUpButton setFrame:CGRectMake(35, 385, 250, 40)];
-    [self.fieldsBackground setFrame:CGRectMake(35, 145, 250, 100)];*/
+    [self.fieldsBackground setFrame:CGRectMake(35, 145, 250, 100)];
 
-	/*	}
+		}
 	}*/
 }

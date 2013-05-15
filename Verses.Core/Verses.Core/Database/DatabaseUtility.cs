@@ -16,49 +16,59 @@ namespace Verses.Core
 	 */
 	public class DatabaseUtility : SQLiteConnection
 	{
-		public DatabaseUtility(string path) : base(path)
+		public DatabaseUtility (string path) : base (path)
 		{
 	
 		}
 
 		#region Add
-		public void AddPrayer(Prayer prayer)
+		public void AddPrayer (Prayer prayer)
 		{
 			Insert(prayer);
 		}
 
-		public void AddVerse(Verse verse)
+		public void AddVerse (Verse verse)
 		{
 			Insert(verse);
 		}
 
-		public void AddVerseMemorization(Memorization memorization)
+		public void AddTag (Tag tag)
 		{
-			Insert(memorization);
+			Insert (tag);
+		}
+
+		public void AddVerseMemorization (Memorization memorization)
+		{
+			Insert (memorization);
 		}
 		#endregion
 
 		#region Update
-		public void UpdatePrayer(Prayer prayer)
+		public void UpdatePrayer (Prayer prayer)
 		{
-			Update(prayer);
+			Update (prayer);
 		}	
 
-		public void UpdateVerse(Verse verse)
+		public void UpdateVerse (Verse verse)
 		{
-			Update(verse);
+			Update (verse);
 		}	
 
-		public void UpdateVerseMemorization(Memorization memorization)
+		public void UpdateTag (Tag tag)
 		{
-			Update(memorization);
+			Update (tag);
+		}
+
+		public void UpdateVerseMemorization (Memorization memorization)
+		{
+			Update (memorization);
 		}
 		#endregion
 
 		#region Delete
-		public void DeletePrayer(Prayer prayer)
+		public void DeletePrayer (Prayer prayer)
 		{
-			Delete<Prayer>(prayer.Id);
+			Delete<Prayer> (prayer.Id);
 		}
 
 		public void DeleteVerse(Verse verse)
@@ -66,14 +76,19 @@ namespace Verses.Core
 			Delete<Verse>(verse.Id);
 		}
 
-		public void DeleteMemorization(Memorization memorization)
+		public void DeleteMemorization (Memorization memorization)
 		{
-			Delete<Memorization>(memorization.Id);
+			Delete<Memorization> (memorization.Id);
+		}
+
+		public void DeleteTag (Tag tag)
+		{
+			Delete<Tag> (tag.Id);
 		}
 		#endregion
 
 		#region Get
-		public Prayer GetPrayer(int id)
+		public Prayer GetPrayer (int id)
 		{
 			var prayer = (from i in Table<Prayer>()
 			              where i.Id == id select i).FirstOrDefault();
@@ -81,7 +96,7 @@ namespace Verses.Core
 			return prayer;
 		}
 
-		public Verse GetVerse(int id)
+		public Verse GetVerse (int id)
 		{
 			var verse = (from v in Table<Verse>() 
 			             where v.Id == id select v).FirstOrDefault();
@@ -89,7 +104,21 @@ namespace Verses.Core
 			return verse;
 		}
 
-		public Memorization GetVerseMemorization(int id)
+		public Tag GetTag (int id)
+		{
+			var tag = (from t in Table<Tag>() 
+			             where t.Id == id select t).FirstOrDefault();
+
+			return tag;
+		}
+
+		public List<Verse> GetVersesForTag (string tag)
+		{
+			// TODO: Add get verses for tag
+			return null;
+		}
+
+		public Memorization GetVerseMemorization (int id)
 		{
 			var memorization = (from i in Table<Memorization>()
 			             		where i.Id == id select i).FirstOrDefault();
@@ -97,7 +126,7 @@ namespace Verses.Core
 			return memorization;
 		}
 
-		public Memorization GetVerseMemorizationByVerse(int verseId)
+		public Memorization GetVerseMemorizationByVerse (int verseId)
 		{
 			var memorization = (from i in Table<Memorization>()
 			                    where i.VerseId == verseId select i).FirstOrDefault();
@@ -107,21 +136,28 @@ namespace Verses.Core
 		#endregion
 
 		#region GetAll
-		public List<Prayer> GetPrayers()
+		public List<Prayer> GetPrayers ()
 		{
 			var prayers = Table<Prayer>().ToList();
 
 			return prayers;
 		}
 
-		public List<Verse> GetVerses()
+		public List<Verse> GetVerses ()
 		{
 			var verses = Table<Verse>().ToList();
 
 			return verses;
 		}
 
-		public List<Memorization> GetVerseMemorizations()
+		public List<Tag> GetTags ()
+		{
+			var tags = Table<Tag> ().ToList ();
+
+			return tags;
+		}
+
+		public List<Memorization> GetVerseMemorizations ()
 		{
 			var memorizations = Table<Memorization>().ToList();
 

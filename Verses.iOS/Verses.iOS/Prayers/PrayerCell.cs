@@ -24,7 +24,7 @@ namespace Verses.iOS
 			PrayerTitle = new UILabel ()
 			{
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("MuseoSans-500", 15f),
+				Font = UIFont.FromName("KeepCalm-Medium", 15f),
 				TextAlignment = UITextAlignment.Left,
 				TextColor = UIColor.White
 			};
@@ -32,7 +32,7 @@ namespace Verses.iOS
 			PrayerContent = new UILabel ()
 			{
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("MuseoSans-500", 13f),
+				Font = UIFont.FromName("KeepCalm-Medium", 13f),
 				Lines = 4,
 				TextAlignment = UITextAlignment.Left,
 				TextColor = UIColor.Black,
@@ -45,7 +45,7 @@ namespace Verses.iOS
 
 		public void PopulateCell (Prayer prayer)
 		{
-			PrayerTitle.Text = prayer.Title;
+			PrayerTitle.Text = prayer.Title.ToUpper ();
 			PrayerContent.Text = prayer.Content;
 
 			Tag = prayer.Id;

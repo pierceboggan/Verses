@@ -25,6 +25,8 @@ namespace Verses.iOS
 				//SectionIndexMinimumDisplayRowCount
 			};
 
+			// MonoTouch.Dialog integration?
+
 			View.AddSubview (PrayersTable);
 		}
 	}

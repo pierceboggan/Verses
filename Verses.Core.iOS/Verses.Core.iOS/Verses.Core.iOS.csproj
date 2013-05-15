@@ -85,10 +85,13 @@
     <Compile Include="..\..\Verses.Core\Verses.Core\Web Services\JsonModels.cs">
       <Link>Web Services\JsonModels.cs</Link>
     </Compile>
+    <Compile Include="..\..\Verses.Core\Verses.Core\Database\Tag.cs">
+      <Link>Database\Tag.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="sqlite-net">
-      <InstallationInProgress>True</InstallationInProgress>
+      <InstallationInProgress>False</InstallationInProgress>
       <Version>1.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>

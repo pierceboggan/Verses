@@ -11,9 +11,9 @@ namespace Verses.Core
 		public int Id { get; set; }
 		public int VerseId { get; set; }
 		public string Title { get; set; }
+		[MaxLength (300)]
 		public string Content { get; set; }
 		public string Category { get; set; }
-		public string TaggedUserId { get; set; }
 		public DateTime Timestamp { get; set; }
 
 		public int CompareTo(object obj)

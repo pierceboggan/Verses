@@ -20,7 +20,7 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>MuseoSans500.otf</string>
+		<string>KeepCalm.ttf</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.pierceboggan.verses</string>

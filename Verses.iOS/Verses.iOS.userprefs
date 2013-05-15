@@ -1,23 +1,23 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Verses.iOS/AppDelegate.cs">
-    <Files>
-      <File FileName="Verses.iOS/AppDelegate.cs" Line="21" Column="20" />
-      <File FileName="Verses.iOS/Images/Images.cs" Line="13" Column="17" />
-      <File FileName="Verses.iOS/Prayers/PrayersViewController.cs" Line="1" Column="1" />
-      <File FileName="Verses.iOS/Prayers/PrayersTableSource.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
+          <Node name="Verses.Core" expanded="True">
+            <Node name="Database" expanded="True" />
+          </Node>
+          <Node name="Verses.Core.iOS" expanded="True">
+            <Node name="Database" expanded="True" />
+          </Node>
           <Node name="Verses.iOS" expanded="True">
+            <Node name="References" expanded="True" />
             <Node name="ComponentReferenceFolder" expanded="True" />
-            <Node name="Images" expanded="True" />
-            <Node name="Prayers" expanded="True" />
-            <Node name="Resources" expanded="True" />
+            <Node name="Prayers" expanded="True">
+              <Node name="PrayerCell.cs" selected="True" />
+            </Node>
             <Node name="Verses" expanded="True" />
             <Node name="Welcome" expanded="True" />
-            <Node name="AppDelegate.cs" selected="True" />
           </Node>
         </State>
       </Pad>

@@ -31,10 +31,10 @@ namespace Verses.Core
 				// Create table if they don't exist
 				database.CreateTable<Prayer>();
 				database.CreateTable<Verse>();
+				database.CreateTable<Tag>();
 				database.CreateTable<Memorization>();
 
 				// If data exists, skip inserting data
-
 				if (database.Table<Prayer>().Count() > 0)
 					return;
 				if (database.Table<Verse>().Count() > 0)
