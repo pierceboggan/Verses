@@ -7,7 +7,7 @@ using Verses.Core;
 
 namespace Verses.iOS
 {
-	public class VerseComposeDialog : UIViewController
+	public class PrayerComposeDialog : UIViewController
 	{
 		UIView BlackLine;
 		UIView BlackLineTwo;
@@ -19,7 +19,7 @@ namespace Verses.iOS
 		UITextView PrayerTagsView;
 		UISwipeGestureRecognizer PrayerTagsViewSwipeUp;
 
-		public VerseComposeDialog ()
+		public PrayerComposeDialog ()
 		{
 		}
 
@@ -57,6 +57,7 @@ namespace Verses.iOS
 			{
 				BackgroundColor = UIColor.Clear,
 				BorderStyle = UITextBorderStyle.None,
+				Font = UIFont.FromName ("SourceSansPro-Bold", 15f),
 				Frame = new RectangleF (0, 49, View.Bounds.Size.Width, 28f),
 				Placeholder = "Title"
 			};
@@ -69,6 +70,7 @@ namespace Verses.iOS
 
 			PrayerComments = new UITextView ()
 			{
+				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
 				Frame = new RectangleF (0, 78, View.Bounds.Width, 145f),
 				KeyboardAppearance = UIKeyboardAppearance.Default
 			};
@@ -85,6 +87,7 @@ namespace Verses.iOS
 				AutocorrectionType = UITextAutocorrectionType.No,
 				BackgroundColor = UIColor.Clear,
 				BorderStyle = UITextBorderStyle.None,
+				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
 				Frame = new RectangleF (0, 214, View.Bounds.Size.Width, 28f),
 				LeftViewMode = UITextFieldViewMode.Always,
 				LeftView = new UIImageView (Images.Tag)
@@ -98,6 +101,7 @@ namespace Verses.iOS
 
 			PrayerTagsView = new UITextView () 
 			{
+				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
 				Frame = new RectangleF (0, 245, View.Bounds.Width, 145f),
 				KeyboardAppearance = UIKeyboardAppearance.Default
 			};

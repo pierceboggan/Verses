@@ -4,21 +4,11 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Verses.Core" expanded="True">
-            <Node name="Database" expanded="True" />
-          </Node>
           <Node name="Verses.Core.iOS" expanded="True">
+            <Node name="ComponentReferenceFolder" selected="True" />
             <Node name="Database" expanded="True" />
           </Node>
-          <Node name="Verses.iOS" expanded="True">
-            <Node name="References" expanded="True" />
-            <Node name="ComponentReferenceFolder" expanded="True" />
-            <Node name="Prayers" expanded="True">
-              <Node name="PrayerCell.cs" selected="True" />
-            </Node>
-            <Node name="Verses" expanded="True" />
-            <Node name="Welcome" expanded="True" />
-          </Node>
+          <Node name="Verses.iOS" expanded="True" />
         </State>
       </Pad>
     </Pads>

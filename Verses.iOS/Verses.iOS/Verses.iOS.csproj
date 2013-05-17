@@ -167,7 +167,6 @@
     <BundleResource Include="Images\Application\Loading-iPhone%402x.png" />
     <BundleResource Include="Images\Application\Loading-iPhone5%402x.png" />
     <BundleResource Include="Images\General\TableBackground.png" />
-    <BundleResource Include="Resources\MuseoSans500.otf" />
     <BundleResource Include="Images\General\TabBarBackground.png" />
     <BundleResource Include="Images\General\NavigationBarBackground.png" />
     <BundleResource Include="Resources\Default.png" />
@@ -177,6 +176,11 @@
     <BundleResource Include="Resources\KeepCalm.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
+    <BundleResource Include="Resources\Default-568h.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
+    <BundleResource Include="Resources\SourceSansPro-Regular.otf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\General\CellBackground.png" />

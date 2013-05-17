@@ -24,15 +24,15 @@ namespace Verses.iOS
 			PrayerTitle = new UILabel ()
 			{
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("KeepCalm-Medium", 15f),
-				TextAlignment = UITextAlignment.Left,
+				Font = UIFont.FromName("SourceSansPro-Bold", 15f),
+				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.White
 			};
 
 			PrayerContent = new UILabel ()
 			{
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("KeepCalm-Medium", 13f),
+				Font = UIFont.FromName("SourceSansPro-Regular", 13f),
 				Lines = 4,
 				TextAlignment = UITextAlignment.Left,
 				TextColor = UIColor.Black,

@@ -7,7 +7,7 @@ using Verses.Core;
 
 namespace Verses.iOS
 {
-	public class PrayerComposeDialog : UIViewController
+	public class VerseComposeDialog : UIViewController
 	{
 		UIView BlackLine;
 		UIView BlackLineTwo;
@@ -19,7 +19,7 @@ namespace Verses.iOS
 		UITextView VerseTagsView;
 		UISwipeGestureRecognizer VerseTagsViewSwipeUp;
 
-		public PrayerComposeDialog ()
+		public VerseComposeDialog ()
 		{
 		}
 
@@ -57,6 +57,7 @@ namespace Verses.iOS
 			{
 				BackgroundColor = UIColor.Clear,
 				BorderStyle = UITextBorderStyle.None,
+				Font = UIFont.FromName ("SourceSansPro-Bold", 15f),
 				Frame = new RectangleF (0, 49, View.Bounds.Size.Width, 28f),
 				Placeholder = "Verse"
 			};
@@ -69,8 +70,10 @@ namespace Verses.iOS
 
 			VerseComments = new UITextView ()
 			{
+				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
 				Frame = new RectangleF (0, 78, View.Bounds.Width, 145f),
-				KeyboardAppearance = UIKeyboardAppearance.Default
+				KeyboardAppearance = UIKeyboardAppearance.Default,
+				TextAlignment = UITextAlignment.Left
 			};
 			VerseComments.BecomeFirstResponder ();
 
@@ -83,8 +86,8 @@ namespace Verses.iOS
 			VerseTags = new UITextField ()
 			{
 				AutocorrectionType = UITextAutocorrectionType.No,
-				BackgroundColor = UIColor.Clear,
 				BorderStyle = UITextBorderStyle.None,
+				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
 				Frame = new RectangleF (0, 214, View.Bounds.Size.Width, 28f),
 				LeftViewMode = UITextFieldViewMode.Always,
 				LeftView = new UIImageView (Images.Tag)
@@ -98,6 +101,7 @@ namespace Verses.iOS
 
 			VerseTagsView = new UITextView () 
 			{
+				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
 				Frame = new RectangleF (0, 245, View.Bounds.Width, 145f),
 				KeyboardAppearance = UIKeyboardAppearance.Default
 			};
@@ -113,6 +117,7 @@ namespace Verses.iOS
 			VerseTags.AllTouchEvents += delegate(object sender, EventArgs e) {
 				VerseReference.Hidden = true;
 				VerseComments.Hidden = true;
+
 				BlackLineTwo.Hidden = true;
 				BlackLineThree.Hidden = true;
 
@@ -120,6 +125,8 @@ namespace Verses.iOS
 					VerseTags.Frame = new RectangleF (0, 44, VerseTags.Frame.Width, VerseTags.Frame.Height);
 					VerseTagsView.Frame = new RectangleF (0, 78, VerseTagsView.Frame.Width, VerseTagsView.Frame.Height);
 				});
+
+				BlackLine.Hidden = false;
 			};
 
 			NavigationItem.LeftBarButtonItem = CancelButton;

@@ -21,8 +21,22 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>KeepCalm.ttf</string>
+		<string>SourceSansPro-Bold.otf</string>
+		<string>SourceSansPro-Regular.otf</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.pierceboggan.verses</string>
+	<key>UIStatusBarTintParameters</key>
+	<dict>
+		<key>UINavigationBar</key>
+		<dict>
+			<key>Style</key>
+			<string>UIBarStyleDefault</string>
+			<key>Translucent</key>
+			<false/>
+			<key>BackgroundImage</key>
+			<string></string>
+		</dict>
+	</dict>
 </dict>
 </plist>
