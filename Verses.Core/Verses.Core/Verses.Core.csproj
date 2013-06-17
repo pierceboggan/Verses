@@ -51,6 +51,7 @@
     <Compile Include="Database\SQLite\SQLiteAsync.cs" />
     <Compile Include="Web Services\BibleGateway.cs" />
     <Compile Include="Web Services\JsonModels.cs" />
-    <Compile Include="Database\Tag.cs" />
+    <Compile Include="Database\VerseTag.cs" />
+    <Compile Include="Database\PrayerTag.cs" />
   </ItemGroup>
 </Project>

@@ -28,14 +28,14 @@ namespace Verses.iOS
 			base.ViewDidLoad();
 
 			View.BackgroundColor = UIColor.White;
-			
+
 			NavigationBar = new UINavigationBar ()
 			{
-				Frame = new RectangleF(0, 0, View.Bounds.Width, 44),
+				Frame = new RectangleF(0, 0, View.Bounds.Width, 44)
 			};
-			
+			NavigationBar.SetBackgroundImage (Images.ComposeBar, UIBarMetrics.Default);
+
 			var NavigationItem = new UINavigationItem ();
-			InterfaceHelper.SetupTitle ("Compose", NavigationItem);
 			NavigationBar.PushNavigationItem (NavigationItem, false);
 
 			var cancelButton = new UIButton (new RectangleF (0, 0, 25, 25));

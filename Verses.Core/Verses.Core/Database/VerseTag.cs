@@ -3,7 +3,7 @@ using SQLite;
 
 namespace Verses.Core
 {
-	public class Tag
+	public class VerseTag
 	{
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }

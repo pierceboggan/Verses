@@ -31,7 +31,8 @@ namespace Verses.Core
 				// Create table if they don't exist
 				database.CreateTable<Prayer>();
 				database.CreateTable<Verse>();
-				database.CreateTable<Tag>();
+				database.CreateTable<PrayerTag> ();
+				database.CreateTable<VerseTag> ();
 				database.CreateTable<Memorization>();
 
 				// If data exists, skip inserting data

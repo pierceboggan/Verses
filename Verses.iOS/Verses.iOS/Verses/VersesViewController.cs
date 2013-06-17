@@ -20,11 +20,11 @@ namespace Verses.iOS
 		{
 			base.ViewDidLoad ();
 
-			InterfaceHelper.SetupTitle ("Verses", NavigationItem);
+			NavigationController.NavigationBar.SetBackgroundImage (Images.VersesBar, UIBarMetrics.Default);
 			
 			VersesTable = new UITableView ()
 			{
-				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height - 49),
+				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height - 83),
 				SectionIndexMinimumDisplayRowCount = 20,
 				SeparatorStyle = UITableViewCellSeparatorStyle.None,
 				Source = new VersesBookTableSource (this)
