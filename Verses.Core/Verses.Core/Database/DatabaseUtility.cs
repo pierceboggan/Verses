@@ -92,12 +92,21 @@ namespace Verses.Core
 		}
 
 		public void DeleteVerseTag (VerseTag tag)
+<<<<<<< HEAD
 		{
 			Delete<VerseTag> (tag.Id);
 		}
 
 		public void DeleteMemorization (Memorization memorization)
 		{
+=======
+		{
+			Delete<VerseTag> (tag.Id);
+		}
+
+		public void DeleteMemorization (Memorization memorization)
+		{
+>>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
 			Delete<Memorization> (memorization.Id);
 		}
 		#endregion
@@ -119,6 +128,7 @@ namespace Verses.Core
 			return verse;
 		}
 
+<<<<<<< HEAD
 		public Verse GetVerse (string reference)
 		{
 			var verse = (from v in Table<Verse> ()
@@ -128,6 +138,9 @@ namespace Verses.Core
 		}
 
 		public PrayerTag GetPrayerTag (int id)
+=======
+		public PrayerTag GetVerseTag (int id)
+>>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
 		{
 			var tag = (from t in Table<PrayerTag>() 
 			           where t.Id == id select t).FirstOrDefault();
@@ -151,7 +164,11 @@ namespace Verses.Core
 			var verses = (from t in Table<Verse> ()
 			              where t.Id == verseId select t).GetEnumerator ();
 
+<<<<<<< HEAD
 			return (List<Verse>) verses;
+=======
+			return verses;
+>>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
 		}
 
 		public Memorization GetVerseMemorization (int id)
@@ -186,7 +203,11 @@ namespace Verses.Core
 			return verses;
 		}
 
+<<<<<<< HEAD
 		public List<PrayerTag> GetPrayerTags ()
+=======
+		public List<VerseTag> GetPrayerTags ()
+>>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
 		{
 			var tags = Table<PrayerTag> ().ToList ();
 

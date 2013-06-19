@@ -202,7 +202,10 @@
     <BundleResource Include="Images\Memorization\TuesdayButtonHighlighted.png" />
     <BundleResource Include="Images\Memorization\WednesdayButton.png" />
     <BundleResource Include="Images\Memorization\WednesdayButtonHighlighted.png" />
+<<<<<<< HEAD
     <BundleResource Include="Images\General\CellHeader.jpg" />
+=======
+>>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\General\SectionHeaderBubble.png" />
