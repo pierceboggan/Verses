@@ -61,46 +61,12 @@ namespace Verses.iOS
 		
 		public override float GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
 		{
-			return 107f;
+			var content = verses[keys[indexPath.Section]][indexPath.Row].Content;
+			var text = new NSString (content);
+			var size = text.StringSize (UIFont.FromName("SourceSansPro-Regular", 13f), new SizeF (320, 70));
+
+			return size.Height + 40;
 		}
-		
-		/*
-		public override float GetHeightForHeader(UITableView tableView, int section)
-		{
-			return 65;
-		}
-
-		public override UIView GetViewForHeader(UITableView tableView, int section)
-		{
-			var letter = keys[section];
-
-			var header = new UIView ()
-			{
-				BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground),
-				Frame = new RectangleF (0, 0, 320, 65)
-			};
-
-			var image = new UIImageView ()
-			{
-				BackgroundColor = UIColor.Clear,
-				Image = UIImage.FromFile ("Images/General/55x55.png"),
-				Frame = new RectangleF (5, 5, 55, 55)
-			};
-
-			var text = new UILabel ()
-			{
-				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName("MuseoSans-500", 15f),
-				Frame = new RectangleF (27f, 25, 15, 15),
-				Text = letter,
-				TextColor = UIColor.White
-			};
-
-			header.AddSubview (image);
-			header.AddSubview (text);
-
-			return header;
-		}*/
 		
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{

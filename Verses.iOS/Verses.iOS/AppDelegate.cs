@@ -42,6 +42,14 @@ namespace Verses.iOS
 
 			DatabaseHelper.CreateDatabaseIfNotExists ("verses.db3");
 
+			using (DatabaseUtility db = new DatabaseUtility (DatabaseHelper.GetDatabasePath("verses.db3")))
+			{
+				var _verses = db.GetVerses ();
+
+				foreach (Verse verse in _verses)
+					Console.WriteLine (verse);
+			}
+
 			// ConfigureThirdPartyLibraries ();
 			ConfigureAppearanceSettings ();
 			

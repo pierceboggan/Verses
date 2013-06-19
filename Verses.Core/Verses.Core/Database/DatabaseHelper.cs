@@ -22,6 +22,20 @@ namespace Verses.Core
 			return Path.Combine(personal, databaseName);
 		}
 
+		public static void ClearDatabase (string databaseName)
+		{
+			var path = GetDatabasePath(databaseName);
+
+			using (SQLiteConnection database = new SQLiteConnection(path)) 
+			{
+				database.DropTable<Prayer> ();
+				database.DropTable<Verse> ();
+				database.DropTable<PrayerTag> ();
+				database.DropTable<VerseTag> ();
+				database.DropTable<Memorization> ();
+			}
+		}
+
 		public static void CreateDatabaseIfNotExists(string databaseName)
 		{
 			var path = GetDatabasePath(databaseName);
@@ -31,7 +45,8 @@ namespace Verses.Core
 				// Create table if they don't exist
 				database.CreateTable<Prayer>();
 				database.CreateTable<Verse>();
-				database.CreateTable<Tag>();
+				database.CreateTable<PrayerTag> ();
+				database.CreateTable<VerseTag> ();
 				database.CreateTable<Memorization>();
 
 				// If data exists, skip inserting data

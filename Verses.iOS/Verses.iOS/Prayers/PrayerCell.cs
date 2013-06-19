@@ -9,21 +9,16 @@ namespace Verses.iOS
 	// Documentation: http://docs.xamarin.com/ios/tutorials/Working_with_Tables_and_Cells
 	public class PrayerCell : UITableViewCell
 	{
-		UIImageView CellBackground;
 		UILabel PrayerTitle, PrayerContent;
 
 		public PrayerCell (NSString reuseIdentifier) : base (UITableViewCellStyle.Default, reuseIdentifier)
 		{
 			// Cell settings
 			SelectionStyle = UITableViewCellSelectionStyle.None;
-			ContentView.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
-
-			// Cell element configuration
-			CellBackground = new UIImageView (Images.CellBackground);
 
 			PrayerTitle = new UILabel ()
 			{
-				BackgroundColor = UIColor.Clear,
+				BackgroundColor = UIColor.FromPatternImage (Images.CellHeader),
 				Font = UIFont.FromName("SourceSansPro-Bold", 15f),
 				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.White
@@ -31,14 +26,13 @@ namespace Verses.iOS
 
 			PrayerContent = new UILabel ()
 			{
-				BackgroundColor = UIColor.Clear,
+				BackgroundColor = UIColor.White,
 				Font = UIFont.FromName("SourceSansPro-Regular", 13f),
-				Lines = 4,
+				Lines = 0,
 				TextAlignment = UITextAlignment.Left,
 				TextColor = UIColor.Black,
 			};
 
-			ContentView.Add (CellBackground);
 			ContentView.Add (PrayerTitle);
 			ContentView.Add (PrayerContent);
 		}
@@ -47,17 +41,18 @@ namespace Verses.iOS
 		{
 			PrayerTitle.Text = prayer.Title.ToUpper ();
 			PrayerContent.Text = prayer.Content;
-
-			Tag = prayer.Id;
 		}
 			
 		public override void LayoutSubviews ()
 		{
 			base.LayoutSubviews ();
 
-			CellBackground.Frame = new RectangleF (19.5f, 7, 281, 93);
-			PrayerTitle.Frame = new RectangleF (22f, 7, ContentView.Bounds.Width - 20, 20);
-			PrayerContent.Frame = new RectangleF (24f, 30, ContentView.Bounds.Width - 42, 70);
+			var text = new NSString (PrayerContent.Text);
+			var maxSize = new SizeF (278, 70);
+			var currentSize = text.StringSize (UIFont.FromName("SourceSansPro-Regular", 13f), maxSize);
+
+			PrayerContent.Frame = new RectangleF (24f, 30, 278, currentSize.Height);
+			PrayerTitle.Frame = new RectangleF (22f, 7, 278, 20);
 		}
 	}
 }

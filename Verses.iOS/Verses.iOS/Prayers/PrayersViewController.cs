@@ -20,11 +20,11 @@ namespace Verses.iOS
 		{
 			base.ViewDidLoad ();
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.PrayersHeader, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (Images.PrayersBar, UIBarMetrics.Default);
 
 			PrayersTable = new UITableView ()
 			{
-				Frame = new RectangleF(0, 0, View.Bounds.Width, View.Bounds.Height - 49),
+				Frame = new RectangleF(0, 0, View.Bounds.Width, View.Bounds.Height - 83),
 				SectionIndexMinimumDisplayRowCount = 20,
 				SeparatorStyle = UITableViewCellSeparatorStyle.None,
 				Source = new PrayersTableSource (this),

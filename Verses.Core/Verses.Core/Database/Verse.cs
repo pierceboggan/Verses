@@ -41,7 +41,7 @@ namespace Verses.Core
 
 		public override string ToString ()
 		{
-			return string.Format("Verse: Id {0}, Title {1}, Verse Reference {2}, Content {3}, Comments {4}, Time {5}",
+			return string.Format("Verse: Id {0}, Title {1}, Content {2}, Comments {3}, Time {4}",
 			                     Id, Title, Content, Comments, Timestamp);
 		}
 	}

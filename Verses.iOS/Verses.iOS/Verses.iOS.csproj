@@ -131,6 +131,7 @@
     <Folder Include="Images\Application\" />
     <Folder Include="Images\Compose\" />
     <Folder Include="Images\Headers\" />
+    <Folder Include="Images\Memorization\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinAddonReference Include="xamarin.social">
@@ -170,8 +171,6 @@
     <BundleResource Include="Images\General\TabBarBackground.png" />
     <BundleResource Include="Images\General\NavigationBarBackground.png" />
     <BundleResource Include="Resources\Default.png" />
-    <BundleResource Include="Images\Memorization Background 320.png" />
-    <BundleResource Include="Images\Memorization Top Bar 320.png" />
     <BundleResource Include="Images\Tag.jpg" />
     <BundleResource Include="Resources\KeepCalm.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -181,19 +180,46 @@
     <BundleResource Include="Resources\Default-568h%402x.png" />
     <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
     <BundleResource Include="Resources\SourceSansPro-Regular.otf" />
+    <BundleResource Include="Images\Compose\memorization.png" />
+    <BundleResource Include="Images\Headers\TagsBar.png" />
+    <BundleResource Include="Images\Memorization\Background.png" />
+    <BundleResource Include="Images\Memorization\Background%402x.png" />
+    <BundleResource Include="Images\Memorization\SaturdayButton.png" />
+    <BundleResource Include="Images\Memorization\FridayButton.png" />
+    <BundleResource Include="Images\Memorization\FridayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\MondayButton.png" />
+    <BundleResource Include="Images\Memorization\MondayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\QueueButton.png" />
+    <BundleResource Include="Images\Memorization\QueueButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\ReviewButton.png" />
+    <BundleResource Include="Images\Memorization\ReviewButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\SaturdayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\SundayButton.png" />
+    <BundleResource Include="Images\Memorization\SundayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\ThursdayButton.png" />
+    <BundleResource Include="Images\Memorization\ThursdayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\TuesdayButton.png" />
+    <BundleResource Include="Images\Memorization\TuesdayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\WednesdayButton.png" />
+    <BundleResource Include="Images\Memorization\WednesdayButtonHighlighted.png" />
+    <BundleResource Include="Images\General\CellHeader.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\General\CellBackground.png" />
     <Content Include="Images\General\SectionHeaderBubble.png" />
     <Content Include="Images\Compose\ComposeButton.png" />
     <Content Include="Images\Compose\ComposeButtonHighlighted.png" />
     <Content Include="Images\Compose\BlackLine.png" />
-    <Content Include="Images\Headers\PrayersNavigationBar.png" />
-    <Content Include="Images\Headers\VersesNavigationBar.png" />
-    <Content Include="Images\Compose\CancelButton.png" />
+    <Content Include="Images\Compose\Tag.jpg" />
     <Content Include="Images\Compose\CancelButtonHighlighted.png" />
+    <Content Include="Images\Compose\CancelButton.png" />
     <Content Include="Images\Compose\SaveButton.png" />
     <Content Include="Images\Compose\SaveButtonHighlighted.png" />
-    <Content Include="Images\Compose\Tag.jpg" />
+    <Content Include="Images\Headers\CalendarBar.png" />
+    <Content Include="Images\Headers\ComposeBar.png" />
+    <Content Include="Images\Headers\EditBar.png" />
+    <Content Include="Images\Headers\MeBar.png" />
+    <Content Include="Images\Headers\MemorizationBar.png" />
+    <Content Include="Images\Headers\PrayersBar.png" />
+    <Content Include="Images\Headers\VersesBar.png" />
   </ItemGroup>
 </Project>

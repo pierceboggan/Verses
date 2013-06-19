@@ -28,14 +28,14 @@ namespace Verses.iOS
 			base.ViewDidLoad();
 
 			View.BackgroundColor = UIColor.White;
-			
+
 			NavigationBar = new UINavigationBar ()
 			{
-				Frame = new RectangleF(0, 0, View.Bounds.Width, 44),
+				Frame = new RectangleF(0, 0, View.Bounds.Width, 44)
 			};
-			
+			NavigationBar.SetBackgroundImage (Images.ComposeBar, UIBarMetrics.Default);
+
 			var NavigationItem = new UINavigationItem ();
-			InterfaceHelper.SetupTitle ("Compose", NavigationItem);
 			NavigationBar.PushNavigationItem (NavigationItem, false);
 
 			var cancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
@@ -47,8 +47,10 @@ namespace Verses.iOS
 			var saveButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			saveButton.SetBackgroundImage (Images.SaveButton, UIControlState.Normal);
 			saveButton.SetBackgroundImage (Images.SaveButtonHighlighted, UIControlState.Highlighted);
-			saveButton.AddTarget((object sender, EventArgs args) => // TODO: Add save logic
-			                     DismissViewController (true, null), UIControlEvent.TouchUpInside);
+			saveButton.AddTarget((object sender, EventArgs args) => {
+				SaveButtonClicked ();
+				DismissViewController (true, null);
+			}, UIControlEvent.TouchUpInside);
 
 			var CancelButton = new UIBarButtonItem (cancelButton);
 			var SaveButton = new UIBarButtonItem (saveButton);
@@ -142,24 +144,55 @@ namespace Verses.iOS
 			View.AddSubview (VerseTagsView);
 		}
 
-		// TODO: Add Verse
-		private void SaveButtonClicked (string reference, string comments, string tagText)
+		private void SwipedUpHandler ()
 		{
-			var content = AddVerse (reference);
-			var tags = ParseTags (tagText);
+			UIView.Animate (0.5, () => {
+				VerseTags.Frame = new RectangleF (0, 214, View.Bounds.Size.Width, 28f);
+				VerseTagsView.Frame = new RectangleF (0, 245, View.Bounds.Width, 145f);
+			}, () => {
+				HandleIntelligentTagging ();
+			});
 
-			var verse = new Verse() 
-			{
-				Content = content,
-				Comments = comments,
+			VerseReference.Hidden = false;
+			VerseComments.Hidden = false;
+			BlackLineTwo.Hidden = false;
+			BlackLineThree.Hidden = false;
+		}
+
+		// TODO: Add Verse
+		private void SaveButtonClicked ()
+		{
+			var reference = VerseReference.Text;
+			var tags = ParseTags ();
+			int id;
+
+			var verse = new Verse () {
+				Content = AddVerse (reference),
+				Comments = VerseComments.Text,
 				Title = reference,
 				Timestamp = NSDate.Now
 			};
 
 			var path = DatabaseHelper.GetDatabasePath ("verses.db3");
-			using (DatabaseUtility db = new DatabaseUtility (path))
-			{
-				db.AddVerse (verse);
+			using (DatabaseUtility db = new DatabaseUtility (path)) {
+
+				if (!db.VerseExists (reference)) {
+					db.AddVerse (verse);
+				} else {
+					var alert = new UIAlertView ("Verse Exists", "That verse already exists!", null, "Okay", null);
+					alert.Show ();
+					return;
+				}
+
+				id = db.GetVerse (reference).Id;
+				foreach (string tag in tags) {
+					var Tag = new VerseTag () {
+						Name = tag,
+						VerseId = id
+					};
+
+					db.AddVerseTag (Tag);
+				}
 			}
 		}
 
@@ -169,23 +202,22 @@ namespace Verses.iOS
 			return bg.GetVerseText (reference);
 		}
 
-		private string[] ParseTags (string text)
+		private void HandleIntelligentTagging ()
 		{
-			var tags = text.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
-			return tags;
+			string[] tags = ParseTags ();
+
+			foreach (string tag in tags) {
+				var tagsText = VerseTags.Text.ToString ();
+				tagsText += " " + tag;
+				VerseTags.Text = tagsText;
+			}
 		}
 
-		private void SwipedUpHandler ()
+		private string[] ParseTags ()
 		{
-			UIView.Animate(0.5, () => {
-				VerseTags.Frame = new RectangleF (0, 214, View.Bounds.Size.Width, 28f);
-				VerseTagsView.Frame = new RectangleF (0, 245, View.Bounds.Width, 145f);
-			});
+			var tags = VerseTagsView.Text.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
 
-			VerseReference.Hidden = false;
-			VerseComments.Hidden = false;
-			BlackLineTwo.Hidden = false;
-			BlackLineThree.Hidden = false;
+			return tags;
 		}
 	}
 }

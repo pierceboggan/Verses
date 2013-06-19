@@ -9,21 +9,16 @@ namespace Verses.iOS
 	// Documentation: http://docs.xamarin.com/ios/tutorials/Working_with_Tables_and_Cells
 	public class VerseCell : UITableViewCell
 	{
-		UIImageView CellBackground;
-		UILabel VerseReference, VerseContent;
+		UILabel VerseContent, VerseReference;
 		
 		public VerseCell (NSString reuseIdentifier) : base (UITableViewCellStyle.Default, reuseIdentifier)
 		{
 			// Cell settings
 			SelectionStyle = UITableViewCellSelectionStyle.None;
-			ContentView.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
-			
-			// Cell element configuration
-			CellBackground = new UIImageView (Images.CellBackground);
-			
+
 			VerseReference = new UILabel ()
 			{
-				BackgroundColor = UIColor.Clear,
+				BackgroundColor = UIColor.FromPatternImage (Images.CellHeader),
 				Font = UIFont.FromName("SourceSansPro-Bold", 15f),
 				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.White
@@ -31,31 +26,33 @@ namespace Verses.iOS
 			
 			VerseContent = new UILabel ()
 			{
-				BackgroundColor = UIColor.Clear,
+				BackgroundColor = UIColor.White,
 				Font = UIFont.FromName("SourceSansPro-Regular", 13f),
-				Lines = 4,
+				Lines = 0,
 				TextAlignment = UITextAlignment.Left,
-				TextColor = UIColor.Black,
+				TextColor = UIColor.Black
 			};
-			
-			ContentView.Add (CellBackground);
+
 			ContentView.Add (VerseReference);
 			ContentView.Add (VerseContent);
 		}
-		
+
 		public void PopulateCell (Verse verse)
 		{
 			VerseReference.Text = verse.Title.ToUpper ();
 			VerseContent.Text = verse.Content;
 		}
-		
+
 		public override void LayoutSubviews ()
 		{
 			base.LayoutSubviews ();
-			
-			CellBackground.Frame = new RectangleF (19.5f, 7, 281, 93);
-			VerseReference.Frame = new RectangleF (22f, 7, ContentView.Bounds.Width - 20, 20);
-			VerseContent.Frame = new RectangleF (24f, 30, ContentView.Bounds.Width - 42, 70);
+
+			var text = new NSString (VerseContent.Text);
+			var maxSize = new SizeF (278, 70);
+			var currentSize = text.StringSize (UIFont.FromName("SourceSansPro-Regular", 13f), maxSize);
+
+			VerseContent.Frame = new RectangleF (24, 30, 278, currentSize.Height);
+			VerseReference.Frame = new RectangleF (22, 7, 278, 20);
 		}
 	}
 }

@@ -16,7 +16,7 @@ namespace Verses.iOS
 		{
 			base.ViewDidLoad ();
 
-			InterfaceHelper.SetupTitle ("Me", NavigationItem);
+			NavigationController.NavigationBar.SetBackgroundImage (Images.MeBar, UIBarMetrics.Default);
 			
 			var PrayersTable = new UITableView ()
 			{
