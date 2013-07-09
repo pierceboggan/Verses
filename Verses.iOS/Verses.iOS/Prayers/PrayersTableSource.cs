@@ -60,7 +60,8 @@ namespace Verses.iOS
 	
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
-			Console.WriteLine ("Row tapped!");
+			var prayer = prayers[keys[indexPath.Section]][indexPath.Row];
+			managingController.NavigationController.PushViewController (new PrayerDetailDialog (prayer), true);
 		}
 
 		public override string[] SectionIndexTitles (UITableView tableView)

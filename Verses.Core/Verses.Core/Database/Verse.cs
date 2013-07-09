@@ -7,6 +7,7 @@ namespace Verses.Core
 	{
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }
+		[MaxLength (100)]
 		public string Title { get; set; }
 		[MaxLength (300)]
 		public string Content { get; set; }
@@ -41,8 +42,7 @@ namespace Verses.Core
 
 		public override string ToString ()
 		{
-			return string.Format("Verse: Id {0}, Title {1}, Content {2}, Comments {3}, Time {4}",
-			                     Id, Title, Content, Comments, Timestamp);
+			return string.Format ("[Verse: Id={0}, Title={1}, Content={2}, Comments={3}, Timestamp={4}]", Id, Title, Content, Comments, Timestamp);
 		}
 	}
 }

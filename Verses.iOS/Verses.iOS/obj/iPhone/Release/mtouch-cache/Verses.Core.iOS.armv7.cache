@@ -1,0 +1,1 @@
+--debug -O=gsharedvt  --aot=mtriple=armv7-ios,full,static,asmonly,direct-icalls,nodebug,dwarfdebug,outfile=/Verses.Core.iOS.dll.armv7.s "/Users/pierceboggan/Desktop/Github/Personal Projects/VersesApp/Verses.Core.iOS/Verses.Core.iOS/bin/Release/Verses.Core.iOS.dll"

@@ -9,15 +9,15 @@ namespace Verses.Core
 {
 	public class BibleGateway
 	{
-		const string baseUrl = "https://api.biblegateway.com/2/";
-		const string user = "pierceboggan14.gmail.com";
-		const string pass = "2ca2a3e65c38881e3e43a314bd2451bb";
+		const string BASE = "https://api.biblegateway.com/2/";
+		const string USERNAME = "pierceboggan14.gmail.com";
+		const string PASSWORD = "2ca2a3e65c38881e3e43a314bd2451bb";
 
 		public AccessToken Token { get; set; }
 
 		public BibleGateway ()
 		{
-			string request = Request.FormatAccessTokenRequest (user, pass);
+			string request = Request.FormatAccessTokenRequest (USERNAME, PASSWORD);
 			Token = Response.GetAccessToken (request);
 		}
 
@@ -54,7 +54,7 @@ namespace Verses.Core
 		{
 			public static string FormatAccessTokenRequest (string user, string pass)
 			{
-				string requestUrl = baseUrl + "request_access_token?username="
+				string requestUrl = BASE + "request_access_token?username="
 					+ user + "&password=" + pass;
 
 				return requestUrl;
@@ -62,7 +62,7 @@ namespace Verses.Core
 
 			public static string FormatVerseTextRequest (string accessToken, string searchKeywords)
 			{
-				string requestUrl = baseUrl + "bible/" + searchKeywords + "/esv?access_token="
+				string requestUrl = BASE + "bible/" + searchKeywords + "/esv?access_token="
 					+ accessToken;
 
 				return requestUrl;
@@ -70,7 +70,7 @@ namespace Verses.Core
 
 			public static string FormatVerseTextRequest (string accessToken, string searchKeywords, string translationAbbreviation)
 			{
-				string requestUrl = baseUrl + "bible/" + searchKeywords + "/" + translationAbbreviation + 
+				string requestUrl = BASE + "bible/" + searchKeywords + "/" + translationAbbreviation + 
 					"?access_token=" + accessToken;
 				
 				return requestUrl;

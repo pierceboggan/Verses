@@ -48,7 +48,7 @@ namespace Verses.iOS
 			saveButton.SetBackgroundImage (Images.SaveButton, UIControlState.Normal);
 			saveButton.SetBackgroundImage (Images.SaveButtonHighlighted, UIControlState.Highlighted);
 			saveButton.AddTarget((object sender, EventArgs args) => {
-				SaveButtonClicked ();
+				// SaveButtonClicked ();
 				DismissViewController (true, null);
 			}, UIControlEvent.TouchUpInside);
 
@@ -160,6 +160,7 @@ namespace Verses.iOS
 		}
 
 		// TODO: Add Verse
+		/*
 		private void SaveButtonClicked ()
 		{
 			var reference = VerseReference.Text;
@@ -194,7 +195,7 @@ namespace Verses.iOS
 					db.AddVerseTag (Tag);
 				}
 			}
-		}
+		}*/
 
 		private string AddVerse (string reference)
 		{

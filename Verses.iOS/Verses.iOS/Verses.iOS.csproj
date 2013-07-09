@@ -57,7 +57,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Pierce Boggan (W85YVM93U5)</CodesignKey>
+    <MtouchI18n />
+    <MtouchArch>ARMv7</MtouchArch>
+    <CodesignProvision>02793BDC-16DD-4040-A45E-4809E6369A22</CodesignProvision>
+    <IpaPackageName />
+    <MtouchExtraArgs>-compiler:clang</MtouchExtraArgs>
+    <BuildIpa>true</BuildIpa>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -101,7 +107,6 @@
     <Compile Include="Verses\VersesViewController.cs" />
     <Compile Include="Prayers\PrayersViewController.cs" />
     <Compile Include="Memorization\MemorizationViewController.cs" />
-    <Compile Include="Me\MeViewController.cs" />
     <Compile Include="Images\Images.cs" />
     <Compile Include="StringConstants.cs" />
     <Compile Include="Prayers\PrayersTableSource.cs" />
@@ -112,10 +117,9 @@
     <Compile Include="Prayers\PrayerComposeDialog.cs" />
     <Compile Include="Prayers\PrayerEditDialog.cs" />
     <Compile Include="Prayers\PrayerDetailDialog.cs" />
-    <Compile Include="Welcome\LoginDialog.cs" />
-    <Compile Include="Welcome\SignUpDialog.cs" />
     <Compile Include="Verses\VersesBookTableViewSource.cs" />
     <Compile Include="Verses\VerseComposeDialog.cs" />
+    <Compile Include="Verses\VerseDetailDialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -123,8 +127,6 @@
     <Folder Include="Prayers\" />
     <Folder Include="Verses\" />
     <Folder Include="Memorization\" />
-    <Folder Include="Me\" />
-    <Folder Include="Welcome\" />
     <Folder Include="Images\" />
     <Folder Include="Images\Prayers\" />
     <Folder Include="Images\General\" />
@@ -132,6 +134,7 @@
     <Folder Include="Images\Compose\" />
     <Folder Include="Images\Headers\" />
     <Folder Include="Images\Memorization\" />
+    <Folder Include="Images\Detail\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinAddonReference Include="xamarin.social">
@@ -156,12 +159,6 @@
       <Version>1.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Verses.Core.iOS\Verses.Core.iOS\Verses.Core.iOS.csproj">
-      <Project>{B3DD08EF-53A3-465D-A640-E218C184A4E2}</Project>
-      <Name>Verses.Core.iOS</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Images\Application\Loading-iPhone.png" />
@@ -202,15 +199,24 @@
     <BundleResource Include="Images\Memorization\TuesdayButtonHighlighted.png" />
     <BundleResource Include="Images\Memorization\WednesdayButton.png" />
     <BundleResource Include="Images\Memorization\WednesdayButtonHighlighted.png" />
-<<<<<<< HEAD
     <BundleResource Include="Images\General\CellHeader.jpg" />
-=======
->>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
+    <BundleResource Include="Images\General\BackButtonHighlighted.png" />
+    <BundleResource Include="Images\General\BackButton.png" />
+    <BundleResource Include="Images\Headers\BlankBar.png" />
+    <BundleResource Include="Images\Compose\ComposeButton.png" />
+    <BundleResource Include="Images\Compose\ComposeButtonHighlighted.png" />
+    <BundleResource Include="Images\Detail\TimeIcon.png" />
+    <BundleResource Include="Images\Detail\DeleteButton.png" />
+    <BundleResource Include="Images\Detail\ShareButton.png" />
+    <BundleResource Include="Images\Detail\MemorizedRedButton.png" />
+    <BundleResource Include="Images\Detail\MemorizedGreenButton.png" />
+    <BundleResource Include="Images\Detail\ToMemorizeGreenButton.png" />
+    <BundleResource Include="Images\Detail\ToMemorizeRedButton.png" />
+    <BundleResource Include="Images\Detail\EditButtonHighlighted.png" />
+    <BundleResource Include="Images\Detail\EditButton.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\General\SectionHeaderBubble.png" />
-    <Content Include="Images\Compose\ComposeButton.png" />
-    <Content Include="Images\Compose\ComposeButtonHighlighted.png" />
     <Content Include="Images\Compose\BlackLine.png" />
     <Content Include="Images\Compose\Tag.jpg" />
     <Content Include="Images\Compose\CancelButtonHighlighted.png" />
@@ -224,5 +230,11 @@
     <Content Include="Images\Headers\MemorizationBar.png" />
     <Content Include="Images\Headers\PrayersBar.png" />
     <Content Include="Images\Headers\VersesBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Verses.Core.iOS\Verses.Core.iOS\Verses.Core.iOS.csproj">
+      <Project>{B3DD08EF-53A3-465D-A640-E218C184A4E2}</Project>
+      <Name>Verses.Core.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -17,7 +17,6 @@ namespace Verses.Core
 		public bool Success { get; set; }
 	}
 
-	//[JsonObject(MemberSerialization.OptIn)]
 	[JsonObject(MemberSerialization.OptIn)]
 	public class BibleGatewayVerse
 	{
@@ -38,16 +37,3 @@ namespace Verses.Core
 		public List<BibleGatewayVerse> Verses;
 	}
 }
-/*
-public class Datum
-{
-	public string osis { get; set; }
-	public string content { get; set; }
-	public List<object> footnotes { get; set; }
-	public List<string> crossrefs { get; set; }
-}
-
-public class RootObject
-{
-	public List<Datum> data { get; set; }
-}*/

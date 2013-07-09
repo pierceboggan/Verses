@@ -1,17 +1,24 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Verses.Core/Verses.Core/Database/Prayer.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Verses.iOS/Verses/VersesViewController.cs">
     <Files>
-      <File FileName="Verses.iOS/Images/Images.cs" Line="1" Column="1" />
-      <File FileName="../Verses.Core/Verses.Core/Database/Verse.cs" Line="1" Column="1" />
-      <File FileName="../Verses.Core/Verses.Core/Database/Prayer.cs" Line="36" Column="2" />
+      <File FileName="../Verses.Core/Verses.Core/Web Services/JsonModels.cs" Line="1" Column="1" />
+      <File FileName="Verses.iOS/Prayers/PrayerCell.cs" Line="1" Column="1" />
+      <File FileName="Verses.iOS/Prayers/PrayersTableSource.cs" Line="1" Column="1" />
+      <File FileName="Verses.iOS/Verses/VersesViewController.cs" Line="1" Column="1" />
+      <File FileName="Verses.iOS/Verses/VerseCell.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Verses.Core" expanded="True">
-            <Node name="Database" expanded="True">
-              <Node name="Prayer.cs" selected="True" />
+          <Node name="Verses.Core" expanded="True" />
+          <Node name="Verses.Core.iOS" expanded="True">
+            <Node name="Database" expanded="True" />
+          </Node>
+          <Node name="Verses.iOS" expanded="True">
+            <Node name="Prayers" expanded="True" />
+            <Node name="Verses" expanded="True">
+              <Node name="VersesViewController.cs" selected="True" />
             </Node>
           </Node>
         </State>

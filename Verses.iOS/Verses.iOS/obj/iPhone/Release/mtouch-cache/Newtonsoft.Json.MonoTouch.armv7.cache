@@ -1,0 +1,1 @@
+--debug -O=gsharedvt  --aot=mtriple=armv7-ios,full,static,asmonly,direct-icalls,nodebug,dwarfdebug,outfile=/Newtonsoft.Json.MonoTouch.dll.armv7.s "/Users/pierceboggan/Desktop/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/bin/iPhone/Release/Newtonsoft.Json.MonoTouch.dll"

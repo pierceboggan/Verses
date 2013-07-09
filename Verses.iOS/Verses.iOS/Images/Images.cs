@@ -8,8 +8,11 @@ namespace Verses.iOS
 		// General
 		public static UIImage NavigationBarBackground = UIImage.FromFile ("Images/General/NavigationBarBackground.png");
 		public static UIImage TabBarBackground = UIImage.FromFile ("Images/General/TabBarBackground.png");
+		public static UIImage BackButton = UIImage.FromFile ("Images/General/BackButton.png");
+		public static UIImage BackButtonHighlighted = UIImage.FromFile ("Images/General/BackButtonHighlighted.png");
 
 		// Headers
+		public static UIImage BlankBar = UIImage.FromFile ("Images/Headers/BlankBar.png");
 		public static UIImage CalendarBar = UIImage.FromFile ("Images/Headers/CalendarBar.png");
 		public static UIImage ComposeBar = UIImage.FromFile ("Images/Headers/ComposeBar.png");
 		public static UIImage EditBar = UIImage.FromFile ("Images/Headers/EditBar.png");
@@ -33,6 +36,17 @@ namespace Verses.iOS
 		public static UIImage SaveButton = UIImage.FromFile ("Images/Compose/SaveButton.png");
 		public static UIImage SaveButtonHighlighted = UIImage.FromFile ("Images/Compose/SaveButtonHighlighted.png");
 		public static UIImage Tag = UIImage.FromFile ("Images/Compose/Tag.jpg");
+
+		// Detail
+		public static UIImage DeleteButton = UIImage.FromFile ("Images/Detail/DeleteButton.png");
+		public static UIImage TimeIcon = UIImage.FromFile ("Images/Detail/TimeIcon.png");
+		public static UIImage ShareButton = UIImage.FromFile ("Images/Detail/ShareButton.png");
+		public static UIImage ToMemorizeRedButton = UIImage.FromFile ("Images/Detail/ToMemorizeRedButton.png");
+		public static UIImage ToMemorizeGreenButton = UIImage.FromFile ("Images/Detail/ToMemorizeGreenButton.png");
+		public static UIImage MemorizedRedButton = UIImage.FromFile ("Images/Detail/MemorizedRedButton.png");
+		public static UIImage MemorizedGreenButton = UIImage.FromFile ("Images/Detail/MemorizedGreenButton.png");
+		public static UIImage EditButton = UIImage.FromFile ("Images/Detail/EditButton.png");
+		public static UIImage EditButtonHighlighted = UIImage.FromFile ("Images/Detail/EditButtonHighlighted.png");
 
 		// Memorization
 		public static UIImage MemorizationBackground = UIImage.FromFile ("Images/Memorization/Background.png");

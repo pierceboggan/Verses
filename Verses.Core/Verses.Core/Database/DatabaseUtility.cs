@@ -32,7 +32,7 @@ namespace Verses.Core
 			Insert (verse);
 		}
 
-		public void AddPrayerTag (PrayerTag tag)
+		public void AddTag (Tag tag)
 		{
 			Insert (tag);
 		}
@@ -59,11 +59,6 @@ namespace Verses.Core
 			Update (verse);
 		}	
 
-		public void UpdatePrayerTag (VerseTag tag)
-		{
-			Update (tag);
-		}
-
 		public void UpdateVerseTag (VerseTag tag)
 		{
 			Update (tag);
@@ -86,27 +81,18 @@ namespace Verses.Core
 			Delete<Verse>(verse.Id);
 		}
 
-		public void DeletePrayerTag (VerseTag tag)
+		public void DeleteTag (Tag tag)
 		{
-			Delete<VerseTag> (tag.Id);
+			Delete<Tag> (tag.Id);
 		}
 
 		public void DeleteVerseTag (VerseTag tag)
-<<<<<<< HEAD
 		{
 			Delete<VerseTag> (tag.Id);
 		}
 
 		public void DeleteMemorization (Memorization memorization)
 		{
-=======
-		{
-			Delete<VerseTag> (tag.Id);
-		}
-
-		public void DeleteMemorization (Memorization memorization)
-		{
->>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
 			Delete<Memorization> (memorization.Id);
 		}
 		#endregion
@@ -128,7 +114,6 @@ namespace Verses.Core
 			return verse;
 		}
 
-<<<<<<< HEAD
 		public Verse GetVerse (string reference)
 		{
 			var verse = (from v in Table<Verse> ()
@@ -137,13 +122,10 @@ namespace Verses.Core
 			return verse;
 		}
 
-		public PrayerTag GetPrayerTag (int id)
-=======
-		public PrayerTag GetVerseTag (int id)
->>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
+		public Tag GetTag (int id)
 		{
-			var tag = (from t in Table<PrayerTag>() 
-			           where t.Id == id select t).FirstOrDefault();
+			var tag = (from t in Table<Tag> ()
+			             where t.Id  == id select t).FirstOrDefault ();
 
 			return tag;
 		}
@@ -158,17 +140,13 @@ namespace Verses.Core
 
 		public List<Verse> GetVersesForTag (string tag)
 		{
-			var verseId = (from t in Table<VerseTag> ()
-			        		where t.Name == tag select t).FirstOrDefault ().VerseId;
+			var tagId = (from t in Table<Tag> ()
+			             where t.Name == tag select t).FirstOrDefault ().Id;
 
-			var verses = (from t in Table<Verse> ()
-			              where t.Id == verseId select t).GetEnumerator ();
+			var verses = (from v in Table<Verse> ()
+			              where v.Id == tagId select v).GetEnumerator ();
 
-<<<<<<< HEAD
 			return (List<Verse>) verses;
-=======
-			return verses;
->>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
 		}
 
 		public Memorization GetVerseMemorization (int id)
@@ -203,13 +181,9 @@ namespace Verses.Core
 			return verses;
 		}
 
-<<<<<<< HEAD
-		public List<PrayerTag> GetPrayerTags ()
-=======
-		public List<VerseTag> GetPrayerTags ()
->>>>>>> 6bd36c91115bd11f5b48171c3b472d7c12c5d43d
+		public List<Tag> GetTags ()
 		{
-			var tags = Table<PrayerTag> ().ToList ();
+			var tags = Table<Tag> ().ToList ();
 
 			return tags;
 		}

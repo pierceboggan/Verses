@@ -9,7 +9,7 @@ namespace Verses.Core
 	{
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }
-		public int VerseId { get; set; }
+		[MaxLength (100)]
 		public string Title { get; set; }
 		[MaxLength (300)]
 		public string Content { get; set; }
@@ -30,7 +30,7 @@ namespace Verses.Core
 
 		public override string ToString ()
 		{
-			return string.Format("Prayer: Id {0}, Title {1}, Content {2}, Time {3}", Id, Title, Content, Timestamp);
+			return string.Format ("[Prayer: Id={0}, Title={1}, Content={2}, Category={3}, Timestamp={4}]", Id, Title, Content, Category, Timestamp);
 		}
 	}
 }

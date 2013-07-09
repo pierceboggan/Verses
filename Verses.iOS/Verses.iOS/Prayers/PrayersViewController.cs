@@ -20,8 +20,6 @@ namespace Verses.iOS
 		{
 			base.ViewDidLoad ();
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.PrayersBar, UIBarMetrics.Default);
-
 			PrayersTable = new UITableView ()
 			{
 				Frame = new RectangleF(0, 0, View.Bounds.Width, View.Bounds.Height - 83),
@@ -30,7 +28,7 @@ namespace Verses.iOS
 				Source = new PrayersTableSource (this),
 			};
 
-			var composeButton = new UIButton (new RectangleF (0, 0, 20, 20));
+			var composeButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			composeButton.SetBackgroundImage (Images.ComposeButton, UIControlState.Normal);
 			composeButton.SetBackgroundImage (Images.ComposeButtonHighlighted, UIControlState.Highlighted);
 			composeButton.AddTarget((object sender, EventArgs args) => PresentViewController (new PrayerComposeDialog (), true, null), 
@@ -41,6 +39,13 @@ namespace Verses.iOS
 			NavigationItem.RightBarButtonItem = ComposeButton;
 
 			View.AddSubview (PrayersTable);
+		}
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			NavigationController.NavigationBar.SetBackgroundImage (Images.PrayersBar, UIBarMetrics.Default);
 		}
 
 	}

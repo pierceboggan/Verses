@@ -21,34 +21,22 @@ namespace Verses.iOS
 			var prayers = new UINavigationController (new PrayersViewController ());
 			var verses = new UINavigationController (new VersesViewController ());
 			var memorization = new UINavigationController (new MemorizationViewController ());
-			var me = new UINavigationController (new MeViewController ());
 
 			var prayersItem = new UITabBarItem ();
 			var versesItem = new UITabBarItem ();
 			var memorizationItem = new UITabBarItem ();
-			var meItem = new UITabBarItem ();
-			
+	
 			verses.TabBarItem = versesItem;
 			prayers.TabBarItem = prayersItem;
 			memorization.TabBarItem = memorizationItem;
-			me.TabBarItem = meItem;
 
 			tabBarController.ViewControllers = new UIViewController[] {
 				prayers,
 				verses,
 				memorization,
-				me
 			};
 
 			DatabaseHelper.CreateDatabaseIfNotExists ("verses.db3");
-
-			using (DatabaseUtility db = new DatabaseUtility (DatabaseHelper.GetDatabasePath("verses.db3")))
-			{
-				var _verses = db.GetVerses ();
-
-				foreach (Verse verse in _verses)
-					Console.WriteLine (verse);
-			}
 
 			// ConfigureThirdPartyLibraries ();
 			ConfigureAppearanceSettings ();

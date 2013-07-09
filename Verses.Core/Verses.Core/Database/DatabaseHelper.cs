@@ -22,7 +22,13 @@ namespace Verses.Core
 			return Path.Combine(personal, databaseName);
 		}
 
-		public static void ClearDatabase (string databaseName)
+		public static void CleanTables (string databaseName)
+		{
+			DropAllDatabaseTables (databaseName);
+			AddAllDatabaseTables (databaseName);
+		}
+
+		public static void DropAllDatabaseTables (string databaseName)
 		{
 			var path = GetDatabasePath(databaseName);
 
@@ -30,9 +36,23 @@ namespace Verses.Core
 			{
 				database.DropTable<Prayer> ();
 				database.DropTable<Verse> ();
-				database.DropTable<PrayerTag> ();
+				database.DropTable<Tag> ();
 				database.DropTable<VerseTag> ();
 				database.DropTable<Memorization> ();
+			}
+		}
+
+		public static void AddAllDatabaseTables (string databaseName)
+		{
+			var path = GetDatabasePath(databaseName);
+
+			using (SQLiteConnection database = new SQLiteConnection(path)) 
+			{
+				database.CreateTable<Prayer> ();
+				database.CreateTable<Verse> ();
+				database.CreateTable<Tag> ();
+				database.CreateTable<VerseTag> ();
+				database.CreateTable<Memorization> ();
 			}
 		}
 
@@ -45,7 +65,7 @@ namespace Verses.Core
 				// Create table if they don't exist
 				database.CreateTable<Prayer>();
 				database.CreateTable<Verse>();
-				database.CreateTable<PrayerTag> ();
+				database.CreateTable<Tag> ();
 				database.CreateTable<VerseTag> ();
 				database.CreateTable<Memorization>();
 

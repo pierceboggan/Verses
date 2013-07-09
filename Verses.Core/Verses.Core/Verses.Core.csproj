@@ -52,6 +52,6 @@
     <Compile Include="Web Services\BibleGateway.cs" />
     <Compile Include="Web Services\JsonModels.cs" />
     <Compile Include="Database\VerseTag.cs" />
-    <Compile Include="Database\PrayerTag.cs" />
+    <Compile Include="Database\Tag.cs" />
   </ItemGroup>
 </Project>

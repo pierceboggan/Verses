@@ -10,14 +10,9 @@ namespace Verses.iOS
 	public class PrayerComposeDialog : UIViewController
 	{
 		UIView BlackLine;
-		UIView BlackLineTwo;
-		UIView BlackLineThree;
 		UINavigationBar NavigationBar;
-		UITextView PrayerComments;
+		UITextView PrayerContent;
 		UITextField PrayerTitle;
-		UITextField PrayerTags;
-		UITextView PrayerTagsView;
-		UISwipeGestureRecognizer PrayerTagsViewSwipeUp;
 
 		public PrayerComposeDialog ()
 		{
@@ -52,6 +47,9 @@ namespace Verses.iOS
 
 			var CancelButton = new UIBarButtonItem (cancelButton);
 			var SaveButton = new UIBarButtonItem (saveButton);
+			SaveButton.Clicked += delegate(object sender, EventArgs e) {
+				AddPrayer ();
+			};
 
 			PrayerTitle = new UITextField ()
 			{
@@ -68,65 +66,13 @@ namespace Verses.iOS
 				Frame = new RectangleF (0, 77, View.Bounds.Width, 1f)
 			};
 
-			PrayerComments = new UITextView ()
+			PrayerContent = new UITextView ()
 			{
 				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
-				Frame = new RectangleF (0, 78, View.Bounds.Width, 145f),
+				Frame = new RectangleF (0, 78, View.Bounds.Width, 165f),
 				KeyboardAppearance = UIKeyboardAppearance.Default
 			};
-			PrayerComments.BecomeFirstResponder ();
-
-			BlackLineTwo = new UIView () 
-			{
-				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
-				Frame = new RectangleF (0, 213, View.Bounds.Width, 1f)
-			};
-
-			PrayerTags = new UITextField ()
-			{
-				AutocorrectionType = UITextAutocorrectionType.No,
-				BackgroundColor = UIColor.Clear,
-				BorderStyle = UITextBorderStyle.None,
-				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
-				Frame = new RectangleF (0, 214, View.Bounds.Size.Width, 28f),
-				LeftViewMode = UITextFieldViewMode.Always,
-				LeftView = new UIImageView (Images.Tag)
-			};
-
-			BlackLineThree = new UIView() 
-			{
-				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
-				Frame = new RectangleF (0, 244, View.Bounds.Width, 1f)
-			};
-
-			PrayerTagsView = new UITextView () 
-			{
-				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
-				Frame = new RectangleF (0, 245, View.Bounds.Width, 145f),
-				KeyboardAppearance = UIKeyboardAppearance.Default
-			};
-
-			PrayerTagsViewSwipeUp = new UISwipeGestureRecognizer () 
-			{
-				Direction = UISwipeGestureRecognizerDirection.Down,
-				NumberOfTouchesRequired = 1
-			};
-			PrayerTagsViewSwipeUp.AddTarget (SwipedUpHandler);
-			PrayerTagsView.AddGestureRecognizer (PrayerTagsViewSwipeUp);
-
-			PrayerTags.AllTouchEvents += delegate(object sender, EventArgs e) {
-				PrayerTitle.Hidden = true;
-				PrayerComments.Hidden = true;
-				BlackLineTwo.Hidden = true;
-				BlackLineThree.Hidden = true;
-
-				UIView.Animate(0.5, () => {
-					PrayerTags.Frame = new RectangleF (0, 44, PrayerTags.Frame.Width, PrayerTags.Frame.Height);
-					PrayerTagsView.Frame = new RectangleF (0, 78, PrayerTagsView.Frame.Width, PrayerTagsView.Frame.Height);
-				});
-			};
-
-
+			PrayerContent.BecomeFirstResponder ();
 
 			NavigationItem.LeftBarButtonItem = CancelButton;
 			NavigationItem.RightBarButtonItem = SaveButton;
@@ -134,57 +80,32 @@ namespace Verses.iOS
 			View.AddSubview (NavigationBar);
 			View.AddSubview (PrayerTitle);
 			View.AddSubview (BlackLine);
-			View.AddSubview (PrayerComments);
-			View.AddSubview (BlackLineTwo);
-			View.AddSubview (PrayerTags);
-			View.AddSubview (BlackLineThree);
-			View.AddSubview (PrayerTagsView);
+			View.AddSubview (PrayerContent);
 		}
 
-		/*
-		private void SaveButtonClicked (string reference, string comments, string tagText)
+		private void AddPrayer ()
 		{
-			var content = AddVerse (reference);
-			var tags = ParseTags (tagText);
+			var title = PrayerTitle.Text;
+			var content = PrayerContent.Text;
 
-			var verse = new Verse() 
+			var prayer = new Prayer () 
 			{
+				Title = title,
 				Content = content,
-				Comments = comments,
-				Title = reference,
 				Timestamp = NSDate.Now
 			};
 
+			AddPrayerToDatabase (prayer);		
+		}
+
+		private void AddPrayerToDatabase (Prayer prayer)
+		{
 			var path = DatabaseHelper.GetDatabasePath ("verses.db3");
+
 			using (DatabaseUtility db = new DatabaseUtility (path))
 			{
-				db.AddVerse (verse);
+				db.AddPrayer (prayer);
 			}
-		}
-
-		private string AddVerse (string reference)
-		{
-			var bg = new BibleGateway();
-			return bg.GetVerseText (reference);
-		}
-
-		private string[] ParseTags (string text)
-		{
-			var tags = text.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
-			return tags;
-		}*/
-
-		private void SwipedUpHandler ()
-		{
-			UIView.Animate(0.5, () => {
-				PrayerTags.Frame = new RectangleF (0, 214, View.Bounds.Size.Width, 28f);
-				PrayerTagsView.Frame = new RectangleF (0, 245, View.Bounds.Width, 145f);
-			});
-
-			PrayerTitle.Hidden = false;
-			PrayerComments.Hidden = false;
-			BlackLineTwo.Hidden = false;
-			BlackLineThree.Hidden = false;
 		}
 	}
 }

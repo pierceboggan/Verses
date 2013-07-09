@@ -70,7 +70,7 @@ namespace Verses.iOS
 		
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
-			Console.WriteLine ("Row tapped!");
+
 		}
 		
 		public override string[] SectionIndexTitles (UITableView tableView)

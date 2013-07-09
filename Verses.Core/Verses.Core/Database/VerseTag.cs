@@ -8,11 +8,11 @@ namespace Verses.Core
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }
 		public int VerseId { get; set; }
-		public string Name { get; set; }
+		public int TagId { get; set; }
 
-		public override string ToString()
+		public override string ToString ()
 		{
-			return string.Format("Tag: Id = {0}, VerseId = {1}, Name = {2}", Id, VerseId, Name);
+			return string.Format ("[VerseTag: Id={0}, VerseId={1}, TagId={2}]", Id, VerseId, TagId);
 		}
 	}
 }

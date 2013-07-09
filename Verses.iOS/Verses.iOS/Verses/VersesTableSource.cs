@@ -68,7 +68,8 @@ namespace Verses.iOS
 		
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
-			Console.WriteLine ("Row tapped!");
+			var verse = verses[keys[indexPath.Section]][indexPath.Row];
+			managingController.NavigationController.PushViewController (new VerseDetailDialog (verse), true);
 		}
 		
 		public override string[] SectionIndexTitles (UITableView tableView)

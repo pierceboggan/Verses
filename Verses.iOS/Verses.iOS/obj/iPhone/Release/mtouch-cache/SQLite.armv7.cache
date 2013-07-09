@@ -1,0 +1,1 @@
+--debug -O=gsharedvt  --aot=mtriple=armv7-ios,full,static,asmonly,direct-icalls,nodebug,dwarfdebug,outfile=/SQLite.dll.armv7.s "/Users/pierceboggan/Desktop/Github/Personal Projects/VersesApp/Verses.iOS/Components/sqlite-net-1.0/lib/ios/SQLite.dll"

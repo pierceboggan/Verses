@@ -88,8 +88,8 @@
     <Compile Include="..\..\Verses.Core\Verses.Core\Database\VerseTag.cs">
       <Link>Database\VerseTag.cs</Link>
     </Compile>
-    <Compile Include="..\..\Verses.Core\Verses.Core\Database\PrayerTag.cs">
-      <Link>Database\PrayerTag.cs</Link>
+    <Compile Include="..\..\Verses.Core\Verses.Core\Database\Tag.cs">
+      <Link>Database\Tag.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>
