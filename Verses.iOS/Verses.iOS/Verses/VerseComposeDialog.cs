@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using MonoTouch.CoreAnimation;
 using MonoTouch.Foundation;
@@ -21,12 +22,18 @@ namespace Verses.iOS
 
 		public VerseComposeDialog ()
 		{
+
 		}
 
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
 
+			SetupUI ();
+		}
+
+		private void SetupUI ()
+		{
 			View.BackgroundColor = UIColor.White;
 
 			NavigationBar = new UINavigationBar ()
@@ -48,7 +55,7 @@ namespace Verses.iOS
 			saveButton.SetBackgroundImage (Images.SaveButton, UIControlState.Normal);
 			saveButton.SetBackgroundImage (Images.SaveButtonHighlighted, UIControlState.Highlighted);
 			saveButton.AddTarget((object sender, EventArgs args) => {
-				// SaveButtonClicked ();
+				SaveButtonClicked ();
 				DismissViewController (true, null);
 			}, UIControlEvent.TouchUpInside);
 
@@ -133,7 +140,7 @@ namespace Verses.iOS
 
 			NavigationItem.LeftBarButtonItem = CancelButton;
 			NavigationItem.RightBarButtonItem = SaveButton;
-			
+
 			View.AddSubview (NavigationBar);
 			View.AddSubview (VerseReference);
 			View.AddSubview (BlackLine);
@@ -159,48 +166,28 @@ namespace Verses.iOS
 			BlackLineThree.Hidden = false;
 		}
 
-		// TODO: Add Verse
-		/*
+		// TODO: Add *real* data from BibleGateway, instead of mock data
 		private void SaveButtonClicked ()
 		{
-			var reference = VerseReference.Text;
-			var tags = ParseTags ();
-			int id;
-
-			var verse = new Verse () {
-				Content = AddVerse (reference),
-				Comments = VerseComments.Text,
-				Title = reference,
-				Timestamp = NSDate.Now
+			var verse = new Verse () 
+			{
+				Category = MemorizationCategory.Queue,
+				Content = "This is sample content.",
+				Comments = "This is a sample comment.",
+				Memorizable = true,
+				Memorized = false,
+				Timestamp = DateTime.Now,
+				Title = VerseReference.Text
 			};
 
-			var path = DatabaseHelper.GetDatabasePath ("verses.db3");
-			using (DatabaseUtility db = new DatabaseUtility (path)) {
-
-				if (!db.VerseExists (reference)) {
-					db.AddVerse (verse);
-				} else {
-					var alert = new UIAlertView ("Verse Exists", "That verse already exists!", null, "Okay", null);
-					alert.Show ();
-					return;
-				}
-
-				id = db.GetVerse (reference).Id;
-				foreach (string tag in tags) {
-					var Tag = new VerseTag () {
-						Name = tag,
-						VerseId = id
-					};
-
-					db.AddVerseTag (Tag);
-				}
+			var tags = new List<Tag> ();
+			foreach (string tag in ParseTags ()) {
+				tags.Add (new Tag { Name = tag });
 			}
-		}*/
 
-		private string AddVerse (string reference)
-		{
-			var bg = new BibleGateway();
-			return bg.GetVerseText (reference);
+			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
+			var db = new DatabaseHelper (path);
+			db.AddVerse (verse);
 		}
 
 		private void HandleIntelligentTagging ()

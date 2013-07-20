@@ -21,14 +21,13 @@ namespace Verses.iOS
 			prayers = new Dictionary<string, List<Prayer>> ();
 			this.managingController = managingController;
 
-			var path = DatabaseHelper.GetDatabasePath ("verses.db3");
+			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
 			var tempPrayers = new List<Prayer> ();
 
 			// Read in prayers from database
-			using (DatabaseUtility database = new DatabaseUtility (path)) {
-				tempPrayers = database.GetPrayers ();
-				tempPrayers.Sort ();
-			}
+			var helper = new DatabaseHelper (path);
+			tempPrayers = helper.GetPrayers ().ToList ();
+			tempPrayers.Sort ();
 
 			// Process prayers
 			foreach (var prayer in tempPrayers)

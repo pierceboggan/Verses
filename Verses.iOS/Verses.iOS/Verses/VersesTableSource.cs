@@ -20,17 +20,16 @@ namespace Verses.iOS
 			VERSE_CELL = new NSString ("PRAYER_CELL");
 			verses = new Dictionary<string, List<Verse>> ();
 			this.managingController = managingController;
-			
-			var path = DatabaseHelper.GetDatabasePath ("verses.db3");
+
+			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
 			var tempVerses = new List<Verse> ();
-			
-			// Read in prayers from database
-			using (DatabaseUtility database = new DatabaseUtility (path)) {
-				tempVerses = database.GetVerses ();
-				tempVerses.Sort ();
-			}
-			
-			// Process prayers
+
+			// Fetch verses
+			var helper = new DatabaseHelper (path);
+			tempVerses = helper.GetVerses ().ToList ();
+			tempVerses.Sort ();
+
+			// Process verses
 			foreach (var verse in tempVerses)
 			{
 				ProcessKey (verse);

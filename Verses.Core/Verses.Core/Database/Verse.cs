@@ -7,12 +7,15 @@ namespace Verses.Core
 	{
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }
-		[MaxLength (100)]
+		[MaxLength (75)]
 		public string Title { get; set; }
-		[MaxLength (300)]
+		[MaxLength (500)]
 		public string Content { get; set; }
 		[MaxLength (300)]
 		public string Comments { get; set; }
+		public MemorizationCategory Category { get; set; } // MemorizationCategory
+		public bool Memorizable { get; set; }
+		public bool Memorized { get; set; }
 		public DateTime Timestamp { get; set; }
 
 		public int CompareTo(object obj)
@@ -42,7 +45,7 @@ namespace Verses.Core
 
 		public override string ToString ()
 		{
-			return string.Format ("[Verse: Id={0}, Title={1}, Content={2}, Comments={3}, Timestamp={4}]", Id, Title, Content, Comments, Timestamp);
+			return string.Format ("[Verse: Id={0}, Title={1}, Content={2}, Comments={3}, Category={4}, Memorizable={5}, Memorized={6}, Timestamp={7}]", Id, Title, Content, Comments, Category, Memorizable, Memorized, Timestamp);
 		}
 	}
 }

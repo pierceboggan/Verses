@@ -13,7 +13,6 @@ namespace Verses.Core
 		public string Title { get; set; }
 		[MaxLength (300)]
 		public string Content { get; set; }
-		public string Category { get; set; }
 		public DateTime Timestamp { get; set; }
 
 		public int CompareTo(object obj)
@@ -30,7 +29,7 @@ namespace Verses.Core
 
 		public override string ToString ()
 		{
-			return string.Format ("[Prayer: Id={0}, Title={1}, Content={2}, Category={3}, Timestamp={4}]", Id, Title, Content, Category, Timestamp);
+			return string.Format ("[Prayer: Id={0}, Title={1}, Content={2}, Category={3}, Timestamp={4}]", Id, Title, Content, Timestamp);
 		}
 	}
 }

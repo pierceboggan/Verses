@@ -36,10 +36,9 @@ namespace Verses.iOS
 				memorization,
 			};
 
-			DatabaseHelper.CreateDatabaseIfNotExists ("verses.db3");
-
-			// ConfigureThirdPartyLibraries ();
+			ConfigureDatabase ();
 			ConfigureAppearanceSettings ();
+			ConfigureThirdPartyLibraries ();
 			
 			window.RootViewController = tabBarController;
 			window.MakeKeyAndVisible ();
@@ -49,25 +48,33 @@ namespace Verses.iOS
 
 			return true;
 		}
-		/*
-		public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+
+		private void ConfigureDatabase ()
 		{
-			// NOTE: Don't call the base implementation on a Model class
-			// see http://docs.xamarin.com/ios/tutorials/Events%2c_Protocols_and_Delegates 
-			//throw new NotImplementedException();
+			var databaseName = "verses.db3";
+
+			DatabaseSetupHelper.CreateDatabaseIfNotExists (databaseName);
+			if (!DatabaseSetupHelper.TablesArePopulated (databaseName)) {
+				DatabaseSetupHelper.PopulateTablesWithInitialData (databaseName);
+			}
 		}
-		
-		public override bool HandleOpenURL(UIApplication application, NSUrl url)
-		{
-			//
-		}*/
 
-		/*
-		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+		// Uses the new iOS 5 Appearance API, so that is one of the reasons this app is iOS 5+
+		private void ConfigureAppearanceSettings ()
 		{
-			// TODO
-		}*/
+			UINavigationBar.Appearance.SetBackgroundImage (Images.NavigationBarBackground, UIBarMetrics.Default);
+			UITabBar.Appearance.BackgroundImage = Images.TabBarBackground;
+			UITableView.Appearance.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+		}
 
+		private void ConfigureThirdPartyLibraries ()
+		{
+			// Setup Flurry
+
+			// Setup Parse
+		}
+
+		// Parse Stuff
 		/*
 		public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
 		{
@@ -101,12 +108,5 @@ namespace Verses.iOS
 			ParseClient.Initialize (StringConstants.APPLICATION_ID, StringConstants.CLIENT_KEY);
 		}
 */
-		// Uses the new iOS 5 Appearance API, so that is one of the reasons this app is iOS 5+
-		private void ConfigureAppearanceSettings ()
-		{
-			UINavigationBar.Appearance.SetBackgroundImage (Images.NavigationBarBackground, UIBarMetrics.Default);
-			UITabBar.Appearance.BackgroundImage = Images.TabBarBackground;
-			UITableView.Appearance.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
-		}
 	}
 }

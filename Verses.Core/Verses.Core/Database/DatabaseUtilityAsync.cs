@@ -15,6 +15,7 @@ namespace Verses.Core
 	 * SQLite.NET: https://github.com/praeclarum/sqlite-net
 	 * Data Sample: https://github.com/xamarin/monotouch-samples/tree/master/Data
 	 */
+	/*
 	public class AsyncDatabaseUtility : SQLiteAsyncConnection, IDisposable
 	{
 		public AsyncDatabaseUtility(string path) : base(path)
@@ -42,6 +43,7 @@ namespace Verses.Core
 		{
 			InsertAsync (tag);
 		}
+
 
 		public void AddVerseMemorization(Memorization memorization)
 		{
@@ -207,6 +209,6 @@ namespace Verses.Core
 		public void Dispose ()
 		{
 		}
-	}
+	}*/
 }
 

@@ -22,8 +22,13 @@ namespace Verses.iOS
 		{
 			base.ViewDidLoad();
 
+			SetupUI ();
+		}
+
+		private void SetupUI ()
+		{
 			View.BackgroundColor = UIColor.White;
-		
+
 			NavigationBar = new UINavigationBar ()
 			{
 				Frame = new RectangleF(0, 0, View.Bounds.Width, 44)
@@ -42,14 +47,13 @@ namespace Verses.iOS
 			var saveButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			saveButton.SetBackgroundImage (Images.SaveButton, UIControlState.Normal);
 			saveButton.SetBackgroundImage (Images.SaveButtonHighlighted, UIControlState.Highlighted);
-			saveButton.AddTarget((object sender, EventArgs args) => // TODO: Add save logic
-			                     DismissViewController (true, null), UIControlEvent.TouchUpInside);
+			saveButton.AddTarget((object sender, EventArgs args) => {
+				SaveButtonClicked ();
+				DismissViewController (true, null); 
+			}, UIControlEvent.TouchUpInside);
 
 			var CancelButton = new UIBarButtonItem (cancelButton);
 			var SaveButton = new UIBarButtonItem (saveButton);
-			SaveButton.Clicked += delegate(object sender, EventArgs e) {
-				AddPrayer ();
-			};
 
 			PrayerTitle = new UITextField ()
 			{
@@ -83,29 +87,18 @@ namespace Verses.iOS
 			View.AddSubview (PrayerContent);
 		}
 
-		private void AddPrayer ()
+		private void SaveButtonClicked ()
 		{
-			var title = PrayerTitle.Text;
-			var content = PrayerContent.Text;
-
 			var prayer = new Prayer () 
 			{
-				Title = title,
-				Content = content,
+				Title = PrayerTitle.Text,
+				Content = PrayerContent.Text,
 				Timestamp = NSDate.Now
 			};
 
-			AddPrayerToDatabase (prayer);		
-		}
-
-		private void AddPrayerToDatabase (Prayer prayer)
-		{
-			var path = DatabaseHelper.GetDatabasePath ("verses.db3");
-
-			using (DatabaseUtility db = new DatabaseUtility (path))
-			{
-				db.AddPrayer (prayer);
-			}
+			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
+			var db = new DatabaseHelper (path);
+			db.AddPrayer (prayer);
 		}
 	}
 }

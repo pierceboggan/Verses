@@ -2,11 +2,18 @@ using System;
 
 namespace Verses.Core
 {
-	public class MemorizationCategory
+	public enum MemorizationCategory
 	{
-		public MemorizationCategory ()
-		{
-		}
+		Disabled,
+		Sunday,
+		Monday,
+		Tuesday,
+		Wednesday,
+		Thursday,
+		Friday,
+		Saturday,
+		Queue,
+		Review
 	}
 }
 

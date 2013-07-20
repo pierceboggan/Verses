@@ -5,15 +5,6 @@ using SQLite;
 
 namespace Verses.Core
 {
-	/* DatabaseUtlity.cs
-	 * 
-	 * This class manages all transactions that occur with the database using the Prayers, Verses, and Memorization objects.
-	 * This class is based heavily off the Data sample from the Xamarin Documentation team, and makes use of the ORM by 
-	 * Frank Krueger called SQLite.NET.
-	 * 
-	 * SQLite.NET: https://github.com/praeclarum/sqlite-net
-	 * Data Sample: https://github.com/xamarin/monotouch-samples/tree/master/Data
-	 */
 	public class DatabaseUtility : SQLiteConnection
 	{
 		public DatabaseUtility (string path) : base (path)
@@ -30,6 +21,8 @@ namespace Verses.Core
 		public void AddVerse (Verse verse)
 		{
 			Insert (verse);
+
+			Console.WriteLine ("Verse added: {0}", verse);
 		}
 
 		public void AddTag (Tag tag)
@@ -42,12 +35,14 @@ namespace Verses.Core
 			Insert (tag);
 		}
 
+		/*
 		public void AddVerseMemorization (Memorization memorization)
 		{
 			Insert (memorization);
-		}
+		}*/
 		#endregion
 
+		/*
 		#region Update
 		public void UpdatePrayer (Prayer prayer)
 		{
@@ -58,6 +53,11 @@ namespace Verses.Core
 		{
 			Update (verse);
 		}	
+
+		public void UpdateTag (Tag tag)
+		{
+			Update (tag);
+		}
 
 		public void UpdateVerseTag (VerseTag tag)
 		{
@@ -96,20 +96,20 @@ namespace Verses.Core
 			Delete<Memorization> (memorization.Id);
 		}
 		#endregion
-
+*/
 		#region Get
 		public Prayer GetPrayer (int id)
 		{
-			var prayer = (from i in Table<Prayer>()
-			              where i.Id == id select i).FirstOrDefault();
+			var prayer = (from i in Table<Prayer> ()
+			              where i.Id == id select i).FirstOrDefault ();
 
 			return prayer;
 		}
 
 		public Verse GetVerse (int id)
 		{
-			var verse = (from v in Table<Verse>() 
-			             where v.Id == id select v).FirstOrDefault();
+			var verse = (from v in Table<Verse> () 
+			             where v.Id == id select v).FirstOrDefault ();
 
 			return verse;
 		}
@@ -130,53 +130,65 @@ namespace Verses.Core
 			return tag;
 		}
 
+		/*public Tag GetTag (string tag)
+		{
+			var tagx = (from t in Table<Tag> ()
+			           where t.Name  == tag select t).FirstOrDefault ();
+
+			return tag;
+		}
+*/
 		public VerseTag GetVerseTag (int id)
 		{
-			var tag = (from t in Table<VerseTag>() 
+			var tag = (from t in Table<VerseTag> () 
 			             where t.Id == id select t).FirstOrDefault();
 
 			return tag;
 		}
 
+		/*
 		public List<Verse> GetVersesForTag (string tag)
 		{
-			var tagId = (from t in Table<Tag> ()
-			             where t.Name == tag select t).FirstOrDefault ().Id;
+			var tagId = GetTag (tag).Id;
+
+			var verseTags = (from t in Table<VerseTag> ()
+			                 where t.TagId == tagId select t).GetEnumerator ();
 
 			var verses = (from v in Table<Verse> ()
-			              where v.Id == tagId select v).GetEnumerator ();
+			              where v.Id == verseTags.Current.VerseId select v).GetEnumerator ();
 
 			return (List<Verse>) verses;
-		}
+		}*/
 
+		/*
 		public Memorization GetVerseMemorization (int id)
 		{
-			var memorization = (from i in Table<Memorization>()
-			             		where i.Id == id select i).FirstOrDefault();
+			var memorization = (from i in Table<Memorization> ()
+			             		where i.Id == id select i).FirstOrDefault ();
 
 			return memorization;
 		}
 
 		public Memorization GetVerseMemorizationByVerse (int verseId)
 		{
-			var memorization = (from i in Table<Memorization>()
-			                    where i.VerseId == verseId select i).FirstOrDefault();
+			var memorization = (from i in Table<Memorization> ()
+			                    where i.VerseId == verseId select i).FirstOrDefault ();
 
 			return memorization;
-		}
+		}*/
 		#endregion
 
 		#region GetAll
 		public List<Prayer> GetPrayers ()
 		{
-			var prayers = Table<Prayer>().ToList();
+			var prayers = Table<Prayer> ().ToList ();
 
 			return prayers;
 		}
 
 		public List<Verse> GetVerses ()
 		{
-			var verses = Table<Verse>().ToList();
+			var verses = Table<Verse> ().ToList ();
 
 			return verses;
 		}
@@ -195,19 +207,33 @@ namespace Verses.Core
 			return tags;
 		}
 
+		/*
 		public List<Memorization> GetVerseMemorizations ()
 		{
-			var memorizations = Table<Memorization>().ToList();
+			var memorizations = Table<Memorization> ().ToList();
 
 			return memorizations;
-		}
+		}*/
 		#endregion
 
-		#region Exists
+		//#region Exists
+		/*
 		public bool VerseExists (int id)
 		{
 			var verse = (from v in Table<Verse> () 
 			             where v.Id == id select v).FirstOrDefault ();
+
+			if (verse == null) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		public bool VerseExists (string title)
+		{
+			var verse = (from v in Table<Verse> () 
+			             where v.Title == title select v).FirstOrDefault ();
 
 			if (verse == null) {
 				return true;
@@ -227,6 +253,42 @@ namespace Verses.Core
 				return false;
 			}
 		}
-		#endregion
+
+		public bool TagExists (string tag)
+		{
+			var verse = (from t in Table<Tag> () 
+			             where t.Name == tag select t).FirstOrDefault ();
+
+			if (verse == null) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		public bool VerseTagExists (VerseTag tag)
+		{
+			var verse = (from t in Table<VerseTag> () 
+			             where t.VerseId == tag.VerseId && t.TagId == tag.TagId select t).FirstOrDefault ();
+
+			if (verse == null) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		public bool MemorizationExists (Verse verse)
+		{
+			var versex = (from m in Table<Memorization> () 
+			             where m.VerseId == GetVerse (verse.Id) select m).FirstOrDefault ();
+
+			if (verse == null) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		#endregion*/
 	}
 }

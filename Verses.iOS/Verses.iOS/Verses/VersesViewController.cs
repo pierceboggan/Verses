@@ -9,17 +9,33 @@ namespace Verses.iOS
 	public class VersesViewController : UIViewController
 	{
 		UIBarButtonItem ComposeButton;
-		UITableView VersesTable;
+
+		public UITableView VersesTable { get; set; }
 
 		public VersesViewController ()
 		{
-			// TabBarItem.Image = "";
+
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
+			SetupUI ();
+		}
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			NavigationController.NavigationBar.SetBackgroundImage (Images.VersesBar, UIBarMetrics.Default);
+
+			// Enables table data to be updated, and rows to be properly sorted
+			VersesTable.Source = new VersesTableSource (this);
+		}
+
+		private void SetupUI ()
+		{
 			VersesTable = new UITableView ()
 			{
 				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height - 83),
@@ -38,13 +54,6 @@ namespace Verses.iOS
 			NavigationItem.RightBarButtonItem = ComposeButton;
 
 			View.AddSubview (VersesTable);
-		}
-
-		public override void ViewDidAppear (bool animated)
-		{
-			base.ViewDidAppear (animated);
-
-			NavigationController.NavigationBar.SetBackgroundImage (Images.VersesBar, UIBarMetrics.Default);
 		}
 	}
 }
