@@ -175,6 +175,18 @@ namespace Verses.Core
 			}
 		}
 
+		public bool PrayerExists (int id)
+		{
+			var count = (from p in Table<Prayer> () 
+			             where p.Id == id select p).Count ();
+
+			if (count == 1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 		public bool PrayerExists (string title)
 		{
 			var count = (from p in Table<Prayer> () 

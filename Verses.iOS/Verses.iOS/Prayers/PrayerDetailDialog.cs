@@ -35,6 +35,11 @@ namespace Verses.iOS
 
 			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
 			NavigationController.NavigationBar.Add (NavigationBarLabel);
+
+			NavigationBarLabel.Text = prayer.Title.ToUpper ();
+			Console.WriteLine (NavigationBarLabel.Text);
+			TopBarArea.Text = prayer.Timestamp.ToShortDateString ();
+			ContentArea.Text = prayer.Content;
 		}
 
 		public override void ViewDidDisappear (bool animated)
@@ -61,9 +66,9 @@ namespace Verses.iOS
 			var editButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			editButton.SetBackgroundImage (Images.EditButton, UIControlState.Normal);
 			editButton.SetBackgroundImage (Images.EditButtonHighlighted, UIControlState.Highlighted);
-			editButton.AddTarget((object sender, EventArgs args) => 
-			                     new UIAlertView ("Not Implemented", "Coming Soon.", null, "Okay", null).Show (), 
-			                     UIControlEvent.TouchUpInside);
+			editButton.AddTarget((object sender, EventArgs args) => {
+				PresentViewController (new PrayerEditDialog (prayer), true, null);
+			}, UIControlEvent.TouchUpInside);
 
 			EditButton = new UIBarButtonItem (editButton);
 			NavigationItem.RightBarButtonItem = EditButton;
@@ -133,7 +138,6 @@ namespace Verses.iOS
 			var contentSize = ShareButton.Frame.Y + 170;
 			ScrollView.ContentSize = new SizeF (320f, contentSize);
 		}
-
 	}
 }
 

@@ -90,7 +90,7 @@ namespace Verses.Core
 				}
 			}
 		}
-
+		
 		public bool UpdatePrayer (string prayerTitle)
 		{
 			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
@@ -99,6 +99,19 @@ namespace Verses.Core
 					var prayer = database.GetPrayer (prayerTitle);
 					database.UpdatePrayer (prayer);
 
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
+
+		public bool UpdatePrayer (Prayer prayer)
+		{
+			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
+			{
+				if (database.PrayerExists (prayer.Id)) {
+					database.UpdatePrayer (prayer);
 					return true;
 				} else {
 					return false;
