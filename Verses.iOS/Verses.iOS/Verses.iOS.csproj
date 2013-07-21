@@ -125,6 +125,7 @@
     <Compile Include="Memorization\QueueDialog.cs" />
     <Compile Include="Memorization\ReviewDialog.cs" />
     <Compile Include="Memorization\DayOfWeekDialog.cs" />
+    <Compile Include="Verses\VerseEditDialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -37,7 +37,6 @@ namespace Verses.iOS
 			NavigationController.NavigationBar.Add (NavigationBarLabel);
 
 			NavigationBarLabel.Text = prayer.Title.ToUpper ();
-			Console.WriteLine (NavigationBarLabel.Text);
 			TopBarArea.Text = prayer.Timestamp.ToShortDateString ();
 			ContentArea.Text = prayer.Content;
 		}

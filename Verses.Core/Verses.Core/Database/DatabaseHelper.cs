@@ -90,6 +90,21 @@ namespace Verses.Core
 				}
 			}
 		}
+
+		public bool UpdateVerse (Verse verse)
+		{
+			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
+			{
+				if (database.VerseExists (verse.Title)) {
+					database.UpdateVerse (verse);
+					Console.WriteLine ("updated");
+					return true;
+				} else {
+					Console.WriteLine ("not updated");
+					return false;
+				}
+			}
+		}
 		
 		public bool UpdatePrayer (string prayerTitle)
 		{

@@ -1,21 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Verses.Core/Verses.Core/Database/VersesSQLiteConnection.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Verses.iOS/Verses/VerseDetailDialog.cs">
     <Files>
-      <File FileName="../Verses.Core/Verses.Core/Database/VersesSQLiteConnection.cs" Line="151" Column="14" />
-      <File FileName="../Verses.Core/Verses.Core/Database/DatabaseHelper.cs" Line="107" Column="4" />
+      <File FileName="Verses.iOS/Verses/VerseEditDialog.cs" Line="1" Column="1" />
+      <File FileName="Verses.iOS/Verses/VerseDetailDialog.cs" Line="74" Column="69" />
+      <File FileName="Verses.iOS/Verses/VerseCell.cs" Line="50" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Verses.Core.iOS" expanded="True">
-            <Node name="Database" expanded="True">
-              <Node name="VersesSQLiteConnection.cs" selected="True" />
-            </Node>
-          </Node>
           <Node name="Verses.iOS" expanded="True">
-            <Node name="Prayers" expanded="True" />
-            <Node name="Verses" expanded="True" />
+            <Node name="Verses" expanded="True">
+              <Node name="VerseDetailDialog.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

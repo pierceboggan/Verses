@@ -70,9 +70,9 @@ namespace Verses.iOS
 			var editButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			editButton.SetBackgroundImage (Images.EditButton, UIControlState.Normal);
 			editButton.SetBackgroundImage (Images.EditButtonHighlighted, UIControlState.Highlighted);
-			editButton.AddTarget((object sender, EventArgs args) => 
-			                     new UIAlertView ("Not Implemented", "Coming Soon.", null, "Okay", null).Show (), 
-			                     UIControlEvent.TouchUpInside);
+			editButton.AddTarget((object sender, EventArgs args) => {
+				PresentViewController (new VerseEditDialog (verse), true, null);
+			},UIControlEvent.TouchUpInside);
 
 			EditButton = new UIBarButtonItem (editButton);
 			NavigationItem.RightBarButtonItem = EditButton;
