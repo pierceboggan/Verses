@@ -1,9 +1,8 @@
-Mono.Security.dll
-Newtonsoft.Json.MonoTouch.dll
-SQLite.dll
-System.Core.dll
-System.Runtime.Serialization.dll
-System.Xml.dll
-System.dll
-Verses.Core.iOS.dll
 mscorlib.dll
+System.Core.dll
+System.dll
+System.Xml.dll
+Verses.Core.iOS.dll
+Newtonsoft.Json.MonoTouch.dll
+System.Runtime.Serialization.dll
+SQLite.dll

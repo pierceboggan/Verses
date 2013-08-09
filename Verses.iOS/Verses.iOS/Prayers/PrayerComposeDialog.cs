@@ -63,6 +63,7 @@ namespace Verses.iOS
 				Frame = new RectangleF (0, 49, View.Bounds.Size.Width, 28f),
 				Placeholder = "Title"
 			};
+			PrayerTitle.BecomeFirstResponder ();
 
 			BlackLine = new UIView ()
 			{
@@ -76,7 +77,6 @@ namespace Verses.iOS
 				Frame = new RectangleF (0, 78, View.Bounds.Width, 165f),
 				KeyboardAppearance = UIKeyboardAppearance.Default
 			};
-			PrayerContent.BecomeFirstResponder ();
 
 			NavigationItem.LeftBarButtonItem = CancelButton;
 			NavigationItem.RightBarButtonItem = SaveButton;

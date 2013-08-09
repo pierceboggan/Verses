@@ -9,7 +9,6 @@ namespace Verses.iOS
 	public class VerseDetailDialog : UIViewController
 	{
 		UIBarButtonItem BackButton;
-		UIView BlackLine;
 		UITextView ContentArea;
 		UIBarButtonItem EditButton;
 		UIButton MemorizedButton;
@@ -17,7 +16,6 @@ namespace Verses.iOS
 		UIScrollView ScrollView;
 		UIButton ShareButton;
 		UIButton ToMemorizeButton;
-		UITextField Tags;
 		UITextField TopBarArea;
 		Verse verse;
 
@@ -125,25 +123,7 @@ namespace Verses.iOS
 			ScrollView.Add (ContentArea);
 			ContentArea.Frame = new RectangleF (14f, 52f, 294f, ContentArea.ContentSize.Height);
 
-			BlackLine = new UIView () 
-			{
-				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
-				Frame = new RectangleF (14, ContentArea.Bounds.Height + 54, 294f, 1f)
-			};
-
-			Tags = new UITextField () 
-			{
-				BackgroundColor = UIColor.White,
-				BorderStyle = UITextBorderStyle.None,
-				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
-				Frame = new RectangleF (14, ContentArea.Bounds.Height + 55, 294f, 32),
-				LeftView = new UIImageView (Images.Tag),
-				LeftViewMode = UITextFieldViewMode.Always,
-				Text = "sampletag exampletag modeltag"
-			};
-			Tags.VerticalAlignment = UIControlContentVerticalAlignment.Center;
-
-			var height = ContentArea.Bounds.Height + 112f;
+			var height = ContentArea.Bounds.Height + 74f;
 			ShareButton = new UIButton () 
 			{
 				Frame = new RectangleF (33.5f, height, 253f, 33f)
@@ -153,7 +133,7 @@ namespace Verses.iOS
 				new UIAlertView ("Share", "Sharing hasn't been implemented yet.", null, "Okay", null).Show ();
 			};
 
-			var toMemorizeHeight = ContentArea.Bounds.Height + 167f;
+			var toMemorizeHeight = ContentArea.Bounds.Height + 126f;
 			ToMemorizeButton = new UIButton () 
 			{
 				Frame = new RectangleF (33.5f, toMemorizeHeight, 253f, 33f)
@@ -188,8 +168,6 @@ namespace Verses.iOS
 			};
 
 			ScrollView.Add (TopBarArea);
-			ScrollView.Add (BlackLine);
-			ScrollView.Add (Tags);
 			ScrollView.Add (ShareButton);
 			ScrollView.Add (ToMemorizeButton);
 			ScrollView.Add (MemorizedButton);

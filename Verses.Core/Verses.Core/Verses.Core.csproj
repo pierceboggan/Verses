@@ -41,16 +41,12 @@
     <Folder Include="Web Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\DatabaseUtility.cs" />
     <Compile Include="Database\Prayer.cs" />
     <Compile Include="Database\Verse.cs" />
     <Compile Include="Database\SQLite\SQLite.cs" />
     <Compile Include="Database\SQLite\SQLiteAsync.cs" />
     <Compile Include="Web Services\BibleGateway.cs" />
     <Compile Include="Web Services\JsonModels.cs" />
-    <Compile Include="Database\Tag.cs" />
-    <Compile Include="Database\DatabaseUtilityAsync.cs" />
-    <Compile Include="Database\VerseTag.cs" />
     <Compile Include="Database\DatabaseSetupHelper.cs" />
     <Compile Include="Database\DatabaseHelper.cs" />
     <Compile Include="Database\MemorizationCategory.cs" />

@@ -12,7 +12,6 @@ namespace Verses.Core
 
 		}
 
-		#region Add
 		public void AddVerse (Verse v)
 		{
 			Insert (v);
@@ -23,18 +22,6 @@ namespace Verses.Core
 			Insert (p);
 		}
 
-		public void AddTag (Tag t)
-		{
-			Insert (t);
-		}
-
-		public void AddVerseTag (VerseTag t)
-		{
-			Insert (t);
-		}
-		#endregion
-
-		#region Update
 		public void UpdateVerse (Verse v)
 		{
 			Update (v);
@@ -44,9 +31,7 @@ namespace Verses.Core
 		{
 			Update (p);
 		}
-		#endregion
 
-		#region Delete
 		public void RemoveVerse (Verse v)
 		{
 			Delete<Verse> (v);
@@ -57,18 +42,6 @@ namespace Verses.Core
 			Delete<Prayer> (p);
 		}
 
-		public void RemoveTag (Tag t)
-		{
-			Delete<Tag> (t);
-		}
-
-		public void RemoveVerseTag (VerseTag t)
-		{
-			Delete<VerseTag> (t);
-		}
-		#endregion
-
-		#region Get
 		public Verse GetVerse (int id)
 		{
 			var verse = (from t in Table<Verse> () 
@@ -93,33 +66,6 @@ namespace Verses.Core
 			return prayer;
 		}
 
-		public Tag GetTag (string title)
-		{
-			var tag = (from t in Table<Tag> () 
-			             where t.Name == title select t).FirstOrDefault ();
-
-			return tag;
-		}
-
-		public List<Verse> GetVersesForTag (string tagTitle)
-		{
-			var tag = GetTag (tagTitle);
-
-			var verseTagIds = (from t in Table<VerseTag> ()
-			                 where t.TagId == tag.Id select t.VerseId).ToList ();
-
-			List<Verse> verses = new List<Verse> ();
-			foreach (var t in verseTagIds)
-			{
-				var verse = (from v in Table<Verse> ()
-				             where v.Id == t select v).FirstOrDefault ();
-
-				verses.Add (verse);
-			}
-
-			return verses;
-		}
-
 		public List<Verse> GetMemorizationsForCategory (MemorizationCategory category)
 		{
 			var verses = (from t in Table<Verse> () 
@@ -139,18 +85,6 @@ namespace Verses.Core
 			return Table<Prayer> ().ToList ();
 		}
 
-		public List<Tag> GetAllTags ()
-		{
-			return Table<Tag> ().ToList ();
-		}
-
-		public List<VerseTag> GetAllVerseTags ()
-		{
-			return Table<VerseTag> ().ToList ();
-		}
-		#endregion 
-
-		#region Search
 		public bool VerseExists (int id)
 		{
 			var count = (from v in Table<Verse> () 
@@ -198,31 +132,6 @@ namespace Verses.Core
 				return false;
 			}
 		}
-
-		public bool TagExists (string title)
-		{
-			var count = (from t in Table<Tag> () 
-			             where t.Name == title select t).Count ();
-
-			if (count == 1) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-
-		public bool VerseTagExists (int tagId, int verseId)
-		{
-			var count = (from t in Table<VerseTag> () 
-			           where t.TagId == tagId && t.VerseId == verseId select t).Count ();
-
-			if (count == 1) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-		#endregion
 	}
 }
 

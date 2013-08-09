@@ -73,29 +73,17 @@
     <Compile Include="..\..\Verses.Core\Verses.Core\Database\DatabaseSetupHelper.cs">
       <Link>Database\DatabaseSetupHelper.cs</Link>
     </Compile>
-    <Compile Include="..\..\Verses.Core\Verses.Core\Database\DatabaseUtility.cs">
-      <Link>Database\DatabaseUtility.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Verses.Core\Verses.Core\Database\DatabaseUtilityAsync.cs">
-      <Link>Database\DatabaseUtilityAsync.cs</Link>
-    </Compile>
     <Compile Include="..\..\Verses.Core\Verses.Core\Database\MemorizationCategory.cs">
       <Link>Database\MemorizationCategory.cs</Link>
     </Compile>
     <Compile Include="..\..\Verses.Core\Verses.Core\Database\Prayer.cs">
       <Link>Database\Prayer.cs</Link>
     </Compile>
-    <Compile Include="..\..\Verses.Core\Verses.Core\Database\Tag.cs">
-      <Link>Database\Tag.cs</Link>
-    </Compile>
     <Compile Include="..\..\Verses.Core\Verses.Core\Database\Verse.cs">
       <Link>Database\Verse.cs</Link>
     </Compile>
     <Compile Include="..\..\Verses.Core\Verses.Core\Database\VersesSQLiteConnection.cs">
       <Link>Database\VersesSQLiteConnection.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Verses.Core\Verses.Core\Database\VerseTag.cs">
-      <Link>Database\VerseTag.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

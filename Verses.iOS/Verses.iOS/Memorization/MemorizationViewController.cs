@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using Verses.Core;
 
 namespace Verses.iOS
 {
@@ -90,7 +92,6 @@ namespace Verses.iOS
 			ReviewButton.SetBackgroundImage (Images.ReviewButton, UIControlState.Normal);
 			ReviewButton.SetBackgroundImage (Images.ReviewButtonHighlighted, UIControlState.Highlighted);
 
-
 			View.Add (SundayButton);
 			View.Add (MondayButton);
 			View.Add (TuesdayButton);
@@ -101,8 +102,6 @@ namespace Verses.iOS
 			View.Add (QueueButton);
 			View.Add (ReviewButton);
 		}
-
-
 	}
 }
 

@@ -11,14 +11,9 @@ namespace Verses.iOS
 	public class VerseComposeDialog : UIViewController
 	{
 		UIView BlackLine;
-		UIView BlackLineTwo;
-		UIView BlackLineThree;
 		UINavigationBar NavigationBar;
 		UITextView VerseComments;
 		UITextField VerseReference;
-		UITextField VerseTags;
-		UITextView VerseTagsView;
-		UISwipeGestureRecognizer VerseTagsViewSwipeUp;
 
 		public VerseComposeDialog ()
 		{
@@ -70,6 +65,7 @@ namespace Verses.iOS
 				Frame = new RectangleF (0, 49, View.Bounds.Size.Width, 28f),
 				Placeholder = "Verse"
 			};
+			VerseReference.BecomeFirstResponder ();
 
 			BlackLine = new UIView ()
 			{
@@ -84,59 +80,6 @@ namespace Verses.iOS
 				KeyboardAppearance = UIKeyboardAppearance.Default,
 				TextAlignment = UITextAlignment.Left
 			};
-			VerseComments.BecomeFirstResponder ();
-
-			BlackLineTwo = new UIView () 
-			{
-				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
-				Frame = new RectangleF (0, 213, View.Bounds.Width, 1f)
-			};
-
-			VerseTags = new UITextField ()
-			{
-				AutocorrectionType = UITextAutocorrectionType.No,
-				BorderStyle = UITextBorderStyle.None,
-				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
-				Frame = new RectangleF (0, 214, View.Bounds.Size.Width, 28f),
-				LeftViewMode = UITextFieldViewMode.Always,
-				LeftView = new UIImageView (Images.Tag)
-			};
-
-			BlackLineThree = new UIView() 
-			{
-				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
-				Frame = new RectangleF (0, 244, View.Bounds.Width, 1f)
-			};
-
-			VerseTagsView = new UITextView () 
-			{
-				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
-				Frame = new RectangleF (0, 245, View.Bounds.Width, 145f),
-				KeyboardAppearance = UIKeyboardAppearance.Default
-			};
-
-			VerseTagsViewSwipeUp = new UISwipeGestureRecognizer () 
-			{
-				Direction = UISwipeGestureRecognizerDirection.Down,
-				NumberOfTouchesRequired = 1
-			};
-			VerseTagsViewSwipeUp.AddTarget (SwipedUpHandler);
-			VerseTagsView.AddGestureRecognizer (VerseTagsViewSwipeUp);
-
-			VerseTags.AllTouchEvents += delegate(object sender, EventArgs e) {
-				VerseReference.Hidden = true;
-				VerseComments.Hidden = true;
-
-				BlackLineTwo.Hidden = true;
-				BlackLineThree.Hidden = true;
-
-				UIView.Animate(0.5, () => {
-					VerseTags.Frame = new RectangleF (0, 44, VerseTags.Frame.Width, VerseTags.Frame.Height);
-					VerseTagsView.Frame = new RectangleF (0, 78, VerseTagsView.Frame.Width, VerseTagsView.Frame.Height);
-				});
-
-				BlackLine.Hidden = false;
-			};
 
 			NavigationItem.LeftBarButtonItem = CancelButton;
 			NavigationItem.RightBarButtonItem = SaveButton;
@@ -145,25 +88,6 @@ namespace Verses.iOS
 			View.AddSubview (VerseReference);
 			View.AddSubview (BlackLine);
 			View.AddSubview (VerseComments);
-			View.AddSubview (BlackLineTwo);
-			View.AddSubview (VerseTags);
-			View.AddSubview (BlackLineThree);
-			View.AddSubview (VerseTagsView);
-		}
-
-		private void SwipedUpHandler ()
-		{
-			UIView.Animate (0.5, () => {
-				VerseTags.Frame = new RectangleF (0, 214, View.Bounds.Size.Width, 28f);
-				VerseTagsView.Frame = new RectangleF (0, 245, View.Bounds.Width, 145f);
-			}, () => {
-				HandleIntelligentTagging ();
-			});
-
-			VerseReference.Hidden = false;
-			VerseComments.Hidden = false;
-			BlackLineTwo.Hidden = false;
-			BlackLineThree.Hidden = false;
 		}
 
 		// TODO: Add *real* data from BibleGateway, instead of mock data
@@ -180,32 +104,9 @@ namespace Verses.iOS
 				Title = VerseReference.Text
 			};
 
-			var tags = new List<Tag> ();
-			foreach (string tag in ParseTags ()) {
-				tags.Add (new Tag { Name = tag });
-			}
-
 			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
 			var db = new DatabaseHelper (path);
 			db.AddVerse (verse);
-		}
-
-		private void HandleIntelligentTagging ()
-		{
-			string[] tags = ParseTags ();
-
-			foreach (string tag in tags) {
-				var tagsText = VerseTags.Text.ToString ();
-				tagsText += " " + tag;
-				VerseTags.Text = tagsText;
-			}
-		}
-
-		private string[] ParseTags ()
-		{
-			var tags = VerseTagsView.Text.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
-
-			return tags;
 		}
 	}
 }

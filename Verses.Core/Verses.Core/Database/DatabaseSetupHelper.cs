@@ -29,8 +29,6 @@ namespace Verses.Core
 			{
 				database.CreateTable<Prayer> ();
 				database.CreateTable<Verse> ();
-				database.CreateTable<Tag> ();
-				database.CreateTable<VerseTag> ();
 			}
 		}
 
@@ -42,8 +40,6 @@ namespace Verses.Core
 			{
 				database.DropTable<Prayer> ();
 				database.DropTable<Verse> ();
-				database.DropTable<Tag> ();
-				database.DropTable<VerseTag> ();
 			}
 		}
 
@@ -65,8 +61,6 @@ namespace Verses.Core
 		{
 			var prayers = new List<Prayer> ();
 			var verses = new List<Verse> ();
-			var tags = new List<Tag> ();
-			var verseTags = new List<VerseTag> ();
 
 			var path = GetDatabasePath(databaseName);
 
@@ -84,22 +78,8 @@ namespace Verses.Core
 				verses.Add (new Verse { Title = "Genesis 15:17-21", Content = "When the sun had gone down and it was dark, behold, a smoking fire pot and a flaming torch passed between these pieces. On that day the Lord made a covenant with Abram, saying, “To your offspring I give this land, from the river of Egypt to the great river, the river Euphrates, the land of the Kenites, the Kenizzites, the Kadmonites, the Hittites, the Perizzites, the Rephaim, the Amorites, the Canaanites, the Girgashites and the Jebusites.”", Comments = "The Lord's covenant with Abram (later to become Abraham)." });
 				verses.Add (new Verse { Title = "John 14:13-14", Content = "Whatever you ask in my name, this I will do, that the Father may be glorified in the Son. If you ask me anything in my name, I will do it.", Comments = "" });
 
-				tags.Add (new Tag { Name = "Joy" });
-				tags.Add (new Tag { Name = "Peace" });
-				tags.Add (new Tag { Name = "Beauty" });
-				tags.Add (new Tag { Name = "Jesus" });
-				tags.Add (new Tag { Name = "Cross" });
-
-				verseTags.Add (new VerseTag { VerseId = 1, TagId = 1 });
-				verseTags.Add (new VerseTag { VerseId = 2, TagId = 2 });
-				verseTags.Add (new VerseTag { VerseId = 3, TagId = 3 });
-				verseTags.Add (new VerseTag { VerseId = 4, TagId = 4 });
-				verseTags.Add (new VerseTag { VerseId = 5, TagId = 5 });
-
 				database.InsertAll (prayers);
 				database.InsertAll (verses);
-				database.InsertAll (tags);
-				database.InsertAll (verseTags);
 			}
 
 		}
@@ -113,8 +93,6 @@ namespace Verses.Core
 				// Create table if they don't exist
 				database.CreateTable<Prayer>();
 				database.CreateTable<Verse>();
-				database.CreateTable<Tag> ();
-				database.CreateTable<VerseTag> ();
 			}
 		}
 	}

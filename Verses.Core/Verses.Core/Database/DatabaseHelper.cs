@@ -15,7 +15,6 @@ namespace Verses.Core
 			Path = path;
 		}
 
-		#region Add
 		public bool AddVerse (Verse verse)
 		{
 			var title = verse.Title;
@@ -39,43 +38,6 @@ namespace Verses.Core
 			}
 		}
 
-		public bool AddTag (Tag tag)
-		{
-			var name = tag.Name;
-
-			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
-			{
-				if (database.TagExists (name)) {
-					return false;
-				} else {
-					database.AddTag (tag);
-					return true;
-				}
-			}
-		}
-
-		public void AddVerseTags (string verseTitle, IEnumerable<Tag> tags)
-		{
-			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
-			{
-				foreach (var t in tags)
-				{
-					if (!database.TagExists (t.Name)) {
-						database.GetTag (t.Name);
-					}
-
-					var tagId = database.GetTag (t.Name).Id;
-					var verseId = database.GetVerse (t.Name).Id;
-
-					if (!database.VerseTagExists (tagId, verseId)) {
-						database.AddVerseTag (new VerseTag { TagId = tagId, VerseId = verseId });
-					}
-				}
-			}
-		}
-		#endregion
-
-		#region Update
 		public bool UpdateVerse (string verseTitle)
 		{
 			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
@@ -165,9 +127,7 @@ namespace Verses.Core
 				}
 			}
 		}
-		#endregion
 
-		#region Remove
 		public bool RemoveVerse (Verse verse)
 		{
 			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
@@ -210,13 +170,10 @@ namespace Verses.Core
 				}
 			}
 		}
-		#endregion
 
-		#region Move
 		public bool MoveVerseToCategory (int verseId, MemorizationCategory category)
 		{
-			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
-			{
+			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) {
 				if (database.VerseExists (verseId)) {
 					var verse = database.GetVerse (verseId);
 					verse.Category = category;
@@ -228,9 +185,7 @@ namespace Verses.Core
 				}
 			}
 		}
-		#endregion
 
-		#region Get
 		public IEnumerable<Verse> GetVerses ()
 		{
 			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
@@ -247,22 +202,6 @@ namespace Verses.Core
 			}
 		}
 
-		public IEnumerable<Tag> GetTags ()
-		{
-			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
-			{
-				return database.GetAllTags ();
-			}
-		}
-
-		public IEnumerable<Verse> GetVersesForTag (string tag)
-		{
-			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
-			{
-				return database.GetVersesForTag (tag);
-			}
-		}
-
 		public IEnumerable<Verse> GetMemorizationsForCategory (MemorizationCategory category)
 		{
 			using (VersesSQLiteConnection database = new VersesSQLiteConnection (Path)) 
@@ -270,7 +209,6 @@ namespace Verses.Core
 				return database.GetMemorizationsForCategory (category);
 			}
 		}
-		#endregion
 	}
 }
 

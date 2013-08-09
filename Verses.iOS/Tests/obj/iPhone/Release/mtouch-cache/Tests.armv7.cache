@@ -1,1 +1,0 @@
---debug -O=gsharedvt  --aot=mtriple=armv7-ios,full,static,asmonly,direct-icalls,nodebug,dwarfdebug,outfile=/Tests.exe.armv7.s "/Users/pierceboggan/Desktop/Github/Personal Projects/VersesApp/Verses.iOS/Tests/bin/iPhone/Release/Tests.exe"
