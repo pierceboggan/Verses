@@ -102,6 +102,7 @@
     <Reference Include="BTProgressHUD">
       <HintPath>..\Components\btprogresshud-1.3\lib\ios\BTProgressHUD.dll</HintPath>
     </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -124,11 +125,12 @@
     <Compile Include="Prayers\PrayerDetailDialog.cs" />
     <Compile Include="Verses\VerseComposeDialog.cs" />
     <Compile Include="Verses\VerseDetailDialog.cs" />
-    <Compile Include="Memorization\QueueDialog.cs" />
-    <Compile Include="Memorization\ReviewDialog.cs" />
-    <Compile Include="Memorization\DayOfWeekDialog.cs" />
     <Compile Include="Verses\VerseEditDialog.cs" />
-    <Compile Include="Memorization\WaterfallCell.cs" />
+    <Compile Include="Memorization\MemorizationElement.cs" />
+    <Compile Include="Memorization\MoveButtonElement.cs" />
+    <Compile Include="Memorization\MemorizeButtonElement.cs" />
+    <Compile Include="Memorization\MemorizationDialogViewController.cs" />
+    <Compile Include="Memorization\ReviewButtonElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -229,8 +231,10 @@
     <BundleResource Include="Images\Detail\EditButtonHighlighted.png" />
     <BundleResource Include="Images\Detail\EditButton.png" />
     <BundleResource Include="Images\Memorization\ReviewVersesButton.png" />
-    <BundleResource Include="Images\Memorization\MoveVerseButton.png" />
     <BundleResource Include="Images\Memorization\MemorizeVersesButton.png" />
+    <BundleResource Include="Images\Memorization\GreenCheck.png" />
+    <BundleResource Include="Images\Memorization\GreyCheck.png" />
+    <BundleResource Include="Images\Memorization\MoveVersesButton.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\General\SectionHeaderBubble.png" />

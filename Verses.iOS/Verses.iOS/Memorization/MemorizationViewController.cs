@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Verses.Core;
@@ -22,9 +23,17 @@ namespace Verses.iOS
 			base.ViewDidLoad ();
 
 			SetupUI ();
+			SetupEventHandlers ();
 		}
 
-		private void SetupUI ()
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			NavigationController.NavigationBar.SetBackgroundImage (Images.MemorizationBar, UIBarMetrics.Default);
+		}
+
+		void SetupUI ()
 		{
 			View.BackgroundColor = UIColor.FromPatternImage (Images.MemorizationBackground);
 			NavigationController.NavigationBar.SetBackgroundImage (Images.MemorizationBar, UIBarMetrics.Default);
@@ -101,6 +110,28 @@ namespace Verses.iOS
 			View.Add (SaturdayButton);
 			View.Add (QueueButton);
 			View.Add (ReviewButton);
+		}
+
+		void SetupEventHandlers ()
+		{
+			SundayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Sunday);
+			MondayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Monday);
+			TuesdayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Tuesday);
+			WednesdayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Wednesday);
+			ThursdayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Thursday);
+			FridayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Friday);
+			SaturdayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Saturday);
+			QueueButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Queue);
+			ReviewButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Review);
+		}
+
+		void ButtonHandler (MemorizationCategory category)
+		{
+			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
+			var db = new DatabaseHelper (path);
+			var verses = db.GetVerses ().ToList ();
+
+			NavigationController.PushViewController (new MemorizationDialogViewController (verses, category), true);
 		}
 	}
 }

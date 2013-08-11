@@ -49,6 +49,11 @@ namespace Verses.iOS
 		public static UIImage EditButtonHighlighted = UIImage.FromFile ("Images/Detail/EditButtonHighlighted.png");
 
 		// Memorization
+		public static UIImage GreyCheck = UIImage.FromFile ("Images/Memorization/GreyCheck.png");
+		public static UIImage GreenCheck = UIImage.FromFile ("Images/Memorization/GreenCheck.png");
+		public static UIImage MoveVerseButton = UIImage.FromFile ("Images/Memorization/MoveVersesButton.png");
+		public static UIImage ReviewVerseButton = UIImage.FromFile ("Images/Memorization/ReviewVersesButton.png");
+		public static UIImage MemorizeVerseButton = UIImage.FromFile ("Images/Memorization/MemorizeVersesButton.png");
 		public static UIImage MemorizationBackground = UIImage.FromFile ("Images/Memorization/Background.png");
 		public static UIImage SundayButton = UIImage.FromFile ("Images/Memorization/SundayButton.png");
 		public static UIImage SundayButtonHighlighted = UIImage.FromFile ("Images/Memorization/SundayButtonHighlighted.png");

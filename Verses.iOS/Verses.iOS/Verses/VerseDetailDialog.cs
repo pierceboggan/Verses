@@ -106,7 +106,8 @@ namespace Verses.iOS
 				RightView = new UIImageView (Images.DeleteButton),
 				RightViewMode = UITextFieldViewMode.Always,
 				Text = verse.Timestamp.ToShortDateString (),
-				TextAlignment = UITextAlignment.Left
+				TextAlignment = UITextAlignment.Left,
+				VerticalAlignment = UIControlContentVerticalAlignment.Center
 			};
 
 			ContentArea = new UITextView () 

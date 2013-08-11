@@ -1,1 +1,0 @@
---debug -O=gsharedvt  --aot=mtriple=armv7-ios,full,static,asmonly,direct-icalls,nodebug,dwarfdebug,outfile=/System.Runtime.Serialization.dll.armv7.s "/Developer/MonoTouch/usr/lib/mono/2.1/System.Runtime.Serialization.dll"
