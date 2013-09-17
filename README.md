@@ -16,6 +16,7 @@ I suggest you use this application as a reference on creating an iOS application
 * Async / Await
 * Lambda Expressions
 * Localytics
+* 100% imperative (C#) UI
 
 ### App
 * Store prayers for later viewing or reminder
