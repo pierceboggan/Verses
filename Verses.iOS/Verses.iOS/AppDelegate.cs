@@ -4,6 +4,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Verses.Core;
+using Parse;
 
 namespace Verses.iOS
 {
@@ -11,7 +12,7 @@ namespace Verses.iOS
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		UIWindow window;
-		UITabBarController tabBarController;
+		public static UITabBarController tabBarController { get; set; }
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
@@ -35,6 +36,8 @@ namespace Verses.iOS
 				verses,
 				memorization,
 			};
+			tabBarController.TabBar.BackgroundImage = Images.TabBarBackground;
+			tabBarController.SelectedIndex = 1;
 
 			ConfigureDatabase ();
 			ConfigureAppearanceSettings ();
@@ -43,8 +46,8 @@ namespace Verses.iOS
 			window.RootViewController = tabBarController;
 			window.MakeKeyAndVisible ();
 
-			//UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge
-			//                                                                    | UIRemoteNotificationType.Sound);
+			UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge
+			                                                                    | UIRemoteNotificationType.Sound);
 
 			return true;
 		}
@@ -63,50 +66,12 @@ namespace Verses.iOS
 		private void ConfigureAppearanceSettings ()
 		{
 			UINavigationBar.Appearance.SetBackgroundImage (Images.NavigationBarBackground, UIBarMetrics.Default);
-			UITabBar.Appearance.BackgroundImage = Images.TabBarBackground;
-			UITableView.Appearance.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+			UITableView.Appearance.BackgroundColor = UIColor.FromRGB (247, 247, 247);
 		}
 
 		private void ConfigureThirdPartyLibraries ()
 		{
-			// Setup Flurry
 
-			// Setup Parse
 		}
-
-		// Parse Stuff
-		/*
-		public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
-		{
-			ParsePush.StoreDeviceToken (deviceToken);
-			
-			ParsePush.SubscribeToChannelAsync ("", delegate(bool succeeded, NSError error) {
-				if (succeeded) {
-					Console.WriteLine ("Successfully subscribed to channel.");
-				} else {
-					Console.WriteLine ("Failed to subscribe to broadcast channel. Error: {0}", error);
-				}
-			});
-		}
-		
-		public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
-		{
-			if (error.Code == 3010) {
-				Console.WriteLine ("Push notifications are not supported in the iOS simulator.");
-			} else {
-				Console.WriteLine ("Failed to subscribe to broadcast channel. Error: {0}", error);
-			}
-		}
-
-		public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
-		{
-			ParsePush.HandlePush (userInfo);
-		}
-
-		private void ConfigureThirdPartyLibraries ()
-		{
-			ParseClient.Initialize (StringConstants.APPLICATION_ID, StringConstants.CLIENT_KEY);
-		}
-*/
 	}
 }

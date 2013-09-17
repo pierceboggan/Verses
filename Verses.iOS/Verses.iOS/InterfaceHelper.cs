@@ -22,6 +22,12 @@ namespace Verses.iOS
 			
 			navigationItem.TitleView = TitleView;
 		}
+
+		// Kerneling
+//		NSMutableAttributedString *attributedString;
+//		attributedString = [[NSMutableAttributedString alloc] initWithString:@"Please get wider"];
+//		[attributedString addAttribute:NSKernAttributeName value:@5 range:NSMakeRange(10, 5)];
+//		[self.label setAttributedText:attributedString];
 	}
 }
 

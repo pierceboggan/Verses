@@ -21,8 +21,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <MtouchLink>None</MtouchLink>
     <MtouchDebug>True</MtouchDebug>
+    <MtouchExtraArgs>-v-v-v</MtouchExtraArgs>
+    <MtouchI18n />
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -34,6 +36,10 @@
     <MtouchLink>None</MtouchLink>
     <MtouchI18n />
     <MtouchArch>ARMv7, ARMv7s</MtouchArch>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchSdkVersion>6.1</MtouchSdkVersion>
+    <MtouchExtraArgs>-v -v -v</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>True</DebugSymbols>
@@ -51,6 +57,7 @@
     <MtouchArch>ARMv7</MtouchArch>
     <CodesignProvision>0705433B-8E2A-40A2-A487-71585D711A0F</CodesignProvision>
     <IpaPackageName />
+    <MtouchExtraArgs>-v -v -v</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -59,13 +66,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution: John Boggan (H24XX45L33)</CodesignKey>
     <MtouchI18n />
     <MtouchArch>ARMv7</MtouchArch>
-    <CodesignProvision>02793BDC-16DD-4040-A45E-4809E6369A22</CodesignProvision>
     <IpaPackageName />
-    <MtouchExtraArgs>-compiler:clang</MtouchExtraArgs>
     <BuildIpa>true</BuildIpa>
+    <CodesignProvision>B755A41B-1393-460D-A09E-EAB69546D83E</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -75,8 +81,11 @@
     <WarningLevel>4</WarningLevel>
     <BuildIpa>True</BuildIpa>
     <ConsolePause>False</ConsolePause>
-    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignProvision>F0BD4116-D07A-4A7E-A4F0-EF9D61220EB9</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
+    <IpaPackageName />
+    <MtouchI18n />
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
@@ -93,16 +102,16 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="SQLite">
-      <HintPath>..\Components\sqlite-net-1.0\lib\ios\SQLite.dll</HintPath>
-    </Reference>
-    <Reference Include="ParseTouch">
-      <HintPath>..\Components\parse-1.1.1\lib\ios\ParseTouch.dll</HintPath>
-    </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="BTProgressHUD">
       <HintPath>..\Components\btprogresshud-1.3\lib\ios\BTProgressHUD.dll</HintPath>
     </Reference>
-    <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="Parse.iOS">
+      <HintPath>..\Components\parse-1.2.7\lib\ios\Parse.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite">
+      <HintPath>..\Components\sqlite-net-1.0\lib\ios\SQLite.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -126,11 +135,19 @@
     <Compile Include="Verses\VerseComposeDialog.cs" />
     <Compile Include="Verses\VerseDetailDialog.cs" />
     <Compile Include="Verses\VerseEditDialog.cs" />
-    <Compile Include="Memorization\MemorizationElement.cs" />
-    <Compile Include="Memorization\MoveButtonElement.cs" />
-    <Compile Include="Memorization\MemorizeButtonElement.cs" />
     <Compile Include="Memorization\MemorizationDialogViewController.cs" />
-    <Compile Include="Memorization\ReviewButtonElement.cs" />
+    <Compile Include="Memorization\Elements\MemorizationElement.cs" />
+    <Compile Include="Memorization\Elements\MoveButtonElement.cs" />
+    <Compile Include="Memorization\Elements\MemorizeButtonElement.cs" />
+    <Compile Include="Memorization\Elements\ReviewButtonElement.cs" />
+    <Compile Include="Memorization\Flashcard\FrontView.cs" />
+    <Compile Include="Memorization\Flashcard\BackView.cs" />
+    <Compile Include="Memorization\Flashcard\FlipCardSide.cs" />
+    <Compile Include="Memorization\Flashcard\FlipCardController.cs" />
+    <Compile Include="Memorization\Elements\EmptySectionElement.cs" />
+    <Compile Include="FontConstants.cs" />
+    <Compile Include="Reachability.cs" />
+    <Compile Include="Sharing.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -146,6 +163,9 @@
     <Folder Include="Images\Headers\" />
     <Folder Include="Images\Memorization\" />
     <Folder Include="Images\Detail\" />
+    <Folder Include="Memorization\Elements\" />
+    <Folder Include="Memorization\Flashcard\" />
+    <Folder Include="Images\Settings\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinAddonReference Include="xamarin.social">
@@ -172,7 +192,7 @@
     </XamarinComponentReference>
     <XamarinComponentReference Include="parse">
       <InstallationInProgress>False</InstallationInProgress>
-      <Version>1.1.1</Version>
+      <Version>1.2.7</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
@@ -235,6 +255,11 @@
     <BundleResource Include="Images\Memorization\GreenCheck.png" />
     <BundleResource Include="Images\Memorization\GreyCheck.png" />
     <BundleResource Include="Images\Memorization\MoveVersesButton.png" />
+    <BundleResource Include="Images\Settings\SettingsButton.png" />
+    <BundleResource Include="Images\Settings\SettingsButtonHighlighted.png" />
+    <BundleResource Include="Images\Settings\SettingsButtonGrey.png" />
+    <BundleResource Include="Images\Memorization\HeartGreyButton.png" />
+    <BundleResource Include="Images\Memorization\HeartRedButton.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\General\SectionHeaderBubble.png" />
@@ -256,6 +281,10 @@
     <ProjectReference Include="..\..\Verses.Core.iOS\Verses.Core.iOS\Verses.Core.iOS.csproj">
       <Project>{B3DD08EF-53A3-465D-A640-E218C184A4E2}</Project>
       <Name>Verses.Core.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BibleAPI.iOS\BibleAPI.iOS.csproj">
+      <Project>{38F652B3-383F-4BCB-80AB-F392CA44E2D4}</Project>
+      <Name>BibleAPI.iOS</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

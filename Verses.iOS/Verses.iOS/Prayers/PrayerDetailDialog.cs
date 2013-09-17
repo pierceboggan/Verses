@@ -12,21 +12,14 @@ namespace Verses.iOS
 		UITextView ContentArea;
 		UIBarButtonItem EditButton;
 		UILabel NavigationBarLabel;
-		Prayer prayer;
+		Prayer Prayer;
 		UIScrollView ScrollView;
 		UIButton ShareButton;
 		UITextField TopBarArea;
 
 		public PrayerDetailDialog (Prayer data)
 		{
-			prayer = data;
-		}
-
-		public override void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
-
-			SetupUI ();
+			Prayer = data;
 		}
 
 		public override void ViewDidAppear (bool animated)
@@ -36,9 +29,9 @@ namespace Verses.iOS
 			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
 			NavigationController.NavigationBar.Add (NavigationBarLabel);
 
-			NavigationBarLabel.Text = prayer.Title.ToUpper ();
-			TopBarArea.Text = prayer.Timestamp.ToShortDateString ();
-			ContentArea.Text = prayer.Content;
+			NavigationBarLabel.Text = Prayer.Title.ToUpper ();
+			TopBarArea.Text = Prayer.Timestamp.ToShortDateString ();
+			ContentArea.Text = Prayer.Content;
 		}
 
 		public override void ViewDidDisappear (bool animated)
@@ -48,16 +41,27 @@ namespace Verses.iOS
 			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
-		private void SetupUI ()
+		public override void ViewDidLoad ()
 		{
-			View.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+			base.ViewDidLoad ();
+
+			SetupNavigationBar ();
+			SetupUI ();
+		}
+
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
+		{
+			return UIInterfaceOrientationMask.Portrait;
+		}
+
+		private void SetupNavigationBar ()
+		{
 			NavigationItem.HidesBackButton = true;
 
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			backButton.SetBackgroundImage (Images.BackButton, UIControlState.Normal);
 			backButton.SetBackgroundImage (Images.BackButtonHighlighted, UIControlState.Highlighted);
-			backButton.AddTarget((object sender, EventArgs args) => NavigationController.PopViewControllerAnimated (true), 
-			                     UIControlEvent.TouchUpInside);
+			backButton.AddTarget (HandleBackButtonTapped, UIControlEvent.TouchUpInside);
 
 			BackButton = new UIBarButtonItem (backButton);
 			NavigationItem.LeftBarButtonItem = BackButton;
@@ -65,26 +69,25 @@ namespace Verses.iOS
 			var editButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			editButton.SetBackgroundImage (Images.EditButton, UIControlState.Normal);
 			editButton.SetBackgroundImage (Images.EditButtonHighlighted, UIControlState.Highlighted);
-			editButton.AddTarget((object sender, EventArgs args) => {
-				PresentViewController (new PrayerEditDialog (prayer), true, null);
-			}, UIControlEvent.TouchUpInside);
+			editButton.AddTarget (HandleEditButtonTapped, UIControlEvent.TouchUpInside);
 
 			EditButton = new UIBarButtonItem (editButton);
 			NavigationItem.RightBarButtonItem = EditButton;
 
-			NavigationBarLabel = new UILabel () 
-			{
+			NavigationBarLabel = new UILabel () {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName ("KeepCalm-Medium", 16f),
+				Font = FontConstants.SourceSansProRegular (16),
 				Frame = new RectangleF (0, 0, View.Bounds.Width, NavigationController.NavigationBar.Bounds.Height),
-				Text = prayer.Title.ToUpper (),
+				Text = Prayer.Title.ToUpper (),
 				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.White,
 				ShadowColor = UIColor.FromWhiteAlpha (0f, 0.5f)
 			};
+		}
 
-			ScrollView = new UIScrollView () 
-			{
+		private void SetupUI ()
+		{
+			ScrollView = new UIScrollView () {
 				BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground),
 				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height),
 				PagingEnabled = false,
@@ -92,44 +95,39 @@ namespace Verses.iOS
 			};
 			View.Add (ScrollView);
 
-			TopBarArea = new UITextField () 
-			{
+			TopBarArea = new UITextField () {
 				BackgroundColor = UIColor.White,
 				Enabled = false,
-				Font = UIFont.FromName("SourceSansPro-Regular", 13f),
+				Font = FontConstants.SourceSansProRegular (13),
 				Frame = new RectangleF (14f, 22f, 294f, 32f),
 				LeftView = new UIImageView (Images.TimeIcon),
 				LeftViewMode = UITextFieldViewMode.Always,
 				RightView = new UIImageView (Images.DeleteButton),
 				RightViewMode = UITextFieldViewMode.Always,
-				Text = prayer.Timestamp.ToShortDateString (),
+				Text = Prayer.Timestamp.ToShortDateString (),
 				TextAlignment = UITextAlignment.Left,
 				VerticalAlignment = UIControlContentVerticalAlignment.Center
 			};
 
-			ContentArea = new UITextView () 
-			{
+			ContentArea = new UITextView () {
 				BackgroundColor = UIColor.White,
 				ContentInset = new UIEdgeInsets (0, 5, 0, 5),
 				Editable = false,
-				Font = UIFont.FromName("SourceSansPro-Regular", 13f),
+				Font = FontConstants.SourceSansProRegular (13),
 				Frame = new RectangleF (14f, 48f, 294f, 10f),
 				ScrollEnabled = false,
-				Text = prayer.Content,
+				Text = Prayer.Content,
 				TextAlignment = UITextAlignment.Left
 			};
 			ScrollView.Add (ContentArea);
 			ContentArea.Frame = new RectangleF (14f, 52f, 294f, ContentArea.ContentSize.Height);
 
 			var height = ContentArea.Bounds.Height + 79f;
-			ShareButton = new UIButton () 
-			{
+			ShareButton = new UIButton () {
 				Frame = new RectangleF (33.5f, height, 253f, 33f)
 			};
 			ShareButton.SetBackgroundImage (Images.ShareButton, UIControlState.Normal);
-			ShareButton.TouchUpInside += delegate(object sender, EventArgs e) {
-				new UIAlertView ("Share", "Sharing hasn't been implemented yet.", null, "Okay", null).Show ();
-			};
+			ShareButton.AddTarget (HandleShareTapped, UIControlEvent.TouchUpInside);
 
 			ScrollView.Add (TopBarArea);
 			ScrollView.Add (ShareButton);
@@ -137,6 +135,21 @@ namespace Verses.iOS
 			// ShareButton + NavBar + TabBar + (2 * 22f)
 			var contentSize = ShareButton.Frame.Y + 170;
 			ScrollView.ContentSize = new SizeF (320f, contentSize);
+		}
+
+		private void HandleBackButtonTapped (object sender, EventArgs args)
+		{
+			NavigationController.PopViewControllerAnimated (true);
+		}
+
+		private void HandleEditButtonTapped (object sender, EventArgs args)
+		{
+			PresentViewController (new PrayerEditDialog (Prayer), true, null);
+		}
+
+		private void HandleShareTapped (object sender, EventArgs args)
+		{
+			Sharing.SharePrayer (this, Prayer);
 		}
 	}
 }

@@ -61,12 +61,6 @@
     </XamarinAddonReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Verses.Core\Verses.Core\Web Services\BibleGateway.cs">
-      <Link>Web Services\BibleGateway.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Verses.Core\Verses.Core\Web Services\JsonModels.cs">
-      <Link>Web Services\JsonModels.cs</Link>
-    </Compile>
     <Compile Include="..\..\Verses.Core\Verses.Core\Database\DatabaseHelper.cs">
       <Link>Database\DatabaseHelper.cs</Link>
     </Compile>

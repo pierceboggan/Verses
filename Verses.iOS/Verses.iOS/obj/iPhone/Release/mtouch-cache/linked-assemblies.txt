@@ -1,0 +1,14 @@
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/VersesiOS.exe
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/System.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/Newtonsoft.Json.MonoTouch.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/monotouch.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/Verses.Core.iOS.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/BibleAPI.iOS.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/System.Net.Http.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/MobileHmtlAgilityPack.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/mscorlib.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/SQLite.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/MonoTouch.Dialog-1.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/System.Xml.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/System.Core.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.iOS/Verses.iOS/obj/iPhone/Release/mtouch-cache/Link/System.Runtime.Serialization.dll

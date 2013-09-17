@@ -8,7 +8,7 @@ namespace Verses.iOS
 {
 	public class VersesViewController : UIViewController
 	{
-		UIBarButtonItem ComposeButton;
+		UIBarButtonItem ComposeButton, SettingsButton;
 
 		public UITableView VersesTable { get; set; }
 
@@ -21,6 +21,7 @@ namespace Verses.iOS
 		{
 			base.ViewDidLoad ();
 
+			SetupNavigationBar ();
 			SetupUI ();
 		}
 
@@ -29,31 +30,53 @@ namespace Verses.iOS
 			base.ViewDidAppear (animated);
 
 			NavigationController.NavigationBar.SetBackgroundImage (Images.VersesBar, UIBarMetrics.Default);
-
-			// Enables table data to be updated, and rows to be properly sorted
 			VersesTable.Source = new VersesTableSource (this);
 		}
 
-		private void SetupUI ()
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
 		{
-			VersesTable = new UITableView ()
-			{
-				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height - 83),
-				SectionIndexMinimumDisplayRowCount = 20,
-				SeparatorStyle = UITableViewCellSeparatorStyle.None,
-				Source = new VersesTableSource (this)
-			};
+			return UIInterfaceOrientationMask.Portrait;
+		}
 
+		private void SetupNavigationBar ()
+		{
 			var composeButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			composeButton.SetBackgroundImage (Images.ComposeButton, UIControlState.Normal);
 			composeButton.SetBackgroundImage (Images.ComposeButtonHighlighted, UIControlState.Highlighted);
-			composeButton.AddTarget((object sender, EventArgs args) => PresentViewController (new VerseComposeDialog (), true, null), 
-			                        UIControlEvent.TouchUpInside);
+			composeButton.AddTarget (HandleComposeButtonTapped, UIControlEvent.TouchUpInside);
 
 			ComposeButton = new UIBarButtonItem (composeButton);
 			NavigationItem.RightBarButtonItem = ComposeButton;
 
+			var settingsButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			settingsButton.SetBackgroundImage (Images.SettingsButton, UIControlState.Normal);
+			settingsButton.SetBackgroundImage (Images.SettingsButtonHighlighted, UIControlState.Highlighted);
+			settingsButton.AddTarget (HandleSettingsButtonTapped, UIControlEvent.TouchUpInside);
+
+			SettingsButton = new UIBarButtonItem (settingsButton);
+			NavigationItem.LeftBarButtonItem = SettingsButton;
+		}
+
+		private void SetupUI ()
+		{
+			VersesTable = new UITableView () {
+				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height - 83),
+				SectionIndexMinimumDisplayRowCount = 25,
+				SeparatorStyle = UITableViewCellSeparatorStyle.None,
+				Source = new VersesTableSource (this)
+			};
+
 			View.AddSubview (VersesTable);
+		}
+
+		private void HandleComposeButtonTapped (object sender, EventArgs args)
+		{
+			PresentViewController (new VerseComposeDialog (this), true, null);
+		}
+
+		private void HandleSettingsButtonTapped (object sender, EventArgs args)
+		{
+			PresentViewController (new VerseComposeDialog (this), true, null);
 		}
 	}
 }

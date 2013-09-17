@@ -27,6 +27,11 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
+		{
+			return UIInterfaceOrientationMask.Portrait;
+		}
+
 		private void SetupUI ()
 		{
 			View.BackgroundColor = UIColor.White;

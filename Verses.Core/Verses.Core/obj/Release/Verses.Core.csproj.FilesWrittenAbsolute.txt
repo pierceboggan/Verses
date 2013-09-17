@@ -1,0 +1,4 @@
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.Core/Verses.Core/obj/Release/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.Core/Verses.Core/bin/Release/Verses.Core.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.Core/Verses.Core/obj/Release/Verses.Core.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/VersesApp/Verses.Core/Verses.Core/bin/Release/Newtonsoft.Json.MonoTouch.dll

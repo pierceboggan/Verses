@@ -28,6 +28,8 @@ namespace Verses.iOS
 
 			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
 			NavigationController.NavigationBar.Add (NavigationBarLabel);
+
+			BuildRootTree ();
 		}
 
 		public override void ViewDidDisappear (bool animated)
@@ -42,12 +44,12 @@ namespace Verses.iOS
 			base.LoadView ();
 
 			SetupUI ();
+			BuildRootTree ();
+		}
 
-			var root = new RootElement ("");
-			root.Add (BuildMemorizationsSection ());
-			AddActionButtonToRoot (root);
-
-			Root = root;
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
+		{
+			return UIInterfaceOrientationMask.Portrait;
 		}
 
 		void SetupUI ()
@@ -87,6 +89,21 @@ namespace Verses.iOS
 			};
 		}
 
+		void BuildRootTree ()
+		{
+			var root = new RootElement ("");
+			root.Add (BuildMemorizationsSection ());
+			if (root [0].Count == 0) {
+				root.Add (new Section {
+					new EmptySectionElement ()
+				});
+			}
+			else {
+				AddActionButtonToRoot (root);
+			}
+			Root = root;
+		}
+
 		Element BuildMemorizationElement (Verse v)
 		{
 			var element = new MemorizationElement (v);
@@ -111,7 +128,7 @@ namespace Verses.iOS
 					root.Add (new Section { new MoveButtonElement () });
 					break;
 				case MemorizationCategory.Review:
-					root.Add (new Section { new ReviewButtonElement () });
+					root.Add (new Section { new ReviewButtonElement (), new MoveButtonElement () });
 					break;
 			}
 		}

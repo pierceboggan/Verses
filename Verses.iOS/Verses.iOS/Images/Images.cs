@@ -73,6 +73,12 @@ namespace Verses.iOS
 		public static UIImage QueueButtonHighlighted = UIImage.FromFile ("Images/Memorization/QueueButtonHighlighted.png");
 		public static UIImage ReviewButton = UIImage.FromFile ("Images/Memorization/ReviewButton.png");
 		public static UIImage ReviewButtonHighlighted = UIImage.FromFile ("Images/Memorization/ReviewButtonHighlighted.png");
+		public static UIImage HeartRedButton = UIImage.FromFile ("Images/Memorization/HeartRedButton.png");
+		public static UIImage HeartGreyButton = UIImage.FromFile ("Images/Memorization/HeartGreyButton.png");
+
+		// Settings
+		public static UIImage SettingsButton = UIImage.FromFile ("Images/Settings/SettingsButton.png");
+		public static UIImage SettingsButtonHighlighted = UIImage.FromFile ("Images/Settings/SettingsButtonHighlighted.png");
 	}
 }
 

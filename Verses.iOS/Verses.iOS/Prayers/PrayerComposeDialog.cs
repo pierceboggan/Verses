@@ -13,6 +13,7 @@ namespace Verses.iOS
 		UINavigationBar NavigationBar;
 		UITextView PrayerContent;
 		UITextField PrayerTitle;
+		ContentTextDelegate TextViewDelegate;
 
 		public PrayerComposeDialog ()
 		{
@@ -22,15 +23,18 @@ namespace Verses.iOS
 		{
 			base.ViewDidLoad();
 
+			SetupNavigationBar ();
 			SetupUI ();
 		}
 
-		private void SetupUI ()
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
 		{
-			View.BackgroundColor = UIColor.White;
+			return UIInterfaceOrientationMask.Portrait;
+		}
 
-			NavigationBar = new UINavigationBar ()
-			{
+		private void SetupNavigationBar ()
+		{
+			NavigationBar = new UINavigationBar () {
 				Frame = new RectangleF(0, 0, View.Bounds.Width, 44)
 			};
 			NavigationBar.SetBackgroundImage (Images.ComposeBar, UIBarMetrics.Default);
@@ -41,45 +45,48 @@ namespace Verses.iOS
 			var cancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			cancelButton.SetBackgroundImage (Images.CancelButton, UIControlState.Normal);
 			cancelButton.SetBackgroundImage (Images.CancelButtonHighlighted, UIControlState.Highlighted);
-			cancelButton.AddTarget((object sender, EventArgs args) => DismissViewController (true, null), 
-			                       UIControlEvent.TouchUpInside);
+			cancelButton.AddTarget (HandleCancelButtonTapped, UIControlEvent.TouchUpInside);
 
 			var saveButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			saveButton.SetBackgroundImage (Images.SaveButton, UIControlState.Normal);
 			saveButton.SetBackgroundImage (Images.SaveButtonHighlighted, UIControlState.Highlighted);
-			saveButton.AddTarget((object sender, EventArgs args) => {
-				SaveButtonClicked ();
-				DismissViewController (true, null); 
-			}, UIControlEvent.TouchUpInside);
+			saveButton.AddTarget (HandleSaveButtonTapped, UIControlEvent.TouchUpInside);
 
 			var CancelButton = new UIBarButtonItem (cancelButton);
 			var SaveButton = new UIBarButtonItem (saveButton);
 
-			PrayerTitle = new UITextField ()
-			{
+			NavigationItem.LeftBarButtonItem = CancelButton;
+			NavigationItem.RightBarButtonItem = SaveButton;
+		}
+
+		private void SetupUI ()
+		{
+			View.BackgroundColor = UIColor.White;
+
+			PrayerTitle = new UITextField () {
 				BackgroundColor = UIColor.Clear,
 				BorderStyle = UITextBorderStyle.None,
-				Font = UIFont.FromName ("SourceSansPro-Bold", 15f),
+				Font = FontConstants.SourceSansProBold (15),
 				Frame = new RectangleF (0, 49, View.Bounds.Size.Width, 28f),
 				Placeholder = "Title"
 			};
 			PrayerTitle.BecomeFirstResponder ();
 
-			BlackLine = new UIView ()
-			{
+			BlackLine = new UIView () {
 				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
 				Frame = new RectangleF (0, 77, View.Bounds.Width, 1f)
 			};
 
-			PrayerContent = new UITextView ()
-			{
-				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
+			TextViewDelegate = new ContentTextDelegate ();
+			PrayerContent = new UITextView () {
+				Delegate = TextViewDelegate,
+				Font = FontConstants.SourceSansProBold (13),
 				Frame = new RectangleF (0, 78, View.Bounds.Width, 165f),
-				KeyboardAppearance = UIKeyboardAppearance.Default
+				KeyboardAppearance = UIKeyboardAppearance.Default,
+				Text = "Content",
+				TextAlignment = UITextAlignment.Left,
+				TextColor = UIColor.LightGray
 			};
-
-			NavigationItem.LeftBarButtonItem = CancelButton;
-			NavigationItem.RightBarButtonItem = SaveButton;
 
 			View.AddSubview (NavigationBar);
 			View.AddSubview (PrayerTitle);
@@ -87,18 +94,64 @@ namespace Verses.iOS
 			View.AddSubview (PrayerContent);
 		}
 
+		private void HandleCancelButtonTapped (object sender, EventArgs args)
+		{
+			DismissViewController (true, null);
+		}
+
+		private void HandleSaveButtonTapped (object sender, EventArgs args)
+		{
+			SaveButtonClicked ();
+		}
+
 		private void SaveButtonClicked ()
 		{
-			var prayer = new Prayer () 
-			{
-				Title = PrayerTitle.Text,
-				Content = PrayerContent.Text,
-				Timestamp = NSDate.Now
-			};
+			if (!(PrayerContent.Text == "" || PrayerTitle.Text == "")) {
+				var prayer = new Prayer () 
+				{
+					Title = PrayerTitle.Text,
+					Content = PrayerContent.Text,
+					Timestamp = NSDate.Now
+				};
 
-			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
-			var db = new DatabaseHelper (path);
-			db.AddPrayer (prayer);
+				var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
+				var db = new DatabaseHelper (path);
+				db.AddPrayer (prayer);
+
+				DismissViewController (true, null);
+			} else {	
+				new UIAlertView ("Invalid Input", "Add additional information to your prayer!", null, "Okay", null).Show ();
+			}
+		}
+
+		public class ContentTextDelegate : UITextViewDelegate
+		{
+			public ContentTextDelegate ()
+			{
+
+			}
+
+			public override void EditingStarted (UITextView textView)
+			{
+				if (textView.Text == "Content") {
+					textView.Text = "";
+					textView.TextColor = UIColor.Black;
+					textView.Font = FontConstants.SourceSansProRegular (13);
+				}
+
+				textView.BecomeFirstResponder ();
+			}
+
+			public override void EditingEnded (UITextView textView)
+			{
+				if (textView.Text == "") {
+					textView.Text = "Content";
+					textView.TextColor = UIColor.LightGray;
+					textView.Font = FontConstants.SourceSansProBold (13);
+				}
+
+				textView.ResignFirstResponder ();
+			}
 		}
 	}
 }

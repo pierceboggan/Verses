@@ -1,27 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.0" />
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Verses.iOS" expanded="True" />
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>list</Value>
-          <Value>e.Result</Value>
-          <Value>cell.BackgroundColor</Value>
-          <Value>cdm</Value>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Ad-Hoc|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Verses.iOS>
+    <IPhoneTestFlightSettings_27CRelease ApiToken="1b9ea7841e2fa34dffc7e753db0871ca_NzQwMDI2MjAxMi0xMS0xNiAxODoyMzo0MC45MjMwMDA" TeamToken="bdf78b423a9d2db85b97aca91d0825e0_MTc2NjgzMjAxMy0wMS0xOCAwMToyMjo0OC44MjUxMjQ" ReleaseNotes="Initial alpha release!" NotifyTeamMembers="True" ReplaceBinaries="True" UploadDSYMs="False" DistributionLists="" />
+    <IPhoneTestFlightSettings_27CAd-Hoc ApiToken="1b9ea7841e2fa34dffc7e753db0871ca_NzQwMDI2MjAxMi0xMS0xNiAxODoyMzo0MC45MjMwMDA" TeamToken="bdf78b423a9d2db85b97aca91d0825e0_MTc2NjgzMjAxMy0wMS0xOCAwMToyMjo0OC44MjUxMjQ" ReleaseNotes="Bugs Fixed:&#xA;-No verse enter on compose fails&#xA;-Spacing between cells sometimes varies&#xA;-Editing a verse comment and returning doesn't change the detail view&#xA;-Flashcards should display properly within an iPhone 5&#xA;-The &quot;memorize&quot; button should now work within the detail view&#xA;-The &quot;memorized&quot; button within the flashcards is now functional&#xA;-Handle non-existant verses&#xA;&#xA;Enhancements:&#xA;-The app now opens by default on the &quot;Verses&quot; tab&#xA;-Sharing now works by default! Try it out!&#xA;-New gestures for flashcards!&#xA;	-One fingers swipe up/down =&gt; flip over card&#xA;	-Two fingers swipe up/down =&gt; next card&#xA;&#xA;Coming Soon:&#xA;-Delete button works!&#xA;-Swipe right to delete works!&#xA;-Settings!&#xA;-Retina graphics&#xA;-Introduction View Controller&#xA;-Copyright information&#xA;-Ability to search for verses / prayers&#xA;&#xA;Report all bugs to verses@pierceboggan.com" NotifyTeamMembers="True" ReplaceBinaries="True" UploadDSYMs="False" DistributionLists="Verses" />
+  </MonoDevelop.Ide.ItemProperties.Verses.iOS>
 </Properties>

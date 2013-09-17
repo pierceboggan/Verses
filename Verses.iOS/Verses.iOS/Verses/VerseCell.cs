@@ -6,28 +6,25 @@ using Verses.Core;
 
 namespace Verses.iOS
 {
-	// Documentation: http://docs.xamarin.com/ios/tutorials/Working_with_Tables_and_Cells
 	public class VerseCell : UITableViewCell
 	{
 		UILabel VerseContent, VerseReference;
-		
+
 		public VerseCell (NSString reuseIdentifier) : base (UITableViewCellStyle.Default, reuseIdentifier)
 		{
-			// Cell settings
 			SelectionStyle = UITableViewCellSelectionStyle.None;
 
-			VerseReference = new UILabel ()
-			{
+			VerseReference = new UILabel () {
 				BackgroundColor = UIColor.FromPatternImage (Images.CellHeader),
-				Font = UIFont.FromName("SourceSansPro-Bold", 15f),
+				Font = FontConstants.SourceSansProBold (15),
 				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.White
 			};
 			
-			VerseContent = new UILabel ()
-			{
+			VerseContent = new UILabel () {
 				BackgroundColor = UIColor.White,
-				Font = UIFont.FromName("SourceSansPro-Regular", 13f),
+				Font = FontConstants.SourceSansProRegular (13),
+				LineBreakMode = UILineBreakMode.TailTruncation,
 				Lines = 0,
 				TextAlignment = UITextAlignment.Left,
 				TextColor = UIColor.Black
@@ -49,7 +46,7 @@ namespace Verses.iOS
 
 			var text = new NSString (VerseContent.Text);
 			var maxSize = new SizeF (278, 70);
-			var currentSize = text.StringSize (UIFont.FromName("SourceSansPro-Regular", 13f), maxSize);
+			var currentSize = text.StringSize (FontConstants.SourceSansProRegular (13), maxSize);
 
 			VerseContent.Frame = new RectangleF (24, 30, 278, currentSize.Height);
 			VerseReference.Frame = new RectangleF (22, 7, 278, 20);

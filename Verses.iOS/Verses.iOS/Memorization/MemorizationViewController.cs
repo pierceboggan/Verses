@@ -18,6 +18,13 @@ namespace Verses.iOS
 
 		}
 
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			NavigationController.NavigationBar.SetBackgroundImage (Images.MemorizationBar, UIBarMetrics.Default);
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -26,11 +33,9 @@ namespace Verses.iOS
 			SetupEventHandlers ();
 		}
 
-		public override void ViewDidAppear (bool animated)
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
 		{
-			base.ViewDidAppear (animated);
-
-			NavigationController.NavigationBar.SetBackgroundImage (Images.MemorizationBar, UIBarMetrics.Default);
+			return UIInterfaceOrientationMask.Portrait;
 		}
 
 		void SetupUI ()
@@ -38,64 +43,55 @@ namespace Verses.iOS
 			View.BackgroundColor = UIColor.FromPatternImage (Images.MemorizationBackground);
 			NavigationController.NavigationBar.SetBackgroundImage (Images.MemorizationBar, UIBarMetrics.Default);
 
-			SundayButton = new UIButton () 
-			{
+			SundayButton = new UIButton () {
 				Frame = new RectangleF (30, 25, 70, 70)
 			};
 			SundayButton.SetBackgroundImage (Images.SundayButton, UIControlState.Normal);
 			SundayButton.SetBackgroundImage (Images.SundayButtonHighlighted, UIControlState.Highlighted);
 
-			MondayButton = new UIButton () 
-			{
+			MondayButton = new UIButton () {
 				Frame = new RectangleF (125, 25, 70, 70)
 			};
 			MondayButton.SetBackgroundImage (Images.MondayButton, UIControlState.Normal);
 			MondayButton.SetBackgroundImage (Images.MondayButtonHighlighted, UIControlState.Highlighted);
 
-			TuesdayButton = new UIButton () 
-			{
+			TuesdayButton = new UIButton () {
 				Frame = new RectangleF (220, 25, 70, 70)
 			};
 			TuesdayButton.SetBackgroundImage (Images.TuesdayButton, UIControlState.Normal);
 			TuesdayButton.SetBackgroundImage (Images.TuesdayButtonHighlighted, UIControlState.Highlighted);
 
-			WednesdayButton = new UIButton () 
-			{
+			WednesdayButton = new UIButton () {
 				Frame = new RectangleF (30, 120, 70, 70)
 			};
 			WednesdayButton.SetBackgroundImage (Images.WednesdayButton, UIControlState.Normal);
 			WednesdayButton.SetBackgroundImage (Images.WednesdayButtonHighlighted, UIControlState.Highlighted);
 
-			ThursdayButton = new UIButton () 
-			{
+			ThursdayButton = new UIButton () {
 				Frame = new RectangleF (125, 120, 70, 70)
 			};
 			ThursdayButton.SetBackgroundImage (Images.ThursdayButton, UIControlState.Normal);
 			ThursdayButton.SetBackgroundImage (Images.ThursdayButtonHighlighted, UIControlState.Highlighted);
 
-			FridayButton = new UIButton () 
-			{
+			FridayButton = new UIButton () {
 				Frame = new RectangleF (220, 120, 70, 70)
 			};
 			FridayButton.SetBackgroundImage (Images.FridayButton, UIControlState.Normal);
 			FridayButton.SetBackgroundImage (Images.FridayButtonHighlighted, UIControlState.Highlighted);
 
-			SaturdayButton = new UIButton () 
-			{
+			SaturdayButton = new UIButton () {
 				Frame = new RectangleF (30, 215, 70, 70)
 			};
 			SaturdayButton.SetBackgroundImage (Images.SaturdayButton, UIControlState.Normal);
 			SaturdayButton.SetBackgroundImage (Images.SaturdayButtonHighlighted, UIControlState.Highlighted);
 
-			QueueButton = new UIButton () 
-			{
+			QueueButton = new UIButton () {
 				Frame = new RectangleF (125, 215, 70, 70)
 			};
 			QueueButton.SetBackgroundImage (Images.QueueButton, UIControlState.Normal);
 			QueueButton.SetBackgroundImage (Images.QueueButtonHighlighted, UIControlState.Highlighted);
 
-			ReviewButton = new UIButton () 
-			{
+			ReviewButton = new UIButton () {
 				Frame = new RectangleF (220, 215, 70, 70)
 			};
 			ReviewButton.SetBackgroundImage (Images.ReviewButton, UIControlState.Normal);

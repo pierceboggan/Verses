@@ -59,10 +59,8 @@ namespace Verses.Core
 			{
 				if (database.VerseExists (verse.Title)) {
 					database.UpdateVerse (verse);
-					Console.WriteLine ("updated");
 					return true;
 				} else {
-					Console.WriteLine ("not updated");
 					return false;
 				}
 			}

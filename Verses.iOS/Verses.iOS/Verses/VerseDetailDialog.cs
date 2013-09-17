@@ -9,7 +9,10 @@ namespace Verses.iOS
 	public class VerseDetailDialog : UIViewController
 	{
 		UIBarButtonItem BackButton;
+		UIView BlackLine;
+		UITextView CommentsArea;
 		UITextView ContentArea;
+		UIImageView DeleteImageView;
 		UIBarButtonItem EditButton;
 		UIButton MemorizedButton;
 		UILabel NavigationBarLabel;
@@ -17,24 +20,17 @@ namespace Verses.iOS
 		UIButton ShareButton;
 		UIButton ToMemorizeButton;
 		UITextField TopBarArea;
-		Verse verse;
+		Verse Verse;
 
 		public bool Memorized { get; set; }
 		public bool ToMemorize { get; set; }
 
 		public VerseDetailDialog (Verse data)
 		{
-			verse = data;
+			Verse = data;
 
-			ToMemorize = true;
-			Memorized = false;
-		}
-
-		public override void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
-
-			SetupUI ();
+			ToMemorize = data.Memorizable;
+			Memorized = data.Memorized;
 		}
 
 		public override void ViewDidAppear (bool animated)
@@ -43,6 +39,9 @@ namespace Verses.iOS
 
 			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
 			NavigationController.NavigationBar.Add (NavigationBarLabel);
+
+			TopBarArea.Text = Verse.Timestamp.ToShortDateString ();
+			CommentsArea.Text = Verse.Comments;
 		}
 
 		public override void ViewDidDisappear (bool animated)
@@ -52,42 +51,53 @@ namespace Verses.iOS
 			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
-		private void SetupUI ()
+		public override void ViewDidLoad ()
 		{
-			View.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+			base.ViewDidLoad ();
 
+			SetupNavigationBar ();
+			SetupUI ();
+		}
+
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
+		{
+			return UIInterfaceOrientationMask.Portrait;
+		}
+
+		private void SetupNavigationBar ()
+		{
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			backButton.SetBackgroundImage (Images.BackButton, UIControlState.Normal);
 			backButton.SetBackgroundImage (Images.BackButtonHighlighted, UIControlState.Highlighted);
-			backButton.AddTarget((object sender, EventArgs args) => NavigationController.PopViewControllerAnimated (true), 
-			                     UIControlEvent.TouchUpInside);
-
-			BackButton = new UIBarButtonItem (backButton);
-			NavigationItem.LeftBarButtonItem = BackButton;
+			backButton.AddTarget(HandleBackButtonTapped, UIControlEvent.TouchUpInside);
 
 			var editButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			editButton.SetBackgroundImage (Images.EditButton, UIControlState.Normal);
 			editButton.SetBackgroundImage (Images.EditButtonHighlighted, UIControlState.Highlighted);
-			editButton.AddTarget((object sender, EventArgs args) => {
-				PresentViewController (new VerseEditDialog (verse), true, null);
-			},UIControlEvent.TouchUpInside);
+			editButton.AddTarget(HandleEditButtonTapped ,UIControlEvent.TouchUpInside);
 
+			BackButton = new UIBarButtonItem (backButton);
 			EditButton = new UIBarButtonItem (editButton);
+
+			NavigationItem.LeftBarButtonItem = BackButton;
 			NavigationItem.RightBarButtonItem = EditButton;
 
-			NavigationBarLabel = new UILabel () 
-			{
+			NavigationBarLabel = new UILabel () {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName ("KeepCalm-Medium", 16f),
+				Font = FontConstants.SourceSansProBold (16),
 				Frame = new RectangleF (0, 0, View.Bounds.Width, NavigationController.NavigationBar.Bounds.Height),
-				Text = verse.Title.ToUpper (),
+				Text = Verse.Title.ToUpper (),
 				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.White,
 				ShadowColor = UIColor.FromWhiteAlpha (0f, 0.5f)
 			};
+		}
 
-			ScrollView = new UIScrollView () 
-			{
+		private void SetupUI ()
+		{
+			View.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+
+			ScrollView = new UIScrollView () {
 				BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground),
 				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height),
 				PagingEnabled = false,
@@ -95,78 +105,83 @@ namespace Verses.iOS
 			};
 			View.Add (ScrollView);
 
-			TopBarArea = new UITextField () 
-			{
+			DeleteImageView = new UIImageView (Images.DeleteButton);
+			DeleteImageView.UserInteractionEnabled = true;
+
+			TopBarArea = new UITextField () {
 				BackgroundColor = UIColor.White,
 				Enabled = false,
-				Font = UIFont.FromName("SourceSansPro-Regular", 13f),
+				Font = FontConstants.SourceSansProRegular (13),
 				Frame = new RectangleF (14f, 22f, 294f, 32f),
 				LeftView = new UIImageView (Images.TimeIcon),
 				LeftViewMode = UITextFieldViewMode.Always,
-				RightView = new UIImageView (Images.DeleteButton),
+				RightView = DeleteImageView,
 				RightViewMode = UITextFieldViewMode.Always,
-				Text = verse.Timestamp.ToShortDateString (),
+				Text = Verse.Timestamp.ToShortDateString (),
 				TextAlignment = UITextAlignment.Left,
 				VerticalAlignment = UIControlContentVerticalAlignment.Center
 			};
 
-			ContentArea = new UITextView () 
-			{
+			ContentArea = new UITextView () {
 				BackgroundColor = UIColor.White,
 				ContentInset = new UIEdgeInsets (0, 5, 0, 5),
 				Editable = false,
-				Font = UIFont.FromName("SourceSansPro-Regular", 13f),
+				Font = FontConstants.SourceSansProRegular (13),
 				Frame = new RectangleF (14f, 48f, 294f, 10f),
 				ScrollEnabled = false,
-				Text = verse.Content,
+				Text = Verse.Content,
 				TextAlignment = UITextAlignment.Left
 			};
 			ScrollView.Add (ContentArea);
 			ContentArea.Frame = new RectangleF (14f, 52f, 294f, ContentArea.ContentSize.Height);
 
-			var height = ContentArea.Bounds.Height + 74f;
-			ShareButton = new UIButton () 
-			{
+			var height = ContentArea.Bounds.Height + 48f;
+			BlackLine = new UIView () {
+				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
+				Frame = new RectangleF (24, height, 284f, 1f)
+			};
+			ScrollView.Add (BlackLine);
+
+			height = ContentArea.Bounds.Height + BlackLine.Bounds.Height + 48f;
+			CommentsArea = new UITextView () {
+				BackgroundColor = UIColor.White,
+				ContentInset = new UIEdgeInsets (0, 5, 0, 5),
+				Editable = false,
+				Font = FontConstants.SourceSansProRegular (13),
+				Frame = new RectangleF (14f, height, 294f, 10f),
+				ScrollEnabled = false,
+				Text = Verse.Comments,
+				TextAlignment = UITextAlignment.Left
+			};
+			ScrollView.Add (CommentsArea);
+			CommentsArea.Frame = new RectangleF (14f, height, 294f, CommentsArea.ContentSize.Height);
+
+			//height = ContentArea.Bounds.Height + CommentsArea.Bounds.Height + 66f;
+			height = CommentsArea.Frame.Bottom + 22f;
+			ShareButton = new UIButton () {
 				Frame = new RectangleF (33.5f, height, 253f, 33f)
 			};
 			ShareButton.SetBackgroundImage (Images.ShareButton, UIControlState.Normal);
-			ShareButton.TouchUpInside += delegate(object sender, EventArgs e) {
-				new UIAlertView ("Share", "Sharing hasn't been implemented yet.", null, "Okay", null).Show ();
-			};
+			ShareButton.AddTarget (HandleShareTapped, UIControlEvent.TouchUpInside);
 
-			var toMemorizeHeight = ContentArea.Bounds.Height + 126f;
-			ToMemorizeButton = new UIButton () 
-			{
+			var toMemorizeHeight = ShareButton.Frame.Bottom + 10f;
+			ToMemorizeButton = new UIButton () {
 				Frame = new RectangleF (33.5f, toMemorizeHeight, 253f, 33f)
 			};
 			ToMemorizeButton.SetBackgroundImage (Images.ToMemorizeGreenButton, UIControlState.Normal);
-			ToMemorizeButton.TouchUpInside += delegate(object sender, EventArgs e) {
-				if (ToMemorize) {
-					ToMemorize = !ToMemorize;
-					ToMemorizeButton.SetBackgroundImage (Images.ToMemorizeRedButton, UIControlState.Normal);
-					MemorizedButton.Hidden = true;
-				} else {
-					ToMemorize = !ToMemorize;
-					ToMemorizeButton.SetBackgroundImage (Images.ToMemorizeGreenButton, UIControlState.Normal);
-					MemorizedButton.Hidden = false;
-				}
-			};
+			ToMemorizeButton.AddTarget (HandleToMemorizeTapped, UIControlEvent.TouchUpInside);
 
-			var memorizedHeight = ToMemorizeButton.Frame.Bottom + 22f;
-			MemorizedButton = new UIButton () 
-			{
+			var memorizedHeight = ToMemorizeButton.Frame.Bottom + 10f;
+			MemorizedButton = new UIButton () {
 				Frame = new RectangleF (33.5f, memorizedHeight, 253f, 33f)
 			};
-			MemorizedButton.SetBackgroundImage (Images.MemorizedRedButton, UIControlState.Normal);
-			MemorizedButton.TouchUpInside += delegate(object sender, EventArgs e) {
-				if (Memorized) {
-					Memorized = !Memorized;
-					MemorizedButton.SetBackgroundImage (Images.MemorizedRedButton, UIControlState.Normal);
-				} else {
-					Memorized = !Memorized;
-					MemorizedButton.SetBackgroundImage (Images.MemorizedGreenButton, UIControlState.Normal);
-				}
-			};
+			MemorizedButton.AddTarget (HandleMemorizedTapped, UIControlEvent.TouchUpInside);
+
+			if (Verse.Memorized) {
+				MemorizedButton.SetBackgroundImage (Images.MemorizedGreenButton, UIControlState.Normal);
+			} else {
+				MemorizedButton.SetBackgroundImage (Images.MemorizedRedButton, UIControlState.Normal);
+			}
 
 			ScrollView.Add (TopBarArea);
 			ScrollView.Add (ShareButton);
@@ -176,6 +191,76 @@ namespace Verses.iOS
 			// ShareButton + NavBar + TabBar + (2 * 22f)
 			var contentSize = MemorizedButton.Frame.Y + 170;
 			ScrollView.ContentSize = new SizeF (320f, contentSize);
+		}
+
+		private void HandleBackButtonTapped (object sender, EventArgs args)
+		{
+			NavigationController.PopViewControllerAnimated (true);
+		}
+
+		private void HandleEditButtonTapped (object sender, EventArgs args)
+		{
+			PresentViewController (new VerseEditDialog (Verse), true, null);
+		}
+
+		private void HandleShareTapped (object sender, EventArgs args)
+		{
+			Sharing.ShareVerse (this, Verse);
+		}
+
+		private void HandleToMemorizeTapped (object sender, EventArgs args)
+		{
+			if (ToMemorize) {
+				ToMemorize = !ToMemorize;
+				ToMemorizeButton.SetBackgroundImage (Images.ToMemorizeRedButton, UIControlState.Normal);
+				MemorizedButton.Hidden = true;
+
+				UpdateMemorizableInDatabase ();
+			} else {
+				ToMemorize = !ToMemorize;
+				ToMemorizeButton.SetBackgroundImage (Images.ToMemorizeGreenButton, UIControlState.Normal);
+				MemorizedButton.Hidden = false;
+
+				UpdateMemorizableInDatabase ();
+			}
+		}
+
+		private void HandleMemorizedTapped (object sender, EventArgs args)
+		{
+			if (Memorized) {
+				Memorized = !Memorized;
+				MemorizedButton.SetBackgroundImage (Images.MemorizedRedButton, UIControlState.Normal);
+
+				UpdateMemorizedInDatabase ();
+			} else {
+				Memorized = !Memorized;
+				MemorizedButton.SetBackgroundImage (Images.MemorizedGreenButton, UIControlState.Normal);
+
+				UpdateMemorizedInDatabase ();
+			}
+		}
+
+		private void UpdateMemorizableInDatabase ()
+		{
+			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
+			var db = new DatabaseHelper (path);
+			Verse.Memorizable = ToMemorize;
+			db.UpdateVerse (Verse);
+		}
+
+		private void UpdateMemorizedInDatabase ()
+		{
+			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
+			var db = new DatabaseHelper (path);
+			Verse.Memorized = Memorized;
+
+			if (Memorized) {
+				Verse.Category = MemorizationCategory.Review;
+			} else if ((!Memorized) && Verse.Category == MemorizationCategory.Review) {
+				Verse.Category = MemorizationCategory.Queue;
+			}
+
+			db.UpdateVerse (Verse);
 		}
 	}
 }
