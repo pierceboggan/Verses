@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>CFBundleDisplayName</key>
+	<string>Verses</string>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>KeepCalm.ttf</string>
+		<string>SourceSansPro-Bold.otf</string>
+		<string>SourceSansPro-Regular.otf</string>
+		<string>Montserrat-Bold.ttf</string>
+	</array>
+	<key>CFBundleIdentifier</key>
+	<string>com.pierceboggan.verses</string>
+	<key>CFBundleVersion</key>
+	<string>0.0.4</string>
+	<key>MinimumOSVersion</key>
+	<string>6.0</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Icon</string>
+		<string>Icon@2x</string>
+		<string>Icon-60@2x</string>
+		<string>Icon-Small</string>
+		<string>Icon-Small@2x</string>
+		<string>Icon-Small-40@2x</string>
+	</array>
+	<key>UIPrerenderedIcon</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<string>NO</string>
+</dict>
+</plist>

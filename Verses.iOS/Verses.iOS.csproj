@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C014CD82-3658-4FBF-88D4-1AAAD2A2B0EF}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Verses.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>VersesiOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchSdkVersion>6.1</MtouchSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7, ARMv7s</MtouchArch>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchSdkVersion>6.1</MtouchSdkVersion>
+    <MtouchUseSGen>true</MtouchUseSGen>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchDebug>True</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CrashReportingApiKey>
+    </CrashReportingApiKey>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchUseSGen>true</MtouchUseSGen>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
+    <IpaPackageName>
+    </IpaPackageName>
+    <BuildIpa>true</BuildIpa>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BuildIpa>True</BuildIpa>
+    <ConsolePause>False</ConsolePause>
+    <CodesignProvision>F0BD4116-D07A-4A7E-A4F0-EF9D61220EB9</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
+    <MtouchUseSGen>true</MtouchUseSGen>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="SQLite">
+      <HintPath>..\Components\sqlite-net-1.0.1\lib\ios\SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="BibleAPI.iOS">
+      <HintPath>..\References\BibleAPI.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Verses\VersesViewController.cs" />
+    <Compile Include="Prayers\PrayersViewController.cs" />
+    <Compile Include="Memorization\MemorizationViewController.cs" />
+    <Compile Include="Images\Images.cs" />
+    <Compile Include="StringConstants.cs" />
+    <Compile Include="Prayers\PrayersTableSource.cs" />
+    <Compile Include="InterfaceHelper.cs" />
+    <Compile Include="Prayers\PrayerCell.cs" />
+    <Compile Include="Verses\VerseCell.cs" />
+    <Compile Include="Verses\VersesTableSource.cs" />
+    <Compile Include="Prayers\PrayerComposeDialog.cs" />
+    <Compile Include="Prayers\PrayerEditDialog.cs" />
+    <Compile Include="Prayers\PrayerDetailDialog.cs" />
+    <Compile Include="Verses\VerseComposeDialog.cs" />
+    <Compile Include="Verses\VerseDetailDialog.cs" />
+    <Compile Include="Verses\VerseEditDialog.cs" />
+    <Compile Include="Memorization\MemorizationDialogViewController.cs" />
+    <Compile Include="Memorization\Elements\MemorizationElement.cs" />
+    <Compile Include="Memorization\Elements\MoveButtonElement.cs" />
+    <Compile Include="Memorization\Elements\MemorizeButtonElement.cs" />
+    <Compile Include="Memorization\Elements\ReviewButtonElement.cs" />
+    <Compile Include="Memorization\Flashcard\FrontView.cs" />
+    <Compile Include="Memorization\Flashcard\BackView.cs" />
+    <Compile Include="Memorization\Flashcard\FlipCardSide.cs" />
+    <Compile Include="Memorization\Flashcard\FlipCardController.cs" />
+    <Compile Include="Memorization\Elements\EmptySectionElement.cs" />
+    <Compile Include="FontConstants.cs" />
+    <Compile Include="Reachability.cs" />
+    <Compile Include="Sharing.cs" />
+    <Compile Include="Memorization\Elements\EmptyReviewSectionElement.cs" />
+    <Compile Include="PBTabBarController.cs" />
+    <Compile Include="Verses\CopyrightViewController.cs" />
+    <Compile Include="Memorization\Elements\CenterImageTableViewCell.cs" />
+    <Compile Include="Settings\SettingsDialog.cs" />
+    <Compile Include="Settings\StyledRootElement.cs" />
+    <Compile Include="Settings\StyledStringElement.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Images\Headers\" />
+    <Folder Include="Images\Tabs\" />
+    <Folder Include="Settings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinAddonReference Include="xamarin.social">
+      <IsInstalled>False</IsInstalled>
+      <Version>1.0.2</Version>
+      <Visible>False</Visible>
+    </XamarinAddonReference>
+    <XamarinAddonReference Include="parse">
+      <IsInstalled>False</IsInstalled>
+      <Version>1.0</Version>
+      <Visible>False</Visible>
+    </XamarinAddonReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Images\General\TableBackground.png" />
+    <BundleResource Include="Images\General\TabBarBackground.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\KeepCalm.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
+    <BundleResource Include="Resources\SourceSansPro-Regular.otf" />
+    <BundleResource Include="Images\Memorization\Background.png" />
+    <BundleResource Include="Images\Memorization\SaturdayButton.png" />
+    <BundleResource Include="Images\Memorization\FridayButton.png" />
+    <BundleResource Include="Images\Memorization\FridayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\MondayButton.png" />
+    <BundleResource Include="Images\Memorization\MondayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\QueueButton.png" />
+    <BundleResource Include="Images\Memorization\QueueButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\ReviewButton.png" />
+    <BundleResource Include="Images\Memorization\ReviewButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\SaturdayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\SundayButton.png" />
+    <BundleResource Include="Images\Memorization\SundayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\ThursdayButton.png" />
+    <BundleResource Include="Images\Memorization\ThursdayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\TuesdayButton.png" />
+    <BundleResource Include="Images\Memorization\TuesdayButtonHighlighted.png" />
+    <BundleResource Include="Images\Memorization\WednesdayButton.png" />
+    <BundleResource Include="Images\Memorization\WednesdayButtonHighlighted.png" />
+    <BundleResource Include="Images\General\CellHeader.jpg" />
+    <BundleResource Include="Images\Detail\TimeIcon.png" />
+    <BundleResource Include="Images\Memorization\GreenCheck.png" />
+    <BundleResource Include="Images\Memorization\GreyCheck.png" />
+    <BundleResource Include="Images\Settings\SettingsButton.png" />
+    <BundleResource Include="Images\Settings\SettingsButtonHighlighted.png" />
+    <BundleResource Include="Images\Detail\MemorizedRedButton.png" />
+    <BundleResource Include="Images\Detail\MemorizedGreenButton.png" />
+    <BundleResource Include="Images\Detail\ShareButton.png" />
+    <BundleResource Include="Images\Detail\ToMemorizeRedButton.png" />
+    <BundleResource Include="Images\Detail\ToMemorizeGreenButton.png" />
+    <BundleResource Include="Images\Memorization\MemorizeVersesButton.png" />
+    <BundleResource Include="Images\Memorization\MoveVersesButton.png" />
+    <BundleResource Include="Images\Memorization\ReviewVersesButton.png" />
+    <BundleResource Include="Images\Headers\ComposeBar.png" />
+    <BundleResource Include="Images\Headers\EditBar.png" />
+    <BundleResource Include="Images\Headers\MemorizationBar.png" />
+    <BundleResource Include="Images\Headers\PrayersBar.png" />
+    <BundleResource Include="Images\Headers\SettingsBar.png" />
+    <BundleResource Include="Images\Headers\VersesBar.png" />
+    <BundleResource Include="Resources\Montserrat-Bold.ttf" />
+    <BundleResource Include="Resources\29.png" />
+    <BundleResource Include="Resources\57.png" />
+    <BundleResource Include="Resources\58.png" />
+    <BundleResource Include="Resources\80.png" />
+    <BundleResource Include="Resources\114.png" />
+    <BundleResource Include="Resources\120.png" />
+    <BundleResource Include="Resources\512.png" />
+    <BundleResource Include="Resources\1024.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Splash 640x11whatever.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Images\Headers\ComposeBar%402x.png" />
+    <BundleResource Include="Images\Headers\EditBar%402x.png" />
+    <BundleResource Include="Images\Headers\MemorizationBar%402x.png" />
+    <BundleResource Include="Images\Headers\PrayersBar%402x.png" />
+    <BundleResource Include="Images\Headers\SettingsBar%402x.png" />
+    <BundleResource Include="Images\Headers\VersesBar%402x.png" />
+    <BundleResource Include="Images\Compose\CancelButton.png" />
+    <BundleResource Include="Images\Compose\CancelButtonHighlighted.png" />
+    <BundleResource Include="Images\Compose\ComposeButtonHighlighted.png" />
+    <BundleResource Include="Images\Compose\ComposeButton.png" />
+    <BundleResource Include="Images\Detail\EditButtonHighlighted.png" />
+    <BundleResource Include="Images\Detail\EditButton.png" />
+    <BundleResource Include="Images\General\BackButton.png" />
+    <BundleResource Include="Images\General\BackButtonHighlighted.png" />
+    <BundleResource Include="Images\Headers\BlankBar.png" />
+    <BundleResource Include="Images\Headers\BlankBar%402x.png" />
+    <BundleResource Include="Images\Compose\SaveButton.png" />
+    <BundleResource Include="Images\Compose\SaveButtonHighlighted.png" />
+    <BundleResource Include="Images\General\BackButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\General\BackButton%402x.png" />
+    <BundleResource Include="Images\Compose\CancelButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Compose\CancelButton%402x.png" />
+    <BundleResource Include="Images\Compose\ComposeButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Compose\ComposeButtton%402x.png" />
+    <BundleResource Include="Images\Compose\SaveButton%402x.png" />
+    <BundleResource Include="Images\Compose\SaveButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Detail\EditButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Detail\EditButton%402x.png" />
+    <BundleResource Include="Images\Detail\CopyrightButton.png" />
+    <BundleResource Include="Images\Settings\SettingsButton%402x.png" />
+    <BundleResource Include="Images\Settings\SettingsButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Detail\ShareButton%402x.png" />
+    <BundleResource Include="Images\Detail\MemorizedGreenButton%402x.png" />
+    <BundleResource Include="Images\Detail\MemorizedRedButton%402x.png" />
+    <BundleResource Include="Images\Memorization\MoveVersesButton%402x.png" />
+    <BundleResource Include="Images\Memorization\ReviewVersesButton%402x.png" />
+    <BundleResource Include="Images\Memorization\MemorizeVersesButton%402x.png" />
+    <BundleResource Include="Images\Memorization\GreyCheck%402x.png" />
+    <BundleResource Include="Images\Detail\CopyrightButton%402x.png" />
+    <BundleResource Include="Images\Memorization\HeartGreyButton%402x.png" />
+    <BundleResource Include="Images\Memorization\HeartRedButton%402x.png" />
+    <BundleResource Include="Images\Memorization\GreenCheck%402x.png" />
+    <BundleResource Include="Images\Memorization\MondayButton%402x.png" />
+    <BundleResource Include="Images\Memorization\MondayButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Memorization\FridayButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Memorization\FridayButton%402x.png" />
+    <BundleResource Include="Images\Memorization\QueueButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Memorization\QueueButton%402x.png" />
+    <BundleResource Include="Images\Memorization\ReviewButton%402x.png" />
+    <BundleResource Include="Images\Memorization\ReviewButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Memorization\SaturdayButton%402x.png" />
+    <BundleResource Include="Images\Memorization\SaturdayButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Memorization\SundayButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Memorization\SundayButton%402x.png" />
+    <BundleResource Include="Images\Memorization\ThursdayButton%402x.png" />
+    <BundleResource Include="Images\Memorization\ThursdayButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Memorization\TuesdayButton%402x.png" />
+    <BundleResource Include="Images\Memorization\TuesdayButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Memorization\WednesdayButton%402x.png" />
+    <BundleResource Include="Images\Memorization\WednesdayButtonHighlighted%402x.png" />
+    <BundleResource Include="Images\Detail\ToMemorizeRedButton%402x.png" />
+    <BundleResource Include="Images\Detail\ToMemorizeGreenButton%402x.png" />
+    <BundleResource Include="Images\Memorization\HeartGreyButton.png" />
+    <BundleResource Include="Images\Memorization\HeartRedButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Compose\BlackLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="Resources\iTunesArtwork" />
+    <ITunesArtwork Include="Resources\iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Verses.Core.iOS\Verses.Core.iOS.csproj">
+      <Project>{B3DD08EF-53A3-465D-A640-E218C184A4E2}</Project>
+      <Name>Verses.Core.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="sqlite-net">
+      <Version>1.0.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+</Project>
