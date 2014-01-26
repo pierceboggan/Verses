@@ -26,8 +26,6 @@
 	<string>com.pierceboggan.verses</string>
 	<key>CFBundleVersion</key>
 	<string>0.0.4</string>
-	<key>MinimumOSVersion</key>
-	<string>6.0</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon</string>
@@ -40,6 +38,31 @@
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<string>NO</string>
+	<string>YES</string>
+	<key>MinimumOSVersion</key>
+	<string>7.0</string>
+	<key>UIStatusBarTintParameters</key>
+	<dict>
+		<key>UINavigationBar</key>
+		<dict>
+			<key>Style</key>
+			<string>UIBarStyleDefault</string>
+			<key>Translucent</key>
+			<false/>
+			<key>TintColor</key>
+			<dict>
+				<key>Red</key>
+				<real>0</real>
+				<key>Green</key>
+				<real>0</real>
+				<key>Blue</key>
+				<real>1</real>
+			</dict>
+		</dict>
+	</dict>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.1</string>
 </dict>
 </plist>

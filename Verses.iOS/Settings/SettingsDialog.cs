@@ -12,7 +12,7 @@ namespace Verses.iOS
 		UIBarButtonItem CancelButton;
 		UILabel NavigationBarLabel;
 
-		public SettingsDialog () : base (null, false)
+		public SettingsDialog () : base (null, true)
 		{
 		}
 
@@ -28,23 +28,18 @@ namespace Verses.iOS
 			BuildTree ();
 		}
 
+
 		private void BuildTree ()
 		{
+			var translation = FetchTranslation ();
 			var root = new RootElement ("") {
 				new Section () {
-					new StyledRootElement ("Translation", new RadioGroup ("translation", 0)) { 
+					new StyledRootElement ("Translation", new RadioGroup ("translation", translation)) { 
 						new Section () {
-							new RadioElement ("English Standard Version (ESV)", "translation"),
-							new RadioElement ("King James Version (KJV)", "translation"),
-							new RadioElement ("The Message (MSG)", "translation"),
-							new RadioElement ("New American Standard Bible (NASB)", "translation")
-						}
-					},
-
-					new StyledRootElement ("Reminders", new RadioGroup ("reminders", 0)) { 
-						new Section () {
-							new RadioElement ("Pray", "reminders"),
-							new RadioElement ("Memorize", "reminders"),
+							new StyledRadioElement ("English Standard Version (ESV)", "translation"),
+							new StyledRadioElement ("King James Version (KJV)", "translation"),
+							new StyledRadioElement ("The Message (MSG)", "translation"),
+							new StyledRadioElement ("New American Standard Bible (NASB)", "translation")
 						}
 					}
 				},
@@ -71,8 +66,8 @@ namespace Verses.iOS
 		private void SetupUI ()
 		{
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			backButton.SetBackgroundImage (UIImage.FromFile ("BackButton.png"), UIControlState.Normal);
-			backButton.SetBackgroundImage (UIImage.FromFile ("BackButtonHighlighted.png"), UIControlState.Highlighted);
+			backButton.SetBackgroundImage (UIImage.FromFile ("Images/General/BackButton.png"), UIControlState.Normal);
+			backButton.SetBackgroundImage (UIImage.FromFile ("Images/General/BackButtonHighlighted.png"), UIControlState.Highlighted);
 			backButton.AddTarget((object sender, EventArgs args) => NavigationController.PopViewControllerAnimated (true), 
 				UIControlEvent.TouchUpInside);
 
@@ -90,6 +85,24 @@ namespace Verses.iOS
 			NavigationBarLabel = InterfaceHelper.LabelForTitle ("Settings");
 			TableView.BackgroundView = null;
 			TableView.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile ("Images/General/TableBackground.png"));
+		}
+
+		private int FetchTranslation ()
+		{
+			var translation = TranslationHelper.GetCurrentTranslation ();
+
+			switch (translation) {
+				case "esv":
+					return 0;
+				case "kjv":
+					return 1;
+				case "msg":
+					return 2;
+				case "nasb":
+					return 3;
+				default:
+					return 0;
+			}
 		}
 
 		private void HandleCancelButtonTapped (object sender, EventArgs args)

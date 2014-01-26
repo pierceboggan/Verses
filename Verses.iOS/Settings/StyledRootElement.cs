@@ -8,6 +8,9 @@ namespace Verses.iOS
 {
 	public class StyledRootElement : RootElement, IElementSizing
 	{
+		UIBarButtonItem BackButton;
+		UILabel NavigationBarLabel;
+
 		public StyledRootElement (string caption) : base (caption)
 		{
 
@@ -26,6 +29,46 @@ namespace Verses.iOS
 			{
 				return key;
 			}
+		}
+
+		protected override void PrepareDialogViewController (UIViewController dvc)
+		{
+			base.PrepareDialogViewController (dvc);
+
+			NavigationBarLabel = InterfaceHelper.LabelForTitle (Caption);
+			dvc.NavigationItem.TitleView = NavigationBarLabel;
+
+			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			backButton.SetBackgroundImage (UIImage.FromFile ("Images/General/BackButton.png"), UIControlState.Normal);
+			backButton.SetBackgroundImage (UIImage.FromFile ("Images/General/BackButtonHighlighted.png"), UIControlState.Highlighted);
+			backButton.AddTarget((object sender, EventArgs args) => GoBack(dvc), 
+				UIControlEvent.TouchUpInside);
+
+			BackButton = new UIBarButtonItem (backButton);
+			dvc.NavigationItem.LeftBarButtonItem = BackButton;
+		}
+
+		private void GoBack(UIViewController dvc)
+		{
+			Console.WriteLine ("Selected");
+
+			switch (RadioSelected)
+			{
+			case 0:
+				TranslationHelper.SetCurrentTranslation ("esv");
+				break;
+			case 1:
+				TranslationHelper.SetCurrentTranslation ("kjv");
+				break;	
+			case 2:
+				TranslationHelper.SetCurrentTranslation ("msg");
+				break;
+			case 3:
+				TranslationHelper.SetCurrentTranslation ("nasb");
+				break;
+			};
+
+			dvc.NavigationController.PopViewControllerAnimated (true);
 		}
 
 		public float GetHeight (UITableView tableView, NSIndexPath indexPath)

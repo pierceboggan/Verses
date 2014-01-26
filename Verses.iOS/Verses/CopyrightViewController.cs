@@ -87,6 +87,12 @@ namespace Verses.iOS
 					var trans = GetTranslation (translation);
 					var copyright = await BiblesDotOrg.GetCopyrightForTranslationAsync (trans);
 					copyrightView.Text = copyright;
+				} catch (Exception) {
+					if (translation == BibleTranslation.MSG) {
+						copyrightView.Text = "Copyright information not available. Please see messagebible.com for more information.";
+					} else {
+						copyrightView.Text = "An error fetching the copyright occurred. Please visit Bibles.org for copyright information.";
+					}
 				} finally {
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 				}

@@ -10,12 +10,13 @@ namespace Verses.iOS
 
 		public UITableView VersesTable { get; set; }
 
-		public override void ViewWillAppear (bool animated)
+		public override void ViewDidAppear (bool animated)
 		{
-			base.ViewWillAppear (animated);
+			base.ViewDidAppear (animated);
 
 			NavigationController.NavigationBar.SetBackgroundImage (Images.VersesBar, UIBarMetrics.Default);
 			SetupNavigationBar ();
+
 			VersesTable.Source = new VersesTableSource (this);
 		}
 
@@ -52,7 +53,7 @@ namespace Verses.iOS
 		void SetupUI ()
 		{
 			VersesTable = new UITableView {
-				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height),
+				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height - 69),
 				SectionIndexMinimumDisplayRowCount = 25,
 				SeparatorInset = UIEdgeInsets.Zero,
 				SeparatorStyle = UITableViewCellSeparatorStyle.None,

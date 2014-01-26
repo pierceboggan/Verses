@@ -9,13 +9,13 @@ namespace Verses.iOS
 	public class VerseComposeDialog : UIViewController
 	{
 		UIView BlackLine;
-		UIViewController ManagingController;
+		VersesViewController ManagingController;
 		UINavigationBar NavigationBar;
 		CommentsTextDelegate TextViewDelegate;
 		UITextView VerseComments;
 		UITextField VerseReference;
 
-		public VerseComposeDialog (UIViewController managingController)
+		public VerseComposeDialog (VersesViewController managingController)
 		{
 			ManagingController = managingController;
 		}
@@ -121,6 +121,11 @@ namespace Verses.iOS
 			View.AddSubview (VerseComments);
 		}
 
+		public override UIStatusBarStyle PreferredStatusBarStyle ()
+		{
+			return base.PreferredStatusBarStyle ();
+		}
+
 		private void HandleCancelButtonTapped (object sender, EventArgs args)
 		{
 			DismissViewController (true, null);
@@ -145,13 +150,16 @@ namespace Verses.iOS
 				    Comments = VerseComments.Text == "Comments" ? "" : VerseComments.Text
 				};
 
+				TranslationHelper.AddVerseTranslation (verse);
+
 			    if (Reachability.IsHostReachable ("www.google.com")) {
 					var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
 					var db = new DatabaseHelper (path);
+					var translation = TranslationHelper.GetCurrentTranslationForDownload ();
 
 					try {
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-						verse.Content = await BiblesDotOrg.GetVerseTextWithoutHtmlOrDigitsAsync (VerseReference.Text, Translation.ESV);
+						verse.Content = await BiblesDotOrg.GetVerseTextWithoutHtmlOrDigitsAsync (VerseReference.Text, translation);
 						db.AddVerse (verse);
 					} catch (InvalidVerseException ex) {
 						Console.WriteLine (ex);
@@ -161,6 +169,7 @@ namespace Verses.iOS
 					}
 
 					ManagingController.ViewDidAppear (true);
+					ManagingController.VersesTable.ReloadData ();
 				} else {
 					new UIAlertView ("Network Failure", "Oops! Please connect to the internet to download verses.", null, "Okay", null).Show ();
 				}
