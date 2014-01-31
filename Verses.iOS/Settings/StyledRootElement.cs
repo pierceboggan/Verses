@@ -35,7 +35,7 @@ namespace Verses.iOS
 		{
 			base.PrepareDialogViewController (dvc);
 
-			NavigationBarLabel = InterfaceHelper.LabelForTitle (Caption);
+			NavigationBarLabel = InterfaceHelper.LabelForTitle (Caption.ToUpper());
 			dvc.NavigationItem.TitleView = NavigationBarLabel;
 
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
@@ -50,8 +50,6 @@ namespace Verses.iOS
 
 		private void GoBack(UIViewController dvc)
 		{
-			Console.WriteLine ("Selected");
-
 			switch (RadioSelected)
 			{
 			case 0:

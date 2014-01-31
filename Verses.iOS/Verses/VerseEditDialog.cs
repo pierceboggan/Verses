@@ -8,7 +8,7 @@ namespace Verses.iOS
 	public class VerseEditDialog : UIViewController
 	{
 		UIView BlackLine;
-		UINavigationBar NavigationBar;
+		UILabel NavigationBarLabel;
 		Verse Verse;
 		UITextView VerseComments;
 		UITextField VerseReference;
@@ -18,28 +18,28 @@ namespace Verses.iOS
 			Verse = data;
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationBarLabel = InterfaceHelper.LabelForTitle ("EDIT");
+			NavigationItem.TitleView = NavigationBarLabel;
+		}
+
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
 
 			SetupNavigationBar ();
 			SetupUI ();
-
-			if (UIDevice.CurrentDevice.CheckSystemVersion (7, 0)) {
-				NavigationBar.Frame = new RectangleF (NavigationBar.Frame.X, NavigationBar.Frame.Y + 20, NavigationBar.Frame.Size.Width, NavigationBar.Frame.Size.Height);
-				VerseReference.Frame = new RectangleF (VerseReference.Frame.X, VerseReference.Frame.Y + 20, VerseReference.Frame.Size.Width, VerseReference.Frame.Size.Height);
-				BlackLine.Frame = new RectangleF (BlackLine.Frame.X, BlackLine.Frame.Y + 20, BlackLine.Frame.Size.Width, BlackLine.Frame.Size.Height);
-				VerseComments.Frame = new RectangleF (VerseComments.Frame.X, VerseComments.Frame.Y + 20, VerseComments.Frame.Size.Width, VerseComments.Frame.Size.Height - 20);
-			}
 		}
 
-		public override void ViewDidDisappear (bool animated)
+		public override void ViewWillDisappear (bool animated)
 		{
-			base.ViewDidDisappear (animated);
+			base.ViewWillDisappear (animated);
 
-			if (UIDevice.CurrentDevice.CheckSystemVersion (7, 0)) {
-				NavigationBar.Frame = new RectangleF (NavigationBar.Frame.X, NavigationBar.Frame.Y - 20, NavigationBar.Frame.Size.Width, NavigationBar.Frame.Size.Height);
-			}
+			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		public override bool ShouldAutorotate ()
@@ -59,14 +59,6 @@ namespace Verses.iOS
 
 		private void SetupNavigationBar ()
 		{
-			NavigationBar = new UINavigationBar {
-				Frame = new RectangleF (0, 0, View.Bounds.Width, 44)
-			};
-			NavigationBar.SetBackgroundImage (Images.EditBar, UIBarMetrics.Default);
-
-			var NavigationItem = new UINavigationItem ();
-			NavigationBar.PushNavigationItem (NavigationItem, false);
-
 			var cancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			cancelButton.SetBackgroundImage (Images.CancelButton, UIControlState.Normal);
 			cancelButton.SetBackgroundImage (Images.CancelButtonHighlighted, UIControlState.Highlighted);
@@ -82,6 +74,8 @@ namespace Verses.iOS
 
 			NavigationItem.LeftBarButtonItem = CancelButton;
 			NavigationItem.RightBarButtonItem = SaveButton;
+
+			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		private void SetupUI ()
@@ -93,25 +87,24 @@ namespace Verses.iOS
 				BorderStyle = UITextBorderStyle.None,
 				Enabled = false,
 				Font = FontConstants.SourceSansProBold (15),
-				Frame = new RectangleF (0, 49, View.Bounds.Size.Width, 28f),
+				Frame = new RectangleF (0, 0, View.Bounds.Size.Width, 28f),
 				Text = Verse.Title
 			};
 
 			BlackLine = new UIView {
 				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
-				Frame = new RectangleF (0, 77, View.Bounds.Width, 1f)
+				Frame = new RectangleF (0, 28, View.Bounds.Width, 1f)
 			};
 
 			VerseComments = new UITextView {
 				Font = FontConstants.SourceSansProRegular (13),
-				Frame = new RectangleF (0, 78, View.Bounds.Width, 145f),
+				Frame = new RectangleF (0, 29, View.Bounds.Width, 145f),
 				KeyboardAppearance = UIKeyboardAppearance.Default,
 				Text = Verse.Comments,
 				TextAlignment = UITextAlignment.Left
 			};
 			VerseComments.BecomeFirstResponder ();
 
-			View.AddSubview (NavigationBar);
 			View.AddSubview (VerseReference);
 			View.AddSubview (BlackLine);
 			View.AddSubview (VerseComments);

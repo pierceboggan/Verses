@@ -37,32 +37,15 @@
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<string>YES</string>
 	<key>MinimumOSVersion</key>
 	<string>7.0</string>
-	<key>UIStatusBarTintParameters</key>
-	<dict>
-		<key>UINavigationBar</key>
-		<dict>
-			<key>Style</key>
-			<string>UIBarStyleDefault</string>
-			<key>Translucent</key>
-			<false/>
-			<key>TintColor</key>
-			<dict>
-				<key>Red</key>
-				<real>0</real>
-				<key>Green</key>
-				<real>0</real>
-				<key>Blue</key>
-				<real>1</real>
-			</dict>
-		</dict>
-	</dict>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>CFBundleShortVersionString</key>
 	<string>0.0.1</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<string>No</string>
 </dict>
 </plist>

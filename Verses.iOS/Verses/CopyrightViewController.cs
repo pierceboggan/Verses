@@ -62,6 +62,8 @@ namespace Verses.iOS
 
 			BackButton = new UIBarButtonItem (backButton);
 			NavigationItem.LeftBarButtonItem = BackButton;
+
+			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		void SetupUI ()

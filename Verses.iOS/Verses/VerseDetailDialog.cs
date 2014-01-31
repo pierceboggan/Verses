@@ -40,9 +40,9 @@ namespace Verses.iOS
 			NavigationItem.TitleView = NavigationBarLabel;
 		}
 
-		public override void ViewWillDisappear (bool animated)
+		public override void ViewDidDisappear (bool animated)
 		{
-			base.ViewWillDisappear (animated);
+			base.ViewDidDisappear (animated);
 
 			NavigationBarLabel.RemoveFromSuperview ();
 		}
@@ -324,7 +324,7 @@ namespace Verses.iOS
 					DeleteVerse ();
 					break;
 				case 1:
-					controller.PresentViewController (new VerseEditDialog (verse), true, null);
+					controller.PresentViewController (new UINavigationController (new VerseEditDialog (verse)), true, null);
 					break;
 				case 2:
 					actionSheet.DismissWithClickedButtonIndex (2, true);

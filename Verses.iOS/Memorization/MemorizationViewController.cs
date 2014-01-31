@@ -9,12 +9,16 @@ namespace Verses.iOS
 	{
 		UIButton SundayButton, MondayButton, TuesdayButton, WednesdayButton, ThursdayButton,
 			FridayButton, SaturdayButton, QueueButton, ReviewButton;
+		UILabel NavigationBarLabel;
 
-		public override void ViewDidAppear (bool animated)
+		public override void ViewWillAppear (bool animated)
 		{
-			base.ViewDidAppear (animated);
+			base.ViewWillAppear (animated);
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.MemorizationBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
+			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationBarLabel = InterfaceHelper.LabelForTitle ("MEMORIZATION");
+			NavigationItem.TitleView = NavigationBarLabel;
 		}
 
 		public override void ViewDidLoad ()
@@ -28,6 +32,13 @@ namespace Verses.iOS
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
 		{
 			return UIInterfaceOrientationMask.Portrait;
+		}
+
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		void SetupUI ()

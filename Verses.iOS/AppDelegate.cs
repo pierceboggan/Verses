@@ -20,8 +20,11 @@ namespace Verses.iOS
 			var memorization = new UINavigationController (new MemorizationViewController ());
 
 			var prayersItem = new UITabBarItem ();
+			prayersItem.Image = UIImage.FromFile ("Images/Tabs/Prayers.png");
 			var versesItem = new UITabBarItem ();
+			versesItem.Image = UIImage.FromFile ("Images/Tabs/Verses.png");
 			var memorizationItem = new UITabBarItem ();
+			memorizationItem.Image = UIImage.FromFile ("Images/Tabs/Memorization.png");
 	
 			verses.TabBarItem = versesItem;
 			prayers.TabBarItem = prayersItem;
@@ -44,6 +47,7 @@ namespace Verses.iOS
 
 			UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge
 			                                                                    | UIRemoteNotificationType.Sound);
+			app.SetStatusBarStyle (UIStatusBarStyle.LightContent, true);
 
 			return true;
 		}
@@ -60,7 +64,6 @@ namespace Verses.iOS
 
 		private void ConfigureAppearanceSettings ()
 		{
-			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.Default;
 			UITableView.Appearance.BackgroundColor = UIColor.FromRGB (247, 247, 247);
 		}
 

@@ -7,13 +7,17 @@ namespace Verses.iOS
 	public class PrayersViewController : UIViewController
 	{                
 		UIBarButtonItem ComposeButton;
+		UILabel NavigationBarLabel;
 		UITableView PrayersTable;
 
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.PrayersBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationBarLabel = InterfaceHelper.LabelForTitle ("PRAYERS");
+			NavigationItem.TitleView = NavigationBarLabel;
+
 			PrayersTable.Source = new PrayersTableSource (this);
 		}
 
@@ -25,6 +29,13 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
+		public override void ViewDidDisappear (bool animated)
+		{
+			base.ViewDidDisappear (animated);
+
+			NavigationBarLabel.RemoveFromSuperview ();
+		}
+
 		private void SetupNavigationBar ()
 		{
 			var composeButton = new UIButton (new RectangleF (0, 0, 25, 25));
@@ -34,6 +45,8 @@ namespace Verses.iOS
 
 			ComposeButton = new UIBarButtonItem (composeButton);
 			NavigationItem.RightBarButtonItem = ComposeButton;
+
+			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		private void SetupUI ()
@@ -50,7 +63,7 @@ namespace Verses.iOS
 
 		private void HandleComposeButtonTapped (object sender, EventArgs args)
 		{
-			PresentViewController (new PrayerComposeDialog (), true, null);
+			PresentViewController (new UINavigationController (new PrayerComposeDialog ()), true, null);
 		}
 	}
 }

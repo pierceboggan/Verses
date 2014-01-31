@@ -7,14 +7,26 @@ namespace Verses.iOS
 	public class VersesViewController : UIViewController
 	{
 		UIBarButtonItem ComposeButton, SettingsButton;
+		UILabel NavigationBarLabel;
 
 		public UITableView VersesTable { get; set; }
+
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			SetupNavigationBar ();
+
+			NavigationBarLabel = InterfaceHelper.LabelForTitle ("VERSES");
+			NavigationItem.TitleView = NavigationBarLabel;
+		}
 
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.VersesBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
 			SetupNavigationBar ();
 
 			VersesTable.Source = new VersesTableSource (this);
@@ -24,11 +36,17 @@ namespace Verses.iOS
 		{
 			base.ViewDidLoad ();
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.VersesBar, UIBarMetrics.Default);
 			SetupNavigationBar ();
 			SetupUI ();
 
 			VersesTable.Source = new VersesTableSource (this);
+		}
+
+		public override void ViewDidDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		void SetupNavigationBar ()
@@ -48,6 +66,8 @@ namespace Verses.iOS
 
 			SettingsButton = new UIBarButtonItem (settingsButton);
 			NavigationItem.LeftBarButtonItem = SettingsButton;
+
+			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		void SetupUI ()
@@ -60,12 +80,14 @@ namespace Verses.iOS
 				Source = new VersesTableSource (this)
 			};
 
+			SetNeedsStatusBarAppearanceUpdate ();
+
 			View.AddSubview (VersesTable);
 		}
 
 		void HandleComposeButtonTapped (object sender, EventArgs args)
 		{
-			PresentViewController (new VerseComposeDialog (this), true, null);
+			PresentViewController (new UINavigationController(new VerseComposeDialog (this)), true, null);
 		}
 
 		void HandleSettingsButtonTapped (object sender, EventArgs args)

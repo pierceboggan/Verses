@@ -82,7 +82,9 @@ namespace Verses.iOS
 			NavigationController.NavigationItem.BackBarButtonItem = BackButton;
 			NavigationItem.LeftBarButtonItem = CancelButton;
 
-			NavigationBarLabel = InterfaceHelper.LabelForTitle ("Settings");
+			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
+
+			NavigationBarLabel = InterfaceHelper.LabelForTitle ("SETTINGS");
 			TableView.BackgroundView = null;
 			TableView.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile ("Images/General/TableBackground.png"));
 		}

@@ -225,12 +225,6 @@
     <BundleResource Include="Images\Memorization\MemorizeVersesButton.png" />
     <BundleResource Include="Images\Memorization\MoveVersesButton.png" />
     <BundleResource Include="Images\Memorization\ReviewVersesButton.png" />
-    <BundleResource Include="Images\Headers\ComposeBar.png" />
-    <BundleResource Include="Images\Headers\EditBar.png" />
-    <BundleResource Include="Images\Headers\MemorizationBar.png" />
-    <BundleResource Include="Images\Headers\PrayersBar.png" />
-    <BundleResource Include="Images\Headers\SettingsBar.png" />
-    <BundleResource Include="Images\Headers\VersesBar.png" />
     <BundleResource Include="Resources\Montserrat-Bold.ttf" />
     <BundleResource Include="Resources\29.png" />
     <BundleResource Include="Resources\57.png" />
@@ -248,12 +242,6 @@
     <BundleResource Include="Resources\Icon-Small-40%402x.png" />
     <BundleResource Include="Resources\Splash 640x11whatever.png" />
     <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Images\Headers\ComposeBar%402x.png" />
-    <BundleResource Include="Images\Headers\EditBar%402x.png" />
-    <BundleResource Include="Images\Headers\MemorizationBar%402x.png" />
-    <BundleResource Include="Images\Headers\PrayersBar%402x.png" />
-    <BundleResource Include="Images\Headers\SettingsBar%402x.png" />
-    <BundleResource Include="Images\Headers\VersesBar%402x.png" />
     <BundleResource Include="Images\Compose\CancelButton.png" />
     <BundleResource Include="Images\Compose\CancelButtonHighlighted.png" />
     <BundleResource Include="Images\Compose\ComposeButtonHighlighted.png" />
@@ -262,8 +250,6 @@
     <BundleResource Include="Images\Detail\EditButton.png" />
     <BundleResource Include="Images\General\BackButton.png" />
     <BundleResource Include="Images\General\BackButtonHighlighted.png" />
-    <BundleResource Include="Images\Headers\BlankBar.png" />
-    <BundleResource Include="Images\Headers\BlankBar%402x.png" />
     <BundleResource Include="Images\Compose\SaveButton.png" />
     <BundleResource Include="Images\Compose\SaveButtonHighlighted.png" />
     <BundleResource Include="Images\General\BackButtonHighlighted%402x.png" />
@@ -312,6 +298,14 @@
     <BundleResource Include="Images\Detail\ToMemorizeGreenButton%402x.png" />
     <BundleResource Include="Images\Memorization\HeartGreyButton.png" />
     <BundleResource Include="Images\Memorization\HeartRedButton.png" />
+    <BundleResource Include="Images\Headers\BlankBar.png" />
+    <BundleResource Include="Images\Headers\BlankBar%402x.png" />
+    <BundleResource Include="Images\Tabs\Verses.png" />
+    <BundleResource Include="Images\Tabs\Verses%402x.png" />
+    <BundleResource Include="Images\Tabs\Memorization.png" />
+    <BundleResource Include="Images\Tabs\Memorization%402x.png" />
+    <BundleResource Include="Images\Tabs\Prayers.png" />
+    <BundleResource Include="Images\Tabs\Prayers%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Compose\BlackLine.png" />

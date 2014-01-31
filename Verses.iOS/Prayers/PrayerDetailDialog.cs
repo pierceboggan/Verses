@@ -45,9 +45,9 @@ namespace Verses.iOS
 			NavigationItem.TitleView = NavigationBarLabel;
 		}
 
-		public override void ViewWillDisappear (bool animated)
+		public override void ViewDidDisappear (bool animated)
 		{
-			base.ViewWillDisappear (animated);
+			base.ViewDidDisappear (animated);
 
 			NavigationBarLabel.RemoveFromSuperview ();
 		}
@@ -88,6 +88,8 @@ namespace Verses.iOS
 
 			EditButton = new UIBarButtonItem (editButton);
 			NavigationItem.RightBarButtonItem = EditButton;
+
+			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		private void SetupUI ()
@@ -187,7 +189,7 @@ namespace Verses.iOS
 					DeletePrayer ();
 					break;
 				case 1:
-					controller.PresentViewController (new PrayerEditDialog (prayer), true, null);
+					controller.PresentViewController (new UINavigationController (new PrayerEditDialog (prayer)), true, null);
 					break;
 				case 2:
 					actionSheet.DismissWithClickedButtonIndex (2, true);
