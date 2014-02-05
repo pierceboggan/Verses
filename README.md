@@ -9,24 +9,24 @@ Verses is an iOS application developed by Pierce Boggan using [Xamarin.iOS](http
 * Various resources in the Settings dialog for Scripture memorization
 
 ### Implementation
-* Imperative UIs
-** The UI for Verses is done 100% imperatively, or in code
-** There are no design files, just coded inside either a UIView or UIViewController
+* Imperative UIs 
+    * The UI for Verses is done 100% imperatively, or in code
+    * There are no design files, just coded inside either a UIView or UIViewController
 * MonoTouch.Dialog
-** Custom elements
-** Use of the MonoTouch.Dialog Elements API
-** You can find usage of MonoTouch.Dialog in the Settings folder, as well as Memorization. All of that logic is done using entirely MonoTouch.Dialog
+    * Custom elements
+    * Use of the MonoTouch.Dialog Elements API
+    * You can find usage of MonoTouch.Dialog in the Settings folder, as well as Memorization. All of that logic is done using entirely MonoTouch.Dialog
 * SQLite.NET
-** Check out the "Verse.Core" folder for usage of SQLite.NET
-** You can share this code across multiple platforms
+    * Check out the "Verse.Core" folder for usage of SQLite.NET
+    * You can share this code across multiple platforms
 * LINQ
-** Check out LINQ usage mostly in the "Verses.Core" folder
-** Used mainly for sorting through SQLite.NET database, but also for filtering data
+    * Check out LINQ usage mostly in the "Verses.Core" folder
+    * Used mainly for sorting through SQLite.NET database, but also for filtering data
 * Json.NET
-** Although not explictly used, check out the BibleAPI library that is used in the Verses project for a good example on how to parse JSON responses
+    * Although not explictly used, check out the BibleAPI library that is used in the Verses project for a good example on how to parse JSON responses
 * Async/Await Keywords
-** C# 5.0/.NET 4.5's big feature is used throughout the "Verses.iOS" project
-** Used mainly for accessing data via the BibleAPI library
+    * C# 5.0/.NET 4.5's big feature is used throughout the "Verses.iOS" project
+    * Used mainly for accessing data via the BibleAPI library
 
 ## Tooling
 Verses was built using [Xamarin.iOS](http://ios.xamarin.com). The main reasoning behind using Xamarin's tooling was building a native application that I can easily share lots of my C# code across multiple platforms (Android, iOS, Windows 8 Phone).*
