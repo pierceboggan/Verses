@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
@@ -6,22 +6,22 @@ using MonoTouch.Dialog;
 
 namespace Verses.iOS
 {
-	public class StyledRootElement : RootElement, IElementSizing
+	public class StyledTranslationRootElement : RootElement, IElementSizing
 	{
 		UIBarButtonItem BackButton;
 		UILabel NavigationBarLabel;
 
-		public StyledRootElement (string caption) : base (caption)
+		public StyledTranslationRootElement (string caption) : base (caption)
 		{
 
 		}
 
-		public StyledRootElement (string caption, Group group) : base (caption, group)
+		public StyledTranslationRootElement (string caption, Group group) : base (caption, group)
 		{
 
 		}
 
-		static NSString key = new NSString ("StyledRootElement");
+		static NSString key = new NSString ("StyledTranslationRootElement");
 
 		protected override NSString CellKey 
 		{
@@ -50,6 +50,22 @@ namespace Verses.iOS
 
 		private void GoBack(UIViewController dvc)
 		{
+			switch (RadioSelected)
+			{
+			case 0:
+				TranslationHelper.SetCurrentTranslation ("esv");
+				break;
+			case 1:
+				TranslationHelper.SetCurrentTranslation ("kjv");
+				break;	
+			case 2:
+				TranslationHelper.SetCurrentTranslation ("msg");
+				break;
+			case 3:
+				TranslationHelper.SetCurrentTranslation ("nasb");
+				break;
+			};
+
 			dvc.NavigationController.PopViewControllerAnimated (true);
 		}
 
@@ -69,8 +85,11 @@ namespace Verses.iOS
 			cell.TextLabel.Font = UIFont.FromName ("SourceSansPro-Regular", 15f);
 			cell.TextLabel.TextColor = UIColor.Black;
 
+			cell.DetailTextLabel.BackgroundColor = UIColor.White;
+			cell.DetailTextLabel.Font = UIFont.FromName ("SourceSansPro-Regular", 13f);
+			cell.DetailTextLabel.TextColor = UIColor.Black;
+
 			return cell;
 		}
 	}
 }
-

@@ -34,7 +34,7 @@ namespace Verses.iOS
 			var translation = FetchTranslation ();
 			var root = new RootElement ("") {
 				new Section () {
-					new StyledRootElement ("Translation", new RadioGroup ("translation", translation)) { 
+					new StyledTranslationRootElement ("Translation", new RadioGroup ("translation", translation)) { 
 						new Section () {
 							new StyledRadioElement ("English Standard Version (ESV)", "translation"),
 							new StyledRadioElement ("King James Version (KJV)", "translation"),
@@ -48,6 +48,27 @@ namespace Verses.iOS
 					new StyledStringElement ("Facebook", HandleFacebookTapped),
 					new StyledStringElement ("Twitter", HandleTwitterTapped),
 					new StyledStringElement ("Website", HandleWebsiteTapped)
+				},
+
+
+				new Section () {
+					new StyledRootElement ("Resources") {
+						new Section () {
+							new StyledStringElement ("32 Ways to Memorize Scripture", Handle32Ways),
+							new StyledStringElement ("How Do You Memorize Scripture?", HandleHowToMemorize),
+							new StyledStringElement ("Practical Tips for Bible Memory", HandlePracticalTips),
+							new StyledStringElement ("What Translation for Bible Memory?", HandleWhatTranslation),
+							new StyledStringElement ("Why Memorize Scripture?", HandleWhyMemorize)
+						}
+					},
+					new StyledRootElement ("Apps") {
+						new Section () {
+							new StyledStringElement ("Fighter Verses", HandleFighterVerses),
+							new StyledStringElement ("Memorize Anything", HandleMemorizeAnything),
+							new StyledStringElement ("Remember Me", HandleRememberMe),
+							new StyledStringElement ("Scripture Typer", HandleScriptureTyper)
+						}
+					}
 				},
 
 				new Section () {
@@ -114,42 +135,99 @@ namespace Verses.iOS
 
 		private void HandleFacebookTapped ()
 		{
-			UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.twitter.com/getversesapp"));
+			NavigationController.PushViewController (new WebViewController ("@getversesapp", 
+				"http://www.twitter.com/getversesapp"), true);
 		}
 
 		private void HandleTwitterTapped ()
 		{
-			UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.facebook.com/getversesapp"));
+			NavigationController.PushViewController (new WebViewController ("@getversesapp", 
+				"http://www.facebook.com/getversesapp"), true);
 		}
 
 		private void HandleWebsiteTapped ()
 		{
-			UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.getversesapp.com"));
+			NavigationController.PushViewController (new WebViewController ("getversesapp.com", 
+				"getversesapp.com"), true);
 		}
 
 		private void HandleFrequentlyAskedQuestionsTapped ()
 		{
-			UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.twitter.com/getversesapp"));
+			// UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.twitter.com/getversesapp"));
 		}
 
 		private void HandleSpecialThanksTapped ()
 		{
-			UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.facebook.com/getversesapp"));
+			// UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.facebook.com/getversesapp"));
 		}
 
 		private void HandleRateVersesTapped ()
 		{
-			UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.twitter.com/getversesapp"));
+			// UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.twitter.com/getversesapp"));
 		}
 
 		private void HandleShareVersesTapped ()
 		{
-			UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.facebook.com/getversesapp"));
+			// UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.facebook.com/getversesapp"));
 		}
 
 		private void HandleSubmitFeedbackTapped ()
 		{
-			UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.getversesapp.com"));
+			// UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.getversesapp.com"));
+		}
+
+		private void Handle32Ways ()
+		{
+			NavigationController.PushViewController (new WebViewController ("Ways to Memorize", 
+				"http://m.pastormark.tv/2012/12/31/32-ways-to-memorize-scripture"), true);
+		}
+
+		private void HandleHowToMemorize ()
+		{
+			NavigationController.PushViewController (new WebViewController ("How to Memorize", 
+				"http://www.desiringgod.org/interviews/how-do-you-memorize-scripture"), true);
+		}
+
+		private void HandlePracticalTips ()
+		{
+			NavigationController.PushViewController (new WebViewController ("Practical Tips", 
+				"https://soundcloud.com/askpastorjohn/practical-tips-for-bible"), true);
+		}
+
+		private void HandleWhatTranslation ()
+		{
+			NavigationController.PushViewController (new WebViewController ("Translation",
+				"https://soundcloud.com/askpastorjohn/what-translation-for-bible"), true);
+		}
+
+		private void HandleWhyMemorize ()
+		{
+			NavigationController.PushViewController (new WebViewController ("Why Memorize", 
+				"http://www.desiringgod.org/articles/why-memorize-scripture"), true);
+		}
+
+		private void HandleFighterVerses ()
+		{
+			NavigationController.PushViewController (new WebViewController ("Fighter Verses", 
+				"https://itunes.apple.com/us/app/fighter-verses-memorize-bible/id411711646?mt=8"), true);
+		}
+
+		private void HandleMemorizeAnything ()
+		{
+			NavigationController.PushViewController (new WebViewController ("Memorize Anything", 
+				"https://itunes.apple.com/us/app/memorize-anything/id430219093?mt=8"), true);
+		}
+
+		private void HandleRememberMe ()
+		{
+			NavigationController.PushViewController (new WebViewController ("Remember Me",
+				"https://itunes.apple.com/us/app/remember-me/id504171445?mt=8"), true);
+		}
+
+		private void HandleScriptureTyper ()
+		{
+			NavigationController.PushViewController (new WebViewController ("Scripture Typer", 
+				"http://scripturetyper.com/"), true);
 		}
 
 	}
