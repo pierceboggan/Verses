@@ -59,7 +59,6 @@ namespace Verses.iOS
 				break;
 			}
 		}
-
 	}
 }
 
