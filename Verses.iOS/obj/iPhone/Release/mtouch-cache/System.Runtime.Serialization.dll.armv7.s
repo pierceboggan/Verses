@@ -16,7 +16,7 @@ Ldebug_info_begin:
 	.short 2
 	.long 0
 	.byte 4,1
-	.asciz "Mono AOT Compiler 3.2.3 (master/65aefd9 Fri Oct 18 17:43:57 EDT 2013)"
+	.asciz "Mono AOT Compiler 3.2.3 (mtvs-1.8-series/50d4088 Mon Dec  2 19:53:19 EST 2013)"
 	.asciz "JITted code"
 	.asciz ""
 
@@ -282,14 +282,14 @@ image_table:
 
 	.long 2
 	.asciz "System.Runtime.Serialization"
-	.asciz "73577734-3358-4572-95C6-4E183DFFF846"
+	.asciz "E51FF855-69AC-4697-8252-3410C880EB06"
 	.asciz ""
 	.asciz "7cec85d7bea7798e"
 	.align 3
 
 	.long 1,2,0,5,0
 	.asciz "mscorlib"
-	.asciz "CAEC43B7-A208-4879-B984-7CD6EB848C78"
+	.asciz "5C44A156-FD9D-4BF1-9123-1097987FD38B"
 	.asciz ""
 	.asciz "7cec85d7bea7798e"
 	.align 3
@@ -303,7 +303,7 @@ got_end:
 .section __TEXT, __const
 	.align 2
 assembly_guid:
-	.asciz "73577734-3358-4572-95C6-4E183DFFF846"
+	.asciz "E51FF855-69AC-4697-8252-3410C880EB06"
 .section __TEXT, __const
 	.align 2
 runtime_version:
@@ -391,9 +391,9 @@ _mono_aot_module_System_Runtime_Serialization_info:
 blob:
 
 	.byte 0,0,0,0,0,0,0,0,0,0,0,12,0,39,42,47,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,0
-	.byte 128,144,8,0,0,1,5,128,128,9,0,0,1,193,0,20,73,193,0,15,80,193,0,20,69,193,0,15,87,193,0,15
-	.byte 72,5,128,160,20,0,0,4,193,0,20,73,193,0,15,80,193,0,20,69,193,0,15,87,193,0,15,72,5,128,160,12
-	.byte 0,0,4,193,0,20,73,193,0,15,80,193,0,20,69,193,0,15,87,193,0,15,72,98,111,101,104,109,0
+	.byte 128,144,8,0,0,1,5,128,128,9,0,0,1,193,0,20,72,193,0,15,79,193,0,20,68,193,0,15,86,193,0,15
+	.byte 71,5,128,160,20,0,0,4,193,0,20,72,193,0,15,79,193,0,20,68,193,0,15,86,193,0,15,71,5,128,160,12
+	.byte 0,0,4,193,0,20,72,193,0,15,79,193,0,20,68,193,0,15,86,193,0,15,71,115,103,101,110,0
 .section __TEXT, __const
 	.align 3
 Lglobals_hash:

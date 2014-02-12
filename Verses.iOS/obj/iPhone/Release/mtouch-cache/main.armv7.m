@@ -49,7 +49,8 @@ void monotouch_setup ()
 	monotouch_assembly_name = "VersesiOS.exe";
 	mono_use_llvm = FALSE;
 	monotouch_log_level = 0;
-	monotouch_new_refcount = FALSE;
-	monotouch_sgen = FALSE;
+	monotouch_new_refcount = TRUE;
+	monotouch_sgen = TRUE;
+	setenv ("MONO_GC_PARAMS", "nursery-size=512k", 1);
 }
 

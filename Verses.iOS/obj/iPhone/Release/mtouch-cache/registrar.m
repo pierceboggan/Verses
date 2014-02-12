@@ -101,8 +101,9 @@ native_to_managed_trampoline_MonoTouch_Foundation_NSObject_NSObject_Disposer_Dra
 		method_5 = get_method_for_selector ([this class], sel).method->method;
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_5, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_5, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_5, NULL, arg_ptrs, NULL);
@@ -125,8 +126,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIView_UIViewAppearance_set_Backgro
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_6, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_6, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_6, mthis, arg_ptrs, NULL);
@@ -149,8 +151,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UISwipeGestureRecognizer_Callback_A
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_7, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_7, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_7, mthis, arg_ptrs, NULL);
@@ -198,8 +201,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITapGestureRecognizer_Callback_Act
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_9, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_9, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_9, mthis, arg_ptrs, NULL);
@@ -222,8 +226,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIGestureRecognizer_ParametrizedDis
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_10, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_10, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_10, mthis, arg_ptrs, NULL);
@@ -246,8 +251,9 @@ native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_PrayerEditActionSheet
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_11, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_11, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -296,14 +302,16 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_Should
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_13, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_13, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_13, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_13, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	arg_ptrs [2] = &p2;
@@ -329,8 +337,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadSt
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_14, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_14, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_14, mthis, arg_ptrs, NULL);
@@ -353,8 +362,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_Loadin
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_15, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_15, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_15, mthis, arg_ptrs, NULL);
@@ -377,14 +387,16 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadFa
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_16, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_16, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_16, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_16, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_16, mthis, arg_ptrs, NULL);
@@ -407,8 +419,9 @@ native_to_managed_trampoline_SQLite_MonoTouchAdmin_TablesViewController_Data_Num
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_17, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_17, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	void* retval = (void *) mono_runtime_invoke (method_17, mthis, arg_ptrs, NULL);
@@ -433,8 +446,9 @@ native_to_managed_trampoline_SQLite_MonoTouchAdmin_TablesViewController_Data_Row
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_18, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_18, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -460,14 +474,16 @@ native_to_managed_trampoline_SQLite_MonoTouchAdmin_TablesViewController_Data_Get
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_19, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_19, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_19, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_19, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_19, mthis, arg_ptrs, NULL);
@@ -500,8 +516,9 @@ native_to_managed_trampoline_Verses_iOS_MoveButtonElement_MoveActionSheetDelegat
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_20, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_20, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -525,8 +542,9 @@ native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_VerseEditActionSheetDe
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_21, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_21, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -568,8 +586,9 @@ native_to_managed_trampoline_SQLite_MonoTouchAdmin_TableViewController_Data_Numb
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_23, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_23, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	void* retval = (void *) mono_runtime_invoke (method_23, mthis, arg_ptrs, NULL);
@@ -594,8 +613,9 @@ native_to_managed_trampoline_SQLite_MonoTouchAdmin_TableViewController_Data_Rows
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_24, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_24, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -621,14 +641,16 @@ native_to_managed_trampoline_SQLite_MonoTouchAdmin_TableViewController_Data_GetC
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_25, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_25, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_25, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_25, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_25, mthis, arg_ptrs, NULL);
@@ -686,14 +708,16 @@ native_to_managed_trampoline_Verses_iOS_AppDelegate_FinishedLaunching (id this, 
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_27, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_27, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_27, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_27, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_27, mthis, arg_ptrs, NULL);
@@ -718,20 +742,23 @@ native_to_managed_trampoline_MonoTouch_Dialog_ImageElement_MyDelegate_FinishedPi
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_28, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_28, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_28, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_28, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	NSObject *nsobj2 = (NSObject *) p2;
 		MonoObject *mobj2 = NULL;
+		bool created2 = false;
 		if (nsobj2) {
-			mobj2 = get_nsobject_with_type_for_ptr (nsobj2, false, monotouch_get_parameter_type (method_28, 2));
+			mobj2 = get_nsobject_with_type_for_ptr_created (nsobj2, false, monotouch_get_parameter_type (method_28, 2), &created2);
 		}
 		arg_ptrs [2] = mobj2;
 	mono_runtime_invoke (method_28, mthis, arg_ptrs, NULL);
@@ -813,8 +840,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SearchDelegat
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_32, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_32, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_32, mthis, arg_ptrs, NULL);
@@ -837,8 +865,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SearchDelegat
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_33, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_33, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_33, mthis, arg_ptrs, NULL);
@@ -861,8 +890,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SearchDelegat
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_34, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_34, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = p1 ? mono_string_new (mono_domain_get (), [p1 UTF8String]) : NULL;
@@ -886,8 +916,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SearchDelegat
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_35, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_35, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_35, mthis, arg_ptrs, NULL);
@@ -910,8 +941,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SearchDelegat
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_36, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_36, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_36, mthis, arg_ptrs, NULL);
@@ -934,14 +966,16 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_Access
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_37, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_37, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_37, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_37, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_37, mthis, arg_ptrs, NULL);
@@ -964,8 +998,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_RowsIn
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_38, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_38, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -991,8 +1026,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_Number
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_39, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_39, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	void* retval = (void *) mono_runtime_invoke (method_39, mthis, arg_ptrs, NULL);
@@ -1017,8 +1053,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_TitleF
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_40, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_40, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -1052,8 +1089,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_TitleF
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_41, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_41, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -1087,14 +1125,16 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_GetCel
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_42, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_42, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_42, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_42, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_42, mthis, arg_ptrs, NULL);
@@ -1127,20 +1167,23 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_WillDi
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_43, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_43, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_43, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_43, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	NSObject *nsobj2 = (NSObject *) p2;
 		MonoObject *mobj2 = NULL;
+		bool created2 = false;
 		if (nsobj2) {
-			mobj2 = get_nsobject_with_type_for_ptr (nsobj2, false, monotouch_get_parameter_type (method_43, 2));
+			mobj2 = get_nsobject_with_type_for_ptr_created (nsobj2, false, monotouch_get_parameter_type (method_43, 2), &created2);
 		}
 		arg_ptrs [2] = mobj2;
 	mono_runtime_invoke (method_43, mthis, arg_ptrs, NULL);
@@ -1163,14 +1206,16 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_RowDes
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_44, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_44, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_44, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_44, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_44, mthis, arg_ptrs, NULL);
@@ -1193,14 +1238,16 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_RowSel
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_45, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_45, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_45, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_45, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_45, mthis, arg_ptrs, NULL);
@@ -1223,8 +1270,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_GetVie
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_46, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_46, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -1258,8 +1306,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_GetHei
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_47, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_47, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -1285,8 +1334,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_GetVie
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_48, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_48, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -1320,8 +1370,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_GetHei
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_49, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_49, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -1347,8 +1398,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_Scroll
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_50, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_50, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_50, mthis, arg_ptrs, NULL);
@@ -1371,8 +1423,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_Draggi
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_51, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_51, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_51, mthis, arg_ptrs, NULL);
@@ -1395,8 +1448,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_Draggi
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_52, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_52, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
@@ -1541,14 +1595,16 @@ native_to_managed_trampoline_SQLite_MonoTouchAdmin_TablesViewController_Del_RowS
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_59, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_59, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_59, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_59, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_59, mthis, arg_ptrs, NULL);
@@ -1632,8 +1688,9 @@ native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_CommentsTextDelegate_
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_63, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_63, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_63, mthis, arg_ptrs, NULL);
@@ -1656,8 +1713,9 @@ native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_CommentsTextDelegate_
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_64, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_64, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_64, mthis, arg_ptrs, NULL);
@@ -1666,9 +1724,9 @@ native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_CommentsTextDelegate_
 
 static MonoMethod *method_65 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewWillAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1678,15 +1736,16 @@ native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewDidLoad (id this,
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_65)));
 		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_65, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_66 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewDidDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1696,16 +1755,15 @@ native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewDidDisappear (id 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_66)));
 		}
-	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_66, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_67 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ShouldAutorotate (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewDidDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1715,15 +1773,14 @@ native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ShouldAutorotate (id 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_67)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_67, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_67, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_68 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ShouldAutorotate (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -1743,7 +1800,7 @@ native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_GetSupportedInterface
 
 static MonoMethod *method_69 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -1763,9 +1820,9 @@ native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_PreferredInterfaceOri
 
 static MonoMethod *method_70 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewWillAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1775,16 +1832,17 @@ native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewWillAppear (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_70)));
 		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_70, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_70, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_71 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewWillDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_PreferredStatusBarStyle (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1794,14 +1852,15 @@ native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewWillDisappear (id 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_71)));
 		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_71, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_71, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_72 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewWillAppear (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -1820,9 +1879,9 @@ native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidAppear (id this
 
 static MonoMethod *method_73 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1832,15 +1891,16 @@ native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidLoad (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_73)));
 		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_73, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_74 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1850,15 +1910,14 @@ native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_GetSupportedInterfaceO
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_74)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_74, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_74, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_75 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidLoad (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -1876,9 +1935,9 @@ native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewDidLoad (id this, SE
 
 static MonoMethod *method_76 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewDidDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1888,16 +1947,17 @@ native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewDidDisappear (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_76)));
 		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_76, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_76, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_77 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ShouldAutorotate (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewWillAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1907,15 +1967,14 @@ native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ShouldAutorotate (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_77)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_77, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_77, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_78 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseEditDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewDidLoad (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -1927,17 +1986,15 @@ native_to_managed_trampoline_Verses_iOS_VerseEditDialog_GetSupportedInterfaceOri
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_78)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_78, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_78, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_79 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseEditDialog_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewWillDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1947,15 +2004,14 @@ native_to_managed_trampoline_Verses_iOS_VerseEditDialog_PreferredInterfaceOrient
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_79)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_79, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_79, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_80 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_FlipCardController_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ShouldAutorotate (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -1967,13 +2023,15 @@ native_to_managed_trampoline_Verses_iOS_FlipCardController_ViewDidLoad (id this,
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_80)));
 		}
-	mono_runtime_invoke (method_80, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_80, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_81 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_FlipCardController_GetSupportedInterfaceOrientations (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseEditDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -1993,9 +2051,9 @@ native_to_managed_trampoline_Verses_iOS_FlipCardController_GetSupportedInterface
 
 static MonoMethod *method_82 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewWillAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_VerseEditDialog_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2005,16 +2063,17 @@ native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewWillAppear (
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_82)));
 		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_82, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_82, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_83 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewDidAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_FlipCardController_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2024,16 +2083,15 @@ native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewDidAppear (i
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_83)));
 		}
-	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_83, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_84 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewWillDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_FlipCardController_GetSupportedInterfaceOrientations (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2043,16 +2101,17 @@ native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewWillDisappea
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_84)));
 		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_84, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_84, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_85 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewWillAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2062,13 +2121,14 @@ native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewDidLoad (id 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_85)));
 		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_85, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_86 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewDidAppear (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -2087,7 +2147,7 @@ native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidAppear (id thi
 
 static MonoMethod *method_87 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewWillAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewWillDisappear (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -2106,9 +2166,9 @@ native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewWillAppear (id th
 
 static MonoMethod *method_88 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewWillDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2118,16 +2178,15 @@ native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewWillDisappear (id
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_88)));
 		}
-	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_88, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_89 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2137,15 +2196,16 @@ native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidLoad (id this,
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_89)));
 		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_89, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_90 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewWillAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2155,42 +2215,35 @@ native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_GetSupportedInterface
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_90)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_90, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_90, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_91 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VersesViewController__ctor (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_91)
 		method_91 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_91));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_91)));
+		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_91, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+	return NULL;
 }
 
 static MonoMethod *method_92 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewWillAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2200,14 +2253,13 @@ native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewWillAppear (id 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_92)));
 		}
-	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_92, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_93 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -2219,13 +2271,15 @@ native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewDidLoad (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_93)));
 		}
-	mono_runtime_invoke (method_93, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_93, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_94 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayersViewController__ctor (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VersesViewController__ctor (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -2250,7 +2304,7 @@ native_to_managed_trampoline_Verses_iOS_PrayersViewController__ctor (id this, SE
 
 static MonoMethod *method_95 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewWillAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewWillAppear (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -2269,9 +2323,9 @@ native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewWillAppear (id
 
 static MonoMethod *method_96 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewDidAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2281,38 +2335,32 @@ native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewDidLoad (id th
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_96)));
 		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_96, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_97 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_MemorizationViewController__ctor (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewDidLoad (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_97)
 		method_97 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_97));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_97)));
+		}
 	mono_runtime_invoke (method_97, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+	return NULL;
 }
 
 static MonoMethod *method_98 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewDidAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewDidDisappear (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -2331,27 +2379,34 @@ native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewDidAppear
 
 static MonoMethod *method_99 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayersViewController__ctor (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_99)
 		method_99 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_99)));
-		}
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_99));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
 	mono_runtime_invoke (method_99, mthis, arg_ptrs, NULL);
-	return NULL;
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_100 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_MemorizationViewController_GetSupportedInterfaceOrientations (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewWillAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2361,17 +2416,16 @@ native_to_managed_trampoline_Verses_iOS_MemorizationViewController_GetSupportedI
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_100)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_100, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_100, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_101 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayersTableSource_NumberOfSections (id this, SEL sel, id p0)
+native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2381,23 +2435,15 @@ native_to_managed_trampoline_Verses_iOS_PrayersTableSource_NumberOfSections (id 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_101)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_101, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_101, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_101, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_102 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayersTableSource_RowsInSection (id this, SEL sel, id p0, int p1)
+native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewDidDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2407,56 +2453,41 @@ native_to_managed_trampoline_Verses_iOS_PrayersTableSource_RowsInSection (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_102)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_102, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
-	void* retval = (void *) mono_runtime_invoke (method_102, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_102, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_103 = NULL;
-float
-native_to_managed_trampoline_Verses_iOS_PrayersTableSource_GetHeightForRow (id this, SEL sel, id p0, id p1)
+void *
+native_to_managed_trampoline_Verses_iOS_MemorizationViewController__ctor (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_103)
 		method_103 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_103)));
-		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_103, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_103, 1));
-		}
-		arg_ptrs [1] = mobj1;
-	void* retval = (void *) mono_runtime_invoke (method_103, mthis, arg_ptrs, NULL);
-	float res;
-	res = *(float *) mono_object_unbox (retval);
-	return res;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_103));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+	mono_runtime_invoke (method_103, mthis, arg_ptrs, NULL);
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_104 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayersTableSource_RowSelected (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewWillAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2466,27 +2497,16 @@ native_to_managed_trampoline_Verses_iOS_PrayersTableSource_RowSelected (id this,
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_104)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_104, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_104, 1));
-		}
-		arg_ptrs [1] = mobj1;
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_104, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_105 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayersTableSource_SectionIndexTitles (id this, SEL sel, id p0)
+native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2496,41 +2516,15 @@ native_to_managed_trampoline_Verses_iOS_PrayersTableSource_SectionIndexTitles (i
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_105)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_105, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_105, mthis, arg_ptrs, NULL);
-	void * res;
-	if (retval) {
-		int length = mono_array_length ((MonoArray *) retval);
-		int i;
-		void **buf = malloc (sizeof (void *) * length);
-		for (i = 0; i < length; i++) {
-			void *value = mono_array_get ((MonoArray *) retval, MonoObject *, i);
-			char *str = mono_string_to_utf8 ((MonoString *) value);
-			NSString *sv = [[NSString alloc] initWithUTF8String:str];
-			[sv autorelease];
-			mono_free (str);
-			buf [i] = sv;
-		}
-		NSArray *arr = [[NSArray alloc] initWithObjects: (void *) buf count: length];
-		free (buf);
-		[arr autorelease];
-		res = arr;
-	} else {
-		res = NULL;
-	}
-	return res;
+	mono_runtime_invoke (method_105, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_106 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayersTableSource_GetCell (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_Verses_iOS_MemorizationViewController_GetSupportedInterfaceOrientations (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2540,35 +2534,15 @@ native_to_managed_trampoline_Verses_iOS_PrayersTableSource_GetCell (id this, SEL
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_106)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_106, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_106, 1));
-		}
-		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_106, mthis, arg_ptrs, NULL);
 	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
+	res = *(void * *) mono_object_unbox (retval);
 	return res;
 }
 
 static MonoMethod *method_107 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VersesTableSource_NumberOfSections (id this, SEL sel, id p0)
+native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewWillDisappear (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -2580,23 +2554,16 @@ native_to_managed_trampoline_Verses_iOS_VersesTableSource_NumberOfSections (id t
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_107)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_107, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_107, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_107, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_108 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VersesTableSource_RowsInSection (id this, SEL sel, id p0, int p1)
+native_to_managed_trampoline_Verses_iOS_PrayersTableSource_NumberOfSections (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2608,11 +2575,11 @@ native_to_managed_trampoline_Verses_iOS_VersesTableSource_RowsInSection (id this
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_108, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_108, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
 	void* retval = (void *) mono_runtime_invoke (method_108, mthis, arg_ptrs, NULL);
 	void * res;
 	res = *(void * *) mono_object_unbox (retval);
@@ -2620,8 +2587,8 @@ native_to_managed_trampoline_Verses_iOS_VersesTableSource_RowsInSection (id this
 }
 
 static MonoMethod *method_109 = NULL;
-float
-native_to_managed_trampoline_Verses_iOS_VersesTableSource_GetHeightForRow (id this, SEL sel, id p0, id p1)
+void *
+native_to_managed_trampoline_Verses_iOS_PrayersTableSource_RowsInSection (id this, SEL sel, id p0, int p1)
 {
 	void *arg_ptrs [2];
 	MonoObject *mthis;
@@ -2635,25 +2602,21 @@ native_to_managed_trampoline_Verses_iOS_VersesTableSource_GetHeightForRow (id th
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_109, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_109, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_109, 1));
-		}
-		arg_ptrs [1] = mobj1;
+	arg_ptrs [1] = &p1;
 	void* retval = (void *) mono_runtime_invoke (method_109, mthis, arg_ptrs, NULL);
-	float res;
-	res = *(float *) mono_object_unbox (retval);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
 	return res;
 }
 
 static MonoMethod *method_110 = NULL;
-void *
-native_to_managed_trampoline_Verses_iOS_VersesTableSource_RowSelected (id this, SEL sel, id p0, id p1)
+float
+native_to_managed_trampoline_Verses_iOS_PrayersTableSource_GetHeightForRow (id this, SEL sel, id p0, id p1)
 {
 	void *arg_ptrs [2];
 	MonoObject *mthis;
@@ -2667,25 +2630,29 @@ native_to_managed_trampoline_Verses_iOS_VersesTableSource_RowSelected (id this, 
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_110, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_110, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_110, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_110, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
-	mono_runtime_invoke (method_110, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_110, mthis, arg_ptrs, NULL);
+	float res;
+	res = *(float *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_111 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VersesTableSource_SectionIndexTitles (id this, SEL sel, id p0)
+native_to_managed_trampoline_Verses_iOS_PrayersTableSource_RowSelected (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2697,11 +2664,44 @@ native_to_managed_trampoline_Verses_iOS_VersesTableSource_SectionIndexTitles (id
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_111, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_111, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_111, mthis, arg_ptrs, NULL);
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_111, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	mono_runtime_invoke (method_111, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_112 = NULL;
+void *
+native_to_managed_trampoline_Verses_iOS_PrayersTableSource_SectionIndexTitles (id this, SEL sel, id p0)
+{
+	void *arg_ptrs [1];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_112)
+		method_112 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_112)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_112, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	void* retval = (void *) mono_runtime_invoke (method_112, mthis, arg_ptrs, NULL);
 	void * res;
 	if (retval) {
 		int length = mono_array_length ((MonoArray *) retval);
@@ -2725,40 +2725,9 @@ native_to_managed_trampoline_Verses_iOS_VersesTableSource_SectionIndexTitles (id
 	return res;
 }
 
-static MonoMethod *method_112 = NULL;
-void *
-native_to_managed_trampoline_Verses_iOS_VersesTableSource_CommitEditingStyle (id this, SEL sel, id p0, int p1, id p2)
-{
-	void *arg_ptrs [3];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_112)
-		method_112 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_112)));
-		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_112, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
-	NSObject *nsobj2 = (NSObject *) p2;
-		MonoObject *mobj2 = NULL;
-		if (nsobj2) {
-			mobj2 = get_nsobject_with_type_for_ptr (nsobj2, false, monotouch_get_parameter_type (method_112, 2));
-		}
-		arg_ptrs [2] = mobj2;
-	mono_runtime_invoke (method_112, mthis, arg_ptrs, NULL);
-	return NULL;
-}
-
 static MonoMethod *method_113 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VersesTableSource_GetCell (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_Verses_iOS_PrayersTableSource_GetCell (id this, SEL sel, id p0, id p1)
 {
 	void *arg_ptrs [2];
 	MonoObject *mthis;
@@ -2772,14 +2741,16 @@ native_to_managed_trampoline_Verses_iOS_VersesTableSource_GetCell (id this, SEL 
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_113, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_113, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
 	NSObject *nsobj1 = (NSObject *) p1;
 		MonoObject *mobj1 = NULL;
+		bool created1 = false;
 		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_113, 1));
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_113, 1), &created1);
 		}
 		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_113, mthis, arg_ptrs, NULL);
@@ -2798,34 +2769,36 @@ native_to_managed_trampoline_Verses_iOS_VersesTableSource_GetCell (id this, SEL 
 
 static MonoMethod *method_114 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate__ctor (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VersesTableSource_NumberOfSections (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_114)
 		method_114 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_114));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_114, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_114)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_114, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	void* retval = (void *) mono_runtime_invoke (method_114, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_115 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate_EditingStarted (id this, SEL sel, id p0)
+native_to_managed_trampoline_Verses_iOS_VersesTableSource_RowsInSection (id this, SEL sel, id p0, int p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2837,19 +2810,23 @@ native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate_
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_115, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_115, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_115, mthis, arg_ptrs, NULL);
-	return NULL;
+	arg_ptrs [1] = &p1;
+	void* retval = (void *) mono_runtime_invoke (method_115, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_116 = NULL;
-void *
-native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate_EditingEnded (id this, SEL sel, id p0)
+float
+native_to_managed_trampoline_Verses_iOS_VersesTableSource_GetHeightForRow (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2861,44 +2838,61 @@ native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate_
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
+		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_116, 0));
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_116, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_116, mthis, arg_ptrs, NULL);
-	return NULL;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_116, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	void* retval = (void *) mono_runtime_invoke (method_116, mthis, arg_ptrs, NULL);
+	float res;
+	res = *(float *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_117 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog__ctor (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VersesTableSource_RowSelected (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_117)
 		method_117 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_117));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_117)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_117, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_117, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_117, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+	return NULL;
 }
 
 static MonoMethod *method_118 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VersesTableSource_SectionIndexTitles (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2908,15 +2902,42 @@ native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewDidLoad (id this
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_118)));
 		}
-	mono_runtime_invoke (method_118, mthis, arg_ptrs, NULL);
-	return NULL;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_118, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	void* retval = (void *) mono_runtime_invoke (method_118, mthis, arg_ptrs, NULL);
+	void * res;
+	if (retval) {
+		int length = mono_array_length ((MonoArray *) retval);
+		int i;
+		void **buf = malloc (sizeof (void *) * length);
+		for (i = 0; i < length; i++) {
+			void *value = mono_array_get ((MonoArray *) retval, MonoObject *, i);
+			char *str = mono_string_to_utf8 ((MonoString *) value);
+			NSString *sv = [[NSString alloc] initWithUTF8String:str];
+			[sv autorelease];
+			mono_free (str);
+			buf [i] = sv;
+		}
+		NSArray *arr = [[NSArray alloc] initWithObjects: (void *) buf count: length];
+		free (buf);
+		[arr autorelease];
+		res = arr;
+	} else {
+		res = NULL;
+	}
+	return res;
 }
 
 static MonoMethod *method_119 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewDidDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_VersesTableSource_CommitEditingStyle (id this, SEL sel, id p0, int p1, id p2)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [3];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2926,16 +2947,30 @@ native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewDidDisappear (id
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_119)));
 		}
-	arg_ptrs [0] = &p0;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_119, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	arg_ptrs [1] = &p1;
+	NSObject *nsobj2 = (NSObject *) p2;
+		MonoObject *mobj2 = NULL;
+		bool created2 = false;
+		if (nsobj2) {
+			mobj2 = get_nsobject_with_type_for_ptr_created (nsobj2, false, monotouch_get_parameter_type (method_119, 2), &created2);
+		}
+		arg_ptrs [2] = mobj2;
 	mono_runtime_invoke (method_119, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_120 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ShouldAutorotate (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VersesTableSource_GetCell (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2945,37 +2980,64 @@ native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ShouldAutorotate (id
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_120)));
 		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_120, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_120, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_120, mthis, arg_ptrs, NULL);
 	void * res;
-	res = *(void * *) mono_object_unbox (retval);
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
 	return res;
 }
 
 static MonoMethod *method_121 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate__ctor (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_121)
 		method_121 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_121)));
-		}
-	void* retval = (void *) mono_runtime_invoke (method_121, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_121));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+	mono_runtime_invoke (method_121, mthis, arg_ptrs, NULL);
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_122 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate_EditingStarted (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2985,17 +3047,22 @@ native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_PreferredInterfaceOr
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_122)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_122, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_122, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_122, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_123 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate_EditingEnded (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3005,32 +3072,45 @@ native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidLoad (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_123)));
 		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_123, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_123, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_124 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog__ctor (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_124)
 		method_124 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_124)));
-		}
-	arg_ptrs [0] = &p0;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_124));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
 	mono_runtime_invoke (method_124, mthis, arg_ptrs, NULL);
-	return NULL;
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_125 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewWillAppear (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3049,7 +3129,7 @@ native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidDisappear (id th
 
 static MonoMethod *method_126 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ShouldAutorotate (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewDidLoad (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3061,17 +3141,15 @@ native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ShouldAutorotate (id th
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_126)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_126, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_126, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_127 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewWillDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3081,15 +3159,14 @@ native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_GetSupportedInterfaceOr
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_127)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_127, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_127, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_128 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ShouldAutorotate (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3109,7 +3186,7 @@ native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_PreferredInterfaceOrien
 
 static MonoMethod *method_129 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PrayerCell_LayoutSubviews (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3121,13 +3198,15 @@ native_to_managed_trampoline_Verses_iOS_PrayerCell_LayoutSubviews (id this, SEL 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_129)));
 		}
-	mono_runtime_invoke (method_129, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_129, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_130 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_VerseCell_LayoutSubviews (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3139,15 +3218,17 @@ native_to_managed_trampoline_Verses_iOS_VerseCell_LayoutSubviews (id this, SEL s
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_130)));
 		}
-	mono_runtime_invoke (method_130, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_130, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_131 = NULL;
-float
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SizingSource_GetHeightForRow (id this, SEL sel, id p0, id p1)
+void *
+native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3157,27 +3238,13 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SizingSource_
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_131)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_131, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_131, 1));
-		}
-		arg_ptrs [1] = mobj1;
-	void* retval = (void *) mono_runtime_invoke (method_131, mthis, arg_ptrs, NULL);
-	float res;
-	res = *(float *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_131, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_132 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ShouldAutorotateToInterfaceOrientation (id this, SEL sel, int p0)
+native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewWillAppear (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3190,15 +3257,13 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ShouldAutorot
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_132)));
 		}
 	arg_ptrs [0] = &p0;
-	void* retval = (void *) mono_runtime_invoke (method_132, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_132, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_133 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_DidRotate (id this, SEL sel, int p0)
+native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidAppear (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3217,9 +3282,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_DidRotate (id
 
 static MonoMethod *method_134 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_LoadView (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewWillDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3229,15 +3294,16 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_LoadView (id 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_134)));
 		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_134, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_135 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ShouldAutorotate (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3247,16 +3313,17 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillAppea
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_135)));
 		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_135, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_135, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_136 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_GetSupportedInterfaceOrientations (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3266,39 +3333,35 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillDisap
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_136)));
 		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_136, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_136, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_137 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell__ctor (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_137)
 		method_137 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_137));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_137, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_137)));
+		}
+	void* retval = (void *) mono_runtime_invoke (method_137, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_138 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell_LayoutSubviews (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PrayerCell_LayoutSubviews (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3316,7 +3379,7 @@ native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell_LayoutS
 
 static MonoMethod *method_139 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_OwnerDrawnElement_OwnerDrawnCell_LayoutSubviews (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_VerseCell_LayoutSubviews (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3333,10 +3396,10 @@ native_to_managed_trampoline_MonoTouch_Dialog_OwnerDrawnElement_OwnerDrawnCell_L
 }
 
 static MonoMethod *method_140 = NULL;
-void *
-native_to_managed_trampoline_Verses_iOS_CenterImageTableViewCell_LayoutSubviews (id this, SEL sel)
+float
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SizingSource_GetHeightForRow (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3346,40 +3409,52 @@ native_to_managed_trampoline_Verses_iOS_CenterImageTableViewCell_LayoutSubviews 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_140)));
 		}
-	mono_runtime_invoke (method_140, mthis, arg_ptrs, NULL);
-	return NULL;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_140, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_140, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	void* retval = (void *) mono_runtime_invoke (method_140, mthis, arg_ptrs, NULL);
+	float res;
+	res = *(float *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_141 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PBTabBarController__ctor (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ShouldAutorotateToInterfaceOrientation (id this, SEL sel, int p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_141)
 		method_141 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_141));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_141, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_141)));
+		}
+	arg_ptrs [0] = &p0;
+	void* retval = (void *) mono_runtime_invoke (method_141, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_142 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PBTabBarController_ShouldAutorotate (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_DidRotate (id this, SEL sel, int p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3389,15 +3464,14 @@ native_to_managed_trampoline_Verses_iOS_PBTabBarController_ShouldAutorotate (id 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_142)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_142, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_142, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_143 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PBTabBarController_GetSupportedInterfaceOrientations (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_LoadView (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3409,17 +3483,15 @@ native_to_managed_trampoline_Verses_iOS_PBTabBarController_GetSupportedInterface
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_143)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_143, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_143, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_144 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_PBTabBarController_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3429,17 +3501,16 @@ native_to_managed_trampoline_Verses_iOS_PBTabBarController_PreferredInterfaceOri
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_144)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_144, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_144, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_145 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_BaseBooleanImageElement_TextWithImageCellView_LayoutSubviews (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3449,34 +3520,41 @@ native_to_managed_trampoline_MonoTouch_Dialog_BaseBooleanImageElement_TextWithIm
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_145)));
 		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_145, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_146 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_ViewWillAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell__ctor (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_146)
 		method_146 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_146)));
-		}
-	arg_ptrs [0] = &p0;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_146));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
 	mono_runtime_invoke (method_146, mthis, arg_ptrs, NULL);
-	return NULL;
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_147 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_ViewDidAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell_LayoutSubviews (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3486,16 +3564,15 @@ native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_ViewDid
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_147)));
 		}
-	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_147, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_148 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_ViewWillDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_MonoTouch_Dialog_OwnerDrawnElement_OwnerDrawnCell_LayoutSubviews (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3505,14 +3582,13 @@ native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_ViewWil
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_148)));
 		}
-	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_148, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_149 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_LoadView (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_CenterImageTableViewCell_LayoutSubviews (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3530,27 +3606,7 @@ native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_LoadVie
 
 static MonoMethod *method_150 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_GetSupportedInterfaceOrientations (id this, SEL sel)
-{
-	void *arg_ptrs [0];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_150)
-		method_150 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_150)));
-		}
-	void* retval = (void *) mono_runtime_invoke (method_150, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
-}
-
-static MonoMethod *method_151 = NULL;
-void *
-native_to_managed_trampoline_Verses_iOS_SettingsDialog__ctor (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PBTabBarController__ctor (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3558,13 +3614,13 @@ native_to_managed_trampoline_Verses_iOS_SettingsDialog__ctor (id this, SEL sel)
 		mono_jit_thread_attach (NULL);
 	if (monotouch_try_get_nsobject (this))
 		return this;
-	if (!method_151)
-		method_151 = get_method_for_selector ([this class], sel).method->method;
+	if (!method_150)
+		method_150 = get_method_for_selector ([this class], sel).method->method;
 	int handle = (int) this;
 	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_151));
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_150));
 	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_151, mthis, arg_ptrs, NULL);
+	mono_runtime_invoke (method_150, mthis, arg_ptrs, NULL);
 	monotouch_create_managed_ref (this, mthis, true);
 	void *params[2];
 	params[0] = mthis;
@@ -3573,9 +3629,29 @@ native_to_managed_trampoline_Verses_iOS_SettingsDialog__ctor (id this, SEL sel)
 	return this;
 }
 
+static MonoMethod *method_151 = NULL;
+void *
+native_to_managed_trampoline_Verses_iOS_PBTabBarController_ShouldAutorotate (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_151)
+		method_151 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_151)));
+		}
+	void* retval = (void *) mono_runtime_invoke (method_151, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
+}
+
 static MonoMethod *method_152 = NULL;
 void *
-native_to_managed_trampoline_Verses_iOS_SettingsDialog_LoadView (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PBTabBarController_GetSupportedInterfaceOrientations (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3587,13 +3663,15 @@ native_to_managed_trampoline_Verses_iOS_SettingsDialog_LoadView (id this, SEL se
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_152)));
 		}
-	mono_runtime_invoke (method_152, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_152, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_153 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_get_Enabled (id this, SEL sel)
+native_to_managed_trampoline_Verses_iOS_PBTabBarController_PreferredInterfaceOrientationForPresentation (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3613,9 +3691,9 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_get_Enabled (id this, 
 
 static MonoMethod *method_154 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_set_Enabled (id this, SEL sel, bool p0)
+native_to_managed_trampoline_MonoTouch_Dialog_BaseBooleanImageElement_TextWithImageCellView_LayoutSubviews (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3625,16 +3703,15 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_set_Enabled (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_154)));
 		}
-	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_154, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_155 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_BeginTracking (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_ViewWillAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3644,29 +3721,16 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_BeginTracking (id this
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_155)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_155, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_155, 1));
-		}
-		arg_ptrs [1] = mobj1;
-	void* retval = (void *) mono_runtime_invoke (method_155, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_155, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_156 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_EndTracking (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_ViewDidAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3676,27 +3740,16 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_EndTracking (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_156)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_156, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_156, 1));
-		}
-		arg_ptrs [1] = mobj1;
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_156, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_157 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_ContinueTracking (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_ViewWillDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3706,29 +3759,16 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_ContinueTracking (id t
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_157)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr (nsobj0, false, monotouch_get_parameter_type (method_157, 0));
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr (nsobj1, false, monotouch_get_parameter_type (method_157, 1));
-		}
-		arg_ptrs [1] = mobj1;
-	void* retval = (void *) mono_runtime_invoke (method_157, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_157, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_158 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_Draw (id this, SEL sel, CGRect p0)
+native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_LoadView (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3738,8 +3778,228 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_Draw (id this, SEL sel
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_158)));
 		}
-	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_158, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_159 = NULL;
+void *
+native_to_managed_trampoline_Verses_iOS_MemorizationDialogViewController_GetSupportedInterfaceOrientations (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_159)
+		method_159 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_159)));
+		}
+	void* retval = (void *) mono_runtime_invoke (method_159, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
+}
+
+static MonoMethod *method_160 = NULL;
+void *
+native_to_managed_trampoline_Verses_iOS_SettingsDialog__ctor (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
+	if (!method_160)
+		method_160 = get_method_for_selector ([this class], sel).method->method;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_160));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+	mono_runtime_invoke (method_160, mthis, arg_ptrs, NULL);
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
+}
+
+static MonoMethod *method_161 = NULL;
+void *
+native_to_managed_trampoline_Verses_iOS_SettingsDialog_LoadView (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_161)
+		method_161 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_161)));
+		}
+	mono_runtime_invoke (method_161, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_162 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_get_Enabled (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_162)
+		method_162 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_162)));
+		}
+	void* retval = (void *) mono_runtime_invoke (method_162, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
+}
+
+static MonoMethod *method_163 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_set_Enabled (id this, SEL sel, bool p0)
+{
+	void *arg_ptrs [1];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_163)
+		method_163 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_163)));
+		}
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_163, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_164 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_BeginTracking (id this, SEL sel, id p0, id p1)
+{
+	void *arg_ptrs [2];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_164)
+		method_164 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_164)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_164, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_164, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	void* retval = (void *) mono_runtime_invoke (method_164, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
+}
+
+static MonoMethod *method_165 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_EndTracking (id this, SEL sel, id p0, id p1)
+{
+	void *arg_ptrs [2];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_165)
+		method_165 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_165)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_165, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_165, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	mono_runtime_invoke (method_165, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_166 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_ContinueTracking (id this, SEL sel, id p0, id p1)
+{
+	void *arg_ptrs [2];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_166)
+		method_166 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_166)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_166, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_166, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	void* retval = (void *) mono_runtime_invoke (method_166, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
+}
+
+static MonoMethod *method_167 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_Draw (id this, SEL sel, CGRect p0)
+{
+	void *arg_ptrs [1];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_167)
+		method_167 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_167)));
+		}
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_167, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
@@ -3747,20 +4007,20 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_Draw (id this, SEL sel
 
 static MTClassMap __monotouch_class_map [] = {
 	{"NSObject", "MonoTouch.Foundation.NSObject, monotouch", 0},
-	{"UITouch", "MonoTouch.UIKit.UITouch, monotouch", 0},
-	{"NSString", "MonoTouch.Foundation.NSString, monotouch", 0},
+	{"NSValue", "MonoTouch.Foundation.NSValue, monotouch", 0},
 	{"NSURL", "MonoTouch.Foundation.NSUrl, monotouch", 0},
 	{"NSURLConnection", "MonoTouch.Foundation.NSUrlConnection, monotouch", 0},
+	{"NSUserDefaults", "MonoTouch.Foundation.NSUserDefaults, monotouch", 0},
 	{"__MonoMac_NSAsyncActionDispatcher", "MonoTouch.Foundation.NSAsyncActionDispatcher, monotouch", 0},
 	{"NSAutoreleasePool", "MonoTouch.Foundation.NSAutoreleasePool, monotouch", 0},
-	{"NSSet", "MonoTouch.Foundation.NSSet, monotouch", 0},
-	{"NSBundle", "MonoTouch.Foundation.NSBundle, monotouch", 0},
+	{"NSString", "MonoTouch.Foundation.NSString, monotouch", 0},
 	{"NSData", "MonoTouch.Foundation.NSData, monotouch", 0},
 	{"NSDate", "MonoTouch.Foundation.NSDate, monotouch", 0},
 	{"NSDictionary", "MonoTouch.Foundation.NSDictionary, monotouch", 0},
 	{"NSIndexPath", "MonoTouch.Foundation.NSIndexPath, monotouch", 0},
 	{"NSURLRequest", "MonoTouch.Foundation.NSUrlRequest, monotouch", 0},
 	{"NSRunLoop", "MonoTouch.Foundation.NSRunLoop, monotouch", 0},
+	{"NSSet", "MonoTouch.Foundation.NSSet, monotouch", 0},
 	{"NSError", "MonoTouch.Foundation.NSError, monotouch", 0},
 	{"MonoTouch.UIKit.UIControlEventProxy", "MonoTouch.UIKit.UIControlEventProxy, monotouch", 0},
 	{"UIGestureRecognizer", "MonoTouch.UIKit.UIGestureRecognizer, monotouch", 0},
@@ -3770,10 +4030,10 @@ static MTClassMap __monotouch_class_map [] = {
 	{"__UIGestureRecognizerToken", "MonoTouch.UIKit.UIGestureRecognizer+Token, monotouch", 0},
 	{"UIColor", "MonoTouch.UIKit.UIColor, monotouch", 0},
 	{"__NSObject_Disposer", "MonoTouch.Foundation.NSObject+NSObject_Disposer, monotouch", 0},
-	{"NSValue", "MonoTouch.Foundation.NSValue, monotouch", 0},
 	{"UIImage", "MonoTouch.UIKit.UIImage, monotouch", 0},
+	{"UITouch", "MonoTouch.UIKit.UITouch, monotouch", 0},
 	{"UIBarItem", "MonoTouch.UIKit.UIBarItem, monotouch", 0},
-	{"NSAttributedString", "MonoTouch.Foundation.NSAttributedString, monotouch", 0},
+	{"NSBundle", "MonoTouch.Foundation.NSBundle, monotouch", 0},
 	{"NSStringDrawingContext", "MonoTouch.Foundation.NSStringDrawingContext, monotouch", 0},
 	{"NSIndexSet", "MonoTouch.Foundation.NSIndexSet, monotouch", 0},
 	{"UINavigationItem", "MonoTouch.UIKit.UINavigationItem, monotouch", 0},
@@ -3785,10 +4045,11 @@ static MTClassMap __monotouch_class_map [] = {
 	{"UIPopoverController", "MonoTouch.UIKit.UIPopoverController, monotouch", 0},
 	{"CALayer", "MonoTouch.CoreAnimation.CALayer, monotouch", 0},
 	{"NSArray", "MonoTouch.Foundation.NSArray, monotouch", 0},
+	{"UIScreen", "MonoTouch.UIKit.UIScreen, monotouch", 0},
+	{"NSAttributedString", "MonoTouch.Foundation.NSAttributedString, monotouch", 0},
 	{"NSException", "MonoTouch.Foundation.NSException, monotouch", 0},
 	{"NSEnumerator", "MonoTouch.Foundation.NSEnumerator, monotouch", 0},
 	{"NSFormatter", "MonoTouch.Foundation.NSFormatter, monotouch", 0},
-	{"UIScreen", "MonoTouch.UIKit.UIScreen, monotouch", 0},
 	{"UITabBarItem", "MonoTouch.UIKit.UITabBarItem, monotouch", 0},
 	{"NSMutableParagraphStyle", "MonoTouch.UIKit.NSMutableParagraphStyle, monotouch", 0},
 	{"MonoTouch.UIKit.UIView+UIViewAppearance", "MonoTouch.UIKit.UIView+UIViewAppearance, monotouch", 0},
@@ -3911,22 +4172,22 @@ static MTClass __monotouch_classes [] = {
 	{"SQLite.MonoTouchAdmin.TablesViewController", "UIViewController", 1, 1, 0},
 	{"SQLite.MonoTouchAdmin.TableViewController", "UIViewController", 1, 1, 0},
 	{"Verses.iOS.VerseComposeDialog+CommentsTextDelegate", "NSObject", 1, 3, 0},
-	{"Verses.iOS.VerseComposeDialog", "UIViewController", 1, 5, 0},
+	{"Verses.iOS.VerseComposeDialog", "UIViewController", 1, 7, 0},
 	{"Verses.iOS.VerseDetailDialog", "UIViewController", 1, 5, 0},
-	{"Verses.iOS.VerseEditDialog", "UIViewController", 1, 5, 0},
+	{"Verses.iOS.VerseEditDialog", "UIViewController", 1, 6, 0},
 	{"Verses.iOS.FrontView", "UIView", 1, 0, 0},
 	{"Verses.iOS.BackView", "UIView", 1, 0, 0},
 	{"Verses.iOS.FlipCardController", "UIViewController", 1, 2, 0},
 	{"Verses.iOS.CopyrightViewController", "UIViewController", 1, 4, 0},
 	{"Verses.iOS.PrayerDetailDialog", "UIViewController", 1, 5, 0},
-	{"Verses.iOS.VersesViewController", "UIViewController", 1, 3, 0},
-	{"Verses.iOS.PrayersViewController", "UIViewController", 1, 3, 0},
-	{"Verses.iOS.MemorizationViewController", "UIViewController", 1, 4, 0},
+	{"Verses.iOS.VersesViewController", "UIViewController", 1, 5, 0},
+	{"Verses.iOS.PrayersViewController", "UIViewController", 1, 4, 0},
+	{"Verses.iOS.MemorizationViewController", "UIViewController", 1, 5, 0},
 	{"Verses.iOS.PrayersTableSource", "NSObject", 1, 6, 0},
 	{"Verses.iOS.VersesTableSource", "NSObject", 1, 7, 0},
 	{"Verses.iOS.PrayerComposeDialog+ContentTextDelegate", "NSObject", 1, 3, 0},
-	{"Verses.iOS.PrayerComposeDialog", "UIViewController", 1, 6, 0},
-	{"Verses.iOS.PrayerEditDialog", "UIViewController", 1, 6, 0},
+	{"Verses.iOS.PrayerComposeDialog", "UIViewController", 1, 7, 0},
+	{"Verses.iOS.PrayerEditDialog", "UIViewController", 1, 7, 0},
 	{"Verses.iOS.PrayerCell", "UITableViewCell", 1, 1, 0},
 	{"Verses.iOS.VerseCell", "UITableViewCell", 1, 1, 0},
 	{"MonoTouch.Dialog.DialogViewController+SizingSource", "MonoTouch.Dialog.DialogViewController+Source", 1, 1, 0},
@@ -4069,18 +4330,21 @@ static MTMethod __monotouch_methods [] = {
 	{"init","@@:",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_CommentsTextDelegate__ctor},
 	{"textViewDidBeginEditing:","v@:@",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_CommentsTextDelegate_EditingStarted},
 	{"textViewDidEndEditing:","v@:@",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_CommentsTextDelegate_EditingEnded},
+	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewWillAppear},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewDidLoad},
 	{"viewDidDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ViewDidDisappear},
 	{"shouldAutorotate","B@:",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_ShouldAutorotate},
 	{"supportedInterfaceOrientations","i@:",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_GetSupportedInterfaceOrientations},
 	{"preferredInterfaceOrientationForPresentation","i@:",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_PreferredInterfaceOrientationForPresentation},
+	{"preferredStatusBarStyle","i@:",0, &native_to_managed_trampoline_Verses_iOS_VerseComposeDialog_PreferredStatusBarStyle},
 	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewWillAppear},
-	{"viewWillDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewWillDisappear},
+	{"viewDidDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidDisappear},
 	{"viewDidAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidAppear},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_ViewDidLoad},
 	{"supportedInterfaceOrientations","i@:",0, &native_to_managed_trampoline_Verses_iOS_VerseDetailDialog_GetSupportedInterfaceOrientations},
+	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewWillAppear},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewDidLoad},
-	{"viewDidDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewDidDisappear},
+	{"viewWillDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ViewWillDisappear},
 	{"shouldAutorotate","B@:",0, &native_to_managed_trampoline_Verses_iOS_VerseEditDialog_ShouldAutorotate},
 	{"supportedInterfaceOrientations","i@:",0, &native_to_managed_trampoline_Verses_iOS_VerseEditDialog_GetSupportedInterfaceOrientations},
 	{"preferredInterfaceOrientationForPresentation","i@:",0, &native_to_managed_trampoline_Verses_iOS_VerseEditDialog_PreferredInterfaceOrientationForPresentation},
@@ -4092,19 +4356,23 @@ static MTMethod __monotouch_methods [] = {
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_CopyrightViewController_ViewDidLoad},
 	{"viewDidAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidAppear},
 	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewWillAppear},
-	{"viewWillDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewWillDisappear},
+	{"viewDidDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidDisappear},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_ViewDidLoad},
 	{"supportedInterfaceOrientations","i@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerDetailDialog_GetSupportedInterfaceOrientations},
 	{"init","@@:",0, &native_to_managed_trampoline_Verses_iOS_VersesViewController__ctor},
 	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewWillAppear},
+	{"viewDidAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewDidAppear},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewDidLoad},
+	{"viewDidDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_VersesViewController_ViewDidDisappear},
 	{"init","@@:",0, &native_to_managed_trampoline_Verses_iOS_PrayersViewController__ctor},
 	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewWillAppear},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewDidLoad},
+	{"viewDidDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayersViewController_ViewDidDisappear},
 	{"init","@@:",0, &native_to_managed_trampoline_Verses_iOS_MemorizationViewController__ctor},
-	{"viewDidAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewDidAppear},
+	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewWillAppear},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewDidLoad},
 	{"supportedInterfaceOrientations","i@:",0, &native_to_managed_trampoline_Verses_iOS_MemorizationViewController_GetSupportedInterfaceOrientations},
+	{"viewWillDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_MemorizationViewController_ViewWillDisappear},
 	{"numberOfSectionsInTableView:","i@:@",0, &native_to_managed_trampoline_Verses_iOS_PrayersTableSource_NumberOfSections},
 	{"tableView:numberOfRowsInSection:","i@:@i",0, &native_to_managed_trampoline_Verses_iOS_PrayersTableSource_RowsInSection},
 	{"tableView:heightForRowAtIndexPath:","f@:@@",0, &native_to_managed_trampoline_Verses_iOS_PrayersTableSource_GetHeightForRow},
@@ -4122,14 +4390,16 @@ static MTMethod __monotouch_methods [] = {
 	{"textViewDidBeginEditing:","v@:@",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate_EditingStarted},
 	{"textViewDidEndEditing:","v@:@",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ContentTextDelegate_EditingEnded},
 	{"init","@@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog__ctor},
+	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewWillAppear},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewDidLoad},
-	{"viewDidDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewDidDisappear},
+	{"viewWillDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ViewWillDisappear},
 	{"shouldAutorotate","B@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_ShouldAutorotate},
 	{"supportedInterfaceOrientations","i@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_GetSupportedInterfaceOrientations},
 	{"preferredInterfaceOrientationForPresentation","i@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerComposeDialog_PreferredInterfaceOrientationForPresentation},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidLoad},
+	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewWillAppear},
 	{"viewDidAppear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidAppear},
-	{"viewDidDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewDidDisappear},
+	{"viewWillDisappear:","v@:B",0, &native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ViewWillDisappear},
 	{"shouldAutorotate","B@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_ShouldAutorotate},
 	{"supportedInterfaceOrientations","i@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_GetSupportedInterfaceOrientations},
 	{"preferredInterfaceOrientationForPresentation","i@:",0, &native_to_managed_trampoline_Verses_iOS_PrayerEditDialog_PreferredInterfaceOrientationForPresentation},
@@ -4168,7 +4438,7 @@ static MTMethod __monotouch_methods [] = {
 static MTProperty __monotouch_properties [] = {
 };
 
-int __monotouch_map_count = 132;
+int __monotouch_map_count = 133;
 static int __monotouch_class_count = 59;
 
 void monotouch_create_classes (void) {

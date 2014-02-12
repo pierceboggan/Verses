@@ -6,5 +6,6 @@ _WriteZStream
 _monotouch_start_wwan
 _monotouch_release_managed_ref
 _monotouch_create_managed_ref
+_xamarin_get_block_descriptor
 _monotouch_timezone_get_data
 _monotouch_log

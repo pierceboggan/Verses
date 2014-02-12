@@ -38,7 +38,7 @@
 		</data>
 		<key>BibleAPI.iOS.dll</key>
 		<data>
-		148v4YYTSRnNbalhfQ9h9kxNrfA=
+		Jptw2otWdFqFn2A6N5mCfuPiunY=
 		</data>
 		<key>Default-568h.png</key>
 		<data>
@@ -208,6 +208,10 @@
 		<data>
 		M42o9r9Cj6N8KoOMBGwUe+w18gI=
 		</data>
+		<key>Images/Detail/TimeIcon@2x.png</key>
+		<data>
+		sfa2Vbq6iwaytlaPTGK5mXLnn64=
+		</data>
 		<key>Images/Detail/ToMemorizeGreenButton.png</key>
 		<data>
 		/WI6RqeEzPk/Dl9Vg0hFHj4HFtg=
@@ -262,11 +266,11 @@
 		</data>
 		<key>Images/Headers/BlankBar.png</key>
 		<data>
-		qXJlj2DXrDmAwyaHgp5tDKOtrYI=
+		10snEYf9M8LS6IppUvro8mQuCuI=
 		</data>
 		<key>Images/Headers/BlankBar@2x.png</key>
 		<data>
-		JipV+CRtoVedFripTSVci5SrlMQ=
+		v7TLQYtbog7H5NK1OWpVBBc0GZw=
 		</data>
 		<key>Images/Headers/CalendarBar.png</key>
 		<data>
@@ -556,6 +560,22 @@
 		<data>
 		X0kkyQ1aInScanAqCWg3673yw0U=
 		</data>
+		<key>Images/Tabs/Memorization.png</key>
+		<data>
+		Ah3uLh/HYCQSBDqNWOS7GlXVPfE=
+		</data>
+		<key>Images/Tabs/Memorization@2x.png</key>
+		<data>
+		sLM/c7Q18aQdkU0WJ40WEnm7KB4=
+		</data>
+		<key>Images/Tabs/Prayers.png</key>
+		<data>
+		5LNPhYSC8jqhovaP0c7kzNWlfJM=
+		</data>
+		<key>Images/Tabs/Prayers@2x.png</key>
+		<data>
+		OsUKvKvCBNIfSTjoZ7gBJJeXgaM=
+		</data>
 		<key>Images/Tabs/Tab 1 Active.png</key>
 		<data>
 		1PTpTVoNwKSlAH5uUE5iSj8F7rU=
@@ -580,6 +600,14 @@
 		<data>
 		3PXjSBtyRllNoZJ7fdTuPG/FGEw=
 		</data>
+		<key>Images/Tabs/Verses.png</key>
+		<data>
+		r+K9eia8iXusJH+ud3/QgRz6cKM=
+		</data>
+		<key>Images/Tabs/Verses@2x.png</key>
+		<data>
+		AItvYWrYfz7ifcNIoWqT6dBa45Y=
+		</data>
 		<key>Images/Tag.jpg</key>
 		<data>
 		X4uTNR36J1bKRSgPLtH3Yh68klg=
@@ -590,11 +618,11 @@
 		</data>
 		<key>MobileHmtlAgilityPack.dll</key>
 		<data>
-		V7gQ5cBcadtvAav+vcwhQzrfR/k=
+		V8Z1M9Q+ufwKsy/OH+PX4e+R5zo=
 		</data>
 		<key>MonoTouch.Dialog-1.dll</key>
 		<data>
-		YGFQufyZ9yv9b7BIMW9YJq3D+DU=
+		YtQQdU2+eh9mtFmSgZqo535v9so=
 		</data>
 		<key>Montserrat-Bold.ttf</key>
 		<data>
@@ -606,7 +634,7 @@
 		</data>
 		<key>Newtonsoft.Json.MonoTouch.dll</key>
 		<data>
-		rnkyB1dI0S9Fi+mkgsci0KtL4Sw=
+		wjHU9VIh8rGUcgvvKbba88CZ7UM=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -614,7 +642,7 @@
 		</data>
 		<key>SQLite.dll</key>
 		<data>
-		xA/z7RUDlC49b7bpfZKIVWiOBfY=
+		OfdStZHvLW34NgltHm5/mUF35lY=
 		</data>
 		<key>SourceSansPro-Bold.otf</key>
 		<data>
@@ -630,31 +658,31 @@
 		</data>
 		<key>System.Core.dll</key>
 		<data>
-		hq/a/GWRQSk6elHuvKXXEDzV4Ew=
+		ygT9/RuFiwEbx2fcT43wrrLsLHQ=
 		</data>
 		<key>System.Net.Http.dll</key>
 		<data>
-		0HuE2r5wAc+LnTHrYPBBv3xWg1s=
+		rYTIVh2lxq0B7y818dTRqNY/5XA=
 		</data>
 		<key>System.Runtime.Serialization.dll</key>
 		<data>
-		s1HvIonizMPewGoed5tSIWk6Ur0=
+		mIOrv9yE65ehEuU0OGqeMQY7cic=
 		</data>
 		<key>System.Xml.dll</key>
 		<data>
-		uaFg2fsBKV9H/PHcOZJvCJXzgSE=
+		ZZrpGB69kaTM+E9QkgsNH2GN3Dk=
 		</data>
 		<key>System.dll</key>
 		<data>
-		Wy4y7GiAYf+h9+a0jYcK4JdlT4U=
+		gNPt6G9jChVXI5xjJdyfU7EqZkA=
 		</data>
 		<key>Verses.Core.iOS.dll</key>
 		<data>
-		rNcoBhaBKxWzfTvXOaZlrFpf4rM=
+		rrHuMBet4rwu+xMuOpegoHfHNfE=
 		</data>
 		<key>VersesiOS.exe</key>
 		<data>
-		x9sVtKnK5O5RmPFGCte610hZZ30=
+		QPAeenGCjVFfgfS/6L6SKzBBFas=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -662,11 +690,11 @@
 		</data>
 		<key>monotouch.dll</key>
 		<data>
-		bHGTTK5q+nWgHwisMuHvP34aFAM=
+		efg63t+cnQuNCe2jjfd5n93b4Zc=
 		</data>
 		<key>mscorlib.dll</key>
 		<data>
-		maljEDHm1SBE67ZGHquoTLznGAs=
+		2bNWLbvLSWjMEKtDiCXPBn/acdo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -705,7 +733,7 @@
 		</data>
 		<key>BibleAPI.iOS.dll</key>
 		<data>
-		148v4YYTSRnNbalhfQ9h9kxNrfA=
+		Jptw2otWdFqFn2A6N5mCfuPiunY=
 		</data>
 		<key>Default-568h.png</key>
 		<data>
@@ -875,6 +903,10 @@
 		<data>
 		M42o9r9Cj6N8KoOMBGwUe+w18gI=
 		</data>
+		<key>Images/Detail/TimeIcon@2x.png</key>
+		<data>
+		sfa2Vbq6iwaytlaPTGK5mXLnn64=
+		</data>
 		<key>Images/Detail/ToMemorizeGreenButton.png</key>
 		<data>
 		/WI6RqeEzPk/Dl9Vg0hFHj4HFtg=
@@ -929,11 +961,11 @@
 		</data>
 		<key>Images/Headers/BlankBar.png</key>
 		<data>
-		qXJlj2DXrDmAwyaHgp5tDKOtrYI=
+		10snEYf9M8LS6IppUvro8mQuCuI=
 		</data>
 		<key>Images/Headers/BlankBar@2x.png</key>
 		<data>
-		JipV+CRtoVedFripTSVci5SrlMQ=
+		v7TLQYtbog7H5NK1OWpVBBc0GZw=
 		</data>
 		<key>Images/Headers/CalendarBar.png</key>
 		<data>
@@ -1223,6 +1255,22 @@
 		<data>
 		X0kkyQ1aInScanAqCWg3673yw0U=
 		</data>
+		<key>Images/Tabs/Memorization.png</key>
+		<data>
+		Ah3uLh/HYCQSBDqNWOS7GlXVPfE=
+		</data>
+		<key>Images/Tabs/Memorization@2x.png</key>
+		<data>
+		sLM/c7Q18aQdkU0WJ40WEnm7KB4=
+		</data>
+		<key>Images/Tabs/Prayers.png</key>
+		<data>
+		5LNPhYSC8jqhovaP0c7kzNWlfJM=
+		</data>
+		<key>Images/Tabs/Prayers@2x.png</key>
+		<data>
+		OsUKvKvCBNIfSTjoZ7gBJJeXgaM=
+		</data>
 		<key>Images/Tabs/Tab 1 Active.png</key>
 		<data>
 		1PTpTVoNwKSlAH5uUE5iSj8F7rU=
@@ -1247,6 +1295,14 @@
 		<data>
 		3PXjSBtyRllNoZJ7fdTuPG/FGEw=
 		</data>
+		<key>Images/Tabs/Verses.png</key>
+		<data>
+		r+K9eia8iXusJH+ud3/QgRz6cKM=
+		</data>
+		<key>Images/Tabs/Verses@2x.png</key>
+		<data>
+		AItvYWrYfz7ifcNIoWqT6dBa45Y=
+		</data>
 		<key>Images/Tag.jpg</key>
 		<data>
 		X4uTNR36J1bKRSgPLtH3Yh68klg=
@@ -1257,11 +1313,11 @@
 		</data>
 		<key>MobileHmtlAgilityPack.dll</key>
 		<data>
-		V7gQ5cBcadtvAav+vcwhQzrfR/k=
+		V8Z1M9Q+ufwKsy/OH+PX4e+R5zo=
 		</data>
 		<key>MonoTouch.Dialog-1.dll</key>
 		<data>
-		YGFQufyZ9yv9b7BIMW9YJq3D+DU=
+		YtQQdU2+eh9mtFmSgZqo535v9so=
 		</data>
 		<key>Montserrat-Bold.ttf</key>
 		<data>
@@ -1273,7 +1329,7 @@
 		</data>
 		<key>Newtonsoft.Json.MonoTouch.dll</key>
 		<data>
-		rnkyB1dI0S9Fi+mkgsci0KtL4Sw=
+		wjHU9VIh8rGUcgvvKbba88CZ7UM=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -1281,7 +1337,7 @@
 		</data>
 		<key>SQLite.dll</key>
 		<data>
-		xA/z7RUDlC49b7bpfZKIVWiOBfY=
+		OfdStZHvLW34NgltHm5/mUF35lY=
 		</data>
 		<key>SourceSansPro-Bold.otf</key>
 		<data>
@@ -1297,31 +1353,31 @@
 		</data>
 		<key>System.Core.dll</key>
 		<data>
-		hq/a/GWRQSk6elHuvKXXEDzV4Ew=
+		ygT9/RuFiwEbx2fcT43wrrLsLHQ=
 		</data>
 		<key>System.Net.Http.dll</key>
 		<data>
-		0HuE2r5wAc+LnTHrYPBBv3xWg1s=
+		rYTIVh2lxq0B7y818dTRqNY/5XA=
 		</data>
 		<key>System.Runtime.Serialization.dll</key>
 		<data>
-		s1HvIonizMPewGoed5tSIWk6Ur0=
+		mIOrv9yE65ehEuU0OGqeMQY7cic=
 		</data>
 		<key>System.Xml.dll</key>
 		<data>
-		uaFg2fsBKV9H/PHcOZJvCJXzgSE=
+		ZZrpGB69kaTM+E9QkgsNH2GN3Dk=
 		</data>
 		<key>System.dll</key>
 		<data>
-		Wy4y7GiAYf+h9+a0jYcK4JdlT4U=
+		gNPt6G9jChVXI5xjJdyfU7EqZkA=
 		</data>
 		<key>Verses.Core.iOS.dll</key>
 		<data>
-		rNcoBhaBKxWzfTvXOaZlrFpf4rM=
+		rrHuMBet4rwu+xMuOpegoHfHNfE=
 		</data>
 		<key>VersesiOS.exe</key>
 		<data>
-		x9sVtKnK5O5RmPFGCte610hZZ30=
+		QPAeenGCjVFfgfS/6L6SKzBBFas=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -1329,11 +1385,11 @@
 		</data>
 		<key>monotouch.dll</key>
 		<data>
-		bHGTTK5q+nWgHwisMuHvP34aFAM=
+		efg63t+cnQuNCe2jjfd5n93b4Zc=
 		</data>
 		<key>mscorlib.dll</key>
 		<data>
-		maljEDHm1SBE67ZGHquoTLznGAs=
+		2bNWLbvLSWjMEKtDiCXPBn/acdo=
 		</data>
 	</dict>
 	<key>rules</key>

@@ -78,6 +78,8 @@
     <IpaPackageName>
     </IpaPackageName>
     <BuildIpa>true</BuildIpa>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -159,10 +161,12 @@
     <Compile Include="Verses\CopyrightViewController.cs" />
     <Compile Include="Memorization\Elements\CenterImageTableViewCell.cs" />
     <Compile Include="Settings\SettingsDialog.cs" />
-    <Compile Include="Settings\StyledRootElement.cs" />
     <Compile Include="Settings\StyledStringElement.cs" />
     <Compile Include="Settings\StyledRadioElement.cs" />
     <Compile Include="TranslationHelper.cs" />
+    <Compile Include="Settings\WebViewController.cs" />
+    <Compile Include="Settings\StyledTranslationRootElement.cs" />
+    <Compile Include="Settings\StyledRootElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -306,6 +310,7 @@
     <BundleResource Include="Images\Tabs\Memorization%402x.png" />
     <BundleResource Include="Images\Tabs\Prayers.png" />
     <BundleResource Include="Images\Tabs\Prayers%402x.png" />
+    <BundleResource Include="Images\Detail\TimeIcon%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Compose\BlackLine.png" />
