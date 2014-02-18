@@ -328,6 +328,7 @@
     <Content Include="Images\Compose\BlackLine.png" />
     <Content Include="Settings\HTML\Licenses.html" />
     <Content Include="Settings\HTML\SpecialThanks.html" />
+    <Content Include="Settings\HTML\GettingStarted.html" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\iTunesArtwork" />
