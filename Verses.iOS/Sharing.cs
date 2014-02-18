@@ -19,6 +19,13 @@ namespace Verses.iOS
 			Share (presentingViewController, text);
 		}
 
+		public static void ShareVersesApp (UIViewController presentingViewController)
+		{
+			var text = "I'm using @GetVersesApp for iOS for daily Scripture memorization. " +
+				"Download it free at http://appstore.com/versesapp #HisWordMyHead";
+			Share (presentingViewController, text);
+		}
+
 		private static void Share (UIViewController presentingViewController, string toShare)
 		{
 			var item = new NSString (toShare);
@@ -38,8 +45,7 @@ namespace Verses.iOS
 					UIActivityType.PostToWeibo
 				};
 			}
-
-			// Due to use of iOS 6 appearance APIs, I don't think I can use this!
+				
 			activityViewController.ExcludedActivityTypes = excludedActivityTypes;
 			presentingViewController.PresentViewController (activityViewController, true, null);
 		}

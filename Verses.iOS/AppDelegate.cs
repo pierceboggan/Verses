@@ -1,6 +1,7 @@
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Verses.Core;
+using MTiRate;
 using Localytics;
 
 namespace Verses.iOS
@@ -42,6 +43,7 @@ namespace Verses.iOS
 			ConfigureDatabase ();
 			ConfigureAppearanceSettings ();
 			ConfigureThirdPartyLibraries ();
+			ConfigureiRate ();
 			
 			window.RootViewController = tabBarController;
 			window.MakeKeyAndVisible ();
@@ -101,6 +103,19 @@ namespace Verses.iOS
 		private void ConfigureThirdPartyLibraries ()
 		{
 			LocalyticsSession.Shared.StartSession ("9895cc74ae2a9f1d13e5254-572480ec-15e6-11e3-9348-009c5fda0a25");
+		}
+
+		private void ConfigureiRate ()
+		{
+			var rateAlert = iRate.SharedInstance;
+
+			rateAlert.ApplicationBundleID = "com.pierceboggan.verses";
+			rateAlert.ApplicationName = "Verses";
+			// rateAlert.AppStoreID = "";
+			rateAlert.PreviewMode = true;
+			rateAlert.OnlyPromptIfLatestVersion = false;
+			rateAlert.UsesUntilPrompt = 15;
+			rateAlert.RemindPeriod = 3;
 		}
 	}
 }
