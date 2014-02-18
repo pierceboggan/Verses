@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using MonoTouch.UIKit;
 using Verses.Core;
-using Localytics;
 
 namespace Verses.iOS
 {
@@ -37,6 +36,8 @@ namespace Verses.iOS
 
 			Front = new FrontView (verses[0]);
 			View.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+
+			Back = new BackView (verses[position]);
 
 			MemorizedImage = Images.HeartRedButton;
 			NotMemorizedImage = Images.HeartGreyButton;
@@ -92,10 +93,6 @@ namespace Verses.iOS
 		// Flip methods
 		private void FlipCard ()
 		{
-			if (Back == null) {
-				Back = new BackView (verses[position]);
-			}
-
 			if (Side == FlipCardSide.Front) {
 				UIView.Transition (Front, Back, 0.5f, UIViewAnimationOptions.TransitionFlipFromRight, null);
 				Side = FlipCardSide.Back;
@@ -144,9 +141,15 @@ namespace Verses.iOS
 			var frame = Front.ImageView.Frame;
 			if (frame.Contains (TapGesture.LocationInView (View))) {
 				HandleMemorizedTapped ();
+			} else {
+				if (Side == FlipCardSide.Front) {
+					SpeechSynthesizer.Speak (Front.Data.Title);
+				} else {
+					SpeechSynthesizer.Speak (Back.Data.Content);
+				}
 			}
 		}
-	
+
 		private void HandleMemorizedTapped ()
 		{
 			var data = Front.Data;
@@ -156,26 +159,19 @@ namespace Verses.iOS
 			data.Memorized = !data.Memorized;
 			if (data.Memorized) {
 				data.Category = MemorizationCategory.Review;
-				if (Side == FlipCardSide.Front) {
-					Front.ImageView.Image = MemorizedImage;
-				} else {
-					Back.ImageView.Image = MemorizedImage;
-				}
+
+				Front.ImageView.Image = MemorizedImage;
+				Back.ImageView.Image = MemorizedImage;
 			} else {
 				if (data.Category == MemorizationCategory.Review) {
 					data.Category = MemorizationCategory.Queue;
 				}
 
-				if (Side == FlipCardSide.Front) {
-					Front.ImageView.Image = NotMemorizedImage;
-				} else {
-					Back.ImageView.Image = NotMemorizedImage;
-				}
+				Front.ImageView.Image = NotMemorizedImage;
+				Back.ImageView.Image = NotMemorizedImage;
 			}
 
 			db.UpdateVerse (data);
-
-			LocalyticsSession.Shared.TagEvent ("Memorized Verse");
 		}
 	}
 }

@@ -22,7 +22,7 @@ namespace Verses.iOS
 				AutoresizingMask = UIViewAutoresizing.FlexibleWidth,
 				BackgroundColor =  UIColor.Clear,
 				Font = UIFont.FromName("SourceSansPro-Regular", 20f),
-				Frame = new RectangleF (0, 0, 475, 300),
+				Frame = new RectangleF (0, 20, 475, 300),
 				Text = Data.Content,
 				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.DarkGray,
@@ -33,7 +33,7 @@ namespace Verses.iOS
 		    };
 
 			if (UIScreen.MainScreen.Bounds.Height >= 568f) {
-				TextArea.Frame = new RectangleF (0, 0, 568, 300);
+				TextArea.Frame = new RectangleF (0, 20, 568, 300);
 				ImageView.Frame = new RectangleF (523, 260, 30f, 30f);
 			}
 
