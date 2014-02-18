@@ -2,7 +2,6 @@ using System.Collections.Generic;
 
 namespace Verses.Core
 {
-	// TODO: This should be fully sychronous. We will build out an async API later.
 	public class DatabaseHelper
 	{
 		public string Path { get; set; }
