@@ -1,4 +1,0 @@
-2014-02-17 22:56:50.380 VersesiOS[9991:80b] iRate preview mode is enabled - make sure you disable this for release
-2014-02-17 22:56:50.440 VersesiOS[9991:6307] iRate could not find the App Store ID for this application. If the application is not intended for App Store release then you must specify a custom ratingsURL.
-2014-02-17 22:57:25.443 VersesiOS[9991:8183] 22:57:25.442 ERROR:     AVAudioSessionUtilities.h:88: GetProperty_DefaultToZero: AudioSessionGetProperty ('disa') failed with error: '?ytp'
-2014-02-17 22:57:30.084 VersesiOS[9991:ed07] 22:57:30.084 ERROR:     AVAudioSessionUtilities.h:88: GetProperty_DefaultToZero: AudioSessionGetProperty ('disa') failed with error: '?ytp'

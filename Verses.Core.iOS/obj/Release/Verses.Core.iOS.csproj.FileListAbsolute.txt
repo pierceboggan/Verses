@@ -1,4 +1,0 @@
-Z:\VersesApp\Verses.Core.iOS\Verses.Core.iOS\bin\Release\Verses.Core.iOS.dll
-Z:\VersesApp\Verses.Core.iOS\Verses.Core.iOS\bin\Release\Newtonsoft.Json.MonoTouch.dll
-Z:\VersesApp\Verses.Core.iOS\Verses.Core.iOS\bin\Release\SQLite.dll
-Z:\VersesApp\Verses.Core.iOS\Verses.Core.iOS\obj\Release\Verses.Core.iOS.dll
