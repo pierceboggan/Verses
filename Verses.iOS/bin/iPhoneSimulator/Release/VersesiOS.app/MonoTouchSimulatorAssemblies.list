@@ -5,6 +5,8 @@ System.Xml.dll
 Verses.Core.iOS.dll
 SQLite.dll
 MonoTouch.Dialog-1.dll
+Localytics.dll
+MTiRate.dll
 BibleAPI.iOS.dll
 MobileHmtlAgilityPack.dll
 Newtonsoft.Json.MonoTouch.dll

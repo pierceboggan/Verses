@@ -9,14 +9,16 @@ namespace Verses.iOS
 	{
 		UIBarButtonItem backNavigationButton;
 		string controllerHeader;
+		bool local;
 		string webViewAddress;
 		UILabel navigationBarLabel;
 		UIWebView webView;
 
-		public WebViewController (string title, string html)
+		public WebViewController (string title, string html, bool isLocal)
 		{
 			controllerHeader = title.ToUpper ();
 			webViewAddress = html;
+			local = isLocal;
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -37,10 +39,17 @@ namespace Verses.iOS
 			View.BackgroundColor = UIColor.White;
 
 			webView = new UIWebView {
-				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height)
+				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height - 69), 
+				ScalesPageToFit = true
 			};
 
-			var url = new NSUrl (webViewAddress);
+			NSUrl url;
+			if (local) {
+				url = new NSUrl (webViewAddress, false);
+			} else {
+				url = new NSUrl (webViewAddress);
+			}
+
 			var request = new NSUrlRequest (url);
 			webView.LoadRequest (request);
 

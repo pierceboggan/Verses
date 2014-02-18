@@ -11,4 +11,6 @@
 /Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/Verses-Temp/Verses.iOS/obj/iPhoneSimulator/Release/mtouch-cache/Link/MonoTouch.Dialog-1.dll
 /Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/Verses-Temp/Verses.iOS/obj/iPhoneSimulator/Release/mtouch-cache/Link/System.Xml.dll
 /Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/Verses-Temp/Verses.iOS/obj/iPhoneSimulator/Release/mtouch-cache/Link/System.Core.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/Verses-Temp/Verses.iOS/obj/iPhoneSimulator/Release/mtouch-cache/Link/MTiRate.dll
+/Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/Verses-Temp/Verses.iOS/obj/iPhoneSimulator/Release/mtouch-cache/Link/Localytics.dll
 /Users/pierce/Desktop/Dropbox/Coding/Github/Personal Projects/Verses-Temp/Verses.iOS/obj/iPhoneSimulator/Release/mtouch-cache/Link/System.Runtime.Serialization.dll

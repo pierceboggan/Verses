@@ -123,6 +123,9 @@
     <Reference Include="Localytics">
       <HintPath>..\..\..\..\..\..\Localytics\Localytics\bin\Release\Localytics.dll</HintPath>
     </Reference>
+    <Reference Include="MTiRate">
+      <HintPath>..\Components\irate-1.8.0\lib\ios\MTiRate.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -170,12 +173,15 @@
     <Compile Include="Settings\WebViewController.cs" />
     <Compile Include="Settings\StyledTranslationRootElement.cs" />
     <Compile Include="Settings\StyledRootElement.cs" />
+    <Compile Include="LocalHTML.cs" />
+    <Compile Include="SpeechSynthesizer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Images\Headers\" />
     <Folder Include="Images\Tabs\" />
     <Folder Include="Settings\" />
+    <Folder Include="Settings\HTML\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinAddonReference Include="xamarin.social">
@@ -317,6 +323,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Compose\BlackLine.png" />
+    <Content Include="Settings\HTML\Licenses.html" />
+    <Content Include="Settings\HTML\SpecialThanks.html" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\iTunesArtwork" />
@@ -331,6 +339,11 @@
   <ItemGroup>
     <XamarinComponentReference Include="sqlite-net">
       <Version>1.0.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="irate">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>1.8.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>

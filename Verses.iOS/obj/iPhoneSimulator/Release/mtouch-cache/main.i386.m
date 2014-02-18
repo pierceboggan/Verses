@@ -11,6 +11,8 @@ void monotouch_register_assemblies ()
 	monotouch_open_and_register ("monotouch.dll");
 	monotouch_open_and_register ("SQLite.dll");
 	monotouch_open_and_register ("MonoTouch.Dialog-1.dll");
+	monotouch_open_and_register ("Localytics.dll");
+	monotouch_open_and_register ("MTiRate.dll");
 
 }
 

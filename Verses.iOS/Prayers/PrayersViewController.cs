@@ -52,7 +52,7 @@ namespace Verses.iOS
 		private void SetupUI ()
 		{
 			PrayersTable = new UITableView {
-				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height),
+				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height - 69),
 				SectionIndexMinimumDisplayRowCount = 25,
 				SeparatorStyle = UITableViewCellSeparatorStyle.None,
 				Source = new PrayersTableSource (this),
