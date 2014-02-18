@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using MonoTouch.UIKit;
 using Verses.Core;
+using Localytics;
 
 namespace Verses.iOS
 {
@@ -128,6 +129,8 @@ namespace Verses.iOS
 			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
 			var db = new DatabaseHelper (path);
 			db.UpdateVerse (Verse);
+
+			LocalyticsSession.Shared.TagEvent ("Edited Verse");
 		}
 	}
 }

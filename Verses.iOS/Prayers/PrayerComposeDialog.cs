@@ -3,6 +3,7 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Verses.Core;
+using Localytics;
 
 namespace Verses.iOS
 {
@@ -118,6 +119,7 @@ namespace Verses.iOS
 		private void HandleSaveButtonTapped (object sender, EventArgs args)
 		{
 			SaveButtonClicked ();
+			LocalyticsSession.Shared.TagEvent ("Prayer Saved");
 		}
 
 		private void SaveButtonClicked ()

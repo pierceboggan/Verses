@@ -3,6 +3,7 @@ using System.Drawing;
 using MonoTouch.UIKit;
 using Verses.Core;
 using BibleAPI;
+using Localytics;
 
 namespace Verses.iOS
 {
@@ -156,6 +157,7 @@ namespace Verses.iOS
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 						verse.Content = await BiblesDotOrg.GetVerseTextWithoutHtmlOrDigitsAsync (VerseReference.Text, translation);
 						db.AddVerse (verse);
+						LocalyticsSession.Shared.TagEvent ("Verse Saved");
 					} catch (InvalidVerseException ex) {
 						Console.WriteLine (ex);
 						new UIAlertView ("Invalid Input", "Oops! That verse was not found!", null, "Okay", null).Show ();

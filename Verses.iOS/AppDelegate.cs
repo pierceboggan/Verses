@@ -1,6 +1,7 @@
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Verses.Core;
+using Localytics;
 
 namespace Verses.iOS
 {
@@ -52,6 +53,36 @@ namespace Verses.iOS
 			return true;
 		}
 
+		public override void OnActivated (UIApplication application)
+		{
+			LocalyticsSession.Shared.Resume ();
+			LocalyticsSession.Shared.Upload ();
+		}
+
+		public override void OnResignActivation (UIApplication application)
+		{
+			LocalyticsSession.Shared.Close ();
+			LocalyticsSession.Shared.Upload ();
+		}
+
+		public override void WillEnterForeground (UIApplication application)
+		{
+			LocalyticsSession.Shared.Resume ();
+			LocalyticsSession.Shared.Upload ();
+		}
+
+		public override void DidEnterBackground (UIApplication application)
+		{
+			LocalyticsSession.Shared.Close ();
+			LocalyticsSession.Shared.Upload ();
+		}
+
+		public override void WillTerminate (UIApplication application)
+		{
+			LocalyticsSession.Shared.Close ();
+			LocalyticsSession.Shared.Upload ();
+		}
+
 		private void ConfigureDatabase ()
 		{
 			var databaseName = "verses.db3";
@@ -69,7 +100,7 @@ namespace Verses.iOS
 
 		private void ConfigureThirdPartyLibraries ()
 		{
-
+			LocalyticsSession.Shared.StartSession ("9895cc74ae2a9f1d13e5254-572480ec-15e6-11e3-9348-009c5fda0a25");
 		}
 	}
 }

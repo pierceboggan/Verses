@@ -120,6 +120,9 @@
     <Reference Include="BibleAPI.iOS">
       <HintPath>..\References\BibleAPI.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Localytics">
+      <HintPath>..\..\..\..\..\..\Localytics\Localytics\bin\Release\Localytics.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

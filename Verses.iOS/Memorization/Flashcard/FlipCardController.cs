@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MonoTouch.UIKit;
 using Verses.Core;
+using Localytics;
 
 namespace Verses.iOS
 {
@@ -173,6 +174,8 @@ namespace Verses.iOS
 			}
 
 			db.UpdateVerse (data);
+
+			LocalyticsSession.Shared.TagEvent ("Memorized Verse");
 		}
 	}
 }

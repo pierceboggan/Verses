@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="irate">
+  <name>iRate Rating Prompt</name>
+  <publisher>Nick Lockwood</publisher>
+  <publisher-url>https://github.com/nicklockwood/iRate</publisher-url>
+  <version>1.8.0</version>
+  <summary>Asks users to rate your app after they've used it for a while.</summary>
+  <screenshots>
+    <img src="screenshots/screenshot1.png" title="screenshot1" />
+  </screenshots>
+  <samples>
+    <sample id="iRateDemo">
+      <name>iOS Sample</name>
+      <summary>iOS Sample</summary>
+    </sample>
+  </samples>
+</component>
