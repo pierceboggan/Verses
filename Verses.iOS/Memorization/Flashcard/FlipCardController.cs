@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MonoTouch.UIKit;
 using Verses.Core;
+using Localytics;
 
 namespace Verses.iOS
 {
@@ -125,7 +126,6 @@ namespace Verses.iOS
 			}
 		}
 
-		// Gesture handlers
 		private void FlipCardHandler ()
 		{
 			FlipCard ();
@@ -172,6 +172,8 @@ namespace Verses.iOS
 			}
 
 			db.UpdateVerse (data);
+
+			LocalyticsSession.Shared.TagEvent ("Verse Memorized");
 		}
 	}
 }

@@ -121,10 +121,13 @@
       <HintPath>..\References\BibleAPI.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Localytics">
-      <HintPath>..\..\..\..\..\..\Localytics\Localytics\bin\Release\Localytics.dll</HintPath>
+      <HintPath>..\References\Localytics.dll</HintPath>
     </Reference>
     <Reference Include="MTiRate">
       <HintPath>..\Components\irate-1.8.0\lib\ios\MTiRate.dll</HintPath>
+    </Reference>
+    <Reference Include="MobileHmtlAgilityPack">
+      <HintPath>..\References\MobileHmtlAgilityPack.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -342,7 +345,6 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
     <XamarinComponentReference Include="irate">
-      <InstallationInProgress>True</InstallationInProgress>
       <Version>1.8.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
