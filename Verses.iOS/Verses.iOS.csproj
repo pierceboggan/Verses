@@ -178,6 +178,7 @@
     <Compile Include="Settings\StyledRootElement.cs" />
     <Compile Include="LocalHTML.cs" />
     <Compile Include="SpeechSynthesizer.cs" />
+    <Compile Include="WebViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -185,6 +186,7 @@
     <Folder Include="Images\Tabs\" />
     <Folder Include="Settings\" />
     <Folder Include="Settings\HTML\" />
+    <Folder Include="Settings\HTML\Styles\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinAddonReference Include="xamarin.social">
@@ -323,12 +325,18 @@
     <BundleResource Include="Images\Tabs\Prayers.png" />
     <BundleResource Include="Images\Tabs\Prayers%402x.png" />
     <BundleResource Include="Images\Detail\TimeIcon%402x.png" />
+    <BundleResource Include="Settings\HTML\Styles\Fonts\sourcesanspro-700.woff" />
+    <BundleResource Include="Settings\HTML\Styles\Fonts\sourcesanspro-600.woff" />
+    <BundleResource Include="Settings\HTML\Styles\Fonts\sourcesanspro-400.woff" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Compose\BlackLine.png" />
     <Content Include="Settings\HTML\Licenses.html" />
     <Content Include="Settings\HTML\SpecialThanks.html" />
     <Content Include="Settings\HTML\GettingStarted.html" />
+    <Content Include="Settings\HTML\Styles\fonts.css" />
+    <Content Include="Settings\HTML\Styles\main.css" />
+    <Content Include="Settings\HTML\Styles\normalize.css" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\iTunesArtwork" />
