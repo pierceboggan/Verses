@@ -88,7 +88,6 @@ namespace Verses.iOS
 		private void ConfigureDatabase ()
 		{
 			var databaseName = "verses.db3";
-			DatabaseSetupHelper.CleanTables (databaseName);
 			DatabaseSetupHelper.CreateDatabaseIfNotExists (databaseName);
 			if (!DatabaseSetupHelper.TablesArePopulated (databaseName)) {
 		 		DatabaseSetupHelper.PopulateTablesWithInitialData (databaseName);
