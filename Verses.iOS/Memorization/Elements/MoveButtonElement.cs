@@ -137,6 +137,11 @@ namespace Verses.iOS
 
 					if (element.ElementIsSelected && verse.Category != category) {
 						verse.Category = category;
+
+						if (category == MemorizationCategory.Review) {
+							verse.Memorized = true;
+						}
+
 						var dbPath = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
 						var db = new DatabaseHelper (dbPath);
 						db.UpdateVerse (verse);
