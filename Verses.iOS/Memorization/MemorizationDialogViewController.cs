@@ -24,16 +24,7 @@ namespace Verses.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
-			NavigationItem.TitleView = NavigationBarLabel;
-
-			BuildRootTree ();
-		}
-
-		public override void ViewDidAppear (bool animated)
-		{
-			base.ViewDidAppear (animated);
-
+			SetupUI ();
 			BuildRootTree ();
 		}
 
@@ -59,6 +50,11 @@ namespace Verses.iOS
 
 		void SetupUI ()
 		{
+			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			var title = memorizationCategory.ToString ().ToUpper ();
+			NavigationBarLabel = InterfaceHelper.LabelForTitle (title); 
+			NavigationItem.TitleView = NavigationBarLabel;
+
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			backButton.SetBackgroundImage (Images.BackButton, UIControlState.Normal);
 			backButton.SetBackgroundImage (Images.BackButtonHighlighted, UIControlState.Highlighted);
@@ -67,9 +63,6 @@ namespace Verses.iOS
 
 			BackButton = new UIBarButtonItem (backButton);
 			NavigationItem.LeftBarButtonItem = BackButton;
-
-			var title = memorizationCategory.ToString ().ToUpper ();
-			NavigationBarLabel = InterfaceHelper.LabelForTitle (title); 
 
 			TableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
 			TableView.SeparatorColor = UIColor.Clear;
