@@ -42,6 +42,8 @@
     <MtouchFastDev>true</MtouchFastDev>
     <MtouchSdkVersion>7.0</MtouchSdkVersion>
     <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchProfiling>true</MtouchProfiling>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>True</DebugSymbols>
@@ -140,7 +142,6 @@
     <Compile Include="Prayers\PrayersViewController.cs" />
     <Compile Include="Memorization\MemorizationViewController.cs" />
     <Compile Include="Images\Images.cs" />
-    <Compile Include="StringConstants.cs" />
     <Compile Include="Prayers\PrayersTableSource.cs" />
     <Compile Include="InterfaceHelper.cs" />
     <Compile Include="Prayers\PrayerCell.cs" />
@@ -178,7 +179,6 @@
     <Compile Include="Settings\StyledRootElement.cs" />
     <Compile Include="LocalHTML.cs" />
     <Compile Include="SpeechSynthesizer.cs" />
-    <Compile Include="WebViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
