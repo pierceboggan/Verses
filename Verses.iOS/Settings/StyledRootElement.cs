@@ -71,6 +71,21 @@ namespace Verses.iOS
 
 			return cell;
 		}
+
+		protected override void Dispose (bool disposing)
+		{
+			if (disposing) {
+				if (BackButton != null) {
+					BackButton.Dispose ();
+					BackButton = null;
+				}
+
+				if (NavigationBarLabel != null) {
+					NavigationBarLabel.Dispose ();
+					NavigationBarLabel = null;
+				}
+			}
+		}
 	}
 }
 
