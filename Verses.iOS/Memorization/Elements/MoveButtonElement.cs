@@ -43,7 +43,7 @@ namespace Verses.iOS
 				cell.SelectionStyle = UITableViewCellSelectionStyle.None;
 			}
 
-			cell.ImageView.Image = Images.MoveVerseButton;
+			cell.ImageView.Image = UIImage.FromFile (Images.MoveVerseButton);
 			cell.ImageView.ContentMode = UIViewContentMode.Redraw;
 		
 			return cell;

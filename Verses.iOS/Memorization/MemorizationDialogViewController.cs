@@ -50,14 +50,14 @@ namespace Verses.iOS
 
 		void SetupUI ()
 		{
-			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
 			var title = memorizationCategory.ToString ().ToUpper ();
 			NavigationBarLabel = InterfaceHelper.LabelForTitle (title); 
 			NavigationItem.TitleView = NavigationBarLabel;
 
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			backButton.SetBackgroundImage (Images.BackButton, UIControlState.Normal);
-			backButton.SetBackgroundImage (Images.BackButtonHighlighted, UIControlState.Highlighted);
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
 			backButton.AddTarget((sender, args) => NavigationController.PopViewControllerAnimated (true), 
 			                     UIControlEvent.TouchUpInside);
 
@@ -67,7 +67,7 @@ namespace Verses.iOS
 			TableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
 			TableView.SeparatorColor = UIColor.Clear;
 			TableView.BackgroundView = null;
-			TableView.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+			TableView.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground));
 		}
 
 		Section BuildMemorizationsSection ()

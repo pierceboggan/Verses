@@ -54,7 +54,7 @@ namespace Verses.iOS
 				cell.SelectionStyle = UITableViewCellSelectionStyle.None;
 			}
 
-			cell.ImageView.Image = Images.MemorizeVerseButton;
+			cell.ImageView.Image = UIImage.FromFile (Images.MemorizeVerseButton);
 			cell.ImageView.Center = new PointF (160, 160);
 
 			return cell;

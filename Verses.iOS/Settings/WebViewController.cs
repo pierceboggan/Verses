@@ -25,7 +25,7 @@ namespace Verses.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
 			SetupNavigationBar ();
 
 			navigationBarLabel = InterfaceHelper.LabelForTitle (controllerHeader);
@@ -66,8 +66,8 @@ namespace Verses.iOS
 		private void SetupNavigationBar ()
 		{
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			backButton.SetBackgroundImage (Images.BackButton, UIControlState.Normal);
-			backButton.SetBackgroundImage (Images.BackButtonHighlighted, UIControlState.Highlighted);
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
 			backButton.AddTarget(HandleBackButtonTapped, UIControlEvent.TouchUpInside);
 
 			backNavigationButton = new UIBarButtonItem (backButton);

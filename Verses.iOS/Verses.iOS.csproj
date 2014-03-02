@@ -179,6 +179,7 @@
     <Compile Include="Settings\StyledRootElement.cs" />
     <Compile Include="LocalHTML.cs" />
     <Compile Include="SpeechSynthesizer.cs" />
+    <Compile Include="PBViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace Verses.iOS
 	{
 		static NSString key = new NSString ("MemorizationElement");
 
-		public MemorizationElement (Verse verse) : base (Images.GreyCheck, "Verse")
+		public MemorizationElement (Verse verse) : base (UIImage.FromFile (Images.GreyCheck), "Verse")
 		{
 			Accessory = UITableViewCellAccessory.None;
 
@@ -59,7 +59,7 @@ namespace Verses.iOS
 
 		private void UpdateCellSelectionStyle (UITableViewCell cell)
 		{
-		    cell.ImageView.Image = ElementIsSelected ? Images.GreenCheck : Images.GreyCheck;
+			cell.ImageView.Image = ElementIsSelected ? UIImage.FromFile (Images.GreenCheck) : UIImage.FromFile (Images.GreyCheck);
 		}
 	}
 }

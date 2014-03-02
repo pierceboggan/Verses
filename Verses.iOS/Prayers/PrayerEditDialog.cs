@@ -30,7 +30,7 @@ namespace Verses.iOS
 			base.ViewWillAppear (animated);
 
 			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
-			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
 			NavigationBarLabel = InterfaceHelper.LabelForTitle ("EDIT");
 			NavigationItem.TitleView = NavigationBarLabel;
 		}
@@ -68,14 +68,14 @@ namespace Verses.iOS
 			View.BackgroundColor = UIColor.White;
 		
 			var cancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			cancelButton.SetBackgroundImage (Images.CancelButton, UIControlState.Normal);
-			cancelButton.SetBackgroundImage (Images.CancelButtonHighlighted, UIControlState.Highlighted);
+			cancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
+			cancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
 			cancelButton.AddTarget((sender, args) => DismissViewController (true, null), 
 			                       UIControlEvent.TouchUpInside);
 
 			var saveButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			saveButton.SetBackgroundImage (Images.SaveButton, UIControlState.Normal);
-			saveButton.SetBackgroundImage (Images.SaveButtonHighlighted, UIControlState.Highlighted);
+			saveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
+			saveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
 			saveButton.AddTarget((sender, args) => {
 				SaveButtonClicked ();
 				DismissViewController (true, null); 
@@ -94,7 +94,7 @@ namespace Verses.iOS
 			};
 
 			BlackLine = new UIView {
-				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
+				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.BlackLine)),
 				Frame = new RectangleF (0, 28, View.Bounds.Width, 1f)
 			};
 

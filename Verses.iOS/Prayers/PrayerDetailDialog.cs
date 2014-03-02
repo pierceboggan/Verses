@@ -39,7 +39,7 @@ namespace Verses.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
 
 			NavigationBarLabel = InterfaceHelper.LabelForTitle (Prayer.Title.ToUpper ());
 			NavigationItem.TitleView = NavigationBarLabel;
@@ -57,7 +57,7 @@ namespace Verses.iOS
 			base.ViewDidLoad ();
 
 			SetupNavigationBar ();
-			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
 			NavigationBarLabel = InterfaceHelper.LabelForTitle (Prayer.Title.ToUpper ());
 			NavigationItem.TitleView = NavigationBarLabel;
 
@@ -74,16 +74,16 @@ namespace Verses.iOS
 			NavigationItem.HidesBackButton = true;
 
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			backButton.SetBackgroundImage (Images.BackButton, UIControlState.Normal);
-			backButton.SetBackgroundImage (Images.BackButtonHighlighted, UIControlState.Highlighted);
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
 			backButton.AddTarget (HandleBackButtonTapped, UIControlEvent.TouchUpInside);
 
 			BackButton = new UIBarButtonItem (backButton);
 			NavigationItem.LeftBarButtonItem = BackButton;
 
 			var editButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			editButton.SetBackgroundImage (Images.EditButton, UIControlState.Normal);
-			editButton.SetBackgroundImage (Images.EditButtonHighlighted, UIControlState.Highlighted);
+			editButton.SetBackgroundImage (UIImage.FromFile (Images.EditButton), UIControlState.Normal);
+			editButton.SetBackgroundImage (UIImage.FromFile (Images.EditButtonHighlighted), UIControlState.Highlighted);
 			editButton.AddTarget (HandleEditButtonTapped, UIControlEvent.TouchUpInside);
 
 			EditButton = new UIBarButtonItem (editButton);
@@ -95,7 +95,7 @@ namespace Verses.iOS
 		private void SetupUI ()
 		{
 			ScrollView = new UIScrollView () {
-				BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground),
+				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground)),
 				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height),
 				PagingEnabled = false,
 				ScrollEnabled = true
@@ -107,7 +107,7 @@ namespace Verses.iOS
 				Enabled = false,
 				Font = FontConstants.SourceSansProRegular (13),
 				Frame = new RectangleF (14f, 22f, 294f, 32f),
-				LeftView = new UIImageView (Images.TimeIcon),
+				LeftView = new UIImageView (UIImage.FromFile (Images.TimeIcon)),
 				LeftViewMode = UITextFieldViewMode.Always,
 				Text = Prayer.Timestamp.ToShortDateString (),
 				TextAlignment = UITextAlignment.Left,
@@ -131,7 +131,7 @@ namespace Verses.iOS
 			ShareButton = new UIButton () {
 				Frame = new RectangleF (33.5f, height, 253f, 33f)
 			};
-			ShareButton.SetBackgroundImage (Images.ShareButton, UIControlState.Normal);
+			ShareButton.SetBackgroundImage (UIImage.FromFile (Images.ShareButton), UIControlState.Normal);
 			ShareButton.AddTarget (HandleShareTapped, UIControlEvent.TouchUpInside);
 
 			ScrollView.Add (TopBarArea);

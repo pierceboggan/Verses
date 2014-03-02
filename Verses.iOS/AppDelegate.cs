@@ -21,9 +21,9 @@ namespace Verses.iOS
 			var verses = new UINavigationController (new VersesViewController ());
 			var memorization = new UINavigationController (new MemorizationViewController ());
 
-			var prayersItem = new UITabBarItem { Image = Images.PrayersTab };
-			var versesItem = new UITabBarItem { Image = Images.VersesTab };
-			var memorizationItem = new UITabBarItem { Image = Images.MemorizationTab };
+			var prayersItem = new UITabBarItem { Image = UIImage.FromFile (Images.PrayersTab) };
+			var versesItem = new UITabBarItem { Image = UIImage.FromFile (Images.VersesTab) };
+			var memorizationItem = new UITabBarItem { Image = UIImage.FromFile (Images.MemorizationTab) };
 	
 			verses.TabBarItem = versesItem;
 			prayers.TabBarItem = prayersItem;
@@ -34,7 +34,7 @@ namespace Verses.iOS
 				verses,
 				memorization
 			};
-			tabBarController.TabBar.BackgroundImage = Images.TabBarBackground;
+			tabBarController.TabBar.BackgroundImage = UIImage.FromFile (Images.TabBarBackground);
 			tabBarController.SelectedIndex = 1;
 
 			ConfigureDatabase ();

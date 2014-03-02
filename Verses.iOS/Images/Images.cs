@@ -5,71 +5,71 @@ namespace Verses.iOS
 	public class Images
 	{
 		// General
-		public static UIImage TabBarBackground = UIImage.FromFile ("Images/General/TabBarBackground.png");
-		public static UIImage BackButton = UIImage.FromFile ("Images/General/BackButton.png");
-		public static UIImage BackButtonHighlighted = UIImage.FromFile ("Images/General/BackButtonHighlighted.png");
-		public static UIImage BlankBar = UIImage.FromFile ("Images/Headers/BlankBar.png");
+		public static string TabBarBackground = "Images/General/TabBarBackground.png";
+		public static string BackButton = "Images/General/BackButton.png";
+		public static string BackButtonHighlighted = "Images/General/BackButtonHighlighted.png";
+		public static string BlankBar = "Images/Headers/BlankBar.png";
 
 		// Tabs
-		public static UIImage PrayersTab = UIImage.FromFile ("Images/Tabs/Prayers.png");
-		public static UIImage VersesTab = UIImage.FromFile ("Images/Tabs/Verses.png");
-		public static UIImage MemorizationTab = UIImage.FromFile ("Images/Tabs/Memorization.png");
+		public static string PrayersTab = "Images/Tabs/Prayers.png";
+		public static string VersesTab = "Images/Tabs/Verses.png";
+		public static string MemorizationTab = "Images/Tabs/Memorization.png";
 
 		// Table
-		public static UIImage CellHeader = UIImage.FromFile ("Images/General/CellHeader.jpg");
-		public static UIImage TableViewBackground = UIImage.FromFile ("Images/General/TableBackground.png");
+		public static string CellHeader = "Images/General/CellHeader.jpg";
+		public static string TableViewBackground = "Images/General/TableBackground.png";
 
 		// Compose
-		public static UIImage BlackLine = UIImage.FromFile ("Images/Compose/BlackLine.png");
-		public static UIImage CancelButton = UIImage.FromFile ("Images/Compose/CancelButton.png");
-		public static UIImage CancelButtonHighlighted = UIImage.FromFile ("Images/Compose/CancelButtonHighlighted.png");
-		public static UIImage ComposeButton = UIImage.FromFile ("Images/Compose/ComposeButton.png");
-		public static UIImage ComposeButtonHighlighted = UIImage.FromFile ("Images/Compose/ComposeButtonHighlighted.png");
-		public static UIImage SaveButton = UIImage.FromFile ("Images/Compose/SaveButton.png");
-		public static UIImage SaveButtonHighlighted = UIImage.FromFile ("Images/Compose/SaveButtonHighlighted.png");
+		public static string BlackLine = "Images/Compose/BlackLine.png";
+		public static string CancelButton = "Images/Compose/CancelButton.png";
+		public static string CancelButtonHighlighted = "Images/Compose/CancelButtonHighlighted.png";
+		public static string ComposeButton = "Images/Compose/ComposeButton.png";
+		public static string ComposeButtonHighlighted = "Images/Compose/ComposeButtonHighlighted.png";
+		public static string SaveButton = "Images/Compose/SaveButton.png";
+		public static string SaveButtonHighlighted = "Images/Compose/SaveButtonHighlighted.png";
 
 		// Detail
-		public static UIImage TimeIcon = UIImage.FromFile ("Images/Detail/TimeIcon.png");
-		public static UIImage ShareButton = UIImage.FromFile ("Images/Detail/ShareButton.png");
-		public static UIImage ToMemorizeRedButton = UIImage.FromFile ("Images/Detail/ToMemorizeRedButton.png");
-		public static UIImage ToMemorizeGreenButton = UIImage.FromFile ("Images/Detail/ToMemorizeGreenButton.png");
-		public static UIImage MemorizedRedButton = UIImage.FromFile ("Images/Detail/MemorizedRedButton.png");
-		public static UIImage MemorizedGreenButton = UIImage.FromFile ("Images/Detail/MemorizedGreenButton.png");
-		public static UIImage EditButton = UIImage.FromFile ("Images/Detail/EditButton.png");
-		public static UIImage EditButtonHighlighted = UIImage.FromFile ("Images/Detail/EditButtonHighlighted.png");
-		public static UIImage CopyrightButton = UIImage.FromFile ("Images/Detail/CopyrightButton.png");
+		public static string TimeIcon = "Images/Detail/TimeIcon.png";
+		public static string ShareButton = "Images/Detail/ShareButton.png";
+		public static string ToMemorizeRedButton = "Images/Detail/ToMemorizeRedButton.png";
+		public static string ToMemorizeGreenButton = "Images/Detail/ToMemorizeGreenButton.png";
+		public static string MemorizedRedButton = "Images/Detail/MemorizedRedButton.png";
+		public static string MemorizedGreenButton = "Images/Detail/MemorizedGreenButton.png";
+		public static string EditButton = "Images/Detail/EditButton.png";
+		public static string EditButtonHighlighted = "Images/Detail/EditButtonHighlighted.png";
+		public static string CopyrightButton = "Images/Detail/CopyrightButton.png";
 
 		// Memorization
-		public static UIImage GreyCheck = UIImage.FromFile ("Images/Memorization/GreyCheck.png");
-		public static UIImage GreenCheck = UIImage.FromFile ("Images/Memorization/GreenCheck.png");
-		public static UIImage MoveVerseButton = UIImage.FromFile ("Images/Memorization/MoveVersesButton.png");
-		public static UIImage ReviewVerseButton = UIImage.FromFile ("Images/Memorization/ReviewVersesButton.png");
-		public static UIImage MemorizeVerseButton = UIImage.FromFile ("Images/Memorization/MemorizeVersesButton.png");
-		public static UIImage MemorizationBackground = UIImage.FromFile ("Images/Memorization/Background.png");
-		public static UIImage SundayButton = UIImage.FromFile ("Images/Memorization/SundayButton.png");
-		public static UIImage SundayButtonHighlighted = UIImage.FromFile ("Images/Memorization/SundayButtonHighlighted.png");
-		public static UIImage MondayButton = UIImage.FromFile ("Images/Memorization/MondayButton.png");
-		public static UIImage MondayButtonHighlighted = UIImage.FromFile ("Images/Memorization/MondayButtonHighlighted.png");
-		public static UIImage TuesdayButton = UIImage.FromFile ("Images/Memorization/TuesdayButton.png");
-		public static UIImage TuesdayButtonHighlighted = UIImage.FromFile ("Images/Memorization/TuesdayButtonHighlighted.png");
-		public static UIImage WednesdayButton = UIImage.FromFile ("Images/Memorization/WednesdayButton.png");
-		public static UIImage WednesdayButtonHighlighted = UIImage.FromFile ("Images/Memorization/WednesdayButtonHighlighted.png");
-		public static UIImage ThursdayButton = UIImage.FromFile ("Images/Memorization/ThursdayButton.png");
-		public static UIImage ThursdayButtonHighlighted = UIImage.FromFile ("Images/Memorization/ThursdayButtonHighlighted.png");
-		public static UIImage FridayButton = UIImage.FromFile ("Images/Memorization/FridayButton.png");
-		public static UIImage FridayButtonHighlighted = UIImage.FromFile ("Images/Memorization/FridayButtonHighlighted.png");
-		public static UIImage SaturdayButton = UIImage.FromFile ("Images/Memorization/SaturdayButton.png");
-		public static UIImage SaturdayButtonHighlighted = UIImage.FromFile ("Images/Memorization/SaturdayButtonHighlighted.png");
-		public static UIImage QueueButton = UIImage.FromFile ("Images/Memorization/QueueButton.png");
-		public static UIImage QueueButtonHighlighted = UIImage.FromFile ("Images/Memorization/QueueButtonHighlighted.png");
-		public static UIImage ReviewButton = UIImage.FromFile ("Images/Memorization/ReviewButton.png");
-		public static UIImage ReviewButtonHighlighted = UIImage.FromFile ("Images/Memorization/ReviewButtonHighlighted.png");
-		public static UIImage HeartRedButton = UIImage.FromFile ("Images/Memorization/HeartRedButton.png");
-		public static UIImage HeartGreyButton = UIImage.FromFile ("Images/Memorization/HeartGreyButton.png");
+		public static string GreyCheck = "Images/Memorization/GreyCheck.png";
+		public static string GreenCheck = "Images/Memorization/GreenCheck.png";
+		public static string MoveVerseButton = "Images/Memorization/MoveVersesButton.png";
+		public static string ReviewVerseButton = "Images/Memorization/ReviewVersesButton.png";
+		public static string MemorizeVerseButton = "Images/Memorization/MemorizeVersesButton.png";
+		public static string MemorizationBackground = "Images/Memorization/Background.png";
+		public static string SundayButton = "Images/Memorization/SundayButton.png";
+		public static string SundayButtonHighlighted = "Images/Memorization/SundayButtonHighlighted.png";
+		public static string MondayButton = "Images/Memorization/MondayButton.png";
+		public static string MondayButtonHighlighted = "Images/Memorization/MondayButtonHighlighted.png";
+		public static string TuesdayButton = "Images/Memorization/TuesdayButton.png";
+		public static string TuesdayButtonHighlighted = "Images/Memorization/TuesdayButtonHighlighted.png";
+		public static string WednesdayButton = "Images/Memorization/WednesdayButton.png";
+		public static string WednesdayButtonHighlighted = "Images/Memorization/WednesdayButtonHighlighted.png";
+		public static string ThursdayButton = "Images/Memorization/ThursdayButton.png";
+		public static string ThursdayButtonHighlighted = "Images/Memorization/ThursdayButtonHighlighted.png";
+		public static string FridayButton = "Images/Memorization/FridayButton.png";
+		public static string FridayButtonHighlighted = "Images/Memorization/FridayButtonHighlighted.png";
+		public static string SaturdayButton = "Images/Memorization/SaturdayButton.png";
+		public static string SaturdayButtonHighlighted = "Images/Memorization/SaturdayButtonHighlighted.png";
+		public static string QueueButton = "Images/Memorization/QueueButton.png";
+		public static string QueueButtonHighlighted = "Images/Memorization/QueueButtonHighlighted.png";
+		public static string ReviewButton = "Images/Memorization/ReviewButton.png";
+		public static string ReviewButtonHighlighted = "Images/Memorization/ReviewButtonHighlighted.png";
+		public static string HeartRedButton = "Images/Memorization/HeartRedButton.png";
+		public static string HeartGreyButton = "Images/Memorization/HeartGreyButton.png";
 
 		// Settings
-		public static UIImage SettingsButton = UIImage.FromFile ("Images/Settings/SettingsButton.png");
-		public static UIImage SettingsButtonHighlighted = UIImage.FromFile ("Images/Settings/SettingsButtonHighlighted.png");
+		public static string SettingsButton = "Images/Settings/SettingsButton.png";
+		public static string SettingsButtonHighlighted = "Images/Settings/SettingsButtonHighlighted.png";
 	}
 }
 

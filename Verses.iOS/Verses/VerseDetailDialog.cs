@@ -34,7 +34,7 @@ namespace Verses.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
 
 			NavigationBarLabel = InterfaceHelper.LabelForTitle (verse.Title.ToUpper ());
 			NavigationItem.TitleView = NavigationBarLabel;
@@ -80,13 +80,13 @@ namespace Verses.iOS
 		private void SetupNavigationBar ()
 		{
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			backButton.SetBackgroundImage (Images.BackButton, UIControlState.Normal);
-			backButton.SetBackgroundImage (Images.BackButtonHighlighted, UIControlState.Highlighted);
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
 			backButton.AddTarget(HandleBackButtonTapped, UIControlEvent.TouchUpInside);
 
 			var editButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			editButton.SetBackgroundImage (Images.EditButton, UIControlState.Normal);
-			editButton.SetBackgroundImage (Images.EditButtonHighlighted, UIControlState.Highlighted);
+			editButton.SetBackgroundImage (UIImage.FromFile (Images.EditButton), UIControlState.Normal);
+			editButton.SetBackgroundImage (UIImage.FromFile (Images.EditButtonHighlighted), UIControlState.Highlighted);
 			editButton.AddTarget(HandleEditButtonTapped ,UIControlEvent.TouchUpInside);
 
 			BackButton = new UIBarButtonItem (backButton);
@@ -98,10 +98,10 @@ namespace Verses.iOS
 
 		private void SetupUI ()
 		{
-			View.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+			View.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground));
 
 			ScrollView = new UIScrollView {
-				BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground),
+				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground)),
 				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height),
 				PagingEnabled = false,
 				ScrollEnabled = true
@@ -114,7 +114,7 @@ namespace Verses.iOS
 				UserInteractionEnabled = false,
 				Font = FontConstants.SourceSansProRegular (13),
 				Frame = new RectangleF (14f, 22f, 294f, 32f),
-				LeftView = new UIImageView (Images.TimeIcon),
+				LeftView = new UIImageView (UIImage.FromFile (Images.TimeIcon)),
 				LeftViewMode = UITextFieldViewMode.Always,
 				Text = verse.Timestamp.ToShortDateString (),
 				TextAlignment = UITextAlignment.Left,
@@ -136,7 +136,7 @@ namespace Verses.iOS
 
 			var height = ContentArea.Bounds.Height + 50f;
 			BlackLine = new UIView {
-				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
+				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.BlackLine)),
 				Frame = new RectangleF (24, height, 284f, 1f)
 			};
 			ScrollView.Add (BlackLine);
@@ -165,7 +165,7 @@ namespace Verses.iOS
 			ShareButton = new UIButton {
 				Frame = new RectangleF (33.5f, height, 253f, 33f)
 			};
-			ShareButton.SetBackgroundImage (Images.ShareButton, UIControlState.Normal);
+			ShareButton.SetBackgroundImage (UIImage.FromFile (Images.ShareButton), UIControlState.Normal);
 			ShareButton.AddTarget (HandleShareTapped, UIControlEvent.TouchUpInside);
 
 			var toMemorizeHeight = ShareButton.Frame.Bottom + 10f;
@@ -176,9 +176,9 @@ namespace Verses.iOS
 
 			var memorizable = verse.Memorizable;
 			if (memorizable) {
-				ToMemorizeButton.SetBackgroundImage (Images.ToMemorizeGreenButton, UIControlState.Normal);
+				ToMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeGreenButton), UIControlState.Normal);
 			} else {
-				ToMemorizeButton.SetBackgroundImage (Images.ToMemorizeRedButton, UIControlState.Normal);
+				ToMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeRedButton), UIControlState.Normal);
 			}
 
 			var memorizedHeight = ToMemorizeButton.Frame.Bottom + 10f;
@@ -189,9 +189,9 @@ namespace Verses.iOS
 
 			var memorized = verse.Memorized;
 			if (memorized) {
-				MemorizedButton.SetBackgroundImage (Images.MemorizedGreenButton, UIControlState.Normal);
+				MemorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedGreenButton), UIControlState.Normal);
 			} else {
-				MemorizedButton.SetBackgroundImage (Images.MemorizedRedButton, UIControlState.Normal);
+				MemorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedRedButton), UIControlState.Normal);
 			}
 
 			if (!verse.Memorizable) {
@@ -203,7 +203,7 @@ namespace Verses.iOS
 				Frame = new RectangleF (282, 22, 25, 25),
 				UserInteractionEnabled = true
 			};
-			CopyrightButton.SetBackgroundImage (Images.CopyrightButton, UIControlState.Normal);
+			CopyrightButton.SetBackgroundImage (UIImage.FromFile (Images.CopyrightButton), UIControlState.Normal);
 			CopyrightButton.AddTarget (HandleCopyrightButtonTapped, UIControlEvent.TouchUpInside);
 
 		    ScrollView.Add (TopBarArea);
@@ -253,13 +253,13 @@ namespace Verses.iOS
 			var memorizable = verse.Memorizable;
 			if (memorizable) {
 				verse.Memorizable = !verse.Memorizable;
-				ToMemorizeButton.SetBackgroundImage (Images.ToMemorizeRedButton, UIControlState.Normal);
+				ToMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeRedButton), UIControlState.Normal);
 				MemorizedButton.Hidden = true;
 
 				UpdateMemorizableInDatabase ();
 			} else {
 				verse.Memorizable = !verse.Memorizable;
-				ToMemorizeButton.SetBackgroundImage (Images.ToMemorizeGreenButton, UIControlState.Normal);
+				ToMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeGreenButton), UIControlState.Normal);
 				MemorizedButton.Hidden = false;
 
 				UpdateMemorizableInDatabase ();
@@ -271,12 +271,12 @@ namespace Verses.iOS
 			var memorized = verse.Memorized;
 			if (memorized) {
 				verse.Memorized = !verse.Memorized;
-				MemorizedButton.SetBackgroundImage (Images.MemorizedRedButton, UIControlState.Normal);
+				MemorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedRedButton), UIControlState.Normal);
 
 				UpdateMemorizedInDatabase ();
 			} else {
 				verse.Memorized = !verse.Memorized;
-				MemorizedButton.SetBackgroundImage (Images.MemorizedGreenButton, UIControlState.Normal);
+				MemorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedGreenButton), UIControlState.Normal);
 
 				UpdateMemorizedInDatabase ();
 			}

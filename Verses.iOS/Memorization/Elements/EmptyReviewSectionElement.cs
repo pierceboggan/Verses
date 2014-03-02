@@ -31,7 +31,7 @@ namespace Verses.iOS
 
 			cell.SelectionStyle = UITableViewCellSelectionStyle.None;
 
-			cell.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+			cell.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground));
 
 			cell.TextLabel.TextAlignment = UITextAlignment.Center;
 			cell.TextLabel.Text = "You must memorize a verse in order to review it!";

@@ -15,7 +15,7 @@ namespace Verses.iOS
 			SelectionStyle = UITableViewCellSelectionStyle.None;
 
 			PrayerTitle = new UILabel {
-				BackgroundColor = UIColor.FromPatternImage (Images.CellHeader),
+				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.CellHeader)),
 				Font = FontConstants.SourceSansProBold (15),
 				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.White

@@ -49,7 +49,7 @@ namespace Verses.iOS
 				cell.SelectionStyle = UITableViewCellSelectionStyle.None;
 			}
 
-			cell.ImageView.Image = Images.ReviewVerseButton;
+			cell.ImageView.Image = UIImage.FromFile (Images.ReviewVerseButton);
 
 			return cell;
 		}

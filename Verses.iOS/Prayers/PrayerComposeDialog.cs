@@ -21,7 +21,7 @@ namespace Verses.iOS
 
 			SetupNavigationBar ();
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
 			NavigationBarLabel = InterfaceHelper.LabelForTitle ("COMPOSE");
 			NavigationItem.TitleView = NavigationBarLabel;
 		}
@@ -59,13 +59,13 @@ namespace Verses.iOS
 		private void SetupNavigationBar ()
 		{
 			var cancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			cancelButton.SetBackgroundImage (Images.CancelButton, UIControlState.Normal);
-			cancelButton.SetBackgroundImage (Images.CancelButtonHighlighted, UIControlState.Highlighted);
+			cancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
+			cancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
 			cancelButton.AddTarget (HandleCancelButtonTapped, UIControlEvent.TouchUpInside);
 
 			var saveButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			saveButton.SetBackgroundImage (Images.SaveButton, UIControlState.Normal);
-			saveButton.SetBackgroundImage (Images.SaveButtonHighlighted, UIControlState.Highlighted);
+			saveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
+			saveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
 			saveButton.AddTarget (HandleSaveButtonTapped, UIControlEvent.TouchUpInside);
 
 			var CancelButton = new UIBarButtonItem (cancelButton);
@@ -91,7 +91,7 @@ namespace Verses.iOS
 			PrayerTitle.BecomeFirstResponder ();
 
 			BlackLine = new UIView {
-				BackgroundColor = UIColor.FromPatternImage (Images.BlackLine),
+				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.BlackLine)),
 				Frame = new RectangleF (0, 28, View.Bounds.Width, 1f)
 			};
 

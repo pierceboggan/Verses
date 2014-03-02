@@ -14,7 +14,7 @@ namespace Verses.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			NavigationController.NavigationBar.SetBackgroundImage (Images.BlankBar, UIBarMetrics.Default);
+			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
 			NavigationBarLabel = InterfaceHelper.LabelForTitle ("PRAYERS");
 			NavigationItem.TitleView = NavigationBarLabel;
 
@@ -39,8 +39,8 @@ namespace Verses.iOS
 		private void SetupNavigationBar ()
 		{
 			var composeButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			composeButton.SetBackgroundImage (Images.ComposeButton, UIControlState.Normal);
-			composeButton.SetBackgroundImage (Images.ComposeButtonHighlighted, UIControlState.Highlighted);
+			composeButton.SetBackgroundImage (UIImage.FromFile (Images.ComposeButton), UIControlState.Normal);
+			composeButton.SetBackgroundImage (UIImage.FromFile (Images.ComposeButtonHighlighted), UIControlState.Highlighted);
 			composeButton.AddTarget (HandleComposeButtonTapped, UIControlEvent.TouchUpInside);
 
 			ComposeButton = new UIBarButtonItem (composeButton);

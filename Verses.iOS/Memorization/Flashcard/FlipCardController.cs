@@ -36,12 +36,12 @@ namespace Verses.iOS
 			View.BackgroundColor = UIColor.Clear;
 
 			Front = new FrontView (verses[0]);
-			View.BackgroundColor = UIColor.FromPatternImage (Images.TableViewBackground);
+			View.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground));
 
 			Back = new BackView (verses[position]);
 
-			MemorizedImage = Images.HeartRedButton;
-			NotMemorizedImage = Images.HeartGreyButton;
+			MemorizedImage = UIImage.FromFile (Images.HeartRedButton);
+			NotMemorizedImage = UIImage.FromFile (Images.HeartGreyButton);
 
 			TapGesture = new UITapGestureRecognizer {
 				NumberOfTapsRequired = 1

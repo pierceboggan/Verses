@@ -44,7 +44,7 @@ namespace Verses.iOS
 
 			}
 
-			ImageView.Image = Data.Memorized ? memorizedImage : notMemorizedImage;
+			ImageView.Image = Data.Memorized ? UIImage.FromFile (memorizedImage) : UIImage.FromFile (notMemorizedImage);
 
 			Add (TextArea);
 			Add (ImageView);
