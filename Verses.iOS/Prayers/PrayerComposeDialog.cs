@@ -7,23 +7,23 @@ using Localytics;
 
 namespace Verses.iOS
 {
-	public class PrayerComposeDialog : UIViewController
+	public class PrayerComposeDialog : PBViewController
 	{
 		UIView BlackLine;
-		UILabel NavigationBarLabel;
 		UITextView PrayerContent;
 		UITextField PrayerTitle;
 		ContentTextDelegate TextViewDelegate;
+
+		public PrayerComposeDialog () : base ("Prayer")
+		{
+
+		}
 
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
 			SetupNavigationBar ();
-
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-			NavigationBarLabel = InterfaceHelper.LabelForTitle ("COMPOSE");
-			NavigationItem.TitleView = NavigationBarLabel;
 		}
 
 		public override void ViewDidLoad()
@@ -32,13 +32,6 @@ namespace Verses.iOS
 
 			SetupNavigationBar ();
 			SetupUI ();
-		}
-
-		public override void ViewWillDisappear (bool animated)
-		{
-			base.ViewWillDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		public override bool ShouldAutorotate ()
@@ -73,8 +66,6 @@ namespace Verses.iOS
 
 			NavigationItem.LeftBarButtonItem = CancelButton;
 			NavigationItem.RightBarButtonItem = SaveButton;
-
-			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		private void SetupUI ()

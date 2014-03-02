@@ -5,20 +5,19 @@ using Verses.Core;
 
 namespace Verses.iOS
 {
-	public class PrayerDetailDialog : UIViewController
+	public class PrayerDetailDialog : PBViewController
 	{
 		UIActionSheet ActionSheet;
 		UIActionSheetDelegate ActionSheetDelegate;
 		UIBarButtonItem BackButton;
 		UILabel ContentArea;
 		UIBarButtonItem EditButton;
-		UILabel NavigationBarLabel;
 		Prayer Prayer;
 		UIScrollView ScrollView;
 		UIButton ShareButton;
 		UITextField TopBarArea;
 
-		public PrayerDetailDialog (Prayer data)
+		public PrayerDetailDialog (Prayer data) : base (data.Title)
 		{
 			Prayer = data;
 		}
@@ -35,32 +34,11 @@ namespace Verses.iOS
 			ShareButton.Frame = new RectangleF (ShareButton.Frame.X, ContentArea.Frame.Height + 79f, ShareButton.Frame.Width, ShareButton.Frame.Height);
 		}
 
-		public override void ViewWillAppear (bool animated)
-		{
-			base.ViewWillAppear (animated);
-
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-
-			NavigationBarLabel = InterfaceHelper.LabelForTitle (Prayer.Title.ToUpper ());
-			NavigationItem.TitleView = NavigationBarLabel;
-		}
-
-		public override void ViewDidDisappear (bool animated)
-		{
-			base.ViewDidDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
-		}
-
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
 			SetupNavigationBar ();
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-			NavigationBarLabel = InterfaceHelper.LabelForTitle (Prayer.Title.ToUpper ());
-			NavigationItem.TitleView = NavigationBarLabel;
-
 			SetupUI ();
 		}
 
@@ -88,8 +66,6 @@ namespace Verses.iOS
 
 			EditButton = new UIBarButtonItem (editButton);
 			NavigationItem.RightBarButtonItem = EditButton;
-
-			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		private void SetupUI ()

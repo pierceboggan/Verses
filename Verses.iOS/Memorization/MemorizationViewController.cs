@@ -5,20 +5,14 @@ using Verses.Core;
 
 namespace Verses.iOS
 {
-	public class MemorizationViewController : UIViewController
+	public class MemorizationViewController : PBViewController
 	{
 		UIButton SundayButton, MondayButton, TuesdayButton, WednesdayButton, ThursdayButton,
 			FridayButton, SaturdayButton, QueueButton, ReviewButton;
-		UILabel NavigationBarLabel;
 
-		public override void ViewWillAppear (bool animated)
+		public MemorizationViewController () : base ("Memorization")
 		{
-			base.ViewWillAppear (animated);
 
-			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-			NavigationBarLabel = InterfaceHelper.LabelForTitle ("MEMORIZATION");
-			NavigationItem.TitleView = NavigationBarLabel;
 		}
 
 		public override void ViewDidLoad ()
@@ -32,13 +26,6 @@ namespace Verses.iOS
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
 		{
 			return UIInterfaceOrientationMask.Portrait;
-		}
-
-		public override void ViewWillDisappear (bool animated)
-		{
-			base.ViewWillDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		void SetupUI ()

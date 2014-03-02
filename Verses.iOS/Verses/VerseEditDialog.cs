@@ -6,41 +6,24 @@ using Localytics;
 
 namespace Verses.iOS
 {
-	public class VerseEditDialog : UIViewController
+	public class VerseEditDialog : PBViewController
 	{
 		UIView BlackLine;
-		UILabel NavigationBarLabel;
 		Verse Verse;
 		UITextView VerseComments;
 		UITextField VerseReference;
 
-		public VerseEditDialog (Verse data)
+		public VerseEditDialog (Verse data) : base ("Edit")
 		{
 			Verse = data;
 		}
-
-		public override void ViewWillAppear (bool animated)
-		{
-			base.ViewWillAppear (animated);
-
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-			NavigationBarLabel = InterfaceHelper.LabelForTitle ("EDIT");
-			NavigationItem.TitleView = NavigationBarLabel;
-		}
-
+			
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
 
 			SetupNavigationBar ();
 			SetupUI ();
-		}
-
-		public override void ViewWillDisappear (bool animated)
-		{
-			base.ViewWillDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		public override bool ShouldAutorotate ()
@@ -75,8 +58,6 @@ namespace Verses.iOS
 
 			NavigationItem.LeftBarButtonItem = CancelButton;
 			NavigationItem.RightBarButtonItem = SaveButton;
-
-			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		private void SetupUI ()

@@ -7,16 +7,15 @@ using Localytics;
 
 namespace Verses.iOS
 {
-	public class VerseComposeDialog : UIViewController
+	public class VerseComposeDialog : PBViewController
 	{
 		UIView BlackLine;
 		VersesViewController ManagingController;
 		CommentsTextDelegate TextViewDelegate;
 		UITextView VerseComments;
 		UITextField VerseReference;
-		UILabel NavigationBarLabel;
 
-		public VerseComposeDialog (VersesViewController managingController)
+		public VerseComposeDialog (VersesViewController managingController) : base ("Compose")
 		{
 			ManagingController = managingController;
 		}
@@ -26,10 +25,6 @@ namespace Verses.iOS
 			base.ViewWillAppear (animated);
 
 			SetupNavigationBar ();
-
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-			NavigationBarLabel = InterfaceHelper.LabelForTitle ("COMPOSE");
-			NavigationItem.TitleView = NavigationBarLabel;
 		}
 
 		public override void ViewDidLoad()
@@ -38,13 +33,6 @@ namespace Verses.iOS
 
 			SetupNavigationBar ();
 			SetupUI ();
-		}
-
-		public override void ViewDidDisappear (bool animated)
-		{
-			base.ViewDidDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		public override bool ShouldAutorotate ()
@@ -79,8 +67,6 @@ namespace Verses.iOS
 
 			NavigationItem.LeftBarButtonItem = CancelButton;
 			NavigationItem.RightBarButtonItem = SaveButton;
-
-			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		private void SetupUI ()

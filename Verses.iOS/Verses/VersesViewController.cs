@@ -4,22 +4,22 @@ using MonoTouch.UIKit;
 
 namespace Verses.iOS
 {
-	public class VersesViewController : UIViewController
+	public class VersesViewController : PBViewController
 	{
 		UIBarButtonItem ComposeButton, SettingsButton;
-		UILabel NavigationBarLabel;
 
 		public UITableView VersesTable { get; set; }
+
+		public VersesViewController () : base ("Verses")
+		{
+
+		}
 
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
 			SetupNavigationBar ();
-
-			NavigationBarLabel = InterfaceHelper.LabelForTitle ("VERSES");
-			NavigationItem.TitleView = NavigationBarLabel;
 		}
 
 		public override void ViewDidAppear (bool animated)
@@ -41,14 +41,7 @@ namespace Verses.iOS
 
 			VersesTable.Source = new VersesTableSource (this);
 		}
-
-		public override void ViewDidDisappear (bool animated)
-		{
-			base.ViewWillDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
-		}
-
+			
 		void SetupNavigationBar ()
 		{
 			var composeButton = new UIButton (new RectangleF (0, 0, 25, 25));
@@ -66,8 +59,6 @@ namespace Verses.iOS
 
 			SettingsButton = new UIBarButtonItem (settingsButton);
 			NavigationItem.LeftBarButtonItem = SettingsButton;
-
-			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		void SetupUI ()

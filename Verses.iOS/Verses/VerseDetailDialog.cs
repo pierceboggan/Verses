@@ -5,7 +5,7 @@ using Verses.Core;
 
 namespace Verses.iOS
 {
-	public class VerseDetailDialog : UIViewController
+	public class VerseDetailDialog : PBViewController
 	{
 		UIActionSheet ActionSheet;
 		UIActionSheetDelegate ActionSheetDelegate;
@@ -16,35 +16,15 @@ namespace Verses.iOS
 		UIButton CopyrightButton;
 		UIBarButtonItem EditButton;
 		UIButton MemorizedButton;
-		UILabel NavigationBarLabel;
 		UIScrollView ScrollView;
 		UIButton ShareButton;
 		UIButton ToMemorizeButton;
 		UITextField TopBarArea;
 		Verse verse;
 
-		public VerseDetailDialog (Verse data)
+		public VerseDetailDialog (Verse data) : base (data.Title)
 		{
 			verse = data;
-
-			SetupUI ();
-		}
-
-		public override void ViewWillAppear (bool animated)
-		{
-			base.ViewWillAppear (animated);
-
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-
-			NavigationBarLabel = InterfaceHelper.LabelForTitle (verse.Title.ToUpper ());
-			NavigationItem.TitleView = NavigationBarLabel;
-		}
-
-		public override void ViewDidDisappear (bool animated)
-		{
-			base.ViewDidDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		public override void ViewDidAppear (bool animated)
@@ -70,6 +50,7 @@ namespace Verses.iOS
 			base.ViewDidLoad ();
 
 			SetupNavigationBar ();
+			SetupUI ();
 		}
 
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()

@@ -4,19 +4,19 @@ using MonoTouch.UIKit;
  
 namespace Verses.iOS
 {
-	public class PrayersViewController : UIViewController
+	public class PrayersViewController : PBViewController
 	{                
 		UIBarButtonItem ComposeButton;
-		UILabel NavigationBarLabel;
 		UITableView PrayersTable;
+
+		public PrayersViewController () : base ("Prayers")
+		{
+
+		}
 
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-			NavigationBarLabel = InterfaceHelper.LabelForTitle ("PRAYERS");
-			NavigationItem.TitleView = NavigationBarLabel;
 
 			PrayersTable.Source = new PrayersTableSource (this);
 		}
@@ -29,13 +29,6 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
-		public override void ViewDidDisappear (bool animated)
-		{
-			base.ViewDidDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
-		}
-
 		private void SetupNavigationBar ()
 		{
 			var composeButton = new UIButton (new RectangleF (0, 0, 25, 25));
@@ -45,8 +38,6 @@ namespace Verses.iOS
 
 			ComposeButton = new UIBarButtonItem (composeButton);
 			NavigationItem.RightBarButtonItem = ComposeButton;
-
-			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		private void SetupUI ()

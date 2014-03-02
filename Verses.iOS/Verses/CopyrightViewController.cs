@@ -6,43 +6,22 @@ using BibleAPI;
 
 namespace Verses.iOS
 {
-	public class CopyrightViewController : UIViewController
+	public class CopyrightViewController : PBViewController
 	{
 		UIBarButtonItem BackButton;
 		UITextView copyrightView;
-		UILabel NavigationBarLabel;
 		BibleTranslation translation;
-		string verse;
 
-
-		public CopyrightViewController (BibleTranslation translation)
+		public CopyrightViewController (BibleTranslation translation) : base ("Copyright")
 		{
 			this.translation = translation;
-			this.verse = verse;
 		}
-
-		public override void ViewWillAppear (bool animated)
-		{
-			base.ViewDidAppear (animated);
-
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-
-			NavigationBarLabel = InterfaceHelper.LabelForTitle ("COPYRIGHT");
-			NavigationItem.TitleView = NavigationBarLabel;
-		}
-
+	
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
 
 			FetchCopyright ();
-		}
-
-		public override void ViewWillDisappear (bool animated)
-		{
-			base.ViewWillDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		public override void ViewDidLoad ()
@@ -62,8 +41,6 @@ namespace Verses.iOS
 
 			BackButton = new UIBarButtonItem (backButton);
 			NavigationItem.LeftBarButtonItem = BackButton;
-
-			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
 		}
 
 		void SetupUI ()

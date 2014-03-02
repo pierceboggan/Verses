@@ -25,8 +25,8 @@ namespace Verses.iOS
 			var versesItem = new UITabBarItem { Image = UIImage.FromFile (Images.VersesTab) };
 			var memorizationItem = new UITabBarItem { Image = UIImage.FromFile (Images.MemorizationTab) };
 	
-			verses.TabBarItem = versesItem;
 			prayers.TabBarItem = prayersItem;
+			verses.TabBarItem = versesItem;
 			memorization.TabBarItem = memorizationItem;
 
 			tabBarController.ViewControllers = new UIViewController[] {

@@ -5,15 +5,14 @@ using Localytics;
 
 namespace Verses.iOS
 {
-	public class PrayerEditDialog : UIViewController
+	public class PrayerEditDialog : PBViewController
 	{
 		UIView BlackLine;
-		UILabel NavigationBarLabel;
 		Prayer prayer;
 		UITextView PrayerContent;
 		UITextField PrayerTitle;
 
-		public PrayerEditDialog (Prayer data)
+		public PrayerEditDialog (Prayer data) : base ("Edit")
 		{
 			prayer = data;
 		}
@@ -25,27 +24,10 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
-		public override void ViewWillAppear (bool animated)
-		{
-			base.ViewWillAppear (animated);
-
-			NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
-			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-			NavigationBarLabel = InterfaceHelper.LabelForTitle ("EDIT");
-			NavigationItem.TitleView = NavigationBarLabel;
-		}
-
 		public override void ViewDidAppear (bool animated)
 		{
 			PrayerTitle.Text = prayer.Title;
 			PrayerContent.Text = prayer.Content;
-		}
-
-		public override void ViewWillDisappear (bool animated)
-		{
-			base.ViewWillDisappear (animated);
-
-			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
 		public override bool ShouldAutorotate ()
