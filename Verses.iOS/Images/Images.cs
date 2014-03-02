@@ -8,15 +8,12 @@ namespace Verses.iOS
 		public static UIImage TabBarBackground = UIImage.FromFile ("Images/General/TabBarBackground.png");
 		public static UIImage BackButton = UIImage.FromFile ("Images/General/BackButton.png");
 		public static UIImage BackButtonHighlighted = UIImage.FromFile ("Images/General/BackButtonHighlighted.png");
-
-		// Headers
 		public static UIImage BlankBar = UIImage.FromFile ("Images/Headers/BlankBar.png");
-		public static UIImage ComposeBar = UIImage.FromFile ("Images/Headers/ComposeBar.png");
-		public static UIImage EditBar = UIImage.FromFile ("Images/Headers/EditBar.png");
-		public static UIImage MemorizationBar = UIImage.FromFile ("Images/Headers/MemorizationBar.png");
-		public static UIImage PrayersBar = UIImage.FromFile ("Images/Headers/PrayersBar.png");
-		public static UIImage TagsBar = UIImage.FromFile ("Images/Headers/TagsBar.png");
-		public static UIImage VersesBar = UIImage.FromFile ("Images/Headers/VersesBar.png");
+
+		// Tabs
+		public static UIImage PrayersTab = UIImage.FromFile ("Images/Tabs/Prayers.png");
+		public static UIImage VersesTab = UIImage.FromFile ("Images/Tabs/Verses.png");
+		public static UIImage MemorizationTab = UIImage.FromFile ("Images/Tabs/Memorization.png");
 
 		// Table
 		public static UIImage CellHeader = UIImage.FromFile ("Images/General/CellHeader.jpg");

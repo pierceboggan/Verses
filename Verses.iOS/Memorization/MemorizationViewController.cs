@@ -44,7 +44,6 @@ namespace Verses.iOS
 		void SetupUI ()
 		{
 			View.BackgroundColor = UIColor.FromPatternImage (Images.MemorizationBackground);
-			NavigationController.NavigationBar.SetBackgroundImage (Images.MemorizationBar, UIBarMetrics.Default);
 
 			SundayButton = new UIButton {
 				Frame = new RectangleF (30, 25, 70, 70)
