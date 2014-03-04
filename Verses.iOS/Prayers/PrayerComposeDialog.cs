@@ -34,21 +34,6 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
-		public override bool ShouldAutorotate ()
-		{
-			return true;
-		}
-
-		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
-		{
-			return UIInterfaceOrientationMask.Portrait | UIInterfaceOrientationMask.PortraitUpsideDown;
-		}
-
-		public override UIInterfaceOrientation PreferredInterfaceOrientationForPresentation ()
-		{
-			return UIInterfaceOrientation.Portrait;
-		}
-
 		private void SetupNavigationBar ()
 		{
 			var cancelButton = new UIButton (new RectangleF (0, 0, 25, 25));

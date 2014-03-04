@@ -30,21 +30,6 @@ namespace Verses.iOS
 			PrayerContent.Text = prayer.Content;
 		}
 
-		public override bool ShouldAutorotate ()
-		{
-			return true;
-		}
-
-		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
-		{
-			return UIInterfaceOrientationMask.Portrait | UIInterfaceOrientationMask.PortraitUpsideDown;
-		}
-
-		public override UIInterfaceOrientation PreferredInterfaceOrientationForPresentation ()
-		{
-			return UIInterfaceOrientation.Portrait;
-		}
-
 		private void SetupUI ()
 		{
 			View.BackgroundColor = UIColor.White;

@@ -53,11 +53,6 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
-		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
-		{
-			return UIInterfaceOrientationMask.Portrait;
-		}
-
 		private void SetupNavigationBar ()
 		{
 			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
@@ -305,7 +300,7 @@ namespace Verses.iOS
 					DeleteVerse ();
 					break;
 				case 1:
-					controller.PresentViewController (new UINavigationController (new VerseEditDialog (verse)), true, null);
+					controller.PresentViewController (new PBNavigationController(new VerseEditDialog (verse)), true, null);
 					break;
 				case 2:
 					actionSheet.DismissWithClickedButtonIndex (2, true);

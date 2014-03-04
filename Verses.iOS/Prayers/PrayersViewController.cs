@@ -54,7 +54,7 @@ namespace Verses.iOS
 
 		private void HandleComposeButtonTapped (object sender, EventArgs args)
 		{
-			PresentViewController (new UINavigationController (new PrayerComposeDialog ()), true, null);
+			PresentViewController (new PBNavigationController (new PrayerComposeDialog ()), true, null);
 		}
 	}
 }

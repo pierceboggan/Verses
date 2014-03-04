@@ -180,6 +180,7 @@
     <Compile Include="LocalHTML.cs" />
     <Compile Include="SpeechSynthesizer.cs" />
     <Compile Include="PBViewController.cs" />
+    <Compile Include="PBNavigationController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>

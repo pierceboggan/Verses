@@ -23,11 +23,6 @@ namespace Verses.iOS
 			SetupEventHandlers ();
 		}
 
-		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
-		{
-			return UIInterfaceOrientationMask.Portrait;
-		}
-
 		void SetupUI ()
 		{
 			View.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.MemorizationBackground));

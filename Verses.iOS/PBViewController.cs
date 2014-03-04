@@ -36,6 +36,21 @@ namespace Verses.iOS
 			NavigationBarLabel.RemoveFromSuperview ();
 		}
 
+		public override bool ShouldAutorotate ()
+		{
+			return true;
+		}
+
+		public override UIInterfaceOrientation PreferredInterfaceOrientationForPresentation ()
+		{
+			return UIInterfaceOrientation.Portrait;
+		}
+
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
+		{
+			return UIInterfaceOrientationMask.Portrait | UIInterfaceOrientationMask.PortraitUpsideDown;
+		}
+
 		public void UpdateNavigationBar (string title)
 		{
 			if (title != null) {

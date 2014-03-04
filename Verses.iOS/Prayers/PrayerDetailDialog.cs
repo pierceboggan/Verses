@@ -42,11 +42,6 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
-		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
-		{
-			return UIInterfaceOrientationMask.Portrait;
-		}
-
 		private void SetupNavigationBar ()
 		{
 			NavigationItem.HidesBackButton = true;
@@ -165,7 +160,7 @@ namespace Verses.iOS
 					DeletePrayer ();
 					break;
 				case 1:
-					controller.PresentViewController (new UINavigationController (new PrayerEditDialog (prayer)), true, null);
+					controller.PresentViewController (new PBNavigationController (new PrayerEditDialog (prayer)), true, null);
 					break;
 				case 2:
 					actionSheet.DismissWithClickedButtonIndex (2, true);

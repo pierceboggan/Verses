@@ -78,12 +78,12 @@ namespace Verses.iOS
 
 		void HandleComposeButtonTapped (object sender, EventArgs args)
 		{
-			PresentViewController (new UINavigationController(new VerseComposeDialog (this)), true, null);
+			PresentViewController (new PBNavigationController(new VerseComposeDialog (this)), true, null);
 		}
 
 		void HandleSettingsButtonTapped (object sender, EventArgs args)
 		{
-			PresentViewController (new UINavigationController(new SettingsDialog ()), true, null);
+			PresentViewController (new PBNavigationController(new SettingsDialog ()), true, null);
 		}
 	}
 }
