@@ -28,10 +28,5 @@ Verses is an iOS application developed by Pierce Boggan using [Xamarin.iOS](http
     * C# 5.0/.NET 4.5's big feature is used throughout the "Verses.iOS" project
     * Used mainly for accessing data via the BibleAPI library
 
-## Tooling
-Verses was built using [Xamarin.iOS](http://ios.xamarin.com). The main reasoning behind using Xamarin's tooling was building a native application that I can easily share lots of my C# code across multiple platforms (Android, iOS, Windows 8 Phone).*
-
-* Disclaimer: I worked for Xamarin for a short while as an intern.
-
 ## License
 Both the code and the images are provided under a MIT license.
