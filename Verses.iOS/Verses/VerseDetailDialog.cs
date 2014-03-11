@@ -79,7 +79,6 @@ namespace Verses.iOS
 			BackingBackButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
 			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
-			BackingBackButton.AddTarget(HandleBackButtonTapped, UIControlEvent.TouchUpInside);
 
 			BackingEditButton = new UIButton (new RectangleF (0, 0, 25, 25));
 			BackingEditButton.SetBackgroundImage (UIImage.FromFile (Images.EditButton), UIControlState.Normal);
