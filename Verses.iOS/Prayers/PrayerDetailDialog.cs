@@ -9,9 +9,9 @@ namespace Verses.iOS
 	{
 		UIActionSheet ActionSheet;
 		UIActionSheetDelegate ActionSheetDelegate;
-		UIBarButtonItem BackButton;
+		UIButton BackingBackButton, BackingEditButton;
+		UIBarButtonItem BackButton, EditButton;
 		UILabel ContentArea;
-		UIBarButtonItem EditButton;
 		Prayer Prayer;
 		UIScrollView ScrollView;
 		UIButton ShareButton;
@@ -22,9 +22,9 @@ namespace Verses.iOS
 			Prayer = data;
 		}
 
-		public override void ViewDidAppear (bool animated)
+		public override void ViewWillAppear (bool animated)
 		{
-			base.ViewDidAppear (animated);
+			base.ViewWillAppear (animated);
 
 			TopBarArea.Text = Prayer.Timestamp.ToShortDateString ();
 			ContentArea.Text = Prayer.Content;
@@ -32,6 +32,10 @@ namespace Verses.iOS
 			ContentArea.Frame = new RectangleF (14f, 52f, 294f, 
 				InterfaceHelper.ContentSize (ContentArea.Text, ContentArea.Frame.Width, ContentArea.Font));
 			ShareButton.Frame = new RectangleF (ShareButton.Frame.X, ContentArea.Frame.Height + 79f, ShareButton.Frame.Width, ShareButton.Frame.Height);
+
+			BackingBackButton.TouchUpInside += HandleBackButtonTapped;
+			BackingEditButton.TouchUpInside += HandleEditButtonTapped;
+			ShareButton.TouchUpInside += HandleShareTapped;
 		}
 
 		public override void ViewDidLoad ()
@@ -42,24 +46,31 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
+		public override void ViewDidDisappear (bool animated)
+		{
+			base.ViewDidDisappear (animated);
+
+			BackingBackButton.TouchUpInside -= HandleBackButtonTapped;
+			BackingEditButton.TouchUpInside -= HandleEditButtonTapped;
+			ShareButton.TouchUpInside -= HandleShareTapped;
+		}
+
 		private void SetupNavigationBar ()
 		{
 			NavigationItem.HidesBackButton = true;
 
-			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
-			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
-			backButton.AddTarget (HandleBackButtonTapped, UIControlEvent.TouchUpInside);
+			BackingBackButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
 
-			BackButton = new UIBarButtonItem (backButton);
+			BackButton = new UIBarButtonItem (BackingBackButton);
 			NavigationItem.LeftBarButtonItem = BackButton;
 
-			var editButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			editButton.SetBackgroundImage (UIImage.FromFile (Images.EditButton), UIControlState.Normal);
-			editButton.SetBackgroundImage (UIImage.FromFile (Images.EditButtonHighlighted), UIControlState.Highlighted);
-			editButton.AddTarget (HandleEditButtonTapped, UIControlEvent.TouchUpInside);
+			BackingEditButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingEditButton.SetBackgroundImage (UIImage.FromFile (Images.EditButton), UIControlState.Normal);
+			BackingEditButton.SetBackgroundImage (UIImage.FromFile (Images.EditButtonHighlighted), UIControlState.Highlighted);
 
-			EditButton = new UIBarButtonItem (editButton);
+			EditButton = new UIBarButtonItem (BackingEditButton);
 			NavigationItem.RightBarButtonItem = EditButton;
 		}
 
@@ -103,7 +114,6 @@ namespace Verses.iOS
 				Frame = new RectangleF (33.5f, height, 253f, 33f)
 			};
 			ShareButton.SetBackgroundImage (UIImage.FromFile (Images.ShareButton), UIControlState.Normal);
-			ShareButton.AddTarget (HandleShareTapped, UIControlEvent.TouchUpInside);
 
 			ScrollView.Add (TopBarArea);
 			ScrollView.Add (ShareButton);

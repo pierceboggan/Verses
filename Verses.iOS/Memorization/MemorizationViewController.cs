@@ -15,12 +15,25 @@ namespace Verses.iOS
 
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			SetupEventHandlers ();
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
 			SetupUI ();
-			SetupEventHandlers ();
+		}
+
+		public override void ViewDidDisappear (bool animated)
+		{
+			base.ViewDidDisappear (animated);
+
+			RemoveEventHandlers ();
 		}
 
 		void SetupUI ()
@@ -103,6 +116,19 @@ namespace Verses.iOS
 			SaturdayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Saturday);
 			QueueButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Queue);
 			ReviewButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Review);
+		}
+
+		void RemoveEventHandlers ()
+		{
+			SundayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Sunday);
+			MondayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Monday);
+			TuesdayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Tuesday);
+			WednesdayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Wednesday);
+			ThursdayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Thursday);
+			FridayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Friday);
+			SaturdayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Saturday);
+			QueueButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Queue);
+			ReviewButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Review);
 		}
 
 		void ButtonHandler (MemorizationCategory category)

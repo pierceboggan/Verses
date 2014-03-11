@@ -7,14 +7,14 @@ namespace Verses.iOS
 {
 	public class VerseDetailDialog : PBViewController
 	{
+		UIButton BackingBackButton, BackingEditButton;
+		UIBarButtonItem BackButton, EditButton;
 		UIActionSheet ActionSheet;
 		UIActionSheetDelegate ActionSheetDelegate;
-		UIBarButtonItem BackButton;
 		UIView BlackLine;
 		UILabel CommentsArea;
 		UILabel ContentArea;
 		UIButton CopyrightButton;
-		UIBarButtonItem EditButton;
 		UIButton MemorizedButton;
 		UIScrollView ScrollView;
 		UIButton ShareButton;
@@ -27,9 +27,9 @@ namespace Verses.iOS
 			verse = data;
 		}
 
-		public override void ViewDidAppear (bool animated)
+		public override void ViewWillAppear (System.Boolean animated)
 		{
-			base.ViewDidAppear (animated);
+			base.ViewWillAppear (animated);
 
 			if (verse.Comments.Length != 0) {
 				BlackLine.Hidden = false;
@@ -43,6 +43,14 @@ namespace Verses.iOS
 				ToMemorizeButton.Frame = new RectangleF (ToMemorizeButton.Frame.X, ShareButton.Frame.Bottom + 10f, ToMemorizeButton.Frame.Width, ToMemorizeButton.Frame.Height);
 				MemorizedButton.Frame = new RectangleF (MemorizedButton.Frame.X, ToMemorizeButton.Frame.Bottom + 10f, MemorizedButton.Frame.Width, MemorizedButton.Frame.Height);
 			}
+
+			BackingBackButton.TouchUpInside += HandleBackButtonTapped;
+			BackingEditButton.TouchUpInside += HandleEditButtonTapped;
+
+			ShareButton.TouchUpInside += HandleShareTapped;
+			ToMemorizeButton.TouchUpInside += HandleToMemorizeTapped;
+			MemorizedButton.TouchUpInside += HandleMemorizedTapped;
+			CopyrightButton.TouchUpInside += HandleCopyrightButtonTapped;
 		}
 
 		public override void ViewDidLoad ()
@@ -53,20 +61,32 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			BackingBackButton.TouchUpInside -= HandleBackButtonTapped;
+			BackingEditButton.TouchUpInside -= HandleEditButtonTapped;
+
+			ShareButton.TouchUpInside -= HandleShareTapped;
+			ToMemorizeButton.TouchUpInside -= HandleToMemorizeTapped;
+			MemorizedButton.TouchUpInside -= HandleMemorizedTapped;
+			CopyrightButton.TouchUpInside -= HandleCopyrightButtonTapped;
+		}
+
 		private void SetupNavigationBar ()
 		{
-			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
-			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
-			backButton.AddTarget(HandleBackButtonTapped, UIControlEvent.TouchUpInside);
+			BackingBackButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
+			BackingBackButton.AddTarget(HandleBackButtonTapped, UIControlEvent.TouchUpInside);
 
-			var editButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			editButton.SetBackgroundImage (UIImage.FromFile (Images.EditButton), UIControlState.Normal);
-			editButton.SetBackgroundImage (UIImage.FromFile (Images.EditButtonHighlighted), UIControlState.Highlighted);
-			editButton.AddTarget(HandleEditButtonTapped ,UIControlEvent.TouchUpInside);
+			BackingEditButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingEditButton.SetBackgroundImage (UIImage.FromFile (Images.EditButton), UIControlState.Normal);
+			BackingEditButton.SetBackgroundImage (UIImage.FromFile (Images.EditButtonHighlighted), UIControlState.Highlighted);
 
-			BackButton = new UIBarButtonItem (backButton);
-			EditButton = new UIBarButtonItem (editButton);
+			BackButton = new UIBarButtonItem (BackingBackButton);
+			EditButton = new UIBarButtonItem (BackingEditButton);
 
 			NavigationItem.LeftBarButtonItem = BackButton;
 			NavigationItem.RightBarButtonItem = EditButton;
@@ -142,13 +162,11 @@ namespace Verses.iOS
 				Frame = new RectangleF (33.5f, height, 253f, 33f)
 			};
 			ShareButton.SetBackgroundImage (UIImage.FromFile (Images.ShareButton), UIControlState.Normal);
-			ShareButton.AddTarget (HandleShareTapped, UIControlEvent.TouchUpInside);
 
 			var toMemorizeHeight = ShareButton.Frame.Bottom + 10f;
 			ToMemorizeButton = new UIButton {
 				Frame = new RectangleF (33.5f, toMemorizeHeight, 253f, 33f)
 			};
-			ToMemorizeButton.AddTarget (HandleToMemorizeTapped, UIControlEvent.TouchUpInside);
 
 			var memorizable = verse.Memorizable;
 			if (memorizable) {
@@ -161,7 +179,6 @@ namespace Verses.iOS
 			MemorizedButton = new UIButton {
 				Frame = new RectangleF (33.5f, memorizedHeight, 253f, 33f)
 			};
-			MemorizedButton.AddTarget (HandleMemorizedTapped, UIControlEvent.TouchUpInside);
 
 			var memorized = verse.Memorized;
 			if (memorized) {
@@ -180,7 +197,6 @@ namespace Verses.iOS
 				UserInteractionEnabled = true
 			};
 			CopyrightButton.SetBackgroundImage (UIImage.FromFile (Images.CopyrightButton), UIControlState.Normal);
-			CopyrightButton.AddTarget (HandleCopyrightButtonTapped, UIControlEvent.TouchUpInside);
 
 		    ScrollView.Add (TopBarArea);
 			ScrollView.Add (ShareButton);

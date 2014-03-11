@@ -6,6 +6,7 @@ namespace Verses.iOS
 {
 	public class PrayersViewController : PBViewController
 	{                
+		UIButton BackingComposeButton;
 		UIBarButtonItem ComposeButton;
 		UITableView PrayersTable;
 
@@ -19,6 +20,8 @@ namespace Verses.iOS
 			base.ViewWillAppear (animated);
 
 			PrayersTable.Source = new PrayersTableSource (this);
+
+			BackingComposeButton.TouchUpInside += HandleComposeButtonTapped;
 		}
 
 		public override void ViewDidLoad ()
@@ -29,14 +32,20 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			BackingComposeButton.TouchUpInside -= HandleComposeButtonTapped;
+		}
+
 		private void SetupNavigationBar ()
 		{
-			var composeButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			composeButton.SetBackgroundImage (UIImage.FromFile (Images.ComposeButton), UIControlState.Normal);
-			composeButton.SetBackgroundImage (UIImage.FromFile (Images.ComposeButtonHighlighted), UIControlState.Highlighted);
-			composeButton.AddTarget (HandleComposeButtonTapped, UIControlEvent.TouchUpInside);
+			BackingComposeButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingComposeButton.SetBackgroundImage (UIImage.FromFile (Images.ComposeButton), UIControlState.Normal);
+			BackingComposeButton.SetBackgroundImage (UIImage.FromFile (Images.ComposeButtonHighlighted), UIControlState.Highlighted);
 
-			ComposeButton = new UIBarButtonItem (composeButton);
+			ComposeButton = new UIBarButtonItem (BackingComposeButton);
 			NavigationItem.RightBarButtonItem = ComposeButton;
 		}
 

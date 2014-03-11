@@ -9,7 +9,6 @@ namespace Verses.iOS
 	public class VerseCell : UITableViewCell
 	{
 		UILabel VerseContent, VerseReference;
-		UISwipeGestureRecognizer Swipe;
 
 		public VerseCell (NSString reuseIdentifier) : base (UITableViewCellStyle.Default, reuseIdentifier)
 		{

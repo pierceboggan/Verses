@@ -9,6 +9,8 @@ namespace Verses.iOS
 {
 	public class VerseComposeDialog : PBViewController
 	{
+		UIButton BackingCancelButton, BackingSaveButton;
+		UIBarButtonItem CancelButton, SaveButton;
 		UIView BlackLine;
 		VersesViewController ManagingController;
 		CommentsTextDelegate TextViewDelegate;
@@ -24,7 +26,8 @@ namespace Verses.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			SetupNavigationBar ();
+			BackingCancelButton.TouchUpInside += HandleCancelButtonTapped;
+			BackingSaveButton.TouchUpInside += HandleSaveButtonTapped;
 		}
 
 		public override void ViewDidLoad()
@@ -35,20 +38,26 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			BackingCancelButton.TouchUpInside -= HandleCancelButtonTapped;
+			BackingSaveButton.TouchUpInside -= HandleSaveButtonTapped;
+		}
+
 		private void SetupNavigationBar ()
 		{
-			var cancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			cancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
-			cancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
-			cancelButton.AddTarget (HandleCancelButtonTapped, UIControlEvent.TouchUpInside);
+			BackingCancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
+			BackingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
 
-			var saveButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			saveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
-			saveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
-			saveButton.AddTarget (HandleSaveButtonTapped, UIControlEvent.TouchUpInside);
+			BackingSaveButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
+			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
 
-			var CancelButton = new UIBarButtonItem (cancelButton);
-			var SaveButton = new UIBarButtonItem (saveButton);
+			CancelButton = new UIBarButtonItem (BackingCancelButton);
+			SaveButton = new UIBarButtonItem (BackingSaveButton);
 
 			NavigationItem.LeftBarButtonItem = CancelButton;
 			NavigationItem.RightBarButtonItem = SaveButton;
@@ -132,7 +141,7 @@ namespace Verses.iOS
 					}
 
 					ManagingController.ViewDidAppear (true);
-					ManagingController.VersesTable.ReloadData ();
+					ManagingController.ReloadTableData ();
 				} else {
 					new UIAlertView ("Network Failure", "Oops! Please connect to the internet to download verses.", null, "Okay", null).Show ();
 				}

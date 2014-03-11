@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using MonoTouch.UIKit;
 using Verses.Core;
@@ -7,6 +8,8 @@ namespace Verses.iOS
 {
 	public class PrayerEditDialog : PBViewController
 	{
+		UIButton BackingCancelButton, BackingSaveButton;
+		UIBarButtonItem CancelButton, SaveButton;
 		UIView BlackLine;
 		Prayer prayer;
 		UITextView PrayerContent;
@@ -17,39 +20,50 @@ namespace Verses.iOS
 			prayer = data;
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			PrayerTitle.Text = prayer.Title;
+			PrayerContent.Text = prayer.Content;
+
+			BackingCancelButton.TouchUpInside += HandleCancelButtonTapped;
+			BackingSaveButton.TouchUpInside += HandleSaveButtonTapped;
+		}
+
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
 
+			SetupNavigationBar ();
 			SetupUI ();
 		}
 
-		public override void ViewDidAppear (bool animated)
+		public override void ViewWillDisappear (bool animated)
 		{
-			PrayerTitle.Text = prayer.Title;
-			PrayerContent.Text = prayer.Content;
+			base.ViewWillDisappear (animated);
+
+			BackingCancelButton.TouchUpInside -= HandleCancelButtonTapped;
+			BackingSaveButton.TouchUpInside -= HandleSaveButtonTapped;
+		}
+
+		private void SetupNavigationBar ()
+		{
+			BackingCancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
+			BackingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
+
+			BackingSaveButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
+			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
+
+			var CancelButton = new UIBarButtonItem (BackingCancelButton);
+			var SaveButton = new UIBarButtonItem (BackingSaveButton);
 		}
 
 		private void SetupUI ()
 		{
 			View.BackgroundColor = UIColor.White;
-		
-			var cancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			cancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
-			cancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
-			cancelButton.AddTarget((sender, args) => DismissViewController (true, null), 
-			                       UIControlEvent.TouchUpInside);
-
-			var saveButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			saveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
-			saveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
-			saveButton.AddTarget((sender, args) => {
-				SaveButtonClicked ();
-				DismissViewController (true, null); 
-			}, UIControlEvent.TouchUpInside);
-
-			var CancelButton = new UIBarButtonItem (cancelButton);
-			var SaveButton = new UIBarButtonItem (saveButton);
 
 			PrayerTitle = new UITextField {
 				BackgroundColor = UIColor.Clear,
@@ -91,6 +105,17 @@ namespace Verses.iOS
 			db.UpdatePrayer (prayer);
 
 			LocalyticsSession.Shared.TagEvent ("Edited Prayer");
+		}
+
+		private void HandleCancelButtonTapped (object sender, EventArgs args)
+		{
+			DismissViewController (true, null);
+		}
+
+		private void HandleSaveButtonTapped (object sender, EventArgs args)
+		{
+			SaveButtonClicked ();
+			DismissViewController (true, null);
 		}
 	}
 }

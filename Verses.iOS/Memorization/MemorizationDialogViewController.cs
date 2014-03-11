@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Verses.iOS
 {
 	public class MemorizationDialogViewController : DialogViewController
 	{
+		UIButton BackingBackButton;
 		UIBarButtonItem BackButton;
 		MemorizationCategory memorizationCategory;
 		List<Verse> data;
@@ -26,6 +28,8 @@ namespace Verses.iOS
 
 			SetupUI ();
 			BuildRootTree ();
+
+			BackingBackButton.TouchUpInside += HandleBackButtonTapped;
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -33,6 +37,8 @@ namespace Verses.iOS
 			base.ViewWillDisappear (animated);
 
 			NavigationBarLabel.RemoveFromSuperview ();
+
+			BackingBackButton.TouchUpInside -= HandleBackButtonTapped;
 		}
 
 		public override void LoadView ()
@@ -51,17 +57,16 @@ namespace Verses.iOS
 		void SetupUI ()
 		{
 			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
+
 			var title = memorizationCategory.ToString ().ToUpper ();
 			NavigationBarLabel = InterfaceHelper.LabelForTitle (title); 
 			NavigationItem.TitleView = NavigationBarLabel;
 
-			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
-			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
-			backButton.AddTarget((sender, args) => NavigationController.PopViewControllerAnimated (true), 
-			                     UIControlEvent.TouchUpInside);
+			BackingBackButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
 
-			BackButton = new UIBarButtonItem (backButton);
+			BackButton = new UIBarButtonItem (BackingBackButton);
 			NavigationItem.LeftBarButtonItem = BackButton;
 
 			TableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
@@ -125,6 +130,11 @@ namespace Verses.iOS
 					root.Add (new Section { new ReviewButtonElement (), new MoveButtonElement () });
 					break;
 			}
+		}
+
+		private void HandleBackButtonTapped (object sender, EventArgs args)
+		{
+			NavigationController.PopViewControllerAnimated (true);
 		}
 	}
 }

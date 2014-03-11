@@ -8,6 +8,7 @@ namespace Verses.iOS
 {
 	public class CopyrightViewController : PBViewController
 	{
+		UIButton BackingBackButton;
 		UIBarButtonItem BackButton;
 		UITextView copyrightView;
 		BibleTranslation translation;
@@ -16,12 +17,14 @@ namespace Verses.iOS
 		{
 			this.translation = translation;
 		}
-	
-		public override void ViewDidAppear (bool animated)
+
+		public override void ViewWillAppear (bool animated)
 		{
-			base.ViewDidAppear (animated);
+			base.ViewWillAppear (animated);
 
 			FetchCopyright ();
+
+			BackingBackButton.TouchUpInside += HandleBackButtonTapped;
 		}
 
 		public override void ViewDidLoad ()
@@ -32,14 +35,20 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			BackingBackButton.TouchUpInside -= HandleBackButtonTapped;
+		}
+
 		void SetupNavigationBar ()
 		{
-			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
-			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
-			backButton.AddTarget(HandleBackButtonTapped, UIControlEvent.TouchUpInside);
+			BackingBackButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
 
-			BackButton = new UIBarButtonItem (backButton);
+			BackButton = new UIBarButtonItem (BackingBackButton);
 			NavigationItem.LeftBarButtonItem = BackButton;
 		}
 
