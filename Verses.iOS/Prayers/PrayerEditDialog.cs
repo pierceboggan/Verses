@@ -57,8 +57,11 @@ namespace Verses.iOS
 			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
 			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
 
-			var CancelButton = new UIBarButtonItem (BackingCancelButton);
-			var SaveButton = new UIBarButtonItem (BackingSaveButton);
+			CancelButton = new UIBarButtonItem (BackingCancelButton);
+			SaveButton = new UIBarButtonItem (BackingSaveButton);
+
+			NavigationItem.LeftBarButtonItem = CancelButton;
+			NavigationItem.RightBarButtonItem = SaveButton;
 		}
 
 		private void SetupUI ()

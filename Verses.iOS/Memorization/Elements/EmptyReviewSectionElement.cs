@@ -27,10 +27,13 @@ namespace Verses.iOS
 
 		public override UITableViewCell GetCell (UITableView tv)
 		{
-			var cell = base.GetCell (tv);
+			var cell = tv.DequeueReusableCell (CellKey);
+
+			if (cell == null) {
+				cell = new UITableViewCell (UITableViewCellStyle.Default, CellKey);
+			}
 
 			cell.SelectionStyle = UITableViewCellSelectionStyle.None;
-
 			cell.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground));
 
 			cell.TextLabel.TextAlignment = UITextAlignment.Center;

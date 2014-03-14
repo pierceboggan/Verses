@@ -38,7 +38,7 @@ namespace Verses.iOS
 		public override UITableViewCell GetCell (UITableView tv)
 		{
 			var cell = base.GetCell (tv);
-
+				
 			cell.SelectionStyle = UITableViewCellSelectionStyle.None;
 			cell.BackgroundColor = UIColor.White;
 

@@ -43,9 +43,14 @@ namespace Verses.iOS
 
 		public override UITableViewCell GetCell (UITableView tv)
 		{
-			var cell = base.GetCell (tv);
-			cell.BackgroundColor = UIColor.White;
+			var cell = tv.DequeueReusableCell (CellKey);
+
+			if (cell == null) {
+				cell = new UITableViewCell (UITableViewCellStyle.Value1, CellKey);
+			}
+
 			cell.SelectionStyle = UITableViewCellSelectionStyle.None;
+			cell.BackgroundColor = UIColor.White;
 
 			cell.TextLabel.Text = VerseForElement.Title;
 			cell.TextLabel.BackgroundColor = UIColor.Clear;

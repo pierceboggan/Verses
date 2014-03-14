@@ -36,7 +36,8 @@ namespace Verses.iOS
 		public override UITableViewCell GetCell (UITableView tv)
 		{
 			var cell = tv.DequeueReusableCell (CellKey);
-			if (cell == null){
+
+			if (cell == null) {
 				cell = new CenterImageTableViewCell (UITableViewCellStyle.Subtitle, CellKey);
 				cell.BackgroundView = null;
 				cell.BackgroundColor = UIColor.Clear;

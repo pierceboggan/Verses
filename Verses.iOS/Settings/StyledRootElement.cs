@@ -74,6 +74,8 @@ namespace Verses.iOS
 
 		protected override void Dispose (bool disposing)
 		{
+			base.Dispose ();
+
 			if (disposing) {
 				if (BackButton != null) {
 					BackButton.Dispose ();

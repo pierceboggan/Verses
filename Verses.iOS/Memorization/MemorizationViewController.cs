@@ -8,18 +8,12 @@ namespace Verses.iOS
 	public class MemorizationViewController : PBViewController
 	{
 		UIButton SundayButton, MondayButton, TuesdayButton, WednesdayButton, ThursdayButton,
-			FridayButton, SaturdayButton, QueueButton, ReviewButton;
+		FridayButton, SaturdayButton, QueueButton, ReviewButton;
+		MemorizationDialogViewController memorizationDvc;
 
 		public MemorizationViewController () : base ("Memorization")
 		{
 
-		}
-
-		public override void ViewWillAppear (bool animated)
-		{
-			base.ViewWillAppear (animated);
-
-			SetupEventHandlers ();
 		}
 
 		public override void ViewDidLoad ()
@@ -27,13 +21,7 @@ namespace Verses.iOS
 			base.ViewDidLoad ();
 
 			SetupUI ();
-		}
-
-		public override void ViewDidDisappear (bool animated)
-		{
-			base.ViewDidDisappear (animated);
-
-			RemoveEventHandlers ();
+			SetupEventHandlers ();
 		}
 
 		void SetupUI ()
@@ -118,27 +106,15 @@ namespace Verses.iOS
 			ReviewButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Review);
 		}
 
-		void RemoveEventHandlers ()
-		{
-			SundayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Sunday);
-			MondayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Monday);
-			TuesdayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Tuesday);
-			WednesdayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Wednesday);
-			ThursdayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Thursday);
-			FridayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Friday);
-			SaturdayButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Saturday);
-			QueueButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Queue);
-			ReviewButton.TouchUpInside -= (s, e) => ButtonHandler (MemorizationCategory.Review);
-		}
-
 		void ButtonHandler (MemorizationCategory category)
 		{
 			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
 			var db = new DatabaseHelper (path);
 			var verses = db.GetVerses ().ToList ();
 
-			NavigationController.PushViewController (new MemorizationDialogViewController (verses, category), true);
+			memorizationDvc = new MemorizationDialogViewController (verses, category);
+
+			NavigationController.PushViewController (memorizationDvc, true);
 		}
 	}
 }
-

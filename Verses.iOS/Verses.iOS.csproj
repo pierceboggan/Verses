@@ -73,7 +73,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer: Pierce Boggan (W85YVM93U5)</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
     <MtouchArch>ARMv7</MtouchArch>
@@ -83,6 +83,7 @@
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchSdkVersion>7.0</MtouchSdkVersion>
     <MtouchLink>Full</MtouchLink>
+    <CodesignProvision>5DE52620-735F-4525-90F4-420B7F58C629</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -116,7 +117,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="SQLite">
       <HintPath>..\Components\sqlite-net-1.0.1\lib\ios\SQLite.dll</HintPath>
     </Reference>
@@ -131,6 +131,9 @@
     </Reference>
     <Reference Include="MobileHmtlAgilityPack">
       <HintPath>..\References\MobileHmtlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTouch.Dialog">
+      <HintPath>..\References\MonoTouch.Dialog.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

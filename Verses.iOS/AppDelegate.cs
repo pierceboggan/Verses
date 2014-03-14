@@ -108,7 +108,7 @@ namespace Verses.iOS
 			rateAlert.ApplicationBundleID = "com.pierceboggan.verses";
 			rateAlert.ApplicationName = "Verses";
 			// rateAlert.AppStoreID = "";
-			rateAlert.PreviewMode = true;
+			// rateAlert.PreviewMode = true;
 			rateAlert.OnlyPromptIfLatestVersion = false;
 			rateAlert.UsesUntilPrompt = 15;
 			rateAlert.RemindPeriod = 3;

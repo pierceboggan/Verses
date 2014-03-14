@@ -38,9 +38,6 @@ namespace Verses.iOS
 			frame.Size.Height -= topBottomPadding;
 
 			var text = new NSString (textView.Text);
-			var paragraphStyle = new NSMutableParagraphStyle {
-				LineBreakMode = UILineBreakMode.WordWrap,
-			};
 
 			var attributes = new UIStringAttributes {
 				Font = textView.Font

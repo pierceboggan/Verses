@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,7 +9,6 @@ namespace Verses.iOS
 {
 	public class MemorizationDialogViewController : DialogViewController
 	{
-		UIButton BackingBackButton;
 		UIBarButtonItem BackButton;
 		MemorizationCategory memorizationCategory;
 		List<Verse> data;
@@ -28,8 +26,6 @@ namespace Verses.iOS
 
 			SetupUI ();
 			BuildRootTree ();
-
-			BackingBackButton.TouchUpInside += HandleBackButtonTapped;
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -37,8 +33,6 @@ namespace Verses.iOS
 			base.ViewWillDisappear (animated);
 
 			NavigationBarLabel.RemoveFromSuperview ();
-
-			BackingBackButton.TouchUpInside -= HandleBackButtonTapped;
 		}
 
 		public override void LoadView ()
@@ -57,16 +51,17 @@ namespace Verses.iOS
 		void SetupUI ()
 		{
 			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
-
 			var title = memorizationCategory.ToString ().ToUpper ();
 			NavigationBarLabel = InterfaceHelper.LabelForTitle (title); 
 			NavigationItem.TitleView = NavigationBarLabel;
 
-			BackingBackButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
-			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
+			var backButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			backButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
+			backButton.AddTarget((sender, args) => NavigationController.PopViewControllerAnimated (true), 
+				UIControlEvent.TouchUpInside);
 
-			BackButton = new UIBarButtonItem (BackingBackButton);
+			BackButton = new UIBarButtonItem (backButton);
 			NavigationItem.LeftBarButtonItem = BackButton;
 
 			TableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
@@ -81,15 +76,15 @@ namespace Verses.iOS
 			{
 				data.Where (verse => verse.Memorizable && verse.Category == memorizationCategory)
 					.Select (verse => BuildMemorizationElement (verse))
-			};
+				};
 		}
 
 		void BuildRootTree ()
 		{
 			var root = new RootElement ("") {
-			    BuildMemorizationsSection()
+				BuildMemorizationsSection()
 			};
-		    if (root [0].Count == 0 && memorizationCategory == MemorizationCategory.Review) {
+			if (root [0].Count == 0 && memorizationCategory == MemorizationCategory.Review) {
 				root.Add (new Section {
 					new EmptyReviewSectionElement ()
 				});
@@ -114,28 +109,24 @@ namespace Verses.iOS
 		{
 			switch (memorizationCategory) 
 			{
-				case MemorizationCategory.Sunday:
-				case MemorizationCategory.Monday:
-				case MemorizationCategory.Tuesday:
-				case MemorizationCategory.Wednesday:
-				case MemorizationCategory.Thursday:
-				case MemorizationCategory.Friday:
-				case MemorizationCategory.Saturday:
-					root.Add (new Section { new MemorizeButtonElement (), new MoveButtonElement ()});
-					break;
-				case MemorizationCategory.Queue:
-					root.Add (new Section { new MoveButtonElement () });
-					break;
-				case MemorizationCategory.Review:
-					root.Add (new Section { new ReviewButtonElement (), new MoveButtonElement () });
-					break;
+			case MemorizationCategory.Sunday:
+			case MemorizationCategory.Monday:
+			case MemorizationCategory.Tuesday:
+			case MemorizationCategory.Wednesday:
+			case MemorizationCategory.Thursday:
+			case MemorizationCategory.Friday:
+			case MemorizationCategory.Saturday:
+				root.Add (new Section { new MemorizeButtonElement (), new MoveButtonElement ()});
+				break;
+			case MemorizationCategory.Queue:
+				root.Add (new Section { new MoveButtonElement () });
+				break;
+			case MemorizationCategory.Review:
+				root.Add (new Section { new ReviewButtonElement (), new MoveButtonElement () });
+				break;
 			}
-		}
-
-		private void HandleBackButtonTapped (object sender, EventArgs args)
-		{
-			NavigationController.PopViewControllerAnimated (true);
 		}
 	}
 }
+
 

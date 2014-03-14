@@ -37,7 +37,11 @@ namespace Verses.iOS
 
 		public override UITableViewCell GetCell (UITableView tv)
 		{
-			var cell = base.GetCell (tv);
+			var cell = tv.DequeueReusableCell (CellKey);
+
+			if (cell == null) {
+				cell = new UITableViewCell (UITableViewCellStyle.Value1, CellKey);
+			}
 
 			cell.SelectionStyle = UITableViewCellSelectionStyle.None;
 			cell.BackgroundColor = UIColor.White;
@@ -46,8 +50,11 @@ namespace Verses.iOS
 			cell.TextLabel.Font = UIFont.FromName ("SourceSansPro-Regular", 15f);
 			cell.TextLabel.TextColor = UIColor.Black;
 
+			cell.Accessory = UITableViewCellAccessory.None;
+			cell.TextLabel.Text = Caption;
+			cell.TextLabel.TextAlignment = Alignment;
+
 			return cell;
 		}
 	}
 }
-
