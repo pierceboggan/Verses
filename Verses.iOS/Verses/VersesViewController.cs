@@ -9,6 +9,7 @@ namespace Verses.iOS
 		UIBarButtonItem ComposeButton, SettingsButton;
 		UIButton BackingComposeButton, BackingSettingsButton;
 		UITableView VersesTable;
+		SettingsDialog settings;
 
 		public VersesViewController () : base ("Verses")
 		{
@@ -21,6 +22,8 @@ namespace Verses.iOS
 
 			BackingComposeButton.TouchUpInside += HandleComposeButtonTapped;
 			BackingSettingsButton.TouchUpInside += HandleSettingsButtonTapped;
+
+			HandleSettingsDialog ();
 		}
 
 		public override void ViewDidAppear (bool animated)
@@ -92,7 +95,16 @@ namespace Verses.iOS
 
 		void HandleSettingsButtonTapped (object sender, EventArgs args)
 		{
-			PresentViewController (new PBNavigationController(new SettingsDialog ()), true, null);
+			settings = new SettingsDialog ();
+			PresentViewController (new PBNavigationController(settings), true, null);
+		}
+
+		void HandleSettingsDialog ()
+		{
+			if (settings != null) {
+				settings.Dispose ();
+				settings = null;
+			}
 		}
 	}
 }
