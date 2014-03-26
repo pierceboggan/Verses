@@ -12,6 +12,7 @@ namespace Verses.iOS
 		UIBarButtonItem BackButton;
 		UIBarButtonItem CancelButton;
 		UILabel NavigationBarLabel;
+		RootElement root;
 
 		public SettingsDialog () : base (null, true)
 		{
@@ -29,11 +30,21 @@ namespace Verses.iOS
 			BuildTree ();
 		}
 
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			// HACK: touch the ViewControllers array to refresh it (in case the user popped the nav stack)
+			// this is to work around a bug in monotouch (https://bugzilla.xamarin.com/show_bug.cgi?id=1889)
+			// where the UINavigationController leaks UIViewControllers when the user pops the nav stack
+			int count = this.NavigationController.ViewControllers.Length;
+		}
 
 		private void BuildTree ()
 		{
 			var translation = FetchTranslation ();
-			var root = new RootElement ("") {
+
+			root = new RootElement ("") {
 				new Section () {
 					new StyledTranslationRootElement ("Translation", new RadioGroup ("translation", translation)) { 
 						new Section () {
@@ -86,7 +97,18 @@ namespace Verses.iOS
 			};
 
 			Root = root;
+		}
 
+		protected override void Dispose (bool disposing)
+		{
+			base.Dispose (disposing);
+
+			if (root != null) {
+				root.Dispose ();
+				root = null;
+			}
+
+			Console.WriteLine ("SettingsDialog Disposing");
 		}
 
 		private void SetupUI ()

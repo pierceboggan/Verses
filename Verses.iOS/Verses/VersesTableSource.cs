@@ -111,5 +111,12 @@ namespace Verses.iOS
 				Verses.Add (key, new List<Verse> { verse });
 			}
 		}
+
+		protected override void Dispose (bool disposing)
+		{
+			base.Dispose (disposing);
+
+			Console.WriteLine ("Disposing");
+		}
 	}
 }

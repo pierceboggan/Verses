@@ -46,13 +46,15 @@ namespace Verses.iOS
 			SetupUI ();
 		}
 
-		public override void ViewDidDisappear (bool animated)
+		public override void ViewWillDisappear (bool animated)
 		{
-			base.ViewDidDisappear (animated);
+			base.ViewWillDisappear (animated);
 
 			BackingBackButton.TouchUpInside -= HandleBackButtonTapped;
 			BackingEditButton.TouchUpInside -= HandleEditButtonTapped;
 			ShareButton.TouchUpInside -= HandleShareTapped;
+
+			HandleResourceDisposal (); 
 		}
 
 		private void SetupNavigationBar ()
@@ -185,6 +187,19 @@ namespace Verses.iOS
 				db.RemovePrayer (prayer);
 
 				controller.NavigationController.PopViewControllerAnimated (true);
+			}
+		}
+
+		void HandleResourceDisposal ()
+		{
+			if (ActionSheet != null) {
+				ActionSheet.Dispose ();
+				ActionSheet.Delegate = null;
+				ActionSheet = null;
+			}
+			if (ActionSheetDelegate != null) {
+				ActionSheetDelegate.Dispose ();
+				ActionSheetDelegate = null;
 			}
 		}
 	}

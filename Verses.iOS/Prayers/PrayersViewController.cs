@@ -8,6 +8,9 @@ namespace Verses.iOS
 	{                
 		UIButton BackingComposeButton;
 		UIBarButtonItem ComposeButton;
+		PrayerComposeDialog composeDialog;
+		PBNavigationController navigationController;
+		PrayersTableSource source;
 		UITableView PrayersTable;
 
 		public PrayersViewController () : base ("Prayers")
@@ -55,15 +58,37 @@ namespace Verses.iOS
 				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height - 69),
 				SectionIndexMinimumDisplayRowCount = 25,
 				SeparatorStyle = UITableViewCellSeparatorStyle.None,
-				Source = new PrayersTableSource (this),
 			};
+
+			source = new PrayersTableSource (this);
+			PrayersTable.Source = source;
 
 			View.AddSubview (PrayersTable);
 		}
 
 		private void HandleComposeButtonTapped (object sender, EventArgs args)
 		{
-			PresentViewController (new PBNavigationController (new PrayerComposeDialog ()), true, null);
+			composeDialog = new PrayerComposeDialog ();
+			navigationController = new PBNavigationController (composeDialog);
+			PresentViewController (navigationController, true, null);
+		}
+
+		void HandleNavigatedTo ()
+		{
+			if (navigationController != null) {
+				navigationController.Dispose ();
+				navigationController = null;
+			}
+
+			if (composeDialog != null) {
+				composeDialog.Dispose ();
+				composeDialog = null;
+			}
+
+			// HACK: touch the ViewControllers array to refresh it (in case the user popped the nav stack)
+			// this is to work around a bug in monotouch (https://bugzilla.xamarin.com/show_bug.cgi?id=1889)
+			// where the UINavigationController leaks UIViewControllers when the user pops the nav stack
+			int count = this.NavigationController.ViewControllers.Length;
 		}
 	}
 }

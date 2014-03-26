@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Verses.iOS
 		MemorizationCategory memorizationCategory;
 		List<Verse> data;
 		UILabel NavigationBarLabel;
+		RootElement root;
 
 		public MemorizationDialogViewController (List<Verse> verses, MemorizationCategory category) : base (null, false)
 		{
@@ -48,6 +50,18 @@ namespace Verses.iOS
 			return UIInterfaceOrientationMask.Portrait;
 		}
 
+		protected override void Dispose (bool disposing)
+		{
+			base.Dispose (disposing);
+
+			if (root != null) {
+				root.Dispose ();
+				root = null;
+			}
+
+			Console.WriteLine ("Disposed MemDialogVC");
+		}
+
 		void SetupUI ()
 		{
 			NavigationController.NavigationBar.SetBackgroundImage (UIImage.FromFile (Images.BlankBar), UIBarMetrics.Default);
@@ -81,7 +95,7 @@ namespace Verses.iOS
 
 		void BuildRootTree ()
 		{
-			var root = new RootElement ("") {
+			root = new RootElement ("") {
 				BuildMemorizationsSection()
 			};
 			if (root [0].Count == 0 && memorizationCategory == MemorizationCategory.Review) {

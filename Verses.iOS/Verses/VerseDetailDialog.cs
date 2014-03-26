@@ -72,6 +72,8 @@ namespace Verses.iOS
 			ToMemorizeButton.TouchUpInside -= HandleToMemorizeTapped;
 			MemorizedButton.TouchUpInside -= HandleMemorizedTapped;
 			CopyrightButton.TouchUpInside -= HandleCopyrightButtonTapped;
+
+			HandleResourceDisposal (); 
 		}
 
 		private void SetupNavigationBar ()
@@ -330,6 +332,19 @@ namespace Verses.iOS
 				db.RemoveVerse (verse);
 
 				controller.NavigationController.PopViewControllerAnimated (true);
+			}
+		}
+
+		void HandleResourceDisposal ()
+		{
+			if (ActionSheet != null) {
+				ActionSheet.Dispose ();
+				ActionSheet.Delegate = null;
+				ActionSheet = null;
+			}
+			if (ActionSheetDelegate != null) {
+				ActionSheetDelegate.Dispose ();
+				ActionSheetDelegate = null;
 			}
 		}
 	}

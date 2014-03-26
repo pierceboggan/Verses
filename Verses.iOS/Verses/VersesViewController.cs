@@ -8,8 +8,11 @@ namespace Verses.iOS
 	{
 		UIBarButtonItem ComposeButton, SettingsButton;
 		UIButton BackingComposeButton, BackingSettingsButton;
-		UITableView VersesTable;
+		VerseComposeDialog composeDialog;
+		PBNavigationController navigationController;
 		SettingsDialog settings;
+		UITableView VersesTable;
+		VersesTableSource source;
 
 		public VersesViewController () : base ("Verses")
 		{
@@ -23,14 +26,15 @@ namespace Verses.iOS
 			BackingComposeButton.TouchUpInside += HandleComposeButtonTapped;
 			BackingSettingsButton.TouchUpInside += HandleSettingsButtonTapped;
 
-			HandleSettingsDialog ();
+			HandleNavigatedTo ();
 		}
 
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
-			
-			VersesTable.Source = new VersesTableSource (this);
+
+			source = new VersesTableSource (this);
+			VersesTable.Source = source;
 		}
 
 		public override void ViewDidLoad ()
@@ -40,7 +44,8 @@ namespace Verses.iOS
 			SetupNavigationBar ();
 			SetupUI ();
 
-			VersesTable.Source = new VersesTableSource (this);
+			source = new VersesTableSource (this);
+			VersesTable.Source = source;
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -90,21 +95,39 @@ namespace Verses.iOS
 
 		void HandleComposeButtonTapped (object sender, EventArgs args)
 		{
-			PresentViewController (new PBNavigationController(new VerseComposeDialog (this)), true, null);
+			composeDialog = new VerseComposeDialog (this);
+			navigationController = new PBNavigationController (composeDialog);
+			PresentViewController (navigationController, true, null);
 		}
 
 		void HandleSettingsButtonTapped (object sender, EventArgs args)
 		{
 			settings = new SettingsDialog ();
-			PresentViewController (new PBNavigationController(settings), true, null);
+			navigationController = new PBNavigationController (settings);
+			PresentViewController (navigationController, true, null);
 		}
 
-		void HandleSettingsDialog ()
+		void HandleNavigatedTo ()
 		{
+			if (navigationController != null) {
+				navigationController.Dispose ();
+				navigationController = null;
+			}
+
 			if (settings != null) {
 				settings.Dispose ();
 				settings = null;
 			}
+
+			if (composeDialog != null) {
+				composeDialog.Dispose ();
+				composeDialog = null;
+			}
+
+			// HACK: touch the ViewControllers array to refresh it (in case the user popped the nav stack)
+			// this is to work around a bug in monotouch (https://bugzilla.xamarin.com/show_bug.cgi?id=1889)
+			// where the UINavigationController leaks UIViewControllers when the user pops the nav stack
+			int count = this.NavigationController.ViewControllers.Length;
 		}
 	}
 }

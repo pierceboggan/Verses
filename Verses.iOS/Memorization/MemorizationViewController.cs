@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using MonoTouch.UIKit;
@@ -10,16 +11,25 @@ namespace Verses.iOS
 		UIButton SundayButton, MondayButton, TuesdayButton, WednesdayButton, ThursdayButton,
 		FridayButton, SaturdayButton, QueueButton, ReviewButton;
 		MemorizationDialogViewController memorizationDvc;
+		List<Verse> Verses;
 
 		public MemorizationViewController () : base ("Memorization")
 		{
 
 		}
 
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			HandleNavigatedTo ();
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
+			GrabData ();
 			SetupUI ();
 			SetupEventHandlers ();
 		}
@@ -108,13 +118,26 @@ namespace Verses.iOS
 
 		void ButtonHandler (MemorizationCategory category)
 		{
-			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
-			var db = new DatabaseHelper (path);
-			var verses = db.GetVerses ().ToList ();
-
-			memorizationDvc = new MemorizationDialogViewController (verses, category);
+			memorizationDvc = new MemorizationDialogViewController (Verses, category);
 
 			NavigationController.PushViewController (memorizationDvc, true);
+		}
+
+		void GrabData ()
+		{
+			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
+			var db = new DatabaseHelper (path);
+			Verses = db.GetVerses ().ToList ();
+		}
+
+		void HandleNavigatedTo ()
+		{
+			if (memorizationDvc != null) {
+				memorizationDvc.Dispose ();
+				memorizationDvc = null;
+			}
+
+			int count = this.NavigationController.ViewControllers.Length;
 		}
 	}
 }

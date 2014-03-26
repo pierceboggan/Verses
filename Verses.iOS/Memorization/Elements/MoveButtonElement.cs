@@ -1,3 +1,4 @@
+using System;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.Dialog;
@@ -30,7 +31,6 @@ namespace Verses.iOS
 		public override void Selected (DialogViewController dvc, UITableView tableView, NSIndexPath path)
 		{
 			SetupAndShowActionSheet (dvc);
-
 		}
 
 		public override UITableViewCell GetCell (UITableView tv)
@@ -93,39 +93,39 @@ namespace Verses.iOS
 				{
 					case 0:
 						MoveVerseToCategory (MemorizationCategory.Sunday);
-						controller.ViewDidAppear (false);
+						controller.ViewWillAppear (false);
 						break;
 					case 1:
 						MoveVerseToCategory (MemorizationCategory.Monday);
-						controller.ViewDidAppear (false);
+						controller.ViewWillAppear (false);
 						break;
 					case 2:
 						MoveVerseToCategory (MemorizationCategory.Tuesday);
-						controller.ViewDidAppear (false);
+						controller.ViewWillAppear (false);
 						break;
 					case 3:
 						MoveVerseToCategory (MemorizationCategory.Wednesday);
-						controller.ViewDidAppear (false);
+						controller.ViewWillAppear (false);
 						break;
 					case 4:
 						MoveVerseToCategory (MemorizationCategory.Thursday);
-						controller.ViewDidAppear (false);
+						controller.ViewWillAppear (false);
 						break;
 					case 5:
 						MoveVerseToCategory (MemorizationCategory.Friday);
-						controller.ViewDidAppear (false);
+						controller.ViewWillAppear (false);
 						break;
 					case 6:
 						MoveVerseToCategory (MemorizationCategory.Saturday);
-						controller.ViewDidAppear (false);
+						controller.ViewWillAppear (false);
 						break;
 					case 7:
 						MoveVerseToCategory (MemorizationCategory.Queue);
-						controller.ViewDidAppear (false);
+						controller.ViewWillAppear (false);
 						break;
 					case 8:
 						MoveVerseToCategory (MemorizationCategory.Review);
-						controller.ViewDidAppear (false);
+						controller.ViewWillAppear (false);
 						break;
 				}
 			}

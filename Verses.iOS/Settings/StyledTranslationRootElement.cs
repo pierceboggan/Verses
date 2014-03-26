@@ -94,17 +94,19 @@ namespace Verses.iOS
 
 		protected override void Dispose (bool disposing)
 		{
-			if (disposing) {
-				if (BackButton != null) {
-					BackButton.Dispose ();
-					BackButton = null;
-				}
+			base.Dispose (disposing);
 
-				if (NavigationBarLabel != null) {
-					NavigationBarLabel.Dispose ();
-					NavigationBarLabel = null;
-				}
+			if (BackButton != null) {
+				BackButton.Dispose ();
+				BackButton = null;
 			}
+
+			if (NavigationBarLabel != null) {
+				NavigationBarLabel.Dispose ();
+				NavigationBarLabel = null;
+			}
+
+			Console.WriteLine ("StyledTranslationElement disposing.");
 		}
 	}
 }

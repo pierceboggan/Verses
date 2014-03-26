@@ -35,6 +35,13 @@ namespace Verses.iOS
 			return 35;
 		}
 
+		protected override void Dispose (bool disposing)
+		{
+			base.Dispose (disposing);
+
+			Console.WriteLine ("StyledRadioElement Disposing");
+		}
+
 		public override UITableViewCell GetCell (UITableView tv)
 		{
 			var cell = base.GetCell (tv);

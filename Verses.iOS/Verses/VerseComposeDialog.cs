@@ -44,6 +44,8 @@ namespace Verses.iOS
 
 			BackingCancelButton.TouchUpInside -= HandleCancelButtonTapped;
 			BackingSaveButton.TouchUpInside -= HandleSaveButtonTapped;
+
+			VerseComments.Delegate = null;
 		}
 
 		private void SetupNavigationBar ()
