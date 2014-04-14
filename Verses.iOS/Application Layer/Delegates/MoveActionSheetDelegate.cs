@@ -71,6 +71,10 @@ namespace Verses.iOS
 
 			selected.RemoveAll (x => x == x);
 
+			if (data.Count == 0) {
+				table.Source = new MemorizationDayOfWeekSource (data);
+			}
+
 			table.ReloadData ();
 		}
 	}
