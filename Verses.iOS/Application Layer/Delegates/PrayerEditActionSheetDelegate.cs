@@ -53,7 +53,7 @@ namespace Verses.iOS
 
 		void DeletePrayer ()
 		{
-			AppDelegate.Current.Database.RemovePrayer (prayer);
+			PrayersTableViewController.Current.RemovePrayer (prayer);
 			controller.NavigationController.PopViewControllerAnimated (true);
 		}
 	}
