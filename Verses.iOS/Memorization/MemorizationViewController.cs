@@ -1,35 +1,32 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using MonoTouch.UIKit;
-using Verses.Core;
+using Verses.Portable;
 
 namespace Verses.iOS
 {
 	public class MemorizationViewController : PBViewController
 	{
-		UIButton SundayButton, MondayButton, TuesdayButton, WednesdayButton, ThursdayButton,
-		FridayButton, SaturdayButton, QueueButton, ReviewButton;
-		MemorizationDialogViewController memorizationDvc;
-		List<Verse> Verses;
+		UIButton sundayButton, mondayButton, tuesdayButton, wednesdayButton, thursdayButton,
+		fridayButton, saturdayButton, queueButton, reviewButton;
+		MemorizationTableViewController tableView;
+		ObservableSortedList<Verse> verses;
 
 		public MemorizationViewController () : base ("Memorization")
 		{
-
+			verses = new ObservableSortedList<Verse> (AppDelegate.Current.Database.GetVerses ());
 		}
 
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
-
-			HandleNavigatedTo ();
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
-			GrabData ();
 			SetupUI ();
 			SetupEventHandlers ();
 		}
@@ -38,106 +35,89 @@ namespace Verses.iOS
 		{
 			View.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.MemorizationBackground));
 
-			SundayButton = new UIButton {
+			sundayButton = new UIButton {
 				Frame = new RectangleF (30, 25, 70, 70)
 			};
-			SundayButton.SetBackgroundImage (UIImage.FromFile (Images.SundayButton), UIControlState.Normal);
-			SundayButton.SetBackgroundImage (UIImage.FromFile (Images.SundayButtonHighlighted), UIControlState.Highlighted);
+			sundayButton.SetBackgroundImage (UIImage.FromFile (Images.SundayButton), UIControlState.Normal);
+			sundayButton.SetBackgroundImage (UIImage.FromFile (Images.SundayButtonHighlighted), UIControlState.Highlighted);
 
-			MondayButton = new UIButton {
+			mondayButton = new UIButton {
 				Frame = new RectangleF (125, 25, 70, 70)
 			};
-			MondayButton.SetBackgroundImage (UIImage.FromFile (Images.MondayButton), UIControlState.Normal);
-			MondayButton.SetBackgroundImage (UIImage.FromFile (Images.MondayButtonHighlighted), UIControlState.Highlighted);
+			mondayButton.SetBackgroundImage (UIImage.FromFile (Images.MondayButton), UIControlState.Normal);
+			mondayButton.SetBackgroundImage (UIImage.FromFile (Images.MondayButtonHighlighted), UIControlState.Highlighted);
 
-			TuesdayButton = new UIButton {
+			tuesdayButton = new UIButton {
 				Frame = new RectangleF (220, 25, 70, 70)
 			};
-			TuesdayButton.SetBackgroundImage (UIImage.FromFile (Images.TuesdayButton), UIControlState.Normal);
-			TuesdayButton.SetBackgroundImage (UIImage.FromFile (Images.TuesdayButtonHighlighted), UIControlState.Highlighted);
+			tuesdayButton.SetBackgroundImage (UIImage.FromFile (Images.TuesdayButton), UIControlState.Normal);
+			tuesdayButton.SetBackgroundImage (UIImage.FromFile (Images.TuesdayButtonHighlighted), UIControlState.Highlighted);
 
-			WednesdayButton = new UIButton {
+			wednesdayButton = new UIButton {
 				Frame = new RectangleF (30, 120, 70, 70)
 			};
-			WednesdayButton.SetBackgroundImage (UIImage.FromFile (Images.WednesdayButton), UIControlState.Normal);
-			WednesdayButton.SetBackgroundImage (UIImage.FromFile (Images.WednesdayButtonHighlighted), UIControlState.Highlighted);
+			wednesdayButton.SetBackgroundImage (UIImage.FromFile (Images.WednesdayButton), UIControlState.Normal);
+			wednesdayButton.SetBackgroundImage (UIImage.FromFile (Images.WednesdayButtonHighlighted), UIControlState.Highlighted);
 
-			ThursdayButton = new UIButton {
+			thursdayButton = new UIButton {
 				Frame = new RectangleF (125, 120, 70, 70)
 			};
-			ThursdayButton.SetBackgroundImage (UIImage.FromFile (Images.ThursdayButton), UIControlState.Normal);
-			ThursdayButton.SetBackgroundImage (UIImage.FromFile (Images.ThursdayButtonHighlighted), UIControlState.Highlighted);
+			thursdayButton.SetBackgroundImage (UIImage.FromFile (Images.ThursdayButton), UIControlState.Normal);
+			thursdayButton.SetBackgroundImage (UIImage.FromFile (Images.ThursdayButtonHighlighted), UIControlState.Highlighted);
 
-			FridayButton = new UIButton {
+			fridayButton = new UIButton {
 				Frame = new RectangleF (220, 120, 70, 70)
 			};
-			FridayButton.SetBackgroundImage (UIImage.FromFile (Images.FridayButton), UIControlState.Normal);
-			FridayButton.SetBackgroundImage (UIImage.FromFile (Images.FridayButtonHighlighted), UIControlState.Highlighted);
+			fridayButton.SetBackgroundImage (UIImage.FromFile (Images.FridayButton), UIControlState.Normal);
+			fridayButton.SetBackgroundImage (UIImage.FromFile (Images.FridayButtonHighlighted), UIControlState.Highlighted);
 
-			SaturdayButton = new UIButton {
+			saturdayButton = new UIButton {
 				Frame = new RectangleF (30, 215, 70, 70)
 			};
-			SaturdayButton.SetBackgroundImage (UIImage.FromFile (Images.SaturdayButton), UIControlState.Normal);
-			SaturdayButton.SetBackgroundImage (UIImage.FromFile (Images.SaturdayButtonHighlighted), UIControlState.Highlighted);
+			saturdayButton.SetBackgroundImage (UIImage.FromFile (Images.SaturdayButton), UIControlState.Normal);
+			saturdayButton.SetBackgroundImage (UIImage.FromFile (Images.SaturdayButtonHighlighted), UIControlState.Highlighted);
 
-			QueueButton = new UIButton {
+			queueButton = new UIButton {
 				Frame = new RectangleF (125, 215, 70, 70)
 			};
-			QueueButton.SetBackgroundImage (UIImage.FromFile (Images.QueueButton), UIControlState.Normal);
-			QueueButton.SetBackgroundImage (UIImage.FromFile (Images.QueueButtonHighlighted), UIControlState.Highlighted);
+			queueButton.SetBackgroundImage (UIImage.FromFile (Images.QueueButton), UIControlState.Normal);
+			queueButton.SetBackgroundImage (UIImage.FromFile (Images.QueueButtonHighlighted), UIControlState.Highlighted);
 
-			ReviewButton = new UIButton {
+			reviewButton = new UIButton {
 				Frame = new RectangleF (220, 215, 70, 70)
 			};
-			ReviewButton.SetBackgroundImage (UIImage.FromFile (Images.ReviewButton), UIControlState.Normal);
-			ReviewButton.SetBackgroundImage (UIImage.FromFile (Images.ReviewButtonHighlighted), UIControlState.Highlighted);
+			reviewButton.SetBackgroundImage (UIImage.FromFile (Images.ReviewButton), UIControlState.Normal);
+			reviewButton.SetBackgroundImage (UIImage.FromFile (Images.ReviewButtonHighlighted), UIControlState.Highlighted);
 
-			View.Add (SundayButton);
-			View.Add (MondayButton);
-			View.Add (TuesdayButton);
-			View.Add (WednesdayButton);
-			View.Add (ThursdayButton);
-			View.Add (FridayButton);
-			View.Add (SaturdayButton);
-			View.Add (QueueButton);
-			View.Add (ReviewButton);
+			View.Add (sundayButton);
+			View.Add (mondayButton);
+			View.Add (tuesdayButton);
+			View.Add (wednesdayButton);
+			View.Add (thursdayButton);
+			View.Add (fridayButton);
+			View.Add (saturdayButton);
+			View.Add (queueButton);
+			View.Add (reviewButton);
 		}
 
 		void SetupEventHandlers ()
 		{
-			SundayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Sunday);
-			MondayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Monday);
-			TuesdayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Tuesday);
-			WednesdayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Wednesday);
-			ThursdayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Thursday);
-			FridayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Friday);
-			SaturdayButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Saturday);
-			QueueButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Queue);
-			ReviewButton.TouchUpInside += (s, e) => ButtonHandler (MemorizationCategory.Review);
+			sundayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Sunday);
+			mondayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Monday);
+			tuesdayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Tuesday);
+			wednesdayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Wednesday);
+			thursdayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Thursday);
+			fridayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Friday);
+			saturdayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Saturday);
+			queueButton.TouchUpInside += (s, e) => ButtonHandler (Category.Queue);
+			reviewButton.TouchUpInside += (s, e) => ButtonHandler (Category.Review);
 		}
 
-		void ButtonHandler (MemorizationCategory category)
+		void ButtonHandler (Category category)
 		{
-			memorizationDvc = new MemorizationDialogViewController (Verses, category);
+			tableView = new MemorizationTableViewController (verses, category);
 
-			NavigationController.PushViewController (memorizationDvc, true);
-		}
-
-		void GrabData ()
-		{
-			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
-			var db = new DatabaseHelper (path);
-			Verses = db.GetVerses ().ToList ();
-		}
-
-		void HandleNavigatedTo ()
-		{
-			if (memorizationDvc != null) {
-				memorizationDvc.Dispose ();
-				memorizationDvc = null;
-			}
-
-			int count = this.NavigationController.ViewControllers.Length;
+			NavigationController.PushViewController (tableView, true);
 		}
 	}
 }

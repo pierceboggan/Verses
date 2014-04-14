@@ -1,8 +1,7 @@
-using System;
+﻿using System;
 using System.Drawing;
 using MonoTouch.UIKit;
-using Verses.Core;
-using BibleAPI;
+using Verses.Portable;
 
 namespace Verses.iOS
 {
@@ -11,9 +10,9 @@ namespace Verses.iOS
 		UIButton BackingBackButton;
 		UIBarButtonItem BackButton;
 		UITextView copyrightView;
-		BibleTranslation translation;
+		Translation translation;
 
-		public CopyrightViewController (BibleTranslation translation) : base ("Copyright")
+		public CopyrightViewController (Translation translation) : base ("Copyright")
 		{
 			this.translation = translation;
 		}
@@ -76,7 +75,7 @@ namespace Verses.iOS
 					var copyright = await BiblesDotOrg.GetCopyrightForTranslationAsync (trans);
 					copyrightView.Text = copyright;
 				} catch (Exception) {
-					if (translation == BibleTranslation.MSG) {
+					if (translation == Translation.MSG) {
 						copyrightView.Text = "Copyright information not available. Please see messagebible.com for more information.";
 					} else {
 						copyrightView.Text = "An error fetching the copyright occurred. Please visit Bibles.org for copyright information.";
@@ -89,16 +88,16 @@ namespace Verses.iOS
 			}
 		}
 
-		Translation GetTranslation (BibleTranslation translation)
+		Translation GetTranslation (Translation translation)
 		{
 			switch (translation) {
-				case BibleTranslation.ESV:
+				case Translation.ESV:
 					return Translation.ESV;
-				case BibleTranslation.KJV:
+				case Translation.KJV:
 					return Translation.KJV;
-				case BibleTranslation.MSG:
+				case Translation.MSG:
 					return Translation.MSG;
-				case BibleTranslation.NASB:
+				case Translation.NASB:
 					return Translation.NASB;
 			}
 

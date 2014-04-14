@@ -1,25 +1,23 @@
-using System;
+﻿using System;
 using System.Drawing;
 using MonoTouch.UIKit;
-using Verses.Core;
+using Verses.Portable;
 
 namespace Verses.iOS
 {
 	public class VerseDetailDialog : PBViewController
 	{
-		UIButton BackingBackButton, BackingEditButton;
-		UIBarButtonItem BackButton, EditButton;
-		UIActionSheet ActionSheet;
-		UIActionSheetDelegate ActionSheetDelegate;
-		UIView BlackLine;
-		UILabel CommentsArea;
-		UILabel ContentArea;
-		UIButton CopyrightButton;
-		UIButton MemorizedButton;
-		UIScrollView ScrollView;
-		UIButton ShareButton;
-		UIButton ToMemorizeButton;
-		UITextField TopBarArea;
+		UIButton backingBackButton, backingEditButton;
+		UIBarButtonItem backButton, editButton;
+		UIView blackLine;
+		UILabel commentsArea;
+		UILabel contentArea;
+		CopyrightViewController copyrightController;
+		UIButton copyrightButton;
+		UIButton memorizedButton;
+		UIScrollView scrollView;
+		UIButton shareButton;
+		UIButton toMemorizeButton;
 		Verse verse;
 
 		public VerseDetailDialog (Verse data) : base (data.Title)
@@ -32,25 +30,25 @@ namespace Verses.iOS
 			base.ViewWillAppear (animated);
 
 			if (verse.Comments.Length != 0) {
-				BlackLine.Hidden = false;
-				CommentsArea.Hidden = false;
+				blackLine.Hidden = false;
+				commentsArea.Hidden = false;
 
-				CommentsArea.Text = verse.Comments;
-				CommentsArea.Frame = new RectangleF (CommentsArea.Frame.X, CommentsArea.Frame.Y, CommentsArea.Frame.Width, 
-					InterfaceHelper.ContentSize (CommentsArea.Text, ContentArea.Frame.Width, ContentArea.Font));
+				commentsArea.Text = verse.Comments;
+				commentsArea.Frame = new RectangleF (commentsArea.Frame.X, commentsArea.Frame.Y, commentsArea.Frame.Width, 
+					InterfaceHelper.ContentSize (commentsArea.Text, contentArea.Frame.Width, contentArea.Font));
 
-				ShareButton.Frame = new RectangleF (ShareButton.Frame.X, CommentsArea.Frame.Bottom + 22f, ShareButton.Frame.Width, ShareButton.Frame.Height);
-				ToMemorizeButton.Frame = new RectangleF (ToMemorizeButton.Frame.X, ShareButton.Frame.Bottom + 10f, ToMemorizeButton.Frame.Width, ToMemorizeButton.Frame.Height);
-				MemorizedButton.Frame = new RectangleF (MemorizedButton.Frame.X, ToMemorizeButton.Frame.Bottom + 10f, MemorizedButton.Frame.Width, MemorizedButton.Frame.Height);
+				shareButton.Frame = new RectangleF (shareButton.Frame.X, commentsArea.Frame.Bottom + 22f, shareButton.Frame.Width, shareButton.Frame.Height);
+				toMemorizeButton.Frame = new RectangleF (toMemorizeButton.Frame.X, shareButton.Frame.Bottom + 10f, toMemorizeButton.Frame.Width, toMemorizeButton.Frame.Height);
+				memorizedButton.Frame = new RectangleF (memorizedButton.Frame.X, toMemorizeButton.Frame.Bottom + 10f, memorizedButton.Frame.Width, memorizedButton.Frame.Height);
 			}
 
-			BackingBackButton.TouchUpInside += HandleBackButtonTapped;
-			BackingEditButton.TouchUpInside += HandleEditButtonTapped;
+			backingBackButton.TouchUpInside += HandleBackButtonTapped;
+			backingEditButton.TouchUpInside += HandleEditButtonTapped;
 
-			ShareButton.TouchUpInside += HandleShareTapped;
-			ToMemorizeButton.TouchUpInside += HandleToMemorizeTapped;
-			MemorizedButton.TouchUpInside += HandleMemorizedTapped;
-			CopyrightButton.TouchUpInside += HandleCopyrightButtonTapped;
+			shareButton.TouchUpInside += HandleShareTapped;
+			toMemorizeButton.TouchUpInside += HandleToMemorizeTapped;
+			memorizedButton.TouchUpInside += HandleMemorizedTapped;
+			copyrightButton.TouchUpInside += HandleCopyrightButtonTapped;
 		}
 
 		public override void ViewDidLoad ()
@@ -65,148 +63,132 @@ namespace Verses.iOS
 		{
 			base.ViewWillDisappear (animated);
 
-			BackingBackButton.TouchUpInside -= HandleBackButtonTapped;
-			BackingEditButton.TouchUpInside -= HandleEditButtonTapped;
+			backingBackButton.TouchUpInside -= HandleBackButtonTapped;
+			backingEditButton.TouchUpInside -= HandleEditButtonTapped;
 
-			ShareButton.TouchUpInside -= HandleShareTapped;
-			ToMemorizeButton.TouchUpInside -= HandleToMemorizeTapped;
-			MemorizedButton.TouchUpInside -= HandleMemorizedTapped;
-			CopyrightButton.TouchUpInside -= HandleCopyrightButtonTapped;
-
-			HandleResourceDisposal (); 
+			shareButton.TouchUpInside -= HandleShareTapped;
+			toMemorizeButton.TouchUpInside -= HandleToMemorizeTapped;
+			memorizedButton.TouchUpInside -= HandleMemorizedTapped;
+			copyrightButton.TouchUpInside -= HandleCopyrightButtonTapped;
 		}
 
 		private void SetupNavigationBar ()
 		{
-			BackingBackButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
-			BackingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
+			backingBackButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			backingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButton), UIControlState.Normal);
+			backingBackButton.SetBackgroundImage (UIImage.FromFile (Images.BackButtonHighlighted), UIControlState.Highlighted);
 
-			BackingEditButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			BackingEditButton.SetBackgroundImage (UIImage.FromFile (Images.EditButton), UIControlState.Normal);
-			BackingEditButton.SetBackgroundImage (UIImage.FromFile (Images.EditButtonHighlighted), UIControlState.Highlighted);
+			backingEditButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			backingEditButton.SetBackgroundImage (UIImage.FromFile (Images.EditButton), UIControlState.Normal);
+			backingEditButton.SetBackgroundImage (UIImage.FromFile (Images.EditButtonHighlighted), UIControlState.Highlighted);
 
-			BackButton = new UIBarButtonItem (BackingBackButton);
-			EditButton = new UIBarButtonItem (BackingEditButton);
+			backButton = new UIBarButtonItem (backingBackButton);
+			editButton = new UIBarButtonItem (backingEditButton);
 
-			NavigationItem.LeftBarButtonItem = BackButton;
-			NavigationItem.RightBarButtonItem = EditButton;
+			NavigationItem.LeftBarButtonItem = backButton;
+			NavigationItem.RightBarButtonItem = editButton;
 		}
 
 		private void SetupUI ()
 		{
 			View.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground));
 
-			ScrollView = new UIScrollView {
+			scrollView = new UIScrollView {
 				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground)),
 				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height),
 				PagingEnabled = false,
 				ScrollEnabled = true
 			};
-			View.Add (ScrollView);
+			View.Add (scrollView);
 
-		    TopBarArea = new UITextField {
+			contentArea = new UILabel {
 				BackgroundColor = UIColor.White,
-				Enabled = false,
-				UserInteractionEnabled = false,
-				Font = FontConstants.SourceSansProRegular (13),
-				Frame = new RectangleF (14f, 22f, 294f, 32f),
-				LeftView = new UIImageView (UIImage.FromFile (Images.TimeIcon)),
-				LeftViewMode = UITextFieldViewMode.Always,
-				Text = verse.Timestamp.ToShortDateString (),
-				TextAlignment = UITextAlignment.Left,
-				VerticalAlignment = UIControlContentVerticalAlignment.Center
-			};
-
-			ContentArea = new UILabel {
-				BackgroundColor = UIColor.White,
-				Font = FontConstants.SourceSansProRegular (13),
-				Frame = new RectangleF (14f, 48f, 294f, 10f),
+				Font = FontConstants.SourceSansProRegular (15),
+				Frame = new RectangleF (14f, 35f, 294f, 10f),
 				LineBreakMode = UILineBreakMode.TailTruncation,
 				Lines = 0,
 				Text = verse.Content,
 				TextAlignment = UITextAlignment.Left
 			};
-			ScrollView.Add (ContentArea);
-			ContentArea.Frame = new RectangleF (14f, 52f, 294f, 
-				InterfaceHelper.ContentSize (ContentArea.Text, ContentArea.Frame.Width, ContentArea.Font));
+			scrollView.Add (contentArea);
+			contentArea.Frame = new RectangleF (14f, 35f, 294f, 
+				InterfaceHelper.ContentSize (contentArea.Text, contentArea.Frame.Width, contentArea.Font));
 
-			var height = ContentArea.Bounds.Height + 50f;
-			BlackLine = new UIView {
+			var height = contentArea.Bounds.Height + 45f;
+			blackLine = new UIView {
 				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.BlackLine)),
 				Frame = new RectangleF (24, height, 284f, 1f)
 			};
-			ScrollView.Add (BlackLine);
+			scrollView.Add (blackLine);
 
-			height = ContentArea.Frame.Height + BlackLine.Frame.Height + 50f; // BlackLine.Frame.Height + 50f;
-			CommentsArea = new UILabel {
+			height = contentArea.Frame.Height + blackLine.Frame.Height + 50f;
+			commentsArea = new UILabel {
 				BackgroundColor = UIColor.White,
-				Font = FontConstants.SourceSansProRegular (13),
+				Font = FontConstants.SourceSansProRegular (15),
 				Frame = new RectangleF (14f, height, 294f, 10f),
 				LineBreakMode = UILineBreakMode.TailTruncation,
 				Lines = 0,
 				Text = verse.Comments,
 				TextAlignment = UITextAlignment.Left
 			};
-			ScrollView.Add (CommentsArea);
+			scrollView.Add (commentsArea);
 
 			if (verse.Comments.Length != 0) {
-				CommentsArea.Frame = new RectangleF (14f, height, 294f, 
-					InterfaceHelper.ContentSize (CommentsArea.Text, ContentArea.Frame.Width, ContentArea.Font));
+				commentsArea.Frame = new RectangleF (14f, height, 294f, 
+					InterfaceHelper.ContentSize (commentsArea.Text, contentArea.Frame.Width, contentArea.Font));
 			} else {
-				CommentsArea.Hidden = true;
-				BlackLine.Hidden = true;
+				commentsArea.Hidden = true;
+				blackLine.Hidden = true;
 			}
 
-			height = CommentsArea.Frame.Bottom + 22f;
-			ShareButton = new UIButton {
+			height = commentsArea.Frame.Bottom + 22f;
+			shareButton = new UIButton {
 				Frame = new RectangleF (33.5f, height, 253f, 33f)
 			};
-			ShareButton.SetBackgroundImage (UIImage.FromFile (Images.ShareButton), UIControlState.Normal);
+			shareButton.SetBackgroundImage (UIImage.FromFile (Images.ShareButton), UIControlState.Normal);
 
-			var toMemorizeHeight = ShareButton.Frame.Bottom + 10f;
-			ToMemorizeButton = new UIButton {
+			var toMemorizeHeight = shareButton.Frame.Bottom + 10f;
+			toMemorizeButton = new UIButton {
 				Frame = new RectangleF (33.5f, toMemorizeHeight, 253f, 33f)
 			};
 
 			var memorizable = verse.Memorizable;
 			if (memorizable) {
-				ToMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeGreenButton), UIControlState.Normal);
+				toMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeGreenButton), UIControlState.Normal);
 			} else {
-				ToMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeRedButton), UIControlState.Normal);
+				toMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeRedButton), UIControlState.Normal);
 			}
 
-			var memorizedHeight = ToMemorizeButton.Frame.Bottom + 10f;
-			MemorizedButton = new UIButton {
+			var memorizedHeight = toMemorizeButton.Frame.Bottom + 10f;
+			memorizedButton = new UIButton {
 				Frame = new RectangleF (33.5f, memorizedHeight, 253f, 33f)
 			};
 
 			var memorized = verse.Memorized;
 			if (memorized) {
-				MemorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedGreenButton), UIControlState.Normal);
+				memorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedGreenButton), UIControlState.Normal);
 			} else {
-				MemorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedRedButton), UIControlState.Normal);
+				memorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedRedButton), UIControlState.Normal);
 			}
 
 			if (!verse.Memorizable) {
-				MemorizedButton.Hidden = true;
+				memorizedButton.Hidden = true;
 			}
 
-			CopyrightButton = new UIButton {
+			copyrightButton = new UIButton {
 				Enabled = true,
-				Frame = new RectangleF (282, 22, 25, 25),
+				Frame = new RectangleF (282, 5, 25, 25),
 				UserInteractionEnabled = true
 			};
-			CopyrightButton.SetBackgroundImage (UIImage.FromFile (Images.CopyrightButton), UIControlState.Normal);
+			copyrightButton.SetBackgroundImage (UIImage.FromFile (Images.CopyrightButton), UIControlState.Normal);
 
-		    ScrollView.Add (TopBarArea);
-			ScrollView.Add (ShareButton);
-			ScrollView.Add (ToMemorizeButton);
-			ScrollView.Add (MemorizedButton);
-			ScrollView.Add (CopyrightButton);
+			scrollView.Add (shareButton);
+			scrollView.Add (toMemorizeButton);
+			scrollView.Add (memorizedButton);
+			scrollView.Add (copyrightButton);
 
-			var contentSize = MemorizedButton.Frame.Y + 170;
-			ScrollView.ContentSize = new SizeF (320f, contentSize);
+			var contentSize = memorizedButton.Frame.Y + 170;
+			scrollView.ContentSize = new SizeF (320f, contentSize);
 		}
 
 		private void HandleBackButtonTapped (object sender, EventArgs args)
@@ -216,24 +198,26 @@ namespace Verses.iOS
 
 		private void HandleEditButtonTapped (object sender, EventArgs args)
 		{
-			ActionSheetDelegate = new VerseEditActionSheetDelegate (this, verse);
+			var actionSheetDelegate = new VerseEditActionSheetDelegate (this, verse);
 
-			ActionSheet = new UIActionSheet {
+			var actionSheet = new UIActionSheet {
 				CancelButtonIndex = 2,
 				DestructiveButtonIndex = 0,
-				Delegate = ActionSheetDelegate,
+				Delegate = actionSheetDelegate,
 			};
 
-			ActionSheet.Add ("Delete");
-			ActionSheet.Add ("Edit");
-			ActionSheet.Add ("Cancel");
+			actionSheet.Add ("Delete");
+			actionSheet.Add ("Edit");
+			actionSheet.Add ("Cancel");
 
-			ActionSheet.ShowFromTabBar (AppDelegate.tabBarController.TabBar);
+			actionSheet.ShowFromTabBar (AppDelegate.tabBarController.TabBar);
 		}
 
 		private void HandleCopyrightButtonTapped (object sender, EventArgs args)
 		{
-			NavigationController.PushViewController (new CopyrightViewController (verse.Translation), true);
+			copyrightController = new CopyrightViewController (verse.Translation);
+
+			NavigationController.PushViewController (copyrightController, true);
 		}
 
 		private void HandleShareTapped (object sender, EventArgs args)
@@ -246,14 +230,14 @@ namespace Verses.iOS
 			var memorizable = verse.Memorizable;
 			if (memorizable) {
 				verse.Memorizable = !verse.Memorizable;
-				ToMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeRedButton), UIControlState.Normal);
-				MemorizedButton.Hidden = true;
+				toMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeRedButton), UIControlState.Normal);
+				memorizedButton.Hidden = true;
 
 				UpdateMemorizableInDatabase ();
 			} else {
 				verse.Memorizable = !verse.Memorizable;
-				ToMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeGreenButton), UIControlState.Normal);
-				MemorizedButton.Hidden = false;
+				toMemorizeButton.SetBackgroundImage (UIImage.FromFile (Images.ToMemorizeGreenButton), UIControlState.Normal);
+				memorizedButton.Hidden = false;
 
 				UpdateMemorizableInDatabase ();
 			}
@@ -264,12 +248,12 @@ namespace Verses.iOS
 			var memorized = verse.Memorized;
 			if (memorized) {
 				verse.Memorized = !verse.Memorized;
-				MemorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedRedButton), UIControlState.Normal);
+				memorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedRedButton), UIControlState.Normal);
 
 				UpdateMemorizedInDatabase ();
 			} else {
 				verse.Memorized = !verse.Memorized;
-				MemorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedGreenButton), UIControlState.Normal);
+				memorizedButton.SetBackgroundImage (UIImage.FromFile (Images.MemorizedGreenButton), UIControlState.Normal);
 
 				UpdateMemorizedInDatabase ();
 			}
@@ -277,75 +261,19 @@ namespace Verses.iOS
 
 		private void UpdateMemorizableInDatabase ()
 		{
-			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
-			var db = new DatabaseHelper (path);
-			db.UpdateVerse (verse);
+			AppDelegate.Current.Database.UpdateVerse (verse);
 		}
 
 		private void UpdateMemorizedInDatabase ()
 		{
-			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
-			var db = new DatabaseHelper (path);
-
 			var memorized = verse.Memorized;
 			if (memorized) {
-				verse.Category = MemorizationCategory.Review;
-			} else if ((!memorized) && verse.Category == MemorizationCategory.Review) {
-				verse.Category = MemorizationCategory.Queue;
+				verse.Category = Category.Review;
+			} else if ((!memorized) && verse.Category == Category.Review) {
+				verse.Category = Category.Queue;
 			}
 
-			db.UpdateVerse (verse);
-		}
-
-		public class VerseEditActionSheetDelegate : UIActionSheetDelegate
-		{
-			UIViewController controller;
-			Verse verse;
-
-			public VerseEditActionSheetDelegate (UIViewController managingController, Verse verse)
-			{
-				controller = managingController;
-				this.verse = verse;
-			}
-
-			public override void Clicked (UIActionSheet actionSheet, int buttonIndex)
-			{
-				switch (buttonIndex) 
-				{
-				case 0:
-					actionSheet.DismissWithClickedButtonIndex (1, true);
-					DeleteVerse ();
-					break;
-				case 1:
-					controller.PresentViewController (new PBNavigationController(new VerseEditDialog (verse)), true, null);
-					break;
-				case 2:
-					actionSheet.DismissWithClickedButtonIndex (2, true);
-					break;
-				}
-			}
-
-			void DeleteVerse ()
-			{
-				var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
-				var db = new DatabaseHelper (path);
-				db.RemoveVerse (verse);
-
-				controller.NavigationController.PopViewControllerAnimated (true);
-			}
-		}
-
-		void HandleResourceDisposal ()
-		{
-			if (ActionSheet != null) {
-				ActionSheet.Dispose ();
-				ActionSheet.Delegate = null;
-				ActionSheet = null;
-			}
-			if (ActionSheetDelegate != null) {
-				ActionSheetDelegate.Dispose ();
-				ActionSheetDelegate = null;
-			}
+			AppDelegate.Current.Database.UpdateVerse (verse);
 		}
 	}
 }

@@ -1,6 +1,10 @@
+﻿using System;
+using System.IO;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using Verses.Core;
+using Verses.Portable;
+using SQLite.Net;
+using SQLite.Net.Platform.XamarinIOS;
 using MTiRate;
 using Localytics;
 
@@ -12,19 +16,29 @@ namespace Verses.iOS
 		UIWindow window;
 		public static PBTabBarController tabBarController { get; set; }
 
+		public static AppDelegate Current { get; private set; }
+		public VersesRepository Database { get; set; }
+
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
+			Current = this;
+
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			tabBarController = new PBTabBarController ();
 
-			var prayers = new UINavigationController (new PrayersViewController ());
-			var verses = new UINavigationController (new VersesViewController ());
+			ConfigureDatabase ();
+			ConfigureAppearanceSettings ();
+			ConfigureThirdPartyLibraries ();
+			ConfigureiRate ();
+
+			var prayers = new UINavigationController (new PrayersTableViewController());
+			var verses = new UINavigationController (new VersesTableViewController ());
 			var memorization = new UINavigationController (new MemorizationViewController ());
 
 			var prayersItem = new UITabBarItem { Image = UIImage.FromFile (Images.PrayersTab) };
 			var versesItem = new UITabBarItem { Image = UIImage.FromFile (Images.VersesTab) };
 			var memorizationItem = new UITabBarItem { Image = UIImage.FromFile (Images.MemorizationTab) };
-	
+
 			prayers.TabBarItem = prayersItem;
 			verses.TabBarItem = versesItem;
 			memorization.TabBarItem = memorizationItem;
@@ -37,16 +51,11 @@ namespace Verses.iOS
 			tabBarController.TabBar.BackgroundImage = UIImage.FromFile (Images.TabBarBackground);
 			tabBarController.SelectedIndex = 1;
 
-			ConfigureDatabase ();
-			ConfigureAppearanceSettings ();
-			ConfigureThirdPartyLibraries ();
-			ConfigureiRate ();
-			
 			window.RootViewController = tabBarController;
 			window.MakeKeyAndVisible ();
 
 			UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge
-			                                                                    | UIRemoteNotificationType.Sound);
+				| UIRemoteNotificationType.Sound);
 			app.SetStatusBarStyle (UIStatusBarStyle.LightContent, true);
 
 			return true;
@@ -84,11 +93,16 @@ namespace Verses.iOS
 
 		private void ConfigureDatabase ()
 		{
-			var databaseName = "verses.db3";
-			DatabaseSetupHelper.CreateDatabaseIfNotExists (databaseName);
-			if (!DatabaseSetupHelper.TablesArePopulated (databaseName)) {
-		 		DatabaseSetupHelper.PopulateTablesWithInitialData (databaseName);
-			}
+			var sqliteFilename = "verses.db3";
+
+			var documents = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
+			var library = Path.Combine (documents, "../Library/");
+			var path = Path.Combine(library, sqliteFilename);
+
+			var connection = new SQLiteConnection (new SQLitePlatformIOS (), path, false);
+			Database = new VersesRepository (connection);
+
+			FirstRun.Configure ();
 		}
 
 		private void ConfigureAppearanceSettings ()

@@ -1,33 +1,36 @@
-using System;
+﻿using System;
 using System.Drawing;
 using MonoTouch.UIKit;
-using Verses.Core;
+using Verses.Portable;
 using Localytics;
 
 namespace Verses.iOS
 {
 	public class VerseEditDialog : PBViewController
 	{
-		UIButton BackingCancelButton, BackingSaveButton;
-		UIBarButtonItem CancelButton, SaveButton;
-		UIView BlackLine;
-		Verse Verse;
-		UITextView VerseComments;
-		UITextField VerseReference;
+		UIButton backingCancelButton, backingSaveButton;
+		UIBarButtonItem cancelButton, saveButton;
+		UIView blackLine;
+		Verse verse;
+		UITextView verseComments;
+		UITextField verseReference;
 
 		public VerseEditDialog (Verse data) : base ("Edit")
 		{
-			Verse = data;
+			verse = data;
 		}
 
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-			BackingCancelButton.TouchUpInside += HandleCancelButtonTapped;
-			BackingSaveButton.TouchUpInside += HandleSaveButtonTapped;
+			verseReference.Text = verse.Title;
+			verseComments.Text = verse.Comments;
+
+			backingCancelButton.TouchUpInside += HandleCancelButtonTapped;
+			backingSaveButton.TouchUpInside += HandleSaveButtonTapped;
 		}
-			
+
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
@@ -40,57 +43,57 @@ namespace Verses.iOS
 		{
 			base.ViewWillDisappear (animated);
 
-			BackingCancelButton.TouchUpInside -= HandleCancelButtonTapped;
-			BackingSaveButton.TouchUpInside -= HandleSaveButtonTapped;
+			backingCancelButton.TouchUpInside -= HandleCancelButtonTapped;
+			backingSaveButton.TouchUpInside -= HandleSaveButtonTapped;
 		}
 
 		private void SetupNavigationBar ()
 		{
-			BackingCancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			BackingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
-			BackingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
+			backingCancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			backingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
+			backingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
 
-			BackingSaveButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
-			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
+			backingSaveButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			backingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
+			backingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
 
-			CancelButton = new UIBarButtonItem (BackingCancelButton);
-			SaveButton = new UIBarButtonItem (BackingSaveButton);
+			cancelButton = new UIBarButtonItem (backingCancelButton);
+			saveButton = new UIBarButtonItem (backingSaveButton);
 
-			NavigationItem.LeftBarButtonItem = CancelButton;
-			NavigationItem.RightBarButtonItem = SaveButton;
+			NavigationItem.LeftBarButtonItem = cancelButton;
+			NavigationItem.RightBarButtonItem = saveButton;
 		}
 
 		private void SetupUI ()
 		{
 			View.BackgroundColor = UIColor.White;
 
-			VerseReference = new UITextField {
+			verseReference = new UITextField {
 				BackgroundColor = UIColor.Clear,
 				BorderStyle = UITextBorderStyle.None,
 				Enabled = false,
-				Font = FontConstants.SourceSansProBold (15),
+				Font = FontConstants.SourceSansProBold (17),
 				Frame = new RectangleF (0, 0, View.Bounds.Size.Width, 28f),
-				Text = Verse.Title
+				Text = verse.Title
 			};
 
-			BlackLine = new UIView {
+			blackLine = new UIView {
 				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.BlackLine)),
-				Frame = new RectangleF (0, 28, View.Bounds.Width, 1f)
+				Frame = new RectangleF (0, 28, View.Bounds.Width, 3f)
 			};
 
-			VerseComments = new UITextView {
-				Font = FontConstants.SourceSansProRegular (13),
-				Frame = new RectangleF (0, 29, View.Bounds.Width, 145f),
+			verseComments = new UITextView {
+				Font = FontConstants.SourceSansProRegular (15),
+				Frame = new RectangleF (0, 31, View.Bounds.Width, 145f),
 				KeyboardAppearance = UIKeyboardAppearance.Default,
-				Text = Verse.Comments,
+				Text = verse.Comments,
 				TextAlignment = UITextAlignment.Left
 			};
-			VerseComments.BecomeFirstResponder ();
+			verseComments.BecomeFirstResponder ();
 
-			View.AddSubview (VerseReference);
-			View.AddSubview (BlackLine);
-			View.AddSubview (VerseComments);
+			View.AddSubview (verseReference);
+			View.AddSubview (blackLine);
+			View.AddSubview (verseComments);
 		}
 
 		private void HandleCancelButtonTapped (object sender, EventArgs args)
@@ -106,14 +109,11 @@ namespace Verses.iOS
 
 		private void SaveButtonClicked ()
 		{
-			Verse.Comments = VerseComments.Text;
+			verse.Comments = verseComments.Text;
 
-			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
-			var db = new DatabaseHelper (path);
-			db.UpdateVerse (Verse);
+			AppDelegate.Current.Database.UpdateVerse (verse);
 
 			LocalyticsSession.Shared.TagEvent ("Edited Verse");
 		}
 	}
 }
-

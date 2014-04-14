@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using MonoTouch.UIKit;
-using Verses.Core;
+using Verses.Portable;
 using Localytics;
 
 namespace Verses.iOS
@@ -11,8 +11,10 @@ namespace Verses.iOS
 		BackView Back;
 		FlipCardSide Side { get; set; }
 
-		List<Verse> verses;
+		ObservableSortedList<Verse> data;
+		List<Verse> reviewableVerses;
 		int position;
+		UITableView table;
 
 		UIImage MemorizedImage;
 		UIImage NotMemorizedImage;
@@ -23,9 +25,11 @@ namespace Verses.iOS
 		UISwipeGestureRecognizer RightSwipeGesture;
 		UITapGestureRecognizer TapGesture;
 
-		public FlipCardController (List<Verse> v)
+		public FlipCardController (UITableView tableView, ObservableSortedList<Verse> verses, List<Verse> versesForReview)
 		{
-			verses = v;
+			table = tableView;
+			data = verses;
+			reviewableVerses = versesForReview;
 			position = 0;
 		}
 
@@ -35,10 +39,10 @@ namespace Verses.iOS
 
 			View.BackgroundColor = UIColor.Clear;
 
-			Front = new FrontView (verses[0]);
+			Front = new FrontView (reviewableVerses[0]);
 			View.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground));
 
-			Back = new BackView (verses[position]);
+			Back = new BackView (reviewableVerses[position]);
 
 			MemorizedImage = UIImage.FromFile (Images.HeartRedButton);
 			NotMemorizedImage = UIImage.FromFile (Images.HeartGreyButton);
@@ -86,6 +90,13 @@ namespace Verses.iOS
 			View.AddGestureRecognizer (TapGesture);
 		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			table.ReloadData ();
+		}
+
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
 		{
 			return UIInterfaceOrientationMask.Landscape;
@@ -105,14 +116,14 @@ namespace Verses.iOS
 
 		private void NextCardHandler ()
 		{
-			if (position < (verses.Count - 1)) {
+			if (position < (reviewableVerses.Count - 1)) {
 				position++;
 			} else {
 				position = 0;
 			}
 
-			var newFront = new FrontView (verses [position]);
-			var newBack = new BackView (verses [position]);
+			var newFront = new FrontView (reviewableVerses [position]);
+			var newBack = new BackView (reviewableVerses [position]);
 
 			if (Side == FlipCardSide.Front) {
 				UIView.Transition (Front, newFront, 0.5f, UIViewAnimationOptions.TransitionFlipFromRight, null);
@@ -152,28 +163,27 @@ namespace Verses.iOS
 
 		private void HandleMemorizedTapped ()
 		{
-			var data = Front.Data;
-			var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
-			var db = new DatabaseHelper (path);
+			var verse = Front.Data;
+			verse.Memorized = !verse.Memorized;
 
-			data.Memorized = !data.Memorized;
-			if (data.Memorized) {
-				data.Category = MemorizationCategory.Review;
+			if (verse.Memorized) {
+				verse.Category = Category.Review;
 
 				Front.ImageView.Image = MemorizedImage;
 				Back.ImageView.Image = MemorizedImage;
+
+				AppDelegate.Current.Database.UpdateVerse (verse);
+				LocalyticsSession.Shared.TagEvent ("Verse Memorized");
 			} else {
-				if (data.Category == MemorizationCategory.Review) {
-					data.Category = MemorizationCategory.Queue;
+				if (verse.Category == Category.Review) {
+					verse.Category = Category.Queue;
+					AppDelegate.Current.Database.UpdateVerse (verse);
+					data.Remove (verse);
 				}
 
 				Front.ImageView.Image = NotMemorizedImage;
 				Back.ImageView.Image = NotMemorizedImage;
 			}
-
-			db.UpdateVerse (data);
-
-			LocalyticsSession.Shared.TagEvent ("Verse Memorized");
 		}
 	}
 }

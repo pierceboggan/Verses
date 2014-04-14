@@ -1,33 +1,32 @@
-using System;
+﻿using System;
 using System.Drawing;
 using MonoTouch.UIKit;
-using Verses.Core;
-using BibleAPI;
+using Verses.Portable;
 using Localytics;
 
 namespace Verses.iOS
 {
 	public class VerseComposeDialog : PBViewController
 	{
-		UIButton BackingCancelButton, BackingSaveButton;
-		UIBarButtonItem CancelButton, SaveButton;
-		UIView BlackLine;
-		VersesViewController ManagingController;
-		CommentsTextDelegate TextViewDelegate;
-		UITextView VerseComments;
-		UITextField VerseReference;
+		UIButton backingCancelButton, backingSaveButton;
+		UIBarButtonItem cancelButton, saveButton;
+		UIView blackLine;
+		VersesTableViewController controller;
+		ContentTextDelegate textViewDelegate;
+		UITextView verseComments;
+		UITextField verseReference;
 
-		public VerseComposeDialog (VersesViewController managingController) : base ("Compose")
+		public VerseComposeDialog (VersesTableViewController managingController) : base ("Compose")
 		{
-			ManagingController = managingController;
+			controller = managingController;
 		}
 
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-			BackingCancelButton.TouchUpInside += HandleCancelButtonTapped;
-			BackingSaveButton.TouchUpInside += HandleSaveButtonTapped;
+			backingCancelButton.TouchUpInside += HandleCancelButtonTapped;
+			backingSaveButton.TouchUpInside += HandleSaveButtonTapped;
 		}
 
 		public override void ViewDidLoad()
@@ -42,61 +41,62 @@ namespace Verses.iOS
 		{
 			base.ViewWillDisappear (animated);
 
-			BackingCancelButton.TouchUpInside -= HandleCancelButtonTapped;
-			BackingSaveButton.TouchUpInside -= HandleSaveButtonTapped;
+			backingCancelButton.TouchUpInside -= HandleCancelButtonTapped;
+			backingSaveButton.TouchUpInside -= HandleSaveButtonTapped;
 
-			VerseComments.Delegate = null;
+			verseComments.Delegate = null;
 		}
 
 		private void SetupNavigationBar ()
 		{
-			BackingCancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			BackingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
-			BackingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
+			backingCancelButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			backingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButton), UIControlState.Normal);
+			backingCancelButton.SetBackgroundImage (UIImage.FromFile (Images.CancelButtonHighlighted), UIControlState.Highlighted);
 
-			BackingSaveButton = new UIButton (new RectangleF (0, 0, 25, 25));
-			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
-			BackingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
+			backingSaveButton = new UIButton (new RectangleF (0, 0, 25, 25));
+			backingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButton), UIControlState.Normal);
+			backingSaveButton.SetBackgroundImage (UIImage.FromFile (Images.SaveButtonHighlighted), UIControlState.Highlighted);
 
-			CancelButton = new UIBarButtonItem (BackingCancelButton);
-			SaveButton = new UIBarButtonItem (BackingSaveButton);
+			cancelButton = new UIBarButtonItem (backingCancelButton);
+			saveButton = new UIBarButtonItem (backingSaveButton);
 
-			NavigationItem.LeftBarButtonItem = CancelButton;
-			NavigationItem.RightBarButtonItem = SaveButton;
+			NavigationItem.LeftBarButtonItem = cancelButton;
+			NavigationItem.RightBarButtonItem = saveButton;
 		}
 
 		private void SetupUI ()
 		{
 			View.BackgroundColor = UIColor.White;
 
-			VerseReference = new UITextField {
+			verseReference = new UITextField {
+				AutocapitalizationType = UITextAutocapitalizationType.Words,
 				BackgroundColor = UIColor.Clear,
 				BorderStyle = UITextBorderStyle.None,
-				Font = FontConstants.SourceSansProBold (15),
+				Font = FontConstants.SourceSansProBold (17),
 				Frame = new RectangleF (0, 0, View.Bounds.Size.Width, 28f),
 				Placeholder = "Verse"
 			};
-			VerseReference.BecomeFirstResponder ();
+			verseReference.BecomeFirstResponder ();
 
-			BlackLine = new UIView {
+			blackLine = new UIView {
 				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.BlackLine)),
-				Frame = new RectangleF (0, 28, View.Bounds.Width, 1f)
+				Frame = new RectangleF (0, 28, View.Bounds.Width, 3f)
 			};
 
-			TextViewDelegate = new CommentsTextDelegate ();
-			VerseComments = new UITextView {
-				Delegate = TextViewDelegate,
-				Font = FontConstants.SourceSansProBold (13),
-				Frame = new RectangleF (0, 29, View.Bounds.Width, 145f),
+			textViewDelegate = new ContentTextDelegate ();
+			verseComments = new UITextView {
+				Delegate = textViewDelegate,
+				Font = FontConstants.SourceSansProBold (15),
+				Frame = new RectangleF (0, 31, View.Bounds.Width, 145f),
 				KeyboardAppearance = UIKeyboardAppearance.Default,
 				Text = "Comments",
 				TextAlignment = UITextAlignment.Left,
 				TextColor = UIColor.LightGray
 			};
-					
-			View.AddSubview (VerseReference);
-			View.AddSubview (BlackLine);
-			View.AddSubview (VerseComments);
+
+			View.AddSubview (verseReference);
+			View.AddSubview (blackLine);
+			View.AddSubview (verseComments);
 		}
 
 		private void HandleCancelButtonTapped (object sender, EventArgs args)
@@ -112,68 +112,34 @@ namespace Verses.iOS
 
 		private async void SaveButtonClicked ()
 		{
-			if (VerseReference.Text != "") {
+			if (verseReference.Text != "") {
 				var verse = new Verse {
-				    Category = MemorizationCategory.Queue,
-				    Content = "Verse downloading...",
-				    Memorizable = true,
-				    Memorized = false,
-				    Timestamp = DateTime.Now,
-				    Title = VerseReference.Text,
-				    Comments = VerseComments.Text == "Comments" ? "" : VerseComments.Text
+					Category = Category.Queue,
+					Content = "Verse downloading...",
+					Memorizable = true,
+					Memorized = false,
+					Title = verseReference.Text,
+					Comments = verseComments.Text == "Comments" ? "" : verseComments.Text
 				};
 
-				TranslationHelper.AddVerseTranslation (verse);
-
-			    if (Reachability.IsHostReachable ("www.google.com")) {
-					var path = DatabaseSetupHelper.GetDatabasePath ("verses.db3");
-					var db = new DatabaseHelper (path);
-					var translation = TranslationHelper.GetCurrentTranslationForDownload ();
-
+				if (Reachability.IsHostReachable ("www.google.com")) {
 					try {
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-						verse.Content = await BiblesDotOrg.GetVerseTextWithoutHtmlOrDigitsAsync (VerseReference.Text, translation);
-						db.AddVerse (verse);
+
+						var translation = TranslationHelper.GetCurrentTranslationForDownload ();
+						verse.Content = await BiblesDotOrg.GetVerseTextWithoutHtmlOrDigitsAsync (verseReference.Text, translation);
+						controller.AddVerse (verse);
 						LocalyticsSession.Shared.TagEvent ("Verse Saved");
-					} catch (InvalidVerseException ex) {
-						Console.WriteLine (ex);
+					} catch (InvalidVerseException) {
 						new UIAlertView ("Invalid Input", "Oops! That verse was not found!", null, "Okay", null).Show ();
 					} finally {
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 					}
-
-					ManagingController.ViewDidAppear (true);
-					ManagingController.ReloadTableData ();
 				} else {
 					new UIAlertView ("Network Failure", "Oops! Please connect to the internet to download verses.", null, "Okay", null).Show ();
 				}
 			} else {
 				new UIAlertView ("Invalid Input", "Oops! Don't forget to add a verse reference!", null, "Okay", null).Show ();
-			}
-		}
-
-		public class CommentsTextDelegate : UITextViewDelegate
-		{
-			public override void EditingStarted (UITextView textView)
-			{
-				if (textView.Text == "Comments") {
-					textView.Text = "";
-					textView.TextColor = UIColor.Black;
-					textView.Font = FontConstants.SourceSansProRegular (13);
-				}
-
-				textView.BecomeFirstResponder ();
-			}
-
-			public override void EditingEnded (UITextView textView)
-			{
-				if (textView.Text == "") {
-					textView.Text = "Comments";
-					textView.TextColor = UIColor.LightGray;
-					textView.Font = FontConstants.SourceSansProBold (13);
-				}
-
-				textView.ResignFirstResponder ();
 			}
 		}
 	}
