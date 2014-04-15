@@ -34,7 +34,7 @@ namespace Verses.iOS
 
 			backingBackButton.TouchUpInside += HandleBackButtonTapped;
 		}
-
+			
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -53,11 +53,11 @@ namespace Verses.iOS
 		protected override UITableViewSource CreateSource ()
 		{
 			if (category == Category.Queue) {
-				return new MemorizationQueueSource (filteredVerses);
+				return new MemorizationQueueSource (this, filteredVerses);
 			} else if (category == Category.Review) {
 				return new MemorizationReviewSource (this, filteredVerses);
 			} else {
-				return new MemorizationDayOfWeekSource (filteredVerses);
+				return new MemorizationDayOfWeekSource (this, filteredVerses);
 			}
 		}
 

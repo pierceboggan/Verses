@@ -13,6 +13,7 @@ namespace Verses.iOS
 	public class MemorizationQueueSource : UITableViewSource
 	{
 		ObservableSortedList<Verse> data;
+		MemorizationTableViewController tableViewController;
 		bool[] selected;
 		List<Verse> selectedVerses;
 		bool sectionIsEmpty;
@@ -21,9 +22,10 @@ namespace Verses.iOS
 		string MOVE_BUTTON_CELL = "MOVE_CELL";
 		string SECTION_EMPTY_CELL = "SECTION_EMPTY_CELL";
 
-		public MemorizationQueueSource (ObservableSortedList<Verse> verses)
+		public MemorizationQueueSource (MemorizationTableViewController tableView, ObservableSortedList<Verse> verses)
 		{
 			data = verses;
+			tableViewController = tableView;
 			selectedVerses = new List<Verse> ();
 
 			selected = new bool[data.Count];
@@ -159,7 +161,7 @@ namespace Verses.iOS
 
 		void HandleMoveButtonCellTapped (UITableView tableView)
 		{
-			var actionSheetDelegate = new MoveActionSheetDelegate (tableView, data, selectedVerses);
+			var actionSheetDelegate = new MoveActionSheetDelegate (tableViewController, data, selectedVerses);
 
 			var actionSheet = new UIActionSheet {
 				CancelButtonIndex = 9,

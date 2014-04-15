@@ -13,6 +13,7 @@ namespace Verses.iOS
 	public class MemorizationDayOfWeekSource : UITableViewSource
 	{
 		ObservableSortedList<Verse> data;
+		MemorizationTableViewController tableViewController;
 		bool[] selected;
 		List<Verse> selectedVerses;
 		bool sectionIsEmpty;
@@ -22,9 +23,10 @@ namespace Verses.iOS
 		string MEMORIZE_BUTTON_CELL = "MEMORIZE_BUTTON_CELL";
 		string SECTION_EMPTY_CELL = "SECTION_EMPTY_CELL";
 
-		public MemorizationDayOfWeekSource (ObservableSortedList<Verse> verses)
+		public MemorizationDayOfWeekSource (MemorizationTableViewController tableView, ObservableSortedList<Verse> verses)
 		{
 			data = verses;
+			tableViewController = tableView;
 			selectedVerses = new List<Verse> ();
 
 			selected = new bool[data.Count];
@@ -85,7 +87,11 @@ namespace Verses.iOS
 				if (indexPath.Section == 0) {
 					HandleMemorizationCellTapped (cell as MemorizationCell, indexPath);
 				} else {
-					HandleMoveButtonCellTapped (tableView);
+					if (indexPath.Row == 0) {
+						HandleMoveButtonCellTapped (tableView);
+					} else {
+						HandleMemorizeButtonCellTapped (tableView);
+					}
 				}
 			}
 		}
@@ -179,7 +185,7 @@ namespace Verses.iOS
 
 		void HandleMoveButtonCellTapped (UITableView tableView)
 		{
-			var actionSheetDelegate = new MoveActionSheetDelegate (tableView, data, selectedVerses);
+			var actionSheetDelegate = new MoveActionSheetDelegate (tableViewController, data, selectedVerses);
 
 			var actionSheet = new UIActionSheet {
 				CancelButtonIndex = 9,
@@ -199,6 +205,12 @@ namespace Verses.iOS
 			actionSheet.Add ("Cancel");
 
 			actionSheet.ShowFromTabBar (AppDelegate.tabBarController.TabBar);
+			selected = new bool[data.Count];
+		}
+
+		void HandleMemorizeButtonCellTapped (UITableView tableView)
+		{
+			tableViewController.PresentViewController (new FlipCardController (tableView, data, selectedVerses), true, null);
 			selected = new bool[data.Count];
 		}
 	}

@@ -11,11 +11,11 @@ namespace Verses.iOS
 	{
 		ObservableSortedList<Verse> data;
 		List<Verse> selected;
-		UITableView table;
+		MemorizationTableViewController tableViewController;
 
-		public MoveActionSheetDelegate (UITableView tableView, ObservableSortedList<Verse> verses, List<Verse> selectedCells)
+		public MoveActionSheetDelegate (MemorizationTableViewController tableView, ObservableSortedList<Verse> verses, List<Verse> selectedCells)
 		{
-			table = tableView;
+			tableViewController = tableView;
 			data = verses;
 			selected = selectedCells;
 		}
@@ -72,10 +72,10 @@ namespace Verses.iOS
 			selected.RemoveAll (x => x == x);
 
 			if (data.Count == 0) {
-				table.Source = new MemorizationDayOfWeekSource (data);
+				tableViewController.TableView.Source = new MemorizationDayOfWeekSource (tableViewController, data);
 			}
 
-			table.ReloadData ();
+			tableViewController.TableView.ReloadData ();
 		}
 	}
 }

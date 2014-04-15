@@ -181,7 +181,7 @@ namespace Verses.iOS
 
 		void HandleMoveButtonCellTapped (UITableView tableView)
 		{
-			var actionSheetDelegate = new MoveActionSheetDelegate (tableView, data, selectedVerses);
+			var actionSheetDelegate = new MoveActionSheetDelegate (tableViewController, data, selectedVerses);
 
 			var actionSheet = new UIActionSheet {
 				CancelButtonIndex = 9,
