@@ -72,8 +72,9 @@ namespace Verses.iOS
 
 		private void SetupUI ()
 		{
+			View.BackgroundColor = UIColor.White;
+
 			scrollView = new UIScrollView () {
-				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground)),
 				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height),
 				PagingEnabled = false,
 				ScrollEnabled = true
