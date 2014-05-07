@@ -9,20 +9,20 @@ namespace Verses.iOS
 	{
 		public static void SharePrayer (UIViewController presentingViewController, Prayer prayer)
 		{
-			var text = string.Format ("{0} via @versesapp", prayer.Content);
+			var text = string.Format ("{0} via @getversesapp", prayer.Content);
 			Share (presentingViewController, text);
 		}
 
 		public static void ShareVerse (UIViewController presentingViewController, Verse verse)
 		{
-			var text = string.Format ("{0} - {1} via @versesapp", verse.Content, verse.Title);
+			var text = string.Format ("{0} - {1} via @getversesapp", verse.Content, verse.Title);
 			Share (presentingViewController, text);
 		}
 
 		public static void ShareVersesApp (UIViewController presentingViewController)
 		{
 			var text = "I'm using @GetVersesApp for iOS for daily Scripture memorization. " +
-				"Download it free at http://appstore.com/versesapp #HisWordMyHead";
+				"Download it free at http://appstore.com/getversesapp #HisWordMyHead";
 			Share (presentingViewController, text);
 		}
 
