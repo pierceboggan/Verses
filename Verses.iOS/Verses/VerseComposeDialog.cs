@@ -127,6 +127,7 @@ namespace Verses.iOS
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
 						var translation = TranslationHelper.GetCurrentTranslationForDownload ();
+						verse.Translation = translation;
 						verse.Content = await BiblesDotOrg.GetVerseTextWithoutHtmlOrDigitsAsync (verseReference.Text, translation);
 						controller.AddVerse (verse);
 						LocalyticsSession.Shared.TagEvent ("Verse Saved");
