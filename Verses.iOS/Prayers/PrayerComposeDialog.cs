@@ -12,7 +12,6 @@ namespace Verses.iOS
 		UIButton backingComposeButton, backingSaveButton;
 		UIBarButtonItem cancelButton, saveButton;
 		UIView blackLine;
-		PrayersTableViewController controller;
 		UITextView prayerContent;
 		UITextField prayerTitle;
 		ContentTextDelegate textViewDelegate;

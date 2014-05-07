@@ -72,7 +72,7 @@ namespace Verses.iOS
 				BackgroundColor = UIColor.Clear,
 				BorderStyle = UITextBorderStyle.None,
 				Enabled = false,
-				Font = UIFont.FromName ("SourceSansPro-Bold", 15f),
+				Font = UIFont.FromName ("SourceSansPro-Bold", 17f),
 				Frame = new RectangleF (0, 0, View.Bounds.Size.Width, 28f),
 				Placeholder = "Title",
 				Text = prayer.Title
@@ -80,12 +80,12 @@ namespace Verses.iOS
 
 			BlackLine = new UIView {
 				BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.BlackLine)),
-				Frame = new RectangleF (0, 28, View.Bounds.Width, 1f)
+				Frame = new RectangleF (0, 28, View.Bounds.Width, 3f)
 			};
 
 			PrayerContent = new UITextView {
-				Font = UIFont.FromName ("SourceSansPro-Regular", 13f),
-				Frame = new RectangleF (0, 29, View.Bounds.Width, 165f),
+				Font = UIFont.FromName ("SourceSansPro-Regular", 15f),
+				Frame = new RectangleF (0, 31, View.Bounds.Width, 165f),
 				KeyboardAppearance = UIKeyboardAppearance.Default,
 				Text = prayer.Content
 			};
