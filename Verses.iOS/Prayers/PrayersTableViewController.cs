@@ -89,7 +89,7 @@ namespace Verses.iOS
 
 		void HandleComposeButtonTapped (object sender, EventArgs args)
 		{
-			composeDialog = new PrayerComposeDialog (this);
+			composeDialog = new PrayerComposeDialog ();
 			navigationController = new PBNavigationController (composeDialog);
 			PresentViewController (navigationController, true, null);
 		}

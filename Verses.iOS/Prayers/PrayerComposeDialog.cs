@@ -16,9 +16,9 @@ namespace Verses.iOS
 		UITextField prayerTitle;
 		ContentTextDelegate textViewDelegate;
 
-		public PrayerComposeDialog (PrayersTableViewController parentController) : base ("Prayer")
+		public PrayerComposeDialog () : base ("Prayer")
 		{
-			controller = parentController;
+
 		}
 
 		public override void ViewWillAppear (bool animated)
