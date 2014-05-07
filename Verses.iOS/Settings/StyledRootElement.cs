@@ -85,8 +85,6 @@ namespace Verses.iOS
 				NavigationBarLabel.Dispose ();
 				NavigationBarLabel = null;
 			}
-
-			Console.WriteLine ("StyledRootElement disposing.");
 		}
 	}
 }

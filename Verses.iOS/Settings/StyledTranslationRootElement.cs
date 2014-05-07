@@ -105,8 +105,6 @@ namespace Verses.iOS
 				NavigationBarLabel.Dispose ();
 				NavigationBarLabel = null;
 			}
-
-			Console.WriteLine ("StyledTranslationElement disposing.");
 		}
 	}
 }

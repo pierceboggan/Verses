@@ -35,13 +35,6 @@ namespace Verses.iOS
 			return 35;
 		}
 
-		protected override void Dispose (bool disposing)
-		{
-			base.Dispose (disposing);
-
-			Console.WriteLine ("StyledStringElement disposing.");
-		}
-
 		public override UITableViewCell GetCell (UITableView tv)
 		{
 			var cell = tv.DequeueReusableCell (CellKey);
