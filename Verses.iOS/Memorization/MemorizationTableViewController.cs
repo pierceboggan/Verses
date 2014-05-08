@@ -21,11 +21,9 @@ namespace Verses.iOS
 
 		public MemorizationTableViewController (ObservableSortedList<Verse> data, Category verseCategory) : base (verseCategory.ToString (), UITableViewStyle.Grouped)
 		{
-			verses = data;
-			DataSource = verses;
+			filteredVerses = data;
+			DataSource = filteredVerses;
 			category = verseCategory;
-
-			filteredVerses = FilterData (verseCategory);
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -86,15 +84,6 @@ namespace Verses.iOS
 		void HandleBackButtonTapped (object sender, EventArgs args)
 		{
 			DismissViewController (true, null);
-		}
-
-		ObservableSortedList<Verse> FilterData (Category category)
-		{
-			var filtered = from verse in verses
-			       where verse.Memorizable == true && verse.Category == category
-			       select verse;
-
-			return new ObservableSortedList<Verse> (filtered);
 		}
 	}
 }

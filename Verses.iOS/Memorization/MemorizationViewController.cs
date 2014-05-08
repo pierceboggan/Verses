@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using MonoTouch.UIKit;
@@ -11,16 +13,35 @@ namespace Verses.iOS
 		UIButton sundayButton, mondayButton, tuesdayButton, wednesdayButton, thursdayButton,
 		fridayButton, saturdayButton, queueButton, reviewButton;
 		MemorizationTableViewController tableView;
+
+		Category categoryToFilter;
 		ObservableSortedList<Verse> verses;
+		ObservableSortedList<Verse> filteredVerses;
 
 		public MemorizationViewController () : base ("Memorization")
 		{
-			verses = new ObservableSortedList<Verse> (AppDelegate.Current.Database.GetVerses ());
-		}
+			verses = VersesTableViewController.Current.verses;
+			verses.CollectionChanged += delegate(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) {
+				if (tableView != null) {
+					var newItems = e.NewItems;
+					var oldItems = e.OldItems;
 
-		public override void ViewDidAppear (bool animated)
-		{
-			base.ViewDidAppear (animated);
+					if (newItems != null) {
+						foreach (Verse verse in newItems) {
+							if (verse.Memorizable == true && verse.Category == categoryToFilter)
+							{
+								filteredVerses.Add (verse);
+							}
+						}
+					}
+
+					if (oldItems != null) {
+						foreach (Verse verse in oldItems) {
+							filteredVerses.Remove (verse);
+						}
+					}
+				}
+			};
 		}
 
 		public override void ViewDidLoad ()
@@ -115,9 +136,18 @@ namespace Verses.iOS
 
 		void ButtonHandler (Category category)
 		{
-			tableView = new MemorizationTableViewController (verses, category);
+			categoryToFilter = category;
+			FilterData (category);
+			tableView = new MemorizationTableViewController (filteredVerses, category);
 
 			NavigationController.PushViewController (tableView, true);
+		}
+
+		void FilterData (Category category)
+		{
+			filteredVerses = new ObservableSortedList<Verse> (from verse in verses
+			                                                  where verse.Memorizable == true && verse.Category == category
+			                                                  select verse);
 		}
 	}
 }

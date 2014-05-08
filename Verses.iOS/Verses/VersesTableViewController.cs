@@ -17,7 +17,7 @@ namespace Verses.iOS
 		PBNavigationController navigationController;
 		SettingsDialog settings;
 
-		ObservableSortedList<Verse> prayers;
+		public ObservableSortedList<Verse> verses;
 
 		public static VersesTableViewController Current { get; private set; }
 
@@ -25,8 +25,8 @@ namespace Verses.iOS
 		{
 			Current = this;
 
-			prayers = new ObservableSortedList<Verse> (AppDelegate.Current.Database.GetVerses ());
-			DataSource = prayers;
+			verses = new ObservableSortedList<Verse> (AppDelegate.Current.Database.GetVerses ());
+			DataSource = verses;
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -57,18 +57,18 @@ namespace Verses.iOS
 
 		protected override UITableViewSource CreateSource ()
 		{
-			return new VersesTableSource (NavigationController, prayers);
+			return new VersesTableSource (NavigationController, verses);
 		}
 
 		public void AddVerse (Verse verse)
 		{
-			prayers.Add (verse);
+			verses.Add (verse);
 			AppDelegate.Current.Database.AddVerse (verse);
 		}
 
 		public void RemoveVerse (Verse verse)
 		{
-			prayers.Remove (verse);
+			verses.Remove (verse);
 			AppDelegate.Current.Database.RemoveVerse (verse);
 		}
 
