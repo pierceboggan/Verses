@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using MonoTouch.UIKit;
 using Verses.Portable;
 using Localytics;
@@ -126,11 +127,18 @@ namespace Verses.iOS
 					try {
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
-						var translation = TranslationHelper.GetCurrentTranslationForDownload ();
-						verse.Translation = translation;
-						verse.Content = await BiblesDotOrg.GetVerseTextWithoutHtmlOrDigitsAsync (verseReference.Text, translation);
-						controller.AddVerse (verse);
-						LocalyticsSession.Shared.TagEvent ("Verse Saved");
+						if (VersesTableViewController.Current.verses.Any (item => item.Title == verse.Title))
+						{
+							new UIAlertView ("Verse Already Exists", "Whoops, this verse is already in your library.", null, "Okay", null).Show();
+						}
+						else 
+						{
+							var translation = TranslationHelper.GetCurrentTranslationForDownload ();
+							verse.Translation = translation;
+							verse.Content = await BiblesDotOrg.GetVerseTextWithoutHtmlOrDigitsAsync (verseReference.Text, translation);
+							controller.AddVerse (verse);
+							LocalyticsSession.Shared.TagEvent ("Verse Saved");
+						}
 					} catch (InvalidVerseException) {
 						new UIAlertView ("Invalid Input", "Oops! That verse was not found!", null, "Okay", null).Show ();
 					} finally {
