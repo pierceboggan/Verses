@@ -184,6 +184,9 @@ namespace Verses.iOS
 				Front.ImageView.Image = NotMemorizedImage;
 				Back.ImageView.Image = NotMemorizedImage;
 			}
+
+			VersesTableViewController.Current.verses.Remove (verse);
+			VersesTableViewController.Current.verses.Add (verse);
 		}
 	}
 }
