@@ -340,7 +340,5 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Settings\HTML\Licenses.html" />
-    <Content Include="Settings\HTML\SpecialThanks.html" />
-    <Content Include="Settings\HTML\GettingStarted.html" />
   </ItemGroup>
 </Project>

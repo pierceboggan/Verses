@@ -43,6 +43,7 @@ namespace Verses.iOS
 		private void BuildTree ()
 		{
 			var translation = FetchTranslation ();
+			var version = string.Format ("Version: {0}", NSBundle.MainBundle.InfoDictionary [new NSString ("CFBundleShortVersionString")].ToString ());
 
 			root = new RootElement ("") {
 				new Section () {
@@ -90,9 +91,9 @@ namespace Verses.iOS
 				},
 
 				new Section () {
-					new StyledStringElement ("Getting Started", HandleGettingStartedTapped),
-					new StyledStringElement ("Licensing", HandleLicensingTapped),
-					new StyledStringElement ("Special Thanks", HandleSpecialThanksTapped)
+					new StyledStringElement (version),
+					new StyledStringElement ("Made with <3 in Auburn, Alabama"),
+					new StyledStringElement ("Acknowledgements", HandleLicensingTapped)
 				}
 			};
 
@@ -107,8 +108,6 @@ namespace Verses.iOS
 				root.Dispose ();
 				root = null;
 			}
-
-			Console.WriteLine ("SettingsDialog Disposing");
 		}
 
 		private void SetupUI ()
