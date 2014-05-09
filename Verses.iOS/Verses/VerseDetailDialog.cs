@@ -272,6 +272,9 @@ namespace Verses.iOS
 				verse.Category = Category.Queue;
 			}
 
+			VersesTableViewController.Current.verses.Remove (verse);
+			VersesTableViewController.Current.verses.Add (verse);
+
 			AppDelegate.Current.Database.UpdateVerse (verse);
 		}
 	}

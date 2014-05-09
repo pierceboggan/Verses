@@ -31,13 +31,18 @@ namespace Verses.iOS
 							if (verse.Memorizable == true && verse.Category == categoryToFilter)
 							{
 								filteredVerses.Add (verse);
+								Console.WriteLine(verse.Title);
 							}
 						}
 					}
 
 					if (oldItems != null) {
 						foreach (Verse verse in oldItems) {
-							filteredVerses.Remove (verse);
+							if (filteredVerses.Any (item => item.Id == verse.Id))
+							{
+								filteredVerses.Remove (verse);
+								Console.WriteLine (verse.Title);
+							}
 						}
 					}
 				}
