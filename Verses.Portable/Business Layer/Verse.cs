@@ -18,7 +18,6 @@ namespace Verses.Portable
 		public string Comments { get; set; }
 		public Translation Translation { get; set; }
 		public Category Category { get; set; }
-		public bool Memorizable { get; set; }
 		public bool Memorized { get; set; }
 
 		public int CompareTo(object obj)
@@ -46,11 +45,6 @@ namespace Verses.Portable
 		public override int GetHashCode ()
 		{
 			return Id.GetHashCode ();
-		}
-
-		public override string ToString ()
-		{
-			return string.Format ("[Verse: Id={0}, Title={1}, Content={2}, Comments={3}, Translation={4}, Category={5}, Memorizable={6}, Memorized={7}, Timestamp={8}]", Id, Title, Content, Comments, Translation, Category, Memorizable, Memorized);
 		}
 	}
 }

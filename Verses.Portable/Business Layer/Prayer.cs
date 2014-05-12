@@ -40,10 +40,5 @@ namespace Verses.Portable
 		{
 			return Id.GetHashCode ();
 		}
-
-		public override string ToString ()
-		{
-			return string.Format ("[Prayer: Id={0}, Title={1}, Content={2}, Timestamp={3}]", Id, Title, Content, Timestamp);
-		}
 	}
 }

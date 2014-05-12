@@ -118,6 +118,9 @@
     <Reference Include="SQLite.Net">
       <HintPath>..\packages\SQLite.Net-PCL.2.2.0\lib\portable-net4+sl4+wp7+win8+monotouch+MonoAndroid\SQLite.Net.dll</HintPath>
     </Reference>
+    <Reference Include="CRProductTour">
+      <HintPath>..\..\ProductTour\dll\CRProductTour.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Images\Compose\BlackLine.png" />

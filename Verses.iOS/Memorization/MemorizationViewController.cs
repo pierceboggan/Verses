@@ -28,7 +28,7 @@ namespace Verses.iOS
 
 					if (newItems != null) {
 						foreach (Verse verse in newItems) {
-							if (verse.Memorizable == true && verse.Category == categoryToFilter)
+							if (verse.Category == categoryToFilter)
 							{
 								filteredVerses.Add (verse);
 								Console.WriteLine(verse.Title);
@@ -151,7 +151,7 @@ namespace Verses.iOS
 		void FilterData (Category category)
 		{
 			filteredVerses = new ObservableSortedList<Verse> (from verse in verses
-			                                                  where verse.Memorizable == true && verse.Category == category
+			                                                  where verse.Category == category
 			                                                  select verse);
 		}
 	}

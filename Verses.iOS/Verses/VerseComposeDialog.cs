@@ -117,7 +117,6 @@ namespace Verses.iOS
 				var verse = new Verse {
 					Category = Category.Queue,
 					Content = "Verse downloading...",
-					Memorizable = true,
 					Memorized = false,
 					Title = verseReference.Text,
 					Comments = verseComments.Text == "Comments" ? "" : verseComments.Text
