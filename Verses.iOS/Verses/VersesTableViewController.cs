@@ -80,16 +80,17 @@ namespace Verses.iOS
 			TableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
 			TableView.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile (Images.TableViewBackground));
 
-			var bubble = new Bubble (backingComposeButton, "", "Download a new verse", ArrowPosition.Top, null);
-			bubble.FontName = "SourceSansPro-Bold";
-
-			var productTour = new ProductTour ();
-			productTour.Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height);
-			var bubbleArray = new NSMutableArray (1);
-			bubbleArray.Add (bubble);
-			productTour.Bubbles = bubbleArray;
-
-			Add (productTour);
+//            var view = new UIView(new RectangleF(0, 0, 25, 25)); 
+//            var bubble = new Bubble (view, "Download a new verse.", "", ArrowPosition.Top, null);
+//			bubble.FontName = "SourceSansPro-Bold";
+//
+//			var productTour = new ProductTour ();
+//			productTour.Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height);
+//			var bubbleArray = new NSMutableArray (1);
+//			bubbleArray.Add (bubble);
+//			productTour.Bubbles = bubbleArray;
+//
+//			Add (productTour);
 		}
 
 		void SetupNavigationBar ()
