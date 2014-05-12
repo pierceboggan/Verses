@@ -23,20 +23,28 @@ namespace Verses.iOS
 			verse = data;
 		}
 
-		public override void ViewWillAppear (System.Boolean animated)
+        public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-			if (verse.Comments.Length != 0) {
-				blackLine.Hidden = false;
-				commentsArea.Hidden = false;
+            if (verse.Comments.Length != 0)
+            {
+                blackLine.Hidden = false;
+                commentsArea.Hidden = false;
 
-				commentsArea.Text = verse.Comments;
-				commentsArea.Frame = new RectangleF (commentsArea.Frame.X, commentsArea.Frame.Y, commentsArea.Frame.Width, 
-					InterfaceHelper.ContentSize (commentsArea.Text, contentArea.Frame.Width, contentArea.Font));
+                commentsArea.Text = verse.Comments;
+                commentsArea.Frame = new RectangleF(commentsArea.Frame.X, commentsArea.Frame.Y, commentsArea.Frame.Width, 
+                    InterfaceHelper.ContentSize(commentsArea.Text, contentArea.Frame.Width, contentArea.Font));
 
-				shareButton.Frame = new RectangleF (shareButton.Frame.X, commentsArea.Frame.Bottom + 22f, shareButton.Frame.Width, shareButton.Frame.Height);
-			}
+                shareButton.Frame = new RectangleF(shareButton.Frame.X, commentsArea.Frame.Bottom + 22f, shareButton.Frame.Width, shareButton.Frame.Height);
+            }
+            else
+            {
+                    blackLine.Hidden = true;
+                    commentsArea.Hidden = true;
+
+                    shareButton.Frame = new RectangleF(shareButton.Frame.X, contentArea.Frame.Bottom + 22f, shareButton.Frame.Width, shareButton.Frame.Height);
+            }
 
 			backingBackButton.TouchUpInside += HandleBackButtonTapped;
 			backingEditButton.TouchUpInside += HandleEditButtonTapped;
