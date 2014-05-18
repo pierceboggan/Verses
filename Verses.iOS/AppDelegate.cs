@@ -31,25 +31,20 @@ namespace Verses.iOS
 			ConfigureThirdPartyLibraries ();
 			ConfigureiRate ();
 
-			var prayers = new UINavigationController (new PrayersTableViewController());
 			var verses = new UINavigationController (new VersesTableViewController ());
 			var memorization = new UINavigationController (new MemorizationViewController ());
 
-			var prayersItem = new UITabBarItem { Image = UIImage.FromFile (Images.PrayersTab) };
 			var versesItem = new UITabBarItem { Image = UIImage.FromFile (Images.VersesTab) };
 			var memorizationItem = new UITabBarItem { Image = UIImage.FromFile (Images.MemorizationTab) };
 
-			prayers.TabBarItem = prayersItem;
 			verses.TabBarItem = versesItem;
 			memorization.TabBarItem = memorizationItem;
 
 			tabBarController.ViewControllers = new UIViewController[] {
-				prayers,
 				verses,
 				memorization
 			};
 			tabBarController.TabBar.BackgroundImage = UIImage.FromFile (Images.TabBarBackground);
-			tabBarController.SelectedIndex = 1;
 
 			window.RootViewController = tabBarController;
 			window.MakeKeyAndVisible ();

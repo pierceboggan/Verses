@@ -268,18 +268,12 @@
     <Compile Include="Utilities\FontConstants.cs" />
     <Compile Include="Application Layer\EasySettings.cs" />
     <Compile Include="Application Layer\FirstRun.cs" />
-    <Compile Include="Prayers\PrayerCell.cs" />
     <Compile Include="Application Layer\Table Source\VersesTableSource.cs" />
-    <Compile Include="Application Layer\Table Source\PrayersTableSource.cs" />
-    <Compile Include="Prayers\PrayerDetailController.cs" />
     <Compile Include="Utilities\Sharing.cs" />
     <Compile Include="Utilities\User Interface\PBViewController.cs" />
     <Compile Include="Utilities\User Interface\PBTabBarController.cs" />
     <Compile Include="Utilities\User Interface\PBNavigationViewController.cs" />
-    <Compile Include="Prayers\PrayerComposeDialog.cs" />
-    <Compile Include="Application Layer\Delegates\PrayerEditActionSheetDelegate.cs" />
     <Compile Include="Application Layer\Delegates\ContentTextDelegate.cs" />
-    <Compile Include="Prayers\PrayersEditDialog.cs" />
     <Compile Include="Verses\VerseDetailDialog.cs" />
     <Compile Include="Application Layer\Delegates\VerseEditActionSheetDelegate.cs" />
     <Compile Include="Verses\VerseComposeDialog.cs" />
@@ -301,7 +295,6 @@
     <Compile Include="Verses\VersesTableViewController.cs" />
     <Compile Include="Utilities\User Interface\ObservableTableViewController.cs" />
     <Compile Include="Utilities\User Interface\VersesObservableTableViewController.cs" />
-    <Compile Include="Prayers\PrayersTableViewController.cs" />
     <Compile Include="Memorization\MemorizationTableViewController.cs" />
     <Compile Include="Application Layer\Table Source\MemorizationDayOfWeekSource.cs" />
     <Compile Include="Application Layer\Table Source\MemorizationQueueSource.cs" />
