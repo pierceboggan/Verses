@@ -19,9 +19,7 @@ namespace Verses.iOS
 		UIImage MemorizedImage;
 		UIImage NotMemorizedImage;
 		UISwipeGestureRecognizer SwipeUpGesture;
-		UISwipeGestureRecognizer SwipeUpTwoFingersGesture;
 		UISwipeGestureRecognizer SwipeDownGesture;
-		UISwipeGestureRecognizer SwipeDownTwoFingersGesture;
 		UISwipeGestureRecognizer RightSwipeGesture;
 		UITapGestureRecognizer TapGesture;
 
@@ -50,31 +48,17 @@ namespace Verses.iOS
 			TapGesture = new UITapGestureRecognizer {
 				NumberOfTapsRequired = 1
 			};
-			TapGesture.AddTarget (TapHandler);
+			TapGesture.AddTarget (FlipCardHandler);
 
 			SwipeUpGesture = new UISwipeGestureRecognizer {
 				Direction = UISwipeGestureRecognizerDirection.Up
 			};
-			SwipeUpGesture.AddTarget (FlipCardHandler);
+			SwipeUpGesture.AddTarget (NextCardHandler);
 
 			SwipeDownGesture = new UISwipeGestureRecognizer {
 				Direction = UISwipeGestureRecognizerDirection.Down,
 			};
-			SwipeDownGesture.AddTarget (FlipCardHandler);
-
-			SwipeUpTwoFingersGesture = new UISwipeGestureRecognizer {
-				Direction = UISwipeGestureRecognizerDirection.Up,
-				NumberOfTouchesRequired = 2
-			};
-			SwipeUpTwoFingersGesture.RequireGestureRecognizerToFail (SwipeUpGesture);
-			SwipeUpTwoFingersGesture.AddTarget (NextCardHandler);
-
-			SwipeDownTwoFingersGesture = new UISwipeGestureRecognizer {
-				Direction = UISwipeGestureRecognizerDirection.Down,
-				NumberOfTouchesRequired = 2,
-			};
-			SwipeDownTwoFingersGesture.RequireGestureRecognizerToFail (SwipeDownGesture);
-			SwipeDownTwoFingersGesture.AddTarget (NextCardHandler);
+			SwipeDownGesture.AddTarget (NextCardHandler);
 
 			RightSwipeGesture = new UISwipeGestureRecognizer {
 				Direction = UISwipeGestureRecognizerDirection.Right
@@ -84,8 +68,6 @@ namespace Verses.iOS
 			View.Add (Front);
 			View.AddGestureRecognizer (SwipeUpGesture);
 			View.AddGestureRecognizer (SwipeDownGesture);
-			View.AddGestureRecognizer (SwipeUpTwoFingersGesture);
-			View.AddGestureRecognizer (SwipeDownTwoFingersGesture);
 			View.AddGestureRecognizer (RightSwipeGesture);
 			View.AddGestureRecognizer (TapGesture);
 		}
