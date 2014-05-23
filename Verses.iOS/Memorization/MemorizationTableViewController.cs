@@ -17,7 +17,6 @@ namespace Verses.iOS
 
 		Category category;
 		ObservableSortedList<Verse> filteredVerses;
-		ObservableSortedList<Verse> verses;
 
 		public MemorizationTableViewController (ObservableSortedList<Verse> data, Category verseCategory) : base (verseCategory.ToString (), UITableViewStyle.Grouped)
 		{
@@ -29,6 +28,23 @@ namespace Verses.iOS
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
+
+            		if (category != Category.Queue)
+			{
+				foreach (var verse in filteredVerses) {
+					if (verse.Category != category) {
+						filteredVerses.Remove (verse);
+					}
+				}
+
+				if (filteredVerses.Count == 0) {
+					if (category == Category.Review) {
+						TableView.Source = new MemorizationReviewSource (this, filteredVerses);
+					} else {
+						TableView.Source = new MemorizationDayOfWeekSource (this, filteredVerses);
+					}
+				}
+            		}
 
 			backingBackButton.TouchUpInside += HandleBackButtonTapped;
 		}
