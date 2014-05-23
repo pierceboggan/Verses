@@ -257,7 +257,6 @@
     <None Include="Settings\HTML\Styles\Fonts\sourcesanspro-400.woff" />
     <None Include="Settings\HTML\Styles\Fonts\sourcesanspro-600.woff" />
     <None Include="Settings\HTML\Styles\Fonts\sourcesanspro-700.woff" />
-    <None Include="RELEASE-NOTES.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
