@@ -87,12 +87,17 @@ namespace Verses.iOS
 		// Flip methods
 		private void FlipCard ()
 		{
-			if (Side == FlipCardSide.Front) {
-				UIView.Transition (Front, Back, 0.5f, UIViewAnimationOptions.TransitionFlipFromRight, null);
-				Side = FlipCardSide.Back;
+			var frame = Front.ImageView.Frame;
+			if (frame.Contains (TapGesture.LocationInView (View))) {
+				HandleMemorizedTapped ();
 			} else {
-				UIView.Transition (Back, Front, 0.5f, UIViewAnimationOptions.TransitionFlipFromLeft, null);
-				Side = FlipCardSide.Front;
+				if (Side == FlipCardSide.Front) {
+					UIView.Transition (Front, Back, 0.5f, UIViewAnimationOptions.TransitionFlipFromRight, null);
+					Side = FlipCardSide.Back;
+				} else {
+					UIView.Transition (Back, Front, 0.5f, UIViewAnimationOptions.TransitionFlipFromLeft, null);
+					Side = FlipCardSide.Front;
+				}
 			}
 		}
 
@@ -127,20 +132,6 @@ namespace Verses.iOS
 		private void RightSwipeHandler ()
 		{
 			DismissViewController (true, null);
-		}
-
-		private void TapHandler ()
-		{
-			var frame = Front.ImageView.Frame;
-			if (frame.Contains (TapGesture.LocationInView (View))) {
-				HandleMemorizedTapped ();
-			} else {
-				if (Side == FlipCardSide.Front) {
-					SpeechSynthesizer.Speak (Front.Data.Title);
-				} else {
-					SpeechSynthesizer.Speak (Back.Data.Content);
-				}
-			}
 		}
 
 		private void HandleMemorizedTapped ()
