@@ -31,12 +31,6 @@ namespace Verses.iOS
 
             		if (category != Category.Queue)
 			{
-				foreach (var verse in filteredVerses) {
-					if (verse.Category != category) {
-						filteredVerses.Remove (verse);
-					}
-				}
-
 				if (filteredVerses.Count == 0) {
 					if (category == Category.Review) {
 						TableView.Source = new MemorizationReviewSource (this, filteredVerses);
