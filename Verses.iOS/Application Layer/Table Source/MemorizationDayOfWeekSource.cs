@@ -170,62 +170,63 @@ namespace Verses.iOS
 
 		void HandleMemorizationCellTapped (MemorizationCell cell, NSIndexPath indexPath)
 		{
-            selected [indexPath.Row] = !selected [indexPath.Row];
+			selected [indexPath.Row] = !selected [indexPath.Row];
 
-            var item = data [indexPath.Row];
-            var isSelected = selected [indexPath.Row];
-            if (isSelected) {
-                    selectedVerses.Add (item);
-            } else {
-                    selectedVerses.Remove (item);
-                }
+			var item = data [indexPath.Row];
+			var isSelected = selected [indexPath.Row];
+			if (isSelected) {
+				selectedVerses.Add (item);
+			} else {
+				selectedVerses.Remove (item);
+			}
 
-            cell.ShowSelectedImage (isSelected);
+			cell.ShowSelectedImage (isSelected);
 		}
 
 		void HandleMoveButtonCellTapped (UITableView tableView)
-        {
-            if (selectedVerses != null && selectedVerses.Count != 0)
-            {
-                var actionSheetDelegate = new MoveActionSheetDelegate(tableViewController, data, selectedVerses);                    
-                var actionSheet = new UIActionSheet
-                {
-                    CancelButtonIndex = 9,
-                    Delegate = actionSheetDelegate,
-                    Title = "Move"
-                };
+        	{
+			if (selectedVerses != null && selectedVerses.Count != 0)
+			{
+				var actionSheetDelegate = new MoveActionSheetDelegate(tableViewController, data, selectedVerses);                    
+				var actionSheet = new UIActionSheet
+				{
+					CancelButtonIndex = 9,
+					Delegate = actionSheetDelegate,
+					Title = "Move"
+				};
 
-                actionSheet.Add("Sunday");
-                actionSheet.Add("Monday");
-                actionSheet.Add("Tuesday");
-                actionSheet.Add("Wednesday");
-                actionSheet.Add("Thursday");
-                actionSheet.Add("Friday");
-                actionSheet.Add("Saturday");
-                actionSheet.Add("Queue");
-                actionSheet.Add("Review");
-                actionSheet.Add("Cancel");
+				actionSheet.Add("Sunday");
+				actionSheet.Add("Monday");
+				actionSheet.Add("Tuesday");
+				actionSheet.Add("Wednesday");
+				actionSheet.Add("Thursday");
+				actionSheet.Add("Friday");
+				actionSheet.Add("Saturday");
+				actionSheet.Add("Queue");
+				actionSheet.Add("Review");
+				actionSheet.Add("Cancel");
 
-                actionSheet.ShowFromTabBar(AppDelegate.tabBarController.TabBar);
-                selected = new bool[data.Count];
-            }
-            else
-            {
-                    new UIAlertView("No Selected Verses", "Whoops! Select the verses you wish to move first!", null, "Okay", null).Show();
-            }
+				actionSheet.ShowFromTabBar(AppDelegate.tabBarController.TabBar);
+				selected = new bool[data.Count];
+			}
+			else
+			{
+				new UIAlertView("No Selected Verses", "Whoops! Select the verses you wish to move first!", null, "Okay", null).Show();
+			}
 		}
 
-		void HandleMemorizeButtonCellTapped (UITableView tableView)
+	   	void HandleMemorizeButtonCellTapped (UITableView tableView)
 		{
-            if (selectedVerses != null && selectedVerses.Count != 0)
-            {
-                tableViewController.PresentViewController(new FlipCardController(tableView, data, selectedVerses), true, null);
-                selected = new bool[data.Count];
-            }
-            else
-            {
-                    new UIAlertView("No Selected Verses", "Whoops! Select the verses you wish to memorize first!", null, "Okay", null).Show();
-            }
+			if (selectedVerses != null && selectedVerses.Count != 0)
+			{
+				tableViewController.PresentViewController(new FlipCardController(tableView, data, selectedVerses), true, null);
+				selected = new bool[data.Count];
+				selectedVerses = new List<Verse> ();
+			}
+			else
+			{
+				new UIAlertView("No Selected Verses", "Whoops! Select the verses you wish to memorize first!", null, "Okay", null).Show();
+			}
 		}
 	}
 }
