@@ -257,6 +257,7 @@
     <None Include="Settings\HTML\Styles\Fonts\sourcesanspro-400.woff" />
     <None Include="Settings\HTML\Styles\Fonts\sourcesanspro-600.woff" />
     <None Include="Settings\HTML\Styles\Fonts\sourcesanspro-700.woff" />
+    <None Include="RELEASE-NOTES.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -337,4 +338,14 @@
   <ItemGroup>
     <Content Include="Settings\HTML\Licenses.html" />
   </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <TextStylePolicy inheritsSet="Mono" inheritsScope="text/plain" scope="text/x-csharp" />
+          <CSharpFormattingPolicy inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>
