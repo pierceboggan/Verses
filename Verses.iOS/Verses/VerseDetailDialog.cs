@@ -13,9 +13,9 @@ namespace Verses.iOS
 		UILabel commentsArea;
 		UILabel contentArea;
 		CopyrightViewController copyrightController;
-        UIButton copyrightButton;
+        	UIButton copyrightButton;
 		UIScrollView scrollView;
-        UIButton shareButton;
+        	UIButton shareButton;
 		Verse verse;
 
 		public VerseDetailDialog (Verse data) : base (data.Title)
@@ -23,28 +23,29 @@ namespace Verses.iOS
 			verse = data;
 		}
 
-        public override void ViewWillAppear (bool animated)
+        	public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-            if (verse.Comments.Length != 0)
-            {
-                blackLine.Hidden = false;
-                commentsArea.Hidden = false;
+			var nonEmptyCommentsSection = verse.Comments.Length != 0;
+			if (nonEmptyCommentsSection)
+			{
+				blackLine.Hidden = false;
+				commentsArea.Hidden = false;
 
-                commentsArea.Text = verse.Comments;
-                commentsArea.Frame = new RectangleF(commentsArea.Frame.X, commentsArea.Frame.Y, commentsArea.Frame.Width, 
-                    InterfaceHelper.ContentSize(commentsArea.Text, contentArea.Frame.Width, contentArea.Font));
+				commentsArea.Text = verse.Comments;
+				commentsArea.Frame = new RectangleF(commentsArea.Frame.X, commentsArea.Frame.Y, commentsArea.Frame.Width, 
+					InterfaceHelper.ContentSize(commentsArea.Text, contentArea.Frame.Width, contentArea.Font));
 
-                shareButton.Frame = new RectangleF(shareButton.Frame.X, commentsArea.Frame.Bottom + 22f, shareButton.Frame.Width, shareButton.Frame.Height);
-            }
-            else
-            {
-                    blackLine.Hidden = true;
-                    commentsArea.Hidden = true;
+				shareButton.Frame = new RectangleF(shareButton.Frame.X, commentsArea.Frame.Bottom + 22f, shareButton.Frame.Width, shareButton.Frame.Height);
+			}
+			else
+			{
+				blackLine.Hidden = true;
+				commentsArea.Hidden = true;
 
-                    shareButton.Frame = new RectangleF(shareButton.Frame.X, contentArea.Frame.Bottom + 22f, shareButton.Frame.Width, shareButton.Frame.Height);
-            }
+				shareButton.Frame = new RectangleF(shareButton.Frame.X, contentArea.Frame.Bottom + 22f, shareButton.Frame.Width, shareButton.Frame.Height);
+			}
 
 			backingBackButton.TouchUpInside += HandleBackButtonTapped;
 			backingEditButton.TouchUpInside += HandleEditButtonTapped;
@@ -156,7 +157,7 @@ namespace Verses.iOS
 			scrollView.Add (shareButton);
 			scrollView.Add (copyrightButton);
 
-            var contentSize = shareButton.Frame.Y + 170;
+            		var contentSize = shareButton.Frame.Y + 170;
 			scrollView.ContentSize = new SizeF (320f, contentSize);
 		}
 
@@ -177,7 +178,7 @@ namespace Verses.iOS
 
 			actionSheet.Add ("Delete");
 			actionSheet.Add ("Edit");
-			actionSheet.Add ("Cancel");UIWindow window;
+			actionSheet.Add ("Cancel");
 
 			actionSheet.ShowFromTabBar (AppDelegate.TabBarController.TabBar);
 		}
