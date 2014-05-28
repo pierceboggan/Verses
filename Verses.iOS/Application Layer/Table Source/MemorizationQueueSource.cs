@@ -161,27 +161,34 @@ namespace Verses.iOS
 
 		void HandleMoveButtonCellTapped (UITableView tableView)
 		{
-			var actionSheetDelegate = new MoveActionSheetDelegate (tableViewController, data, selectedVerses);
+			if (selectedVerses != null && selectedVerses.Count != 0)
+			{
+				var actionSheetDelegate = new MoveActionSheetDelegate(tableViewController, data, selectedVerses);                    
+				var actionSheet = new UIActionSheet
+				{
+					CancelButtonIndex = 9,
+					Delegate = actionSheetDelegate,
+					Title = "Move"
+				};
 
-			var actionSheet = new UIActionSheet {
-				CancelButtonIndex = 9,
-				Delegate = actionSheetDelegate,
-				Title = "Move"
-			};
+				actionSheet.Add("Sunday");
+				actionSheet.Add("Monday");
+				actionSheet.Add("Tuesday");
+				actionSheet.Add("Wednesday");
+				actionSheet.Add("Thursday");
+				actionSheet.Add("Friday");
+				actionSheet.Add("Saturday");
+				actionSheet.Add("Queue");
+				actionSheet.Add("Review");
+				actionSheet.Add("Cancel");
 
-			actionSheet.Add ("Sunday");
-			actionSheet.Add ("Monday");
-			actionSheet.Add ("Tuesday");
-			actionSheet.Add ("Wednesday");
-			actionSheet.Add ("Thursday");
-			actionSheet.Add ("Friday");
-			actionSheet.Add ("Saturday");
-			actionSheet.Add ("Queue");
-			actionSheet.Add ("Review");
-			actionSheet.Add ("Cancel");
-
-			actionSheet.ShowFromTabBar (AppDelegate.tabBarController.TabBar);
-			selected = new bool[data.Count];
+				actionSheet.ShowFromTabBar(AppDelegate.TabBarController.TabBar);
+				selected = new bool[data.Count];
+			}
+			else
+			{
+				new UIAlertView("No Selected Verses", "Whoops! Select the verses you wish to move first!", null, "Okay", null).Show();
+			}
 		}
 	}
 }

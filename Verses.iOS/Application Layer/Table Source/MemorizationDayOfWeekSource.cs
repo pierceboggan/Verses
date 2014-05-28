@@ -206,7 +206,7 @@ namespace Verses.iOS
 				actionSheet.Add("Review");
 				actionSheet.Add("Cancel");
 
-				actionSheet.ShowFromTabBar(AppDelegate.tabBarController.TabBar);
+				actionSheet.ShowFromTabBar(AppDelegate.TabBarController.TabBar);
 				selected = new bool[data.Count];
 			}
 			else

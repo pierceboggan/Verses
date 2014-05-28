@@ -13,18 +13,19 @@ namespace Verses.iOS
 	[Register ("AppDelegate")]
 	public class AppDelegate : UIApplicationDelegate
 	{
-		UIWindow window;
-		public static PBTabBarController tabBarController { get; set; }
-
+		public static PBTabBarController TabBarController { get; set; }
 		public static AppDelegate Current { get; private set; }
+
 		public VersesRepository Database { get; set; }
+
+		UIWindow window;
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			Current = this;
+			TabBarController = new PBTabBarController ();
 
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			tabBarController = new PBTabBarController ();
 
 			ConfigureDatabase ();
 			ConfigureAppearanceSettings ();
@@ -40,13 +41,13 @@ namespace Verses.iOS
 			verses.TabBarItem = versesItem;
 			memorization.TabBarItem = memorizationItem;
 
-			tabBarController.ViewControllers = new UIViewController[] {
+			TabBarController.ViewControllers = new UIViewController[] {
 				verses,
 				memorization
 			};
-			tabBarController.TabBar.BackgroundImage = UIImage.FromFile (Images.TabBarBackground);
+			TabBarController.TabBar.BackgroundImage = UIImage.FromFile (Images.TabBarBackground);
 
-			window.RootViewController = tabBarController;
+			window.RootViewController = TabBarController;
 			window.MakeKeyAndVisible ();
 
 			UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge
@@ -116,8 +117,7 @@ namespace Verses.iOS
 
 			rateAlert.ApplicationBundleID = "com.pierceboggan.verses";
 			rateAlert.ApplicationName = "Verses";
-			// rateAlert.AppStoreID = "";
-			// rateAlert.PreviewMode = true;
+			rateAlert.AppStoreID = 883019818;
 			rateAlert.OnlyPromptIfLatestVersion = false;
 			rateAlert.UsesUntilPrompt = 15;
 			rateAlert.RemindPeriod = 3;

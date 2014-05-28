@@ -177,9 +177,9 @@ namespace Verses.iOS
 
 			actionSheet.Add ("Delete");
 			actionSheet.Add ("Edit");
-			actionSheet.Add ("Cancel");
+			actionSheet.Add ("Cancel");UIWindow window;
 
-			actionSheet.ShowFromTabBar (AppDelegate.tabBarController.TabBar);
+			actionSheet.ShowFromTabBar (AppDelegate.TabBarController.TabBar);
 		}
 
 		private void HandleCopyrightButtonTapped (object sender, EventArgs args)
