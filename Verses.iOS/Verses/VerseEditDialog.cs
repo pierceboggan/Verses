@@ -15,9 +15,9 @@ namespace Verses.iOS
 		UITextView verseComments;
 		UITextField verseReference;
 
-		public VerseEditDialog (Verse data) : base ("Edit")
+		public VerseEditDialog (Verse verseToEdit) : base ("Edit")
 		{
-			verse = data;
+			verse = verseToEdit;
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -110,7 +110,6 @@ namespace Verses.iOS
 		private void SaveButtonClicked ()
 		{
 			verse.Comments = verseComments.Text;
-
 			AppDelegate.Current.Database.UpdateVerse (verse);
 
 			LocalyticsSession.Shared.TagEvent ("Edited Verse");
