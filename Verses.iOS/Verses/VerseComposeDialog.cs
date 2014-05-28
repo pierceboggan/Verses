@@ -113,7 +113,7 @@ namespace Verses.iOS
 
 		private async void SaveButtonClicked ()
 		{
-			var nonEmptyVerseReferenceTextField = verseReference.Text == 0;
+			var nonEmptyVerseReferenceTextField = verseReference.Text.Length != 0;
 			if (nonEmptyVerseReferenceTextField) {
 				var verse = new Verse {
 					Category = Category.Queue,
