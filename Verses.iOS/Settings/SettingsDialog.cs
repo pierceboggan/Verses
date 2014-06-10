@@ -162,13 +162,13 @@ namespace Verses.iOS
 		private void HandleFacebookTapped ()
 		{
 			NavigationController.PushViewController (new WebViewController ("@getversesapp", 
-				"http://www.twitter.com/getversesapp", false), true);
+				"http://www.facebook.com/getversesapp", false), true);
 		}
 
 		private void HandleTwitterTapped ()
 		{
 			NavigationController.PushViewController (new WebViewController ("@getversesapp", 
-				"http://www.facebook.com/getversesapp", false), true);
+				"http://www.twitter.com/getversesapp", false), true);
 		}
 
 		private void HandleWebsiteTapped ()
@@ -176,23 +176,12 @@ namespace Verses.iOS
 			NavigationController.PushViewController (new WebViewController ("getversesapp.com", 
 				"getversesapp.com", false), true);
 		}
-
-		private void HandleGettingStartedTapped ()
-		{
-			NavigationController.PushViewController (new WebViewController ("Getting Started",
-				LocalHTML.GettingStarted, true), true);
-		}
+			
 
 		private void HandleLicensingTapped ()
 		{
 			NavigationController.PushViewController (new WebViewController ("Licensing",
 				LocalHTML.Licenses, true), true);
-		}
-
-		private void HandleSpecialThanksTapped ()
-		{
-			NavigationController.PushViewController (new WebViewController ("Special Thanks",
-				LocalHTML.SpecialThanks, true), true);
 		}
 
 		private void HandleRateVersesTapped ()
