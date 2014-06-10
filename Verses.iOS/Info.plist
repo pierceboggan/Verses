@@ -34,6 +34,6 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.pierceboggan.verses</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.0</string>
+	<string>1.0.0</string>
 </dict>
 </plist>
