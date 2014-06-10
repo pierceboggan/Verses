@@ -68,6 +68,10 @@ namespace Verses.iOS
 						verse.Memorized = true;
 					}
 
+					if (category != Category.Review && verse.Memorized == true) {
+						verse.Memorized = false;
+					}
+
 					AppDelegate.Current.Database.UpdateVerse (verse);
 					data.Remove (verse);
 				}
