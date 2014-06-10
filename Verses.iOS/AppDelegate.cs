@@ -119,7 +119,7 @@ namespace Verses.iOS
 			rateAlert.ApplicationName = "Verses";
 			rateAlert.AppStoreID = 883019818;
 			rateAlert.OnlyPromptIfLatestVersion = false;
-			rateAlert.UsesUntilPrompt = 15;
+			rateAlert.UsesUntilPrompt = 20;
 			rateAlert.RemindPeriod = 3;
 		}
 	}
