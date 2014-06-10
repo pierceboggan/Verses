@@ -308,7 +308,6 @@
     <Compile Include="Verses\CopyrightViewController.cs" />
     <Compile Include="Application Layer\ObservableSortedList.cs" />
     <Compile Include="Application Layer\TranslationHelper.cs" />
-    <Compile Include="Verses\ProductTour.cs" />
     <Compile Include="Utilities\Product Tour\Tour.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
