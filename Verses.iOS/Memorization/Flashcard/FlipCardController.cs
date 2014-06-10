@@ -165,8 +165,8 @@ namespace Verses.iOS
 				Back.ImageView.Image = NotMemorizedImage;
 			}
 
-			VersesTableViewController.Current.verses.Remove (verse);
-			VersesTableViewController.Current.verses.Add (verse);
+			VersesTableViewController.Current.Verses.Remove (verse);
+			VersesTableViewController.Current.Verses.Add (verse);
 		}
 
 		private void HandleProductTourStep6 ()

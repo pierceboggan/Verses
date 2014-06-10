@@ -129,7 +129,7 @@ namespace Verses.iOS
 					try {
 						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
-						if (VersesTableViewController.Current.verses.Any (item => item.Title == verse.Title))
+						if (VersesTableViewController.Current.Verses.Any (item => item.Title == verse.Title))
 						{
 							new UIAlertView ("Verse Already Exists", "Whoops, this verse is already in your library.", null, "Okay", null).Show();
 						}

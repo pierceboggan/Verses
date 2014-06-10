@@ -14,7 +14,7 @@ namespace Verses.iOS
 	{
 		public static VersesTableViewController Current { get; private set; }
 
-		public ObservableSortedList<Verse> verses;
+		public ObservableSortedList<Verse> Verses;
 
 		UIBarButtonItem composeButton, settingsButton;
 		UIButton backingComposeButton, backingSettingsButton;
@@ -27,8 +27,8 @@ namespace Verses.iOS
 		{
 			Current = this;
 
-			verses = new ObservableSortedList<Verse> (AppDelegate.Current.Database.GetVerses ());
-			DataSource = verses;
+			Verses = new ObservableSortedList<Verse> (AppDelegate.Current.Database.GetVerses ());
+			DataSource = Verses;
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -60,18 +60,18 @@ namespace Verses.iOS
 
 		protected override UITableViewSource CreateSource ()
 		{
-			return new VersesTableSource (NavigationController, verses);
+			return new VersesTableSource (NavigationController, Verses);
 		}
 
 		public void AddVerse (Verse verse)
 		{
-			verses.Add (verse);
+			Verses.Add (verse);
 			AppDelegate.Current.Database.AddVerse (verse);
 		}
 
 		public void RemoveVerse (Verse verse)
 		{
-			verses.Remove (verse);
+			Verses.Remove (verse);
 			AppDelegate.Current.Database.RemoveVerse (verse);
 		}
 
