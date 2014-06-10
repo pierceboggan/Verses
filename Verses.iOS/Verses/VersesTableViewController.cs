@@ -15,6 +15,7 @@ namespace Verses.iOS
 		public static VersesTableViewController Current { get; private set; }
 
 		public ObservableSortedList<Verse> Verses;
+		public bool Locked;
 
 		UIBarButtonItem composeButton, settingsButton;
 		UIButton backingComposeButton, backingSettingsButton;

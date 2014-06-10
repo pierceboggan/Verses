@@ -135,10 +135,12 @@ namespace Verses.iOS
 						}
 						else 
 						{
+							VersesTableViewController.Current.Locked = true;
 							var translation = TranslationHelper.GetCurrentTranslationForDownload ();
 							verse.Translation = translation;
 							verse.Content = await BiblesDotOrg.GetVerseTextWithoutHtmlOrDigitsAsync (verseReference.Text, translation);
 							controller.AddVerse (verse);
+							VersesTableViewController.Current.Locked = false;
 							LocalyticsSession.Shared.TagEvent ("Verse Saved");
 						}
 					} catch (InvalidVerseException) {

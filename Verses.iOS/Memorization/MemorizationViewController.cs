@@ -23,7 +23,7 @@ namespace Verses.iOS
 
 		public MemorizationViewController () : base ("Memorization")
 		{
-			verses = VersesTableViewController.Current.verses;
+			verses = VersesTableViewController.Current.Verses;
 			verses.CollectionChanged += delegate(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) {
 				if (tableView != null) {
 					var newItems = e.NewItems;
@@ -145,7 +145,12 @@ namespace Verses.iOS
 
 			queueButton.TouchUpInside += (s, e) => {
 				ThirdTourStepCompleted ();
-				ButtonHandler (Category.Queue);
+
+				if (VersesTableViewController.Current.Locked) {
+					new UIAlertView ("Verses Currently Downloading", "Please wait until all verses have been downloaded before attempting to access the verse queue.", null, "Okay", null).Show ();  
+				} else {
+					ButtonHandler (Category.Queue);
+				}
 			};
 		}
 
