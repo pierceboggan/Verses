@@ -7,6 +7,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Verses.Portable;
+using CRProductTour;
 
 namespace Verses.iOS
 {
@@ -57,6 +58,40 @@ namespace Verses.iOS
 				} else {
 					return 1;
 				}
+			}
+		}
+
+		public override UIView GetViewForFooter (UITableView tableView, int section)
+		{
+			if (Tour.Instance.Step == 4) {
+				if (sectionIsEmpty) {
+					return null;
+				} else {
+					if (section == 0) {
+						return null;
+					} else {
+						return BuildProductTourView (tableView);
+					}
+				}
+			} else {
+				return null;
+			}
+		}
+
+		public override float GetHeightForFooter (UITableView tableView, int section)
+		{
+			if (Tour.Instance.Step == 4) {
+				if (sectionIsEmpty) {
+					return 0f;
+				} else {
+					if (section == 0) {
+						return 0f;
+					} else {
+						return 100f;
+					}
+				}
+			} else {
+				return 0f;
 			}
 		}
 
@@ -189,6 +224,21 @@ namespace Verses.iOS
 			{
 				new UIAlertView("No Selected Verses", "Whoops! Select the verses you wish to move first!", null, "Okay", null).Show();
 			}
+		}
+
+		ProductTour BuildProductTourView (UITableView tableView)
+		{
+			var productTour = new ProductTour ();
+			productTour.Frame = new RectangleF (0, 0, 320, tableView.Frame.Height);
+
+			var bubble = new Bubble (new UIView (new RectangleF (0, 0, 320, 0)), "SCHEDULE MEMEMORIZATION", "Tap the verses you wish to memorize,\nthen tap the\"Move\" button and a day\nto schedule memorization.", ArrowPosition.Top, null);
+			bubble.FontName = "SourceSansPro-Bold";
+
+			var bubbleArray = new NSMutableArray (1);
+			bubbleArray.Add (bubble);
+			productTour.Bubbles = bubbleArray;
+
+			return productTour;
 		}
 	}
 }

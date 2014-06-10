@@ -7,6 +7,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Verses.Portable;
+using CRProductTour;
 
 namespace Verses.iOS
 {
@@ -58,6 +59,40 @@ namespace Verses.iOS
 				} else {
 					return 2;
 				}
+			}
+		}
+
+		public override UIView GetViewForFooter (UITableView tableView, int section)
+		{
+			if (Tour.Instance.Step == 5) {
+				if (sectionIsEmpty) {
+					return null;
+				} else {
+					if (section == 0) {
+						return null;
+					} else {
+						return BuildProductTourView (tableView);
+					}
+				}
+			} else {
+				return null;
+			}
+		}
+
+		public override float GetHeightForFooter (UITableView tableView, int section)
+		{
+			if (Tour.Instance.Step == 5) {
+				if (sectionIsEmpty) {
+					return 0f;
+				} else {
+					if (section == 0) {
+						return 0f;
+					} else {
+						return 100f;
+					}
+				}
+			} else {
+				return 0f;
 			}
 		}
 
@@ -170,6 +205,10 @@ namespace Verses.iOS
 
 		void HandleMemorizationCellTapped (MemorizationCell cell, NSIndexPath indexPath)
 		{
+			if (Tour.Instance.Step == 5) {
+				Tour.Instance.StepCompleted (5);
+			}
+
 			selected [indexPath.Row] = !selected [indexPath.Row];
 
 			var item = data [indexPath.Row];
@@ -219,6 +258,10 @@ namespace Verses.iOS
 		{
 			if (selectedVerses != null && selectedVerses.Count != 0)
 			{
+				if (Tour.Instance.Step == 5) {
+					Tour.Instance.StepCompleted (5);
+				}
+
 				tableViewController.PresentViewController(new FlipCardController(tableView, data, selectedVerses), true, null);
 				selected = new bool[data.Count];
 				selectedVerses = new List<Verse> ();
@@ -227,6 +270,21 @@ namespace Verses.iOS
 			{
 				new UIAlertView("No Selected Verses", "Whoops! Select the verses you wish to memorize first!", null, "Okay", null).Show();
 			}
+		}
+
+		ProductTour BuildProductTourView (UITableView tableView)
+		{
+			var productTour = new ProductTour ();
+			productTour.Frame = new RectangleF (0, 0, 320, tableView.Frame.Height);
+
+			var bubble = new Bubble (new UIView (new RectangleF (0, 0, 320, 0)), "MEMORIZE", "Tap the verses you wish to memorize\nnow, then tap the \"Memorize\" button.", ArrowPosition.Top, null);
+			bubble.FontName = "SourceSansPro-Bold";
+
+			var bubbleArray = new NSMutableArray (1);
+			bubbleArray.Add (bubble);
+			productTour.Bubbles = bubbleArray;
+
+			return productTour;
 		}
 	}
 }

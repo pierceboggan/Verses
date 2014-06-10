@@ -113,6 +113,8 @@ namespace Verses.iOS
 
 		private async void SaveButtonClicked ()
 		{
+			controller.FirstTourStepCompleted ();
+
 			var nonEmptyVerseReferenceTextField = verseReference.Text.Length != 0;
 			if (nonEmptyVerseReferenceTextField) {
 				var verse = new Verse {

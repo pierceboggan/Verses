@@ -308,6 +308,8 @@
     <Compile Include="Verses\CopyrightViewController.cs" />
     <Compile Include="Application Layer\ObservableSortedList.cs" />
     <Compile Include="Application Layer\TranslationHelper.cs" />
+    <Compile Include="Verses\ProductTour.cs" />
+    <Compile Include="Utilities\Product Tour\Tour.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
@@ -321,6 +323,7 @@
     <Folder Include="Settings\HTML\Styles\Fonts\" />
     <Folder Include="Memorization\Cells\" />
     <Folder Include="Memorization\Flashcard\" />
+    <Folder Include="Utilities\Product Tour\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="irate">

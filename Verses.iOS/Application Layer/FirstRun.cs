@@ -8,10 +8,11 @@ namespace Verses.iOS
 		public static void Configure ()
 		{
 			if (!EasySettings.IsFirstRun ()) {
-				EasySettings.SetFirstRun (true);
-
 				var repository = AppDelegate.Current.Database;
 				DatabaseHelper.PerformInitialSetup (repository);
+
+				Tour.Instance.SetupTour ();
+				EasySettings.SetFirstRun (true);
 			}
 		}
 	}

@@ -7,6 +7,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Verses.Portable;
 using Praeclarum.UI;
+using CRProductTour;
 
 namespace Verses.iOS
 {

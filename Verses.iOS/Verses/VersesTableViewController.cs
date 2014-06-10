@@ -20,6 +20,7 @@ namespace Verses.iOS
 		UIButton backingComposeButton, backingSettingsButton;
 		VerseComposeDialog composeDialog;
 		PBNavigationController navigationController;
+		ProductTour productTour;
 		SettingsDialog settingsDialog;
 
 		public VersesTableViewController () : base ("Verses")
@@ -37,6 +38,7 @@ namespace Verses.iOS
 			backingComposeButton.TouchUpInside += HandleComposeButtonTapped;
 			backingSettingsButton.TouchUpInside += HandleSettingsButtonTapped;
 
+			SetupTour ();
 			HandleNavigatedTo ();
 		}
 
@@ -71,6 +73,21 @@ namespace Verses.iOS
 		{
 			verses.Remove (verse);
 			AppDelegate.Current.Database.RemoveVerse (verse);
+		}
+
+		public void FirstTourStepCompleted ()
+		{
+			if (Tour.Instance.IsEnabled && Tour.Instance.Step == 1) {
+				productTour.RemoveFromSuperview ();
+				Tour.Instance.StepCompleted (1);
+			}
+		}
+
+		public void SecondTourStepCompleted ()
+		{
+			if (Tour.Instance.Step == 2) {
+				productTour.RemoveFromSuperview ();
+			}
 		}
 
 		void SetupUI ()
@@ -110,6 +127,50 @@ namespace Verses.iOS
 			settingsDialog = new SettingsDialog ();
 			navigationController = new PBNavigationController (settingsDialog);
 			PresentViewController (navigationController, true, null);
+		}
+
+		void SetupTour ()
+		{
+			var tour = Tour.Instance;
+
+			if (tour.IsEnabled) {
+				productTour = new ProductTour ();
+				productTour.Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height);
+
+				var step = tour.Step;
+				if (step == 1) {
+					var view = new UIView (new RectangleF(backingComposeButton.Frame.X, backingComposeButton.Frame.Y - 44, backingComposeButton.Frame.Width, backingComposeButton.Frame.Height)); 
+					var bubble = new Bubble (view, "DOWNLOAD", "Add a new verse\nto your library.", ArrowPosition.Top, null);
+					bubble.FontName = "SourceSansPro-Bold";
+
+					var bubbles = new NSMutableArray (1);
+					bubbles.Add (bubble); 
+
+					productTour.Bubbles = bubbles;
+					Add (productTour);
+				} else if (step == 2) {
+					var view = new UIView (ViewForTab (1));
+					var bubble = new Bubble (view, "SWITCH TABS", "Tap the memorization tab.", ArrowPosition.Bottom, null);
+					bubble.FontName = "SourceSansPro-Bold";
+
+					var bubbles = new NSMutableArray (1);
+					bubbles.Add (bubble);
+
+					productTour.Bubbles = bubbles;
+					Add (productTour); 
+				}
+			}
+		}
+
+		RectangleF ViewForTab (int indexOfItem)
+		{
+			var tabBarFrame = TabBarController.TabBar.Frame;
+			int buttonCount = TabBarController.TabBar.Items.Length;
+			var containingWidth = tabBarFrame.Size.Width / buttonCount;
+			var originX = containingWidth * indexOfItem;
+			var f = View.Frame.Bottom - 49 - 44 - 22;
+			Console.WriteLine (f); 
+			return new RectangleF (originX, f, containingWidth, View.Frame.Bottom - 49);
 		}
 
 		void HandleNavigatedTo ()

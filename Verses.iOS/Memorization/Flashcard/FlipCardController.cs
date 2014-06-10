@@ -65,6 +65,8 @@ namespace Verses.iOS
 			};
 			RightSwipeGesture.AddTarget (RightSwipeHandler);
 
+			HandleProductTourStep6 ();
+
 			View.Add (Front);
 			View.AddGestureRecognizer (SwipeUpGesture);
 			View.AddGestureRecognizer (SwipeDownGesture);
@@ -145,6 +147,11 @@ namespace Verses.iOS
 				Front.ImageView.Image = MemorizedImage;
 				Back.ImageView.Image = MemorizedImage;
 
+				if (Tour.Instance.Step == 7) {
+					new UIAlertView ("Nice work!", "To exit, swipe right. You should periodically review your memorized verses by tapping the \"Review\" button in the memorization tab.", null, "Okay", null).Show ();
+					Tour.Instance.StepCompleted (7);
+				}
+
 				AppDelegate.Current.Database.UpdateVerse (verse);
 				LocalyticsSession.Shared.TagEvent ("Verse Memorized");
 			} else {
@@ -160,6 +167,14 @@ namespace Verses.iOS
 
 			VersesTableViewController.Current.verses.Remove (verse);
 			VersesTableViewController.Current.verses.Add (verse);
+		}
+
+		private void HandleProductTourStep6 ()
+		{
+			if (Tour.Instance.Step == 6) {
+				new UIAlertView ("The Fun Part: Memorizing!", "Tap to flip the card over. If you selected multiple verses, swipe up or down to change cards. " + "When you feel like you have a verse memorized, tap the heart.", null, "Okay", null).Show ();
+				Tour.Instance.StepCompleted (6);
+			}
 		}
 	}
 }

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
+using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Verses.Portable;
+using CRProductTour;
 
 namespace Verses.iOS
 {
@@ -12,6 +14,7 @@ namespace Verses.iOS
 	{
 		UIButton sundayButton, mondayButton, tuesdayButton, wednesdayButton, thursdayButton,
 		fridayButton, saturdayButton, queueButton, reviewButton;
+		ProductTour productTour;
 		MemorizationTableViewController tableView;
 
 		Category categoryToFilter;
@@ -53,8 +56,11 @@ namespace Verses.iOS
 		{
 			base.ViewDidLoad ();
 
+			SecondTourStepCompleted ();
+
 			SetupUI ();
 			SetupEventHandlers ();
+			SetupTour ();
 		}
 
 		void SetupUI ()
@@ -135,8 +141,12 @@ namespace Verses.iOS
 			thursdayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Thursday);
 			fridayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Friday);
 			saturdayButton.TouchUpInside += (s, e) => ButtonHandler (Category.Saturday);
-			queueButton.TouchUpInside += (s, e) => ButtonHandler (Category.Queue);
 			reviewButton.TouchUpInside += (s, e) => ButtonHandler (Category.Review);
+
+			queueButton.TouchUpInside += (s, e) => {
+				ThirdTourStepCompleted ();
+				ButtonHandler (Category.Queue);
+			};
 		}
 
 		void ButtonHandler (Category category)
@@ -153,6 +163,43 @@ namespace Verses.iOS
 			filteredVerses = new ObservableSortedList<Verse> (from verse in verses
 			                                                  where verse.Category == category
 			                                                  select verse);
+		}
+
+		void SecondTourStepCompleted ()
+		{
+			if (Tour.Instance.Step == 2) {
+				VersesTableViewController.Current.SecondTourStepCompleted ();
+				Tour.Instance.StepCompleted (2);
+			}
+		}
+
+		void ThirdTourStepCompleted ()
+		{
+			if (Tour.Instance.Step == 3) {
+				productTour.RemoveFromSuperview ();
+				Tour.Instance.StepCompleted (3);
+			}
+		}
+
+		void SetupTour ()
+		{
+			var tour = Tour.Instance;
+
+			if (tour.IsEnabled) {
+				if (tour.Step == 3) {
+					productTour = new ProductTour ();
+					productTour.Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height);
+
+					var bubble = new Bubble (queueButton, "VERSES QUEUE", "Click to reveal\nunmemorized verses.", ArrowPosition.Top, null);
+					bubble.FontName = "SourceSansPro-Bold";
+
+					var bubbleArray = new NSMutableArray (1);
+					bubbleArray.Add (bubble); 
+					productTour.Bubbles = bubbleArray;
+
+					Add (productTour); 
+				}
+			}
 		}
 	}
 }

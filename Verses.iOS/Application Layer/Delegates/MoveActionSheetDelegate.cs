@@ -56,6 +56,10 @@ namespace Verses.iOS
 
 		void MoveVerseToCategory (Category category)
 		{
+			if (Tour.Instance.Step == 4) {
+				Tour.Instance.StepCompleted (4);
+			}
+
 			foreach (var verse in selected) {
 				if (verse.Category != category) {
 					verse.Category = category;
