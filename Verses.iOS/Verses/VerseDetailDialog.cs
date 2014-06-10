@@ -95,6 +95,7 @@ namespace Verses.iOS
 			View.BackgroundColor = UIColor.White;
 
 			scrollView = new UIScrollView {
+				BackgroundColor = UIColor.Clear,
 				Frame = new RectangleF (0, 0, View.Bounds.Width, View.Bounds.Height),
 				PagingEnabled = false,
 				ScrollEnabled = true
@@ -102,7 +103,7 @@ namespace Verses.iOS
 			View.Add (scrollView);
 
 			contentArea = new UILabel {
-				BackgroundColor = UIColor.White,
+				BackgroundColor = UIColor.Clear,
 				Font = FontConstants.SourceSansProRegular (15),
 				Frame = new RectangleF (14f, 35f, 294f, 10f),
 				LineBreakMode = UILineBreakMode.TailTruncation,
@@ -123,7 +124,7 @@ namespace Verses.iOS
 
 			height = contentArea.Frame.Height + blackLine.Frame.Height + 50f;
 			commentsArea = new UILabel {
-				BackgroundColor = UIColor.White,
+				BackgroundColor = UIColor.Clear,
 				Font = FontConstants.SourceSansProRegular (15),
 				Frame = new RectangleF (14f, height, 294f, 10f),
 				LineBreakMode = UILineBreakMode.TailTruncation,
@@ -141,7 +142,7 @@ namespace Verses.iOS
 				blackLine.Hidden = true;
 			}
 
-            height = contentArea.Bounds.Height + 45;
+            		height = contentArea.Bounds.Height + 45;
 			shareButton = new UIButton {
 				Frame = new RectangleF (33.5f, height, 253f, 33f)
 			};
