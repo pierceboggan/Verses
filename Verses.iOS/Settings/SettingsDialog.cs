@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using MonoTouch.MessageUI;
 using MonoTouch.Dialog;
 using MTiRate;
 
@@ -196,7 +197,16 @@ namespace Verses.iOS
 
 		private void HandleSubmitFeedbackTapped ()
 		{
-			// UIApplication.SharedApplication.OpenUrl (new NSUrl ("http://www.getversesapp.com"));
+			var subject = "Verses Feedback";
+			var toRecipients = new string[] { "pierce@pierceboggan.com" };
+			var body = "Enter your feedback about @getversesapp here! We appreciate your feedback. God bless!";
+
+			var mailComposer = new MFMailComposeViewController ();
+			mailComposer.SetSubject (subject);
+			mailComposer.SetToRecipients (toRecipients);
+			mailComposer.SetMessageBody (body, false);
+
+			PresentViewController (mailComposer, true, null);
 		}
 
 		private void Handle32Ways ()
