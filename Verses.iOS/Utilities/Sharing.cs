@@ -22,7 +22,7 @@ namespace Verses.iOS
 		public static void ShareVersesApp (UIViewController presentingViewController)
 		{
 			var text = "I'm using @GetVersesApp for iOS for daily Scripture memorization. " +
-				"Download it free at http://appstore.com/getversesapp #HisWordMyHead";
+				"Download it free at bit.ly/getversesapp #HisWordMyHead";
 			Share (presentingViewController, text);
 		}
 
